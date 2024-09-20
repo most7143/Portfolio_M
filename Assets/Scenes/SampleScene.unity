@@ -133,9 +133,10 @@ GameObject:
   - component: {fileID: 322252493}
   - component: {fileID: 322252492}
   - component: {fileID: 322252491}
+  - component: {fileID: 322252494}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -228,6 +229,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &322252494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322252490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb44e1d4a09d78f408d4077a6d07f899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: 1
+  Level: 1
+  MaxHp: 100
+  CurrentHp: 0
+  Damage: 1
+  AttackSpeed: 2
+  Renderer: {fileID: 322252492}
+  Animator: {fileID: 322252491}
+  NextExp: 0
+  CurrentExp: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,8 +353,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1407211926}
   - component: {fileID: 1407211925}
+  - component: {fileID: 1407211927}
   m_Layer: 0
-  m_Name: boneworm
+  m_Name: BoneWorm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -404,6 +428,72 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1407211927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407211924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ce54d43630ee4e4094ff91916fe668c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: 2
+  Level: 1
+  MaxHp: 100
+  CurrentHp: 0
+  Damage: 0
+  AttackSpeed: 5
+  Renderer: {fileID: 1407211925}
+  Exp: 1
+--- !u!1 &1876992293
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1876992295}
+  - component: {fileID: 1876992294}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1876992294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876992293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b8fedb7282e6ff4b930ea05abc8c67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 322252494}
+  Monster: {fileID: 1407211927}
+--- !u!4 &1876992295
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876992293}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -411,3 +501,4 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 322252493}
   - {fileID: 1407211926}
+  - {fileID: 1876992295}
