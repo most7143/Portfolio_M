@@ -14,6 +14,12 @@ public class Player : Character
 
     public void AnimationAttack()
     {
-        InGameManager.Instance.Monster.Hit(Damage);
+        Monster target = InGameManager.Instance.Monster;
+
+        if (target != null)
+        {
+            target.Hit(Damage);
+            InGameManager.Instance.ObjectPool.SpawnFloaty(target.transform.position, FloatyTypes.Damage, Damage.ToString());
+        }
     }
 }
