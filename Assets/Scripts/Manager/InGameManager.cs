@@ -34,16 +34,10 @@ public class InGameManager : MonoBehaviour
     public Monster Monster;
 
     public ObjectPooling ObjectPool;
-
-    private void Start()
-    {
-    }
-
-    private void Update()
-    {
-    }
+    public UIMonsterInfo MonsterInfo;
 
     public void SpawnMonster()
     {
+        MonsterInfo.SetInfo(Monster);
     }
 }

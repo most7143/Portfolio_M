@@ -34,7 +34,7 @@ public class Character : MonoBehaviour
         Debug.Log(Name + ": 공격시작");
     }
 
-    public void Hit(float damage)
+    public virtual void Hit(float damage)
     {
         StartCoroutine(ProcessHitEffect());
 
