@@ -12,8 +12,8 @@ public class Character : MonoBehaviour
 {
     public CharacterName Name;
     public int Level = 1;
-    public int MaxHp;
-    public int CurrentHp;
+    public float MaxHp;
+    public float CurrentHp;
     public float Damage = 1;
     public float AttackSpeed = 1;
 
@@ -46,7 +46,7 @@ public class Character : MonoBehaviour
         }
     }
 
-    public void Dead()
+    public virtual void Dead()
     {
     }
 

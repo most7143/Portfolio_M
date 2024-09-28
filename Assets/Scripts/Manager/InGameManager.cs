@@ -30,11 +30,16 @@ public class InGameManager : MonoBehaviour
         }
     }
 
+    public int StageLevel = 1;
     public Player Player;
     public Monster Monster;
 
     public ObjectPooling ObjectPool;
     public UIMonsterInfo MonsterInfo;
+
+    public void StageClear()
+    {
+    }
 
     public void SpawnMonster()
     {

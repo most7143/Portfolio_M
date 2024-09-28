@@ -11,6 +11,11 @@ public class UIMonsterInfo : MonoBehaviour
 
     private void Start()
     {
+        Refresh();
+    }
+
+    public void Refresh()
+    {
         SetInfo(TargetMonster);
         RefreshHPBar();
     }
