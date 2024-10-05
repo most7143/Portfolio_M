@@ -34,11 +34,19 @@ public class InGameManager : MonoBehaviour
     public Player Player;
     public Monster Monster;
 
+    public InGameDataController Controller;
     public ObjectPooling ObjectPool;
+
     public UIMonsterInfo MonsterInfo;
+    public UIPlayerInfo PlayerInfo;
 
     public void StageClear()
     {
+    }
+
+    private void Start()
+    {
+        PlayerInfo.Setup(Player);
     }
 
     public void SpawnMonster()

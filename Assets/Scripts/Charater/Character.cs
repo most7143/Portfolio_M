@@ -1,16 +1,10 @@
 using System.Collections;
 using UnityEngine;
 
-public enum CharacterName
-{
-    None,
-    Swordman,
-    BoneWorm,
-}
-
 public class Character : MonoBehaviour
 {
-    public CharacterName Name;
+    public CharacterNames Name;
+    public string NameString;
     public int Level = 1;
     public float MaxHp;
     public float CurrentHp;
@@ -19,7 +13,7 @@ public class Character : MonoBehaviour
 
     public SpriteRenderer Renderer;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         CurrentHp = MaxHp;
     }

@@ -3,8 +3,23 @@ using UnityEngine;
 public class Player : Character
 {
     public Animator Animator;
+    public WeaponController WeaponController;
+
     public int NextExp;
     public int CurrentExp;
+
+    protected override void Awake()
+    {
+        WeaponController.SetBaseData();
+        SetInfo();
+        base.Awake();
+    }
+
+    public void SetInfo()
+    {
+        Damage = WeaponController.Info.Damage;
+        AttackSpeed = WeaponController.Info.Speed;
+    }
 
     public override void Attack()
     {

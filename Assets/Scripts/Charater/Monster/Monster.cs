@@ -4,16 +4,25 @@ public class Monster : Character
 {
     public int Exp = 1;
 
+    public int Gold = 1;
+
     public MonsterData data;
 
-    private void Start()
+    protected override void Awake()
     {
-        GetData();
+        SetData();
+        base.Awake();
     }
 
-    public void GetData()
+    public void SetData()
     {
-        data = Resources.Load<MonsterData>("ScriptableObject/" + Name.ToString());
+        data = Resources.Load<MonsterData>("ScriptableObject/Monster/" + Name.ToString());
+        NameString = data.NameString;
+        Level = data.Level;
+        MaxHp = data.MaxHP;
+        CurrentHp = MaxHp;
+        Damage = data.Damage;
+        AttackSpeed = data.AttackSpeed;
     }
 
     public override void Attack()
@@ -40,6 +49,7 @@ public class Monster : Character
         Damage = (Level - data.Level) * data.DamageByLevel;
 
         InGameManager.Instance.MonsterInfo.Refresh();
+        InGameManager.Instance.Controller.AddGold(Gold);
     }
 
     private float GetHP()

@@ -23,7 +23,7 @@ public class UIMonsterInfo : MonoBehaviour
     public void SetInfo(Monster target)
     {
         TargetMonster = target;
-        NameText.SetText("Lv." + target.Level + " " + target.Name.ToString());
+        NameText.SetText("Lv." + target.Level + " " + target.NameString);
         HPText.SetText(TargetMonster.CurrentHp + " / " + TargetMonster.MaxHp);
     }
 
