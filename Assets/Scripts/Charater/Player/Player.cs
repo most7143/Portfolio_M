@@ -11,11 +11,11 @@ public class Player : Character
     protected override void Awake()
     {
         WeaponController.SetBaseData();
-        SetInfo();
+        RefreshWeaponInfo();
         base.Awake();
     }
 
-    public void SetInfo()
+    public void RefreshWeaponInfo()
     {
         Damage = WeaponController.Info.Damage;
         AttackSpeed = WeaponController.Info.Speed;
