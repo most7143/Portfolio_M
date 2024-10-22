@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Monster : Character
 {
-    public int Exp = 1;
+    [HideInInspector] public int Exp = 1;
 
-    public int Gold = 1;
+    [HideInInspector] public int Gold = 1;
 
     public MonsterData data;
 
@@ -23,6 +23,8 @@ public class Monster : Character
         CurrentHp = MaxHp;
         Damage = data.Damage;
         AttackSpeed = data.AttackSpeed;
+        Exp = data.EXP;
+        Gold = data.Gold;
     }
 
     public override void Attack()

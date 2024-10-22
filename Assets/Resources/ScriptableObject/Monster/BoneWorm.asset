@@ -20,3 +20,5 @@ MonoBehaviour:
   Damage: 1
   DamageByLevel: 1
   AttackSpeed: 5
+  EXP: 1
+  Gold: 5

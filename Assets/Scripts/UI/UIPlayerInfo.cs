@@ -6,10 +6,13 @@ public class UIPlayerInfo : MonoBehaviour
     public TextMeshProUGUI GoldText;
     public TextMeshProUGUI WeaponText;
     public TextMeshProUGUI WeaponDamageText;
+    public WeaponUpgrade WeaponUpgrade;
 
     public void RefreshGold(int gold)
     {
         GoldText.SetText(gold.ToString());
+
+        WeaponUpgrade.RefreshCostColor();
     }
 
     public void Setup(Player player)
