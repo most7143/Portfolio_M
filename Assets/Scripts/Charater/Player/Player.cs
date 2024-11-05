@@ -10,7 +10,7 @@ public class Player : Character
 
     protected override void Awake()
     {
-        WeaponController.SetBaseData();
+        WeaponController.InitWeaponDatas();
         RefreshWeaponInfo();
         base.Awake();
     }

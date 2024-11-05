@@ -10,11 +10,14 @@ public class WeaponUpgrade : MonoBehaviour
     public TextMeshProUGUI CurrentGoldText;
     public TextMeshProUGUI UpgradeGoldText;
 
+    public Image IconImage;
+
     private int currentSucPercent;
     private int baseSucPercent = 95;
 
     private void Start()
     {
+        InGameManager.Instance.Controller.Data.Gold += 100000;
         UprageButton.onClick.AddListener(Upgrade);
         currentSucPercent = baseSucPercent;
         RefreshPercentText();
@@ -33,8 +36,15 @@ public class WeaponUpgrade : MonoBehaviour
 
         if (TryUpgrade(player.WeaponController.Info, upgradeCost))
         {
-            player.WeaponController.Info.Damage += GetAddDamage(player.WeaponController.Info);
             player.WeaponController.Info.Level += 1;
+
+            if (TryWeaponUpgradeTier(player.WeaponController.Info))
+            {
+                WeaponNames weapon = player.WeaponController.NextTier(player.WeaponController.Info.Tier);
+                player.WeaponController.SetWeaponData(weapon);
+            }
+
+            player.WeaponController.Info.Damage = GetAddDamage(player.WeaponController.Info);
 
             player.RefreshWeaponInfo();
             InGameManager.Instance.PlayerInfo.RefreshWeaponInfo(player.WeaponController.Info);
@@ -44,9 +54,24 @@ public class WeaponUpgrade : MonoBehaviour
             RefreshPercentText();
 
             RefreshUpgradeCostText(player.WeaponController.Info.Level);
+
+            RefreshIcon(player.WeaponController.Info.Icon);
         }
 
         InGameManager.Instance.Controller.UseGold(upgradeCost);
+    }
+
+    private bool TryWeaponUpgradeTier(WeaponInfo weaponInfo)
+    {
+        if (weaponInfo.Name == WeaponNames.DoomsDay)
+            return false;
+
+        if (weaponInfo.Level == weaponInfo.Tier * 10)
+        {
+            return true;
+        }
+
+        return false;
     }
 
     private int GetUpgradeCost(int weaponLevel)
@@ -68,16 +93,16 @@ public class WeaponUpgrade : MonoBehaviour
 
     public int GetAddDamage(WeaponInfo weaponInfo)
     {
-        return 1 + (weaponInfo.Level / weaponInfo.LevelByBonus);
+        return weaponInfo.Level * weaponInfo.LevelByBonus;
     }
 
     private void SetPecent(int level)
     {
-        int percent = baseSucPercent - (5 * (level / 3));
+        int percent = baseSucPercent - (4 * (level / 5));
 
-        if (percent < 5)
+        if (percent < 4)
         {
-            percent = 5;
+            percent = 4;
         }
 
         currentSucPercent = percent;
@@ -108,5 +133,10 @@ public class WeaponUpgrade : MonoBehaviour
     private void RefreshUpgradeCostText(int weaponLevel)
     {
         UpgradeGoldText.SetText(GetUpgradeCost(weaponLevel).ToString());
+    }
+
+    private void RefreshIcon(Sprite icon)
+    {
+        IconImage.sprite = icon;
     }
 }

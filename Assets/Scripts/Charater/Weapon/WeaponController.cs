@@ -1,13 +1,17 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public struct WeaponInfo
 {
     public WeaponNames Name;
     public string NameString;
+    public int Tier;
     public int Level;
     public int LevelByBonus;
     public float Speed;
     public float Damage;
+    public Sprite Icon;
 }
 
 public class WeaponController : MonoBehaviour
@@ -15,20 +19,59 @@ public class WeaponController : MonoBehaviour
     public WeaponNames Name = WeaponNames.WoodenSword;
     public WeaponInfo Info;
 
-    private WeaponData data;
+    private WeaponData currentData;
 
-    public void SetBaseData()
+    private List<WeaponData> datas = new();
+
+    public void InitWeaponDatas()
     {
-        data = Resources.Load<WeaponData>("ScriptableObject/Weapon/" + Name.ToString());
-
-        if (data != null)
+        WeaponNames[] weaponNames = (WeaponNames[])Enum.GetValues(typeof(WeaponNames));
+        for (int i = 1; i < weaponNames.Length; i++)
         {
-            Info.Name = data.Name;
-            Info.NameString = data.NameString;
-            Info.Level = data.Level;
-            Info.LevelByBonus = data.LevelByBonus;
-            Info.Speed = data.Speed;
-            Info.Damage = data.Damage;
+            WeaponData weaponData = Resources.Load<WeaponData>("ScriptableObject/Weapon/" + weaponNames[i].ToString());
+            if (weaponData != null)
+            {
+                datas.Add(weaponData);
+            }
         }
+
+        SetWeaponData(WeaponNames.WoodenSword);
+    }
+
+    public void SetWeaponData(WeaponNames name)
+    {
+        for (int i = 0; i < datas.Count; i++)
+        {
+            if (datas[i].Name == name)
+            {
+                currentData = datas[i];
+                break;
+            }
+        }
+
+        if (currentData != null)
+        {
+            Info.Tier = currentData.Tier;
+            Info.Name = currentData.Name;
+            Info.NameString = currentData.NameString;
+            Info.Level = currentData.Level;
+            Info.LevelByBonus = currentData.LevelByBonus;
+            Info.Speed = currentData.Speed;
+            Info.Damage = currentData.Damage;
+            Info.Icon = currentData.Icon;
+        }
+    }
+
+    public WeaponNames NextTier(int tier)
+    {
+        for (int i = 0; i < datas.Count; i++)
+        {
+            if (datas[i].Tier == tier + 1)
+            {
+                return datas[i].Name;
+            }
+        }
+
+        return WeaponNames.None;
     }
 }
