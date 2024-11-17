@@ -50,7 +50,7 @@ public class Monster : Character
         CurrentHp = MaxHp;
         Damage = (Level - data.Level) * data.DamageByLevel;
 
-        InGameManager.Instance.MonsterInfo.Refresh();
+        InGameManager.Instance.MonsterInfo.Refresh(this);
         InGameManager.Instance.Controller.AddGold(Gold);
     }
 

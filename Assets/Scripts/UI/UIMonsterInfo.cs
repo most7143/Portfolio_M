@@ -4,18 +4,14 @@ using UnityEngine.UI;
 
 public class UIMonsterInfo : MonoBehaviour
 {
-    public Monster TargetMonster;
+    protected Monster TargetMonster;
     public Image HPBar;
     public TextMeshProUGUI NameText;
     public TextMeshProUGUI HPText;
 
-    private void Start()
+    public void Refresh(Monster targetMonster)
     {
-        Refresh();
-    }
-
-    public void Refresh()
-    {
+        TargetMonster = targetMonster;
         SetInfo(TargetMonster);
         RefreshHPBar();
     }

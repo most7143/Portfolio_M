@@ -30,15 +30,21 @@ public class InGameManager : MonoBehaviour
         }
     }
 
+    public bool IsBattle;
     public int StageLevel = 1;
     public Player Player;
-    public Monster Monster;
+
+    public MonsterSpanwer MonsterSpanwer;
 
     public InGameDataController Controller;
     public ObjectPooling ObjectPool;
 
     public UIMonsterInfo MonsterInfo;
     public UIPlayerInfo PlayerInfo;
+
+    [HideInInspector]
+    public Monster Monster
+    { get { return MonsterSpanwer.SpawnMonster; } }
 
     public void StageClear()
     {
@@ -47,6 +53,15 @@ public class InGameManager : MonoBehaviour
     private void Start()
     {
         PlayerInfo.Setup(Player);
+        MonsterSpanwer.Spawn(CharacterNames.BoneWorm);
+    }
+
+    public void Update()
+    {
+        if (MonsterSpanwer.SpawnMonster != null)
+        {
+            IsBattle = true;
+        }
     }
 
     public void SpawnMonster()
