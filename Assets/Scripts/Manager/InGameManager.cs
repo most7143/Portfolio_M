@@ -63,9 +63,4 @@ public class InGameManager : MonoBehaviour
             IsBattle = true;
         }
     }
-
-    public void SpawnMonster()
-    {
-        MonsterInfo.SetInfo(Monster);
-    }
 }

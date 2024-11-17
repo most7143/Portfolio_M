@@ -15,8 +15,6 @@ public class MonsterSpanwer : MonoBehaviour
 
             SpawnMonster.transform.SetParent(SpawnPoint);
             SpawnMonster.transform.localPosition = Vector3.zero;
-
-            InGameManager.Instance.MonsterInfo.Refresh(SpawnMonster);
         }
     }
 
