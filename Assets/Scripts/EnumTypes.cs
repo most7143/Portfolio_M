@@ -3,6 +3,10 @@ public enum CharacterNames
     None,
     Swordman,
     BoneWorm,
+    BoneWormBlue,
+    BoneWormGreen,
+    BoneWormWhite,
+    End,
 }
 
 public enum WeaponNames

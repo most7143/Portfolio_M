@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fafee7108f056f845872d9652a0720a8, type: 3}
-  m_Name: BoneWorm
+  m_Name: BoneWormGreen
   m_EditorClassIdentifier: 
-  Name: 2
-  NameString: "\uBCF8\uC6DC"
-  Level: 1
-  MaxLevel: 5
-  MaxHP: 5
+  Name: 4
+  NameString: "\uBCF8\uC6DC\uADF8\uB9B0"
+  Level: 11
+  MaxLevel: 15
+  MaxHP: 40
   MaxHPMultiplierByLevel: 1.5
   Damage: 1
   DamageByLevel: 1
   AttackSpeed: 5
   EXP: 1
-  Gold: 5
+  Gold: 30

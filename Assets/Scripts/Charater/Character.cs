@@ -47,7 +47,6 @@ public class Character : MonoBehaviour
     public IEnumerator ProcessAttack()
     {
         yield return new WaitUntil(() => InGameManager.Instance.IsBattle);
-
         yield return new WaitForSeconds(AttackSpeed);
         Attack();
         StartCoroutine(ProcessAttack());

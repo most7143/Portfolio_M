@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class MonsterSpanwer : MonoBehaviour
 {
+    [HideInInspector]
     public Monster SpawnMonster;
+
     public Transform SpawnPoint;
 
     public void Spawn(CharacterNames chareacterName)
     {
         GameObject monster = Instantiate(Resources.Load<GameObject>("Prefabs/Monster/" + chareacterName));
-
         if (monster != null)
         {
             SpawnMonster = monster.GetComponent<Monster>();
@@ -22,5 +23,9 @@ public class MonsterSpanwer : MonoBehaviour
 
     public void Deswpawn()
     {
+        if (SpawnMonster != null)
+        {
+            Destroy(SpawnMonster);
+        }
     }
 }

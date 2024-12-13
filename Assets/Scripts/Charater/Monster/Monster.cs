@@ -6,6 +6,8 @@ public class Monster : Character
 
     [HideInInspector] public int Gold = 1;
 
+    [HideInInspector] public int MaxLevel = 1;
+
     public MonsterData data;
 
     protected override void Awake()
@@ -19,6 +21,7 @@ public class Monster : Character
         data = Resources.Load<MonsterData>("ScriptableObject/Monster/" + Name.ToString());
         NameString = data.NameString;
         Level = data.Level;
+        MaxLevel = data.MaxLevel;
         MaxHp = data.MaxHP;
         CurrentHp = MaxHp;
         Damage = data.Damage;
@@ -44,7 +47,16 @@ public class Monster : Character
     public override void Dead()
     {
         base.Dead();
-        Level += 1;
+
+        if (Level < MaxLevel)
+        {
+            Level += 1;
+        }
+        else if (Name + 1 != CharacterNames.End)
+        {
+            InGameManager.Instance.MonsterSpanwer.Spawn(Name + 1);
+            InGameManager.Instance.MonsterSpanwer.Deswpawn();
+        }
 
         MaxHp = GetHP();
         CurrentHp = MaxHp;
