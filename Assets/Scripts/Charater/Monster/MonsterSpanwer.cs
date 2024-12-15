@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class MonsterSpanwer : MonoBehaviour
 {
-    [HideInInspector]
     public Monster SpawnMonster;
 
     public Transform SpawnPoint;
@@ -21,11 +20,17 @@ public class MonsterSpanwer : MonoBehaviour
         }
     }
 
+    public void Respawn(CharacterNames chareacterName)
+    {
+        Deswpawn();
+        Spawn(chareacterName);
+    }
+
     public void Deswpawn()
     {
         if (SpawnMonster != null)
         {
-            Destroy(SpawnMonster);
+            Destroy(SpawnMonster.gameObject);
         }
     }
 }

@@ -17,7 +17,7 @@ MonoBehaviour:
   Level: 6
   MaxLevel: 10
   MaxHP: 20
-  MaxHPMultiplierByLevel: 1.5
+  MaxHPMultiplierByLevel: 1.2
   Damage: 1
   DamageByLevel: 1
   AttackSpeed: 5

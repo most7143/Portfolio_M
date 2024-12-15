@@ -16,8 +16,8 @@ MonoBehaviour:
   NameString: "\uBCF8\uC6DC\uADF8\uB9B0"
   Level: 11
   MaxLevel: 15
-  MaxHP: 40
-  MaxHPMultiplierByLevel: 1.5
+  MaxHP: 50
+  MaxHPMultiplierByLevel: 1.2
   Damage: 1
   DamageByLevel: 1
   AttackSpeed: 5

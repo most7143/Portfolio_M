@@ -48,21 +48,24 @@ public class Monster : Character
     {
         base.Dead();
 
-        if (Level < MaxLevel)
+        if (Level <= MaxLevel)
         {
             Level += 1;
         }
-        else if (Name + 1 != CharacterNames.End)
+
+        if (Level > MaxLevel && Name + 1 != CharacterNames.End)
         {
-            InGameManager.Instance.MonsterSpanwer.Spawn(Name + 1);
-            InGameManager.Instance.MonsterSpanwer.Deswpawn();
+            InGameManager.Instance.MonsterSpanwer.Respawn(Name + 1);
+        }
+        else
+        {
+            MaxHp = GetHP();
+            CurrentHp = MaxHp;
+            Damage = (Level - data.Level) * data.DamageByLevel;
+
+            InGameManager.Instance.MonsterInfo.Refresh(this);
         }
 
-        MaxHp = GetHP();
-        CurrentHp = MaxHp;
-        Damage = (Level - data.Level) * data.DamageByLevel;
-
-        InGameManager.Instance.MonsterInfo.Refresh(this);
         InGameManager.Instance.Controller.AddGold(Gold);
     }
 
