@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -32,6 +33,8 @@ public class UIFloaty : MonoBehaviour
         Text.gameObject.SetActive(true);
         StartCoroutine(ProcessAlive());
         Rect.anchoredPosition = GetPosition(position);
+
+        Move();
     }
 
     private Vector3 GetPosition(Vector2 position)
@@ -42,10 +45,16 @@ public class UIFloaty : MonoBehaviour
         return screenPos + Offset;
     }
 
+    private void Move()
+    {
+        Text.gameObject.transform.DOMoveY(Text.gameObject.transform.position.y + 100f, AliveTime);
+    }
+
     public void Despawn()
     {
         IsAlive = false;
         Text.gameObject.SetActive(false);
+        Text.gameObject.transform.position = Vector3.zero;
     }
 
     private IEnumerator ProcessAlive()
