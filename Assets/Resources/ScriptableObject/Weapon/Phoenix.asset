@@ -17,6 +17,6 @@ MonoBehaviour:
   Tier: 11
   Level: 100
   LevelByBonus: 12
-  Speed: 1.5
+  Speed: 3.5
   Damage: 1
   Icon: {fileID: 1008709038, guid: 6eb16e372762d6b4cb708c44ebfab931, type: 3}

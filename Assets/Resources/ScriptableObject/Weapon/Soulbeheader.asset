@@ -17,6 +17,6 @@ MonoBehaviour:
   Tier: 9
   Level: 80
   LevelByBonus: 10
-  Speed: 1.5
+  Speed: 2.6
   Damage: 1
   Icon: {fileID: 607831742, guid: 6eb16e372762d6b4cb708c44ebfab931, type: 3}

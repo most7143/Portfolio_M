@@ -19,6 +19,7 @@ public class Player : Character
     {
         Damage = WeaponController.Info.Damage;
         AttackSpeed = WeaponController.Info.Speed;
+        Animator.SetFloat("AttackSpeed", AttackSpeed * 2);
     }
 
     public override void Attack()

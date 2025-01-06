@@ -17,6 +17,6 @@ MonoBehaviour:
   Tier: 4
   Level: 30
   LevelByBonus: 5
-  Speed: 1.5
+  Speed: 1.4
   Damage: 1
   Icon: {fileID: 23267520, guid: 6eb16e372762d6b4cb708c44ebfab931, type: 3}
