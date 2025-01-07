@@ -1,3 +1,4 @@
+using Assets.Scripts.Manager;
 using UnityEngine;
 
 public class InGameManager : MonoBehaviour
@@ -34,11 +35,13 @@ public class InGameManager : MonoBehaviour
     public int StageLevel = 1;
     public Player Player;
 
+    public StageManager StageManager;
     public MonsterSpanwer MonsterSpanwer;
 
     public InGameDataController Controller;
     public ObjectPooling ObjectPool;
 
+    public UIStageInfo StageInfo;
     public UIMonsterInfo MonsterInfo;
     public UIPlayerInfo PlayerInfo;
 
@@ -54,6 +57,7 @@ public class InGameManager : MonoBehaviour
     {
         PlayerInfo.Setup(Player);
         MonsterSpanwer.Spawn(CharacterNames.BoneWorm);
+        StageManager.Spawn(StageNames.Forest);
     }
 
     public void Update()

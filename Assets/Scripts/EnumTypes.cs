@@ -33,3 +33,13 @@ public enum StringTypes
     Monster,
     Weapon,
 }
+
+public enum StageNames
+{
+    None,
+    Forest,
+    Stage2,
+    Stage3,
+    Stage4,
+    Stage5,
+}
