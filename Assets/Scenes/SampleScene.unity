@@ -399,6 +399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentStage: {fileID: 0}
   Data: {fileID: 0}
+  ChangeLevel: 10
 --- !u!4 &314467553
 Transform:
   m_ObjectHideFlags: 0

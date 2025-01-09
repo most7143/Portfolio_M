@@ -9,17 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fafee7108f056f845872d9652a0720a8, type: 3}
-  m_Name: BoneWormGreen
+  m_Script: {fileID: 11500000, guid: 403c362ac445b20449faa1aea184ffa5, type: 3}
+  m_Name: Forest4
   m_EditorClassIdentifier: 
   Name: 4
-  NameString: "\uBCF8\uC6DC\uADF8\uB9B0"
-  Level: 21
-  MaxLevel: 30
-  MaxHP: 50
-  MaxHPMultiplierByLevel: 1.2
-  Damage: 1
-  DamageByLevel: 1
-  AttackSpeed: 1
-  EXP: 1
-  Gold: 30
+  NameString: "\uC232 \uC18D 4"
+  Level: 4

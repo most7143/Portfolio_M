@@ -49,10 +49,6 @@ public class InGameManager : MonoBehaviour
     public Monster Monster
     { get { return MonsterSpanwer.SpawnMonster; } }
 
-    public void StageClear()
-    {
-    }
-
     private void Start()
     {
         PlayerInfo.Setup(Player);
@@ -66,5 +62,10 @@ public class InGameManager : MonoBehaviour
         {
             IsBattle = true;
         }
+    }
+
+    public void RefreshStage(int monsterLevel)
+    {
+        StageManager.ChangeStage(monsterLevel);
     }
 }

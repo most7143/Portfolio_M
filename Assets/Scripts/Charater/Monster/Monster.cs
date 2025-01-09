@@ -67,6 +67,8 @@ public class Monster : Character
         }
 
         InGameManager.Instance.Controller.AddGold(Gold);
+
+        InGameManager.Instance.RefreshStage(Level);
     }
 
     private float GetHP()

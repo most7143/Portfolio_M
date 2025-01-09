@@ -25,7 +25,6 @@ public class Character : MonoBehaviour
 
     public virtual void Attack()
     {
-        Debug.Log(Name + ": 공격시작");
     }
 
     public virtual void Hit(float damage)

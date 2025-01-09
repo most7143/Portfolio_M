@@ -38,8 +38,8 @@ public enum StageNames
 {
     None,
     Forest,
-    Stage2,
-    Stage3,
-    Stage4,
-    Stage5,
+    Forest2,
+    Forest3,
+    Forest4,
+    End,
 }

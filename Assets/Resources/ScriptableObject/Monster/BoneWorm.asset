@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: 2
   NameString: "\uBCF8\uC6DC"
   Level: 1
-  MaxLevel: 5
+  MaxLevel: 10
   MaxHP: 5
   MaxHPMultiplierByLevel: 1.2
   Damage: 1

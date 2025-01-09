@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 5
   NameString: "\uBCF8\uC6DC\uD654\uC774\uD2B8"
-  Level: 16
-  MaxLevel: 20
+  Level: 31
+  MaxLevel: 40
   MaxHP: 100
   MaxHPMultiplierByLevel: 1.2
   Damage: 1
