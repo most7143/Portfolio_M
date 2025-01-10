@@ -12,6 +12,8 @@ public class WeaponUpgrade : MonoBehaviour
 
     public Image IconImage;
 
+    public RectTransform UIPoint;
+
     private int currentSucPercent;
     private int baseSucPercent = 95;
 
@@ -56,6 +58,12 @@ public class WeaponUpgrade : MonoBehaviour
             RefreshUpgradeCostText(player.WeaponController.Info.Level);
 
             RefreshIcon(player.WeaponController.Info.Icon);
+
+            InGameManager.Instance.ObjectPool.SpawnFloaty(UIPoint.position, FloatyTypes.Success, "성공");
+        }
+        else
+        {
+            InGameManager.Instance.ObjectPool.SpawnFloaty(UIPoint.position, FloatyTypes.Fail, "실패");
         }
 
         InGameManager.Instance.Controller.UseGold(upgradeCost);

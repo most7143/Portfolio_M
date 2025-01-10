@@ -7,6 +7,8 @@ public class ObjectPooling : MonoBehaviour
 
     public List<UIFloaty> floaties;
 
+    public int InitCount = 15;
+
     private void Awake()
     {
         Init();
@@ -14,7 +16,7 @@ public class ObjectPooling : MonoBehaviour
 
     public void Init()
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < InitCount; i++)
         {
             GameObject floatyObj = Instantiate(Floaty);
 
@@ -30,16 +32,24 @@ public class ObjectPooling : MonoBehaviour
 
     public void SpawnFloaty(Vector2 position, FloatyTypes type, string text)
     {
-        if (type == FloatyTypes.Damage)
+        UIFloaty floaty = GetFolaty();
+
+        if (floaty == null)
+            return;
+
+        floaty.Spawn(position, type, text);
+    }
+
+    private UIFloaty GetFolaty()
+    {
+        for (int i = 0; i < floaties.Count; i++)
         {
-            for (int i = 0; i < floaties.Count; i++)
+            if (false == floaties[i].IsAlive)
             {
-                if (false == floaties[i].IsAlive)
-                {
-                    floaties[i].Spawn(position, type, text);
-                    break;
-                }
+                return floaties[i];
             }
         }
+
+        return null;
     }
 }

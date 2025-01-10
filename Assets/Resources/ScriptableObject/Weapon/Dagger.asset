@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 2
   NameString: "\uB300\uAC70"
+  DescString: "\uB179\uC2AC\uC9C0 \uC54A\uC740 \uB300\uAC70"
   Tier: 2
   Level: 10
   LevelByBonus: 3

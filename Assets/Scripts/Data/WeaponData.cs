@@ -5,6 +5,7 @@ public class WeaponData : ScriptableObject
 {
     public WeaponNames Name;
     public string NameString;
+    public string DescString;
     public int Tier;
     public int Level;
     public int LevelByBonus;

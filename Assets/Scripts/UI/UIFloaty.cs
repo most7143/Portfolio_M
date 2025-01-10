@@ -7,6 +7,8 @@ public enum FloatyTypes
 {
     None,
     Damage,
+    Success,
+    Fail,
 }
 
 public class UIFloaty : MonoBehaviour
@@ -30,14 +32,39 @@ public class UIFloaty : MonoBehaviour
         Type = type;
         Text.text = text;
         IsAlive = true;
+        SetColor(type);
         Text.gameObject.SetActive(true);
         StartCoroutine(ProcessAlive());
-        Rect.anchoredPosition = GetPosition(position);
+
+        if (type == FloatyTypes.Damage)
+        {
+            Rect.anchoredPosition = GetWorldPosition(position);
+        }
+        else
+        {
+            Rect.position = position;
+        }
 
         Move();
     }
 
-    private Vector3 GetPosition(Vector2 position)
+    private void SetColor(FloatyTypes type)
+    {
+        if (type == FloatyTypes.Damage)
+        {
+            Text.color = Color.white;
+        }
+        else if (type == FloatyTypes.Success)
+        {
+            Text.color = Color.yellow;
+        }
+        else if (type == FloatyTypes.Fail)
+        {
+            Text.color = Color.red;
+        }
+    }
+
+    private Vector3 GetWorldPosition(Vector2 position)
     {
         Vector3 screenPos = Camera.main.WorldToScreenPoint(position);
         screenPos = new Vector3(screenPos.x - CanvasRect.localPosition.x, screenPos.y - CanvasRect.localPosition.y);

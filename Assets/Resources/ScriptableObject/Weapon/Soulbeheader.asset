@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 9
   NameString: "\uC601\uD63C\uCC38\uC218\uC790"
+  DescString: "\uC721\uCCB4\uC640 \uC815\uC2E0\uC744 \uBCA0\uC5B4\uBC84\uB9AC\uB294
+    \uD798"
   Tier: 9
   Level: 80
   LevelByBonus: 10
