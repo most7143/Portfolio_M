@@ -4,13 +4,11 @@ public class InGameDataController : MonoBehaviour
 {
     public InGameData Data = new();
 
-    public InGameManager Manager;
-
     public void AddGold(int gold)
     {
         Data.Gold += gold;
 
-        Manager.PlayerInfo.RefreshGold(Data.Gold);
+        UIManager.Instance.PlayerInfo.RefreshGold(Data.Gold);
     }
 
     public void UseGold(int gold)
@@ -19,7 +17,7 @@ public class InGameDataController : MonoBehaviour
         {
             Data.Gold -= gold;
 
-            Manager.PlayerInfo.RefreshGold(Data.Gold);
+            UIManager.Instance.PlayerInfo.RefreshGold(Data.Gold);
         }
     }
 

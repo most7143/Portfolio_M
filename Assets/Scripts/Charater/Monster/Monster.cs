@@ -41,7 +41,7 @@ public class Monster : Character
     {
         base.Hit(damage);
 
-        InGameManager.Instance.MonsterInfo.RefreshHPBar();
+        UIManager.Instance.MonsterInfo.RefreshHPBar();
     }
 
     public override void Dead()
@@ -63,7 +63,7 @@ public class Monster : Character
             CurrentHp = MaxHp;
             Damage = (Level - data.Level) * data.DamageByLevel;
 
-            InGameManager.Instance.MonsterInfo.Refresh(this);
+            UIManager.Instance.MonsterInfo.Refresh(this);
         }
 
         InGameManager.Instance.Controller.AddGold(Gold);

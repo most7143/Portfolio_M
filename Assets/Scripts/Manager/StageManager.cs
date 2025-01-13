@@ -39,7 +39,7 @@ namespace Assets.Scripts.Manager
 
             if (Data != null)
             {
-                InGameManager.Instance.StageInfo.Refresh(Data);
+                UIManager.Instance.StageInfo.Refresh(Data);
             }
         }
 

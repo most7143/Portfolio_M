@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 5
   NameString: "\uC591\uB0A0\uAC80"
-  DescString: "\uC624\uC9C1 \uACF5\uACA9\uB9CC\uC774 \uC0B4\uAE38\uC774\uB2E4."
+  DescString: "\uCD5C\uC120\uC758 \uBC29\uC5B4\uB294 \uACF5\uACA9\uC784\uC744 \uBA85\uC2EC\uD558\uB77C"
   Tier: 5
   Level: 40
   LevelByBonus: 6
   Speed: 1.6
   Damage: 1
-  Icon: {fileID: 23267520, guid: 6eb16e372762d6b4cb708c44ebfab931, type: 3}
+  Icon: {fileID: -1383742100, guid: 6eb16e372762d6b4cb708c44ebfab931, type: 3}

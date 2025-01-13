@@ -41,17 +41,12 @@ public class InGameManager : MonoBehaviour
     public InGameDataController Controller;
     public ObjectPooling ObjectPool;
 
-    public UIStageInfo StageInfo;
-    public UIMonsterInfo MonsterInfo;
-    public UIPlayerInfo PlayerInfo;
-
     [HideInInspector]
     public Monster Monster
     { get { return MonsterSpanwer.SpawnMonster; } }
 
     private void Start()
     {
-        PlayerInfo.Setup(Player);
         MonsterSpanwer.Spawn(CharacterNames.BoneWorm);
         StageManager.Spawn(StageNames.Forest);
     }
