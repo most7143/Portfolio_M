@@ -13,6 +13,8 @@ public enum FloatyTypes
 
 public class UIFloaty : MonoBehaviour
 {
+    public UIFade Fade;
+    public CanvasGroup CanvasGroup;
     public FloatyTypes Type;
     public RectTransform CanvasRect;
     public RectTransform Rect;
@@ -32,6 +34,7 @@ public class UIFloaty : MonoBehaviour
         Type = type;
         Text.text = text;
         IsAlive = true;
+        CanvasGroup.alpha = 1;
         SetColor(type);
         Text.gameObject.SetActive(true);
         StartCoroutine(ProcessAlive());
@@ -44,7 +47,7 @@ public class UIFloaty : MonoBehaviour
         {
             Rect.position = position;
         }
-
+        Fade.FadeOut();
         Move();
     }
 

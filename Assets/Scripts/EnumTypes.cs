@@ -34,6 +34,14 @@ public enum StringTypes
     Weapon,
 }
 
+public enum DataTypes
+{
+    None,
+    Monster,
+    Stage,
+    Weapon,
+}
+
 public enum StageNames
 {
     None,
@@ -42,4 +50,10 @@ public enum StageNames
     Forest3,
     Forest4,
     End,
+}
+
+public enum UINames
+{
+    None,
+    UIFade,
 }

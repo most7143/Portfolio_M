@@ -18,7 +18,7 @@ public class Monster : Character
 
     public void SetData()
     {
-        data = Resources.Load<MonsterData>("ScriptableObject/Monster/" + Name.ToString());
+        data = ResourcesManager.Instance.LoadScriptable<MonsterData>(Name.ToString());
         NameString = data.NameString;
         Level = data.Level;
         MaxLevel = data.MaxLevel;
@@ -34,7 +34,10 @@ public class Monster : Character
     {
         base.Attack();
 
-        InGameManager.Instance.Player.Hit(Damage);
+        if (InGameManager.Instance.Player.IsAlive)
+        {
+            InGameManager.Instance.Player.Hit(Damage);
+        }
     }
 
     public override void Hit(float damage)

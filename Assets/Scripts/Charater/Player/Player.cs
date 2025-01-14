@@ -28,6 +28,20 @@ public class Player : Character
         Animator.SetTrigger("Attack");
     }
 
+    public override void Hit(float damage)
+    {
+        base.Hit(damage);
+
+        UIManager.Instance.PlayerInfo.RefreshHp(this);
+    }
+
+    public override void Dead()
+    {
+        base.Dead();
+        IsAlive = false;
+        InGameManager.Instance.StageFail();
+    }
+
     public void AnimationAttack()
     {
         Monster target = InGameManager.Instance.Monster;

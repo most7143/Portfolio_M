@@ -15,7 +15,8 @@ public class UIWeaponDetails : MonoBehaviour
 
     public void Refresh(WeaponNames weaponName)
     {
-        WeaponData weaponData = Resources.Load<WeaponData>("ScriptableObject/Weapon/" + weaponName.ToString());
+        WeaponData weaponData = ResourcesManager.Instance.LoadScriptable<WeaponData>(weaponName.ToString());
+
         if (weaponData != null)
         {
             NameText.SetText(weaponData.NameString);

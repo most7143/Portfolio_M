@@ -1,3 +1,4 @@
+using Assets.Scripts.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,8 +28,7 @@ public class UIMonsterInfo : MonoBehaviour
     {
         if (TargetMonster != null)
         {
-            HPBar.fillAmount = (float)TargetMonster.CurrentHp / (float)TargetMonster.MaxHp;
-            HPText.SetText(TargetMonster.CurrentHp + " / " + TargetMonster.MaxHp);
+            UIHandler.UpdateGauge(HPBar, TargetMonster.MaxHp, TargetMonster.CurrentHp, HPText);
         }
     }
 }

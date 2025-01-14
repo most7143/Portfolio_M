@@ -29,7 +29,8 @@ public class WeaponController : MonoBehaviour
         WeaponNames[] weaponNames = (WeaponNames[])Enum.GetValues(typeof(WeaponNames));
         for (int i = 1; i < weaponNames.Length; i++)
         {
-            WeaponData weaponData = Resources.Load<WeaponData>("ScriptableObject/Weapon/" + weaponNames[i].ToString());
+            WeaponData weaponData = ResourcesManager.Instance.LoadScriptable<WeaponData>(weaponNames[i].ToString());
+
             if (weaponData != null)
             {
                 datas.Add(weaponData);

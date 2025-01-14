@@ -1,4 +1,5 @@
 using Assets.Scripts.Manager;
+using Assets.Scripts.UI;
 using UnityEngine;
 
 public class InGameManager : MonoBehaviour
@@ -53,10 +54,16 @@ public class InGameManager : MonoBehaviour
 
     public void Update()
     {
-        if (MonsterSpanwer.SpawnMonster != null)
+        if (MonsterSpanwer.SpawnMonster != null && Player.IsAlive)
         {
             IsBattle = true;
         }
+    }
+
+    public void StageFail()
+    {
+        IsBattle = false;
+        UIHandler.FadeOut();
     }
 
     public void RefreshStage(int monsterLevel)

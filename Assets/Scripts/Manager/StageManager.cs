@@ -29,13 +29,13 @@ namespace Assets.Scripts.Manager
         {
             Despawn();
 
-            GameObject stage = Instantiate(Resources.Load<GameObject>("Prefabs/Stage/" + stageName));
+            GameObject stage = ResourcesManager.Instance.Load(stageName);
 
             stage.transform.SetParent(transform);
 
             CurrentStage = stage.GetComponent<Stage>();
 
-            Data = Resources.Load<StageData>("ScriptableObject/Stage/" + stageName);
+            Data = ResourcesManager.Instance.LoadScriptable<StageData>(stageName.ToString());
 
             if (Data != null)
             {

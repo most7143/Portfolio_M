@@ -8,13 +8,15 @@ public class MonsterSpanwer : MonoBehaviour
 
     public void Spawn(CharacterNames chareacterName)
     {
-        GameObject monster = Instantiate(Resources.Load<GameObject>("Prefabs/Monster/" + chareacterName));
+        GameObject monster = ResourcesManager.Instance.Load(chareacterName);
         if (monster != null)
         {
             SpawnMonster = monster.GetComponent<Monster>();
 
             SpawnMonster.transform.SetParent(SpawnPoint);
             SpawnMonster.transform.localPosition = Vector3.zero;
+
+            SpawnMonster.IsAlive = true;
 
             UIManager.Instance.MonsterInfo.Refresh(SpawnMonster);
         }

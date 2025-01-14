@@ -11,11 +11,14 @@ public class Character : MonoBehaviour
     public float Damage = 1;
     public float AttackSpeed = 1;
 
+    public bool IsAlive;
+
     public SpriteRenderer Renderer;
 
     protected virtual void Awake()
     {
         CurrentHp = MaxHp;
+        IsAlive = true;
     }
 
     private void Start()

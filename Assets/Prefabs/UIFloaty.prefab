@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 1911869609864160029}
   - component: {fileID: 2763468312302569440}
   - component: {fileID: 476718653053073235}
+  - component: {fileID: 2349604987055668811}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -236,6 +237,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!225 &2349604987055668811
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5166219700889104547}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &6338412473960853367
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,6 +259,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4874842334261591498}
   - component: {fileID: 442430268565502104}
+  - component: {fileID: 7359377721604144608}
   m_Layer: 0
   m_Name: UIFloaty
   m_TagString: Untagged
@@ -281,6 +295,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0308302ef6366184e98950e78775724c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Fade: {fileID: 7359377721604144608}
+  CanvasGroup: {fileID: 2349604987055668811}
   Type: 1
   CanvasRect: {fileID: 3403095756077705736}
   Rect: {fileID: 3899781412408593015}
@@ -288,3 +304,18 @@ MonoBehaviour:
   IsAlive: 0
   AliveTime: 0.5
   Offset: {x: 40, y: 140, z: 0}
+--- !u!114 &7359377721604144608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6338412473960853367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21ba46d4d4b032548b09d84e6c09b74c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Group: {fileID: 2349604987055668811}
+  FadeDelay: 0.2
+  FadeDuration: 0.3
