@@ -48,16 +48,18 @@ public class InGameManager : MonoBehaviour
 
     private void Start()
     {
-        MonsterSpanwer.Spawn(CharacterNames.BoneWorm);
-        StageManager.Spawn(StageNames.Forest);
+        BattleStart();
     }
 
-    public void Update()
+    private void BattleStart()
     {
-        if (MonsterSpanwer.SpawnMonster != null && Player.IsAlive)
-        {
-            IsBattle = true;
-        }
+        IsBattle = true;
+
+        MonsterSpanwer.Spawn(CharacterNames.BoneWorm);
+        StageManager.Spawn(StageNames.Forest);
+
+        Player.StartAttack();
+        MonsterSpanwer.SpawnMonster.StartAttack();
     }
 
     public void StageFail()

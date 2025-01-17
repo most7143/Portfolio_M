@@ -8,11 +8,10 @@ public class Player : Character
     public int NextExp;
     public int CurrentExp;
 
-    protected override void Awake()
+    private void Start()
     {
         WeaponController.InitWeaponDatas();
         RefreshWeaponInfo();
-        base.Awake();
     }
 
     public void RefreshWeaponInfo()

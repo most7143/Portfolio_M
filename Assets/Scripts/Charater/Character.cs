@@ -21,7 +21,7 @@ public class Character : MonoBehaviour
         IsAlive = true;
     }
 
-    private void Start()
+    public void StartAttack()
     {
         StartCoroutine(ProcessAttack());
     }
@@ -50,6 +50,12 @@ public class Character : MonoBehaviour
     {
         yield return new WaitUntil(() => InGameManager.Instance.IsBattle);
         yield return new WaitForSeconds(1f / AttackSpeed);
+
+        if (Name == CharacterNames.Swordman)
+        {
+            Debug.Log("11");
+        }
+
         Attack();
         StartCoroutine(ProcessAttack());
     }

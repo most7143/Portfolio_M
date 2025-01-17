@@ -32,6 +32,6 @@ public class UIFade : MonoBehaviour
             yield return null;
         }
 
-        cg.alpha = endAlpha; // 마지막에 정확한 alpha 값 설정
+        cg.alpha = endAlpha;
     }
 }
