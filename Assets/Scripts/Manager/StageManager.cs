@@ -14,8 +14,6 @@ namespace Assets.Scripts.Manager
         {
             int divi = (monsterLevel - 1) / ChangeLevel;
 
-            Debug.Log(monsterLevel + " / " + divi);
-
             if (divi >= (int)CurrentStage.Name)
             {
                 if (CurrentStage.Name + 1 != StageNames.End)

@@ -9,9 +9,9 @@ public class MonsterData : ScriptableObject
     public int MaxLevel = 1;
     public float MaxHP;
     public float MaxHPMultiplierByLevel;
-    public int Damage;
-    public int DamageByLevel;
-    public int AttackSpeed;
+    public float Damage;
+    public float DamageByLevel;
+    public float AttackSpeed;
     public int EXP = 1;
     public int Gold = 1;
 }

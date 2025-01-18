@@ -18,8 +18,8 @@ MonoBehaviour:
   MaxLevel: 20
   MaxHP: 20
   MaxHPMultiplierByLevel: 1.2
-  Damage: 1
+  Damage: 10
   DamageByLevel: 1
-  AttackSpeed: 1
-  EXP: 10
+  AttackSpeed: 0.3
+  EXP: 50
   Gold: 10

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Monster : Character
 {
-    [HideInInspector] public int Exp = 1;
+    [HideInInspector] public float Exp = 1;
 
     [HideInInspector] public int Gold = 1;
 
@@ -65,11 +65,13 @@ public class Monster : Character
             MaxHp = GetHP();
             CurrentHp = MaxHp;
             Damage = (Level - data.Level) * data.DamageByLevel;
-
+            Exp *= 1.1f;
             UIManager.Instance.MonsterInfo.Refresh(this);
         }
 
         InGameManager.Instance.Controller.AddGold(Gold);
+
+        InGameManager.Instance.Controller.AddExp(Exp);
 
         InGameManager.Instance.RefreshStage(Level);
     }

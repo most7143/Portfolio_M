@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UIPlayerInfo : MonoBehaviour
 {
+    public TextMeshProUGUI LevelText;
     public TextMeshProUGUI GoldText;
     public TextMeshProUGUI WeaponText;
     public TextMeshProUGUI WeaponDamageText;
@@ -13,6 +14,8 @@ public class UIPlayerInfo : MonoBehaviour
 
     public Image HPbar;
     public TextMeshProUGUI HPText;
+
+    public Image ExpBar;
 
     public void RefreshGold(int gold)
     {
@@ -25,6 +28,8 @@ public class UIPlayerInfo : MonoBehaviour
     {
         RefreshWeaponInfo(player.WeaponController.Info);
         RefreshHp(player);
+        RefreshLevel(player.Level);
+        RefreshExp();
     }
 
     public void RefreshWeaponInfo(WeaponInfo weaponInfo)
@@ -34,8 +39,20 @@ public class UIPlayerInfo : MonoBehaviour
         AttackSpeedText.SetText("공격속도 : " + weaponInfo.Speed.ToString());
     }
 
+    public void RefreshLevel(int level)
+    {
+        LevelText.SetText("Lv." + level);
+    }
+
     public void RefreshHp(Player player)
     {
         UIHandler.UpdateGauge(HPbar, player.MaxHp, player.CurrentHp, HPText);
+    }
+
+    public void RefreshExp()
+    {
+        InGameData playerData = InGameManager.Instance.Controller.Data;
+
+        UIHandler.UpdateGauge(ExpBar, playerData.NextEXP, playerData.Experience);
     }
 }

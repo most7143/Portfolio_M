@@ -59,7 +59,6 @@ public class InGameManager : MonoBehaviour
         StageManager.Spawn(StageNames.Forest);
 
         Player.StartAttack();
-        MonsterSpanwer.SpawnMonster.StartAttack();
     }
 
     public void StageFail()

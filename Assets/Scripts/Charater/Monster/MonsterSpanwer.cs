@@ -19,6 +19,8 @@ public class MonsterSpanwer : MonoBehaviour
             SpawnMonster.IsAlive = true;
 
             UIManager.Instance.MonsterInfo.Refresh(SpawnMonster);
+
+            SpawnMonster.StartAttack();
         }
     }
 

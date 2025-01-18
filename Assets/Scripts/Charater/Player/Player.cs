@@ -5,13 +5,12 @@ public class Player : Character
     public Animator Animator;
     public WeaponController WeaponController;
 
-    public int NextExp;
-    public int CurrentExp;
-
     private void Start()
     {
         WeaponController.InitWeaponDatas();
         RefreshWeaponInfo();
+
+        baseMaxHp = MaxHp;
     }
 
     public void RefreshWeaponInfo()
@@ -39,6 +38,17 @@ public class Player : Character
         base.Dead();
         IsAlive = false;
         InGameManager.Instance.StageFail();
+    }
+
+    public void LevelUp()
+    {
+        Level += 1;
+
+        MaxHp = baseMaxHp * Level;
+        CurrentHp = MaxHp;
+
+        UIManager.Instance.PlayerInfo.RefreshHp(this);
+        UIManager.Instance.PlayerInfo.RefreshLevel(Level);
     }
 
     public void AnimationAttack()

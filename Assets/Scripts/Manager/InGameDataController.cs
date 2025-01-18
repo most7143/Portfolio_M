@@ -4,6 +4,12 @@ public class InGameDataController : MonoBehaviour
 {
     public InGameData Data = new();
 
+    public void Setup()
+    {
+        Data.Experience = 0;
+        Data.NextEXP = 100;
+    }
+
     public void AddGold(int gold)
     {
         Data.Gold += gold;
@@ -26,8 +32,18 @@ public class InGameDataController : MonoBehaviour
         return Data.Gold >= gold;
     }
 
-    public void AddExp(int exp)
+    public void AddExp(float exp)
     {
         Data.Experience += exp;
+
+        if (Data.NextEXP <= Data.Experience)
+        {
+            Data.Experience = exp - Data.NextEXP;
+
+            InGameManager.Instance.Player.LevelUp();
+            Data.NextEXP *= 1.2f;
+        }
+
+        UIManager.Instance.PlayerInfo.RefreshExp();
     }
 }
