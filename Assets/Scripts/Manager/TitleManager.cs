@@ -8,7 +8,7 @@ public class TitleManager : MonoBehaviour
 
     private void Start()
     {
-        StartButton.onClick.AddListener(() => LoadScene("MainScene"));
+        StartButton.onClick.AddListener(() => LoadScene("LoadingScene"));
     }
 
     public void LoadScene(string sceneName)
