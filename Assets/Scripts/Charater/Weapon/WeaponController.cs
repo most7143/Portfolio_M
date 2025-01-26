@@ -12,6 +12,8 @@ public struct WeaponInfo
     public int LevelByBonus;
     public float Speed;
     public float Damage;
+    public float CriticalRate;
+    public float CriticalDamage;
     public Sprite Icon;
 }
 
@@ -61,6 +63,8 @@ public class WeaponController : MonoBehaviour
             Info.LevelByBonus = currentData.LevelByBonus;
             Info.Speed = currentData.Speed;
             Info.Damage = currentData.Damage;
+            Info.CriticalRate = currentData.CriticalRate;
+            Info.CriticalDamage = currentData.CriticalDamage;
             Info.Icon = currentData.Icon;
         }
     }

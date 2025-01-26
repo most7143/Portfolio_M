@@ -32,11 +32,11 @@ public class Character : MonoBehaviour
     {
     }
 
-    public virtual void Hit(float damage)
+    public virtual void Hit(DamageInfo info)
     {
         StartCoroutine(ProcessHitEffect());
 
-        CurrentHp -= (int)damage;
+        CurrentHp -= (int)info.Value;
 
         if (CurrentHp <= 0)
         {

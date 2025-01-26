@@ -11,5 +11,7 @@ public class WeaponData : ScriptableObject
     public int LevelByBonus;
     public float Speed;
     public float Damage;
+    public float CriticalRate;
+    public float CriticalDamage;
     public Sprite Icon;
 }

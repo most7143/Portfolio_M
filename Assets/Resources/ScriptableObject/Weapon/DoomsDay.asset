@@ -21,4 +21,6 @@ MonoBehaviour:
   LevelByBonus: 13
   Speed: 4
   Damage: 1
+  CriticalRate: 0.7
+  CriticalDamage: 5
   Icon: {fileID: -460413151, guid: 6eb16e372762d6b4cb708c44ebfab931, type: 3}

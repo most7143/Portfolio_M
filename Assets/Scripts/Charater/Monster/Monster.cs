@@ -36,13 +36,15 @@ public class Monster : Character
 
         if (InGameManager.Instance.Player.IsAlive)
         {
-            InGameManager.Instance.Player.Hit(Damage);
+            DamageInfo info = new DamageInfo();
+            info.Value = Damage;
+            InGameManager.Instance.Player.Hit(info);
         }
     }
 
-    public override void Hit(float damage)
+    public override void Hit(DamageInfo info)
     {
-        base.Hit(damage);
+        base.Hit(info);
 
         UIManager.Instance.MonsterInfo.RefreshHPBar();
     }

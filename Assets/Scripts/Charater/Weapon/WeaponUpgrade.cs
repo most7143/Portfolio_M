@@ -7,7 +7,6 @@ public class WeaponUpgrade : MonoBehaviour
     public Button UprageButton;
 
     public TextMeshProUGUI PercentText;
-    public TextMeshProUGUI CurrentGoldText;
     public TextMeshProUGUI UpgradeGoldText;
 
     public Image IconImage;

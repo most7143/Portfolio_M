@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 1
   NameString: "\uBAA9\uAC80"
+  DescString: 
   Tier: 1
   Level: 1
   LevelByBonus: 2
   Speed: 0.8
   Damage: 1
+  CriticalRate: 0.05
+  CriticalDamage: 2
   Icon: {fileID: -267587109, guid: 6eb16e372762d6b4cb708c44ebfab931, type: 3}
