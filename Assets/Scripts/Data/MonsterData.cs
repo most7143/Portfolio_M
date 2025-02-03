@@ -12,6 +12,4 @@ public class MonsterData : ScriptableObject
     public float Damage;
     public float DamageByLevel;
     public float AttackSpeed;
-    public int EXP = 1;
-    public int Gold = 1;
 }

@@ -2,19 +2,11 @@ using UnityEngine;
 
 public class Monster : Character
 {
-    [HideInInspector] public float Exp = 1;
-
-    [HideInInspector] public int Gold = 1;
-
     [HideInInspector] public int MaxLevel = 1;
 
-    public MonsterData data;
+    public MonsterSpanwer Spanwer;
 
-    protected override void Awake()
-    {
-        SetData();
-        base.Awake();
-    }
+    private MonsterData data;
 
     public void SetData()
     {
@@ -26,8 +18,8 @@ public class Monster : Character
         CurrentHp = MaxHp;
         Damage = data.Damage;
         AttackSpeed = data.AttackSpeed;
-        Exp = data.EXP;
-        Gold = data.Gold;
+
+        Spanwer.RefreshLevelByData(Level);
     }
 
     public override void Attack()
@@ -67,13 +59,13 @@ public class Monster : Character
             MaxHp = GetHP();
             CurrentHp = MaxHp;
             Damage = (Level - data.Level) * data.DamageByLevel;
-            Exp *= 1.1f;
+            Spanwer.RefreshLevelByData(Level);
             UIManager.Instance.MonsterInfo.Refresh(this);
         }
 
-        InGameManager.Instance.Controller.AddGold(Gold);
+        InGameManager.Instance.Controller.AddGold(Spanwer.Gold);
 
-        InGameManager.Instance.Controller.AddExp(Exp);
+        InGameManager.Instance.Controller.AddExp(Spanwer.EXP);
 
         InGameManager.Instance.RefreshStage(Level);
     }

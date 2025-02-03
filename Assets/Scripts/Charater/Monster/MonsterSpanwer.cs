@@ -6,12 +6,30 @@ public class MonsterSpanwer : MonoBehaviour
 
     public Transform SpawnPoint;
 
+    public int Level = 1;
+
+    public float EXP = 10;
+    public int Gold = 5;
+
+    public void RefreshLevelByData(int level)
+    {
+        if (Level < level)
+        {
+            Level++;
+            EXP *= 1.1f;
+            Gold = (int)(Gold * 1.2f);
+        }
+    }
+
     public void Spawn(CharacterNames chareacterName)
     {
         GameObject monster = ResourcesManager.Instance.Load(chareacterName);
         if (monster != null)
         {
             SpawnMonster = monster.GetComponent<Monster>();
+
+            SpawnMonster.Spanwer = this;
+            SpawnMonster.SetData();
 
             SpawnMonster.transform.SetParent(SpawnPoint);
             SpawnMonster.transform.localPosition = Vector3.zero;

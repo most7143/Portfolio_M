@@ -10,6 +10,7 @@ public enum FloatyTypes
     CritialDamage,
     Success,
     Fail,
+    EXP,
 }
 
 public class UIFloaty : MonoBehaviour
@@ -40,7 +41,7 @@ public class UIFloaty : MonoBehaviour
         Text.gameObject.SetActive(true);
         StartCoroutine(ProcessAlive());
 
-        if (type == FloatyTypes.Damage || type == FloatyTypes.CritialDamage)
+        if (type == FloatyTypes.Damage || type == FloatyTypes.CritialDamage || type == FloatyTypes.EXP)
         {
             Rect.anchoredPosition = GetWorldPosition(position);
         }
@@ -58,7 +59,7 @@ public class UIFloaty : MonoBehaviour
         {
             Text.color = Color.white;
         }
-        else if (type == FloatyTypes.Success)
+        else if (type == FloatyTypes.Success || type == FloatyTypes.EXP)
         {
             Text.color = Color.yellow;
         }

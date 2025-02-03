@@ -15,11 +15,9 @@ MonoBehaviour:
   Name: 5
   NameString: "\uBCF8\uC6DC\uD654\uC774\uD2B8"
   Level: 31
-  MaxLevel: 40
+  MaxLevel: 999
   MaxHP: 100
   MaxHPMultiplierByLevel: 1.2
   Damage: 30
   DamageByLevel: 1
   AttackSpeed: 0.3
-  EXP: 200
-  Gold: 50

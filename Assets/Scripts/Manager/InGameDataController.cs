@@ -34,14 +34,20 @@ public class InGameDataController : MonoBehaviour
 
     public void AddExp(float exp)
     {
-        Data.Experience += exp;
+        float currentEXP = Mathf.Floor(exp);
+
+        Data.Experience += currentEXP;
+
+        Debug.Log(Data.Experience + " / " + Data.NextEXP);
+
+        InGameManager.Instance.ObjectPool.SpawnFloaty(InGameManager.Instance.Player.transform.position, FloatyTypes.EXP, "+" + currentEXP + " exp");
 
         if (Data.NextEXP <= Data.Experience)
         {
-            Data.Experience = exp - Data.NextEXP;
+            Data.Experience -= Data.NextEXP;
 
             InGameManager.Instance.Player.LevelUp();
-            Data.NextEXP *= 1.2f;
+            Data.NextEXP *= 1.3f;
         }
 
         UIManager.Instance.PlayerInfo.RefreshExp();
