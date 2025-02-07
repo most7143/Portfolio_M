@@ -57,3 +57,10 @@ public enum UINames
     None,
     UIFade,
 }
+
+public enum FXNames
+{
+    None,
+    FireBomb,
+    LightBomb,
+}

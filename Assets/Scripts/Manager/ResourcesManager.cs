@@ -41,6 +41,17 @@ public class ResourcesManager : MonoBehaviour
         return null;
     }
 
+    public GameObject Load(FXNames fxName)
+    {
+        GameObject fx = Instantiate(Resources.Load<GameObject>("Prefabs/FX/FX_" + fxName.ToString()));
+
+        if (fx != null)
+        {
+            return fx;
+        }
+        return null;
+    }
+
     public GameObject Load(CharacterNames characterName)
     {
         GameObject monster = Instantiate(Resources.Load<GameObject>("Prefabs/Monster/" + characterName.ToString()));

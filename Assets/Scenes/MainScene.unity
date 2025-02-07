@@ -1790,9 +1790,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnMonster: {fileID: 0}
   SpawnPoint: {fileID: 1472118342}
+  Level: 1
   EXP: 10
   Gold: 5
-  Level: 1
 --- !u!1 &584289150
 GameObject:
   m_ObjectHideFlags: 0
