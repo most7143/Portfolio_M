@@ -64,3 +64,10 @@ public enum FXNames
     FireBomb,
     LightBomb,
 }
+
+public enum FXSpawnTypes
+{
+    None,
+    Target,
+    TargetRandomRange,
+}

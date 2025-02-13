@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: WoodenSword
   m_EditorClassIdentifier: 
   Name: 1
+  FXName: 0
   NameString: "\uBAA9\uAC80"
   DescString: 
   Tier: 1

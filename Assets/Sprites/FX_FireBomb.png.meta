@@ -60,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 50
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -81,7 +81,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 64
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -148,85 +148,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FX_FireBomb0
+      name: FX_FireBomb_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 851f427fc98755500800000000000000
-      internalID: 384345958766670168
+      spriteID: d81293be15364e041a9c4aab50a86673
+      internalID: 147528544
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FX_FireBomb1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7ca22f19de6e69df0800000000000000
-      internalID: -173697627576980793
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FX_FireBomb2
+      name: FX_FireBomb_1
       rect:
         serializedVersion: 2
         x: 32
         y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1500cc2a13449440800000000000000
-      internalID: 4941648470831269149
+      spriteID: 7874c759220f4794aa3c082f6530a501
+      internalID: -415127531
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FX_FireBomb3
+      name: FX_FireBomb_2
       rect:
         serializedVersion: 2
-        x: 48
+        x: 64
         y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36ca5f1765522d810800000000000000
-      internalID: 1788533055228849251
+      spriteID: 014c48b4de4efcb4c9767fbffc33f8b3
+      internalID: 608954126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_FireBomb_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee4d702203289c64691c3cf0db22470f
+      internalID: 1153141925
       vertices: []
       indices: 
       edges: []
@@ -242,10 +242,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      FX_FireBomb0: 384345958766670168
-      FX_FireBomb1: -173697627576980793
-      FX_FireBomb2: 4941648470831269149
-      FX_FireBomb3: 1788533055228849251
+      FX_FireBomb_0: 147528544
+      FX_FireBomb_1: -415127531
+      FX_FireBomb_2: 608954126
+      FX_FireBomb_3: 1153141925
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

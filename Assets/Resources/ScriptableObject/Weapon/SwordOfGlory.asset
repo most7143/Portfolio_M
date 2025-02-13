@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SwordOfGlory
   m_EditorClassIdentifier: 
   Name: 10
+  FXName: 2
   NameString: "\uC601\uAD11\uC758\uAC80"
   DescString: "\uAC00\uC7A5 \uAC15\uD55C \uAE30\uC0AC\uC5D0\uAC8C \uC655\uC774 \uBD80\uC5EC\uD558\uB294
     \uC808\uB300\uC801\uC778 \uAC80"

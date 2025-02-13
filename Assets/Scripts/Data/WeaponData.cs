@@ -4,6 +4,7 @@ using UnityEngine;
 public class WeaponData : ScriptableObject
 {
     public WeaponNames Name;
+    public FXNames FXName;
     public string NameString;
     public string DescString;
     public int Tier;

@@ -4,9 +4,12 @@ public class Player : Character
 {
     public Animator Animator;
     public WeaponController WeaponController;
+    public FXManager FXManager;
 
     public float CriticalRage = 0.05f;
     public float CriticalDamage = 2f;
+
+    private Monster targetMonster;
 
     private void Start()
     {
@@ -59,21 +62,40 @@ public class Player : Character
 
     public void AnimationAttack()
     {
-        Monster target = InGameManager.Instance.Monster;
+        if (targetMonster == null)
+        {
+            targetMonster = InGameManager.Instance.Monster;
+        }
 
-        if (target != null)
+        if (targetMonster != null)
         {
             DamageInfo info = CalculateDamage();
-            target.Hit(info);
+            targetMonster.Hit(info);
 
             if (info.IsCritical)
             {
-                InGameManager.Instance.ObjectPool.SpawnFloaty(target.transform.position, FloatyTypes.CritialDamage, info.Value.ToString());
+                InGameManager.Instance.ObjectPool.SpawnFloaty(targetMonster.transform.position, FloatyTypes.CritialDamage, info.Value.ToString());
             }
             else
             {
-                InGameManager.Instance.ObjectPool.SpawnFloaty(target.transform.position, FloatyTypes.Damage, info.Value.ToString());
+                InGameManager.Instance.ObjectPool.SpawnFloaty(targetMonster.transform.position, FloatyTypes.Damage, info.Value.ToString());
             }
+
+            AnimationFX();
+        }
+    }
+
+    public void AnimationFX()
+    {
+        if (targetMonster == null)
+        {
+            targetMonster = InGameManager.Instance.Monster;
+        }
+
+        if (WeaponController.Info.FXName != FXNames.None
+            && targetMonster != null)
+        {
+            FXManager.Spawn(WeaponController.Info.FXName, targetMonster.transform.position);
         }
     }
 
