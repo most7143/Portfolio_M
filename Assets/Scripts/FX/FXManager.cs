@@ -22,7 +22,7 @@ public class FXManager : MonoBehaviour
 
         fxObject.transform.SetParent(transform);
 
-        fxObject.transform.position = SpawnRange(transform.position, fxObject.SpawnType);
+        fxObject.transform.position = SpawnRange(position, fxObject.SpawnType);
     }
 
     public Vector3 SpawnRange(Vector3 targetPosition, FXSpawnTypes spawnType)

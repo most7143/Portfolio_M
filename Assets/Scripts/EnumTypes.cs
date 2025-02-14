@@ -63,6 +63,7 @@ public enum FXNames
     None,
     FireBomb,
     LightBomb,
+    FireBombExplosion,
 }
 
 public enum FXSpawnTypes

@@ -105,7 +105,7 @@ public class UIPlayerInfo : MonoBehaviour
 
     public void RefreshLevel(int level)
     {
-        LevelText.SetText("Lv." + level);
+        LevelText.SetText("Rank " + level);
     }
 
     public void RefreshHp(Player player)
