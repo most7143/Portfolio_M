@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Phoenix
   m_EditorClassIdentifier: 
   Name: 11
-  FXName: 1
+  FXName: 3
   NameString: "\uD53C\uB2C9\uC2A4"
   DescString: "\uB05D\uC5C6\uC774 \uD0C0\uC624\uB974\uB294 \uBD88\uC0AC\uC870\uC758
     \uD798\uC774 \uB290\uAEF4\uC9C4\uB2E4 "
