@@ -28,8 +28,8 @@ public class Monster : Character
 
         if (InGameManager.Instance.Player.IsAlive)
         {
-            DamageInfo info = new DamageInfo();
-            info.Value = Damage;
+            DamageInfo info = CalculateDamage();
+
             InGameManager.Instance.Player.Hit(info);
         }
     }

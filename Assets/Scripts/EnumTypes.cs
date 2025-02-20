@@ -64,6 +64,7 @@ public enum FXNames
     FireBomb,
     LightBomb,
     FireBombExplosion,
+    PinkCut,
 }
 
 public enum FXSpawnTypes

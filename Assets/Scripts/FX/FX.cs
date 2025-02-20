@@ -5,6 +5,9 @@ public class FX : MonoBehaviour
 {
     public FXNames Name;
     public FXSpawnTypes SpawnType;
+    public SpriteRenderer Renderer;
+
+    public bool isRandomFlip;
     public bool Alive;
     public Animator Anim;
 
@@ -15,6 +18,11 @@ public class FX : MonoBehaviour
         gameObject.SetActive(true);
         Alive = true;
         StartCoroutine(ProcessDeactivate());
+
+        if (isRandomFlip)
+        {
+            Flip();
+        }
     }
 
     public void Deactivate()
@@ -27,5 +35,19 @@ public class FX : MonoBehaviour
     {
         yield return new WaitForSeconds(AliveTime);
         Deactivate();
+    }
+
+    private void Flip()
+    {
+        int Range = Random.Range(0, 2);
+
+        if (Range == 0)
+        {
+            Renderer.flipX = true;
+        }
+        else
+        {
+            Renderer.flipX = false;
+        }
     }
 }

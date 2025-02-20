@@ -47,7 +47,7 @@ public class UIPlayerInfo : MonoBehaviour
     {
         if (800 <= damage)
         {
-            return "<color=cyan>" + damage.ToString() + "</color>";
+            return "<color=orange>" + damage.ToString() + "</color>";
         }
         else if (400 <= damage)
         {
@@ -67,7 +67,7 @@ public class UIPlayerInfo : MonoBehaviour
     {
         if (500f <= damage)
         {
-            return "<color=cyan>" + damage.ToString() + "%</color>";
+            return "<color=orange>" + damage.ToString() + "%</color>";
         }
         else if (350f <= damage)
         {
@@ -87,7 +87,7 @@ public class UIPlayerInfo : MonoBehaviour
     {
         if (450f <= damage)
         {
-            return "<color=cyan>" + damage.ToString() + "%</color>";
+            return "<color=orange>" + damage.ToString() + "%</color>";
         }
         else if (350f <= damage)
         {

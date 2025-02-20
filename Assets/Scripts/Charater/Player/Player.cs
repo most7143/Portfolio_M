@@ -6,9 +6,6 @@ public class Player : Character
     public WeaponController WeaponController;
     public FXManager FXManager;
 
-    public float CriticalRage = 0.05f;
-    public float CriticalDamage = 2f;
-
     private Monster targetMonster;
 
     private void Start()
@@ -97,23 +94,5 @@ public class Player : Character
         {
             FXManager.Spawn(WeaponController.Info.FXName, targetMonster.transform.position);
         }
-    }
-
-    public DamageInfo CalculateDamage()
-    {
-        DamageInfo info = new DamageInfo();
-
-        info.Value = Damage;
-
-        float critical = Random.Range(0f, 1f);
-
-        info.IsCritical = critical <= CriticalRage;
-
-        if (info.IsCritical)
-        {
-            info.Value *= CriticalDamage;
-        }
-
-        return info;
     }
 }
