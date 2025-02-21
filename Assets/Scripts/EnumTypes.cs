@@ -73,3 +73,24 @@ public enum FXSpawnTypes
     Target,
     TargetRandomRange,
 }
+
+public enum WeaponSkillNames
+{
+    None,
+}
+
+public enum SkillTypes
+{
+    None,
+    Attack,
+    Buff,
+}
+
+public enum SkillConditions
+{
+    None,
+    Attack,
+    Demaged,
+    Killed,
+    Dead,
+}

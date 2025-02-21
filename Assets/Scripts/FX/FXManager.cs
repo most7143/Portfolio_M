@@ -3,6 +3,34 @@ using UnityEngine;
 
 public class FXManager : MonoBehaviour
 {
+    private static FXManager instance = null;
+
+    private void Awake()
+    {
+        if (null == instance)
+        {
+            instance = this;
+
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    public static FXManager Instance
+    {
+        get
+        {
+            if (null == instance)
+            {
+                return null;
+            }
+            return instance;
+        }
+    }
+
     public List<FX> FXObjects;
 
     public void Spawn(FXNames fxName, Vector3 position)
