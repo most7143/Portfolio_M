@@ -94,3 +94,11 @@ public enum SkillConditions
     Killed,
     Dead,
 }
+
+public enum EventType
+{
+    None,
+    AttackExecuted,
+    PlayerDamaged,
+    MonsterDefeated
+}

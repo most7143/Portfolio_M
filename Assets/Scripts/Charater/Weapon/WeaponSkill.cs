@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class WeaponSkill : MonoBehaviour
 {
+    public bool Alive;
     public Player Owner;
     public WeaponSkillNames Name;
     public FXNames FXName;

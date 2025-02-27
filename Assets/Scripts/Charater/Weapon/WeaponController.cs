@@ -5,7 +5,7 @@ using UnityEngine;
 public struct WeaponInfo
 {
     public WeaponNames Name;
-    public FXNames FXName;
+    public WeaponSkillNames[] SkillNames;
     public string NameString;
     public string DescString;
     public int Tier;
@@ -58,7 +58,7 @@ public class WeaponController : MonoBehaviour
         {
             Info.Tier = currentData.Tier;
             Info.Name = currentData.Name;
-            Info.FXName = currentData.FXName;
+            Info.SkillNames = currentData.SkillNames.ToArray();
             Info.NameString = currentData.NameString;
             Info.DescString = currentData.DescString;
             Info.Level = currentData.Level;

@@ -1,10 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Weapon")]
 public class WeaponData : ScriptableObject
 {
     public WeaponNames Name;
-    public FXNames FXName;
+    public List<WeaponSkillNames> SkillNames;
     public string NameString;
     public string DescString;
     public int Tier;

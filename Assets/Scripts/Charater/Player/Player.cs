@@ -4,7 +4,6 @@ public class Player : Character
 {
     public Animator Animator;
     public WeaponController WeaponController;
-
     public Monster TargetMonster;
 
     private void Start()
@@ -76,6 +75,8 @@ public class Player : Character
             {
                 InGameManager.Instance.ObjectPool.SpawnFloaty(TargetMonster.transform.position, FloatyTypes.Damage, info.Value.ToString());
             }
+
+            EventManager<EventType>.Send(EventType.AttackExecuted, WeaponController.Name);
         }
     }
 }
