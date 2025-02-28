@@ -8,6 +8,7 @@ public enum FloatyTypes
     None,
     Damage,
     CritialDamage,
+    SkillDamage,
     Success,
     Fail,
     EXP,
@@ -15,6 +16,7 @@ public enum FloatyTypes
 
 public class UIFloaty : MonoBehaviour
 {
+    public Canvas Canvas;
     public UIFade Fade;
     public CanvasGroup CanvasGroup;
     public FloatyTypes Type;
@@ -41,7 +43,7 @@ public class UIFloaty : MonoBehaviour
         Text.gameObject.SetActive(true);
         StartCoroutine(ProcessAlive());
 
-        if (type == FloatyTypes.Damage || type == FloatyTypes.CritialDamage || type == FloatyTypes.EXP)
+        if (type == FloatyTypes.Damage || type == FloatyTypes.CritialDamage || type == FloatyTypes.SkillDamage || type == FloatyTypes.EXP)
         {
             Rect.anchoredPosition = GetWorldPosition(position);
         }
@@ -51,6 +53,15 @@ public class UIFloaty : MonoBehaviour
         }
         Fade.FadeOut();
         Move();
+
+        if (type == FloatyTypes.SkillDamage)
+        {
+            Canvas.sortingOrder = 10;
+        }
+        else
+        {
+            Canvas.sortingOrder = 5;
+        }
     }
 
     private void SetColor(FloatyTypes type)
@@ -66,6 +77,10 @@ public class UIFloaty : MonoBehaviour
         else if (type == FloatyTypes.Fail || type == FloatyTypes.CritialDamage)
         {
             Text.color = Color.red;
+        }
+        else if (type == FloatyTypes.SkillDamage)
+        {
+            Text.color = Color.cyan;
         }
     }
 

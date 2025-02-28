@@ -9,7 +9,7 @@ public class WeaponSkill : MonoBehaviour
     public SkillTypes Type;
     public SkillConditions Condition;
     public float Chance;
-    public float Value;
+    public float ValueMultiply;
 
     public void Activate()
     {
@@ -20,6 +20,13 @@ public class WeaponSkill : MonoBehaviour
             if (Type == SkillTypes.Attack)
             {
                 FXManager.Instance.Spawn(FXName, Owner.TargetMonster.transform.position);
+
+                DamageInfo damageInfo = new DamageInfo();
+
+                damageInfo.Type = DamageTypes.Skill;
+                damageInfo.Value = Mathf.RoundToInt(Owner.Damage * ValueMultiply);
+
+                Owner.SkillAttack(damageInfo);
             }
             else if (Type == SkillTypes.Buff)
             {

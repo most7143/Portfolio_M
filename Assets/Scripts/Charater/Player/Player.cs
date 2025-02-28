@@ -9,6 +9,7 @@ public class Player : Character
     private void Start()
     {
         WeaponController.InitWeaponDatas();
+        WeaponController.SetWeaponData(WeaponNames.WoodenSword);
         RefreshWeaponInfo();
 
         baseMaxHp = MaxHp;
@@ -53,6 +54,15 @@ public class Player : Character
 
         UIManager.Instance.PlayerInfo.RefreshHp(this);
         UIManager.Instance.PlayerInfo.RefreshLevel(Level);
+    }
+
+    public void SkillAttack(DamageInfo info)
+    {
+        TargetMonster.Hit(info);
+
+        Vector3 position = new Vector3(TargetMonster.transform.position.x + Random.Range(0, 0.5f), TargetMonster.transform.position.y + Random.Range(0, 0.5f));
+
+        InGameManager.Instance.ObjectPool.SpawnFloaty(position, FloatyTypes.SkillDamage, info.Value.ToString());
     }
 
     public void AnimationAttack()

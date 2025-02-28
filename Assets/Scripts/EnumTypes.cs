@@ -58,6 +58,13 @@ public enum UINames
     UIFade,
 }
 
+public enum FXSpawnTypes
+{
+    None,
+    Target,
+    TargetRandomRange,
+}
+
 public enum FXNames
 {
     None,
@@ -67,16 +74,13 @@ public enum FXNames
     PinkCut,
 }
 
-public enum FXSpawnTypes
-{
-    None,
-    Target,
-    TargetRandomRange,
-}
-
 public enum WeaponSkillNames
 {
     None,
+    FireBomb,
+    LightBomb,
+    FireBombExplosion,
+    PinkCut,
 }
 
 public enum SkillTypes
@@ -100,5 +104,14 @@ public enum EventType
     None,
     AttackExecuted,
     PlayerDamaged,
-    MonsterDefeated
+    MonsterDefeated,
+    EquipedWeapon,
+    AttackSkill,
+}
+
+public enum DamageTypes
+{
+    None,
+    Attack,
+    Skill,
 }

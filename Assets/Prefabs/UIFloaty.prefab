@@ -295,6 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0308302ef6366184e98950e78775724c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Canvas: {fileID: 1911869609864160029}
   Fade: {fileID: 7359377721604144608}
   CanvasGroup: {fileID: 2349604987055668811}
   Type: 1

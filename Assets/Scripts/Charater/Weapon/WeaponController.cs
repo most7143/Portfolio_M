@@ -39,8 +39,6 @@ public class WeaponController : MonoBehaviour
                 datas.Add(weaponData);
             }
         }
-
-        SetWeaponData(WeaponNames.WoodenSword);
     }
 
     public void SetWeaponData(WeaponNames name)
@@ -69,6 +67,8 @@ public class WeaponController : MonoBehaviour
             Info.CriticalDamage = currentData.CriticalDamage;
             Info.Icon = currentData.Icon;
         }
+
+        EventManager<EventType>.Send(EventType.EquipedWeapon, Name);
     }
 
     public WeaponNames NextTier(int tier)
