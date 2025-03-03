@@ -33,7 +33,7 @@ public class FXManager : MonoBehaviour
 
     public List<FX> FXObjects;
 
-    public void Spawn(FXNames fxName, Vector3 position)
+    public void Spawn(FXNames fxName, Player player)
     {
         FX fxObject = GetFXObejct(fxName);
 
@@ -50,20 +50,24 @@ public class FXManager : MonoBehaviour
 
         fxObject.transform.SetParent(transform);
 
-        fxObject.transform.position = SpawnRange(position, fxObject.SpawnType);
+        fxObject.transform.position = SpawnRange(player, fxObject.SpawnType);
     }
 
-    public Vector3 SpawnRange(Vector3 targetPosition, FXSpawnTypes spawnType)
+    public Vector3 SpawnRange(Player player, FXSpawnTypes spawnType)
     {
         Vector3 spawnPossition = Vector3.zero;
 
         if (spawnType == FXSpawnTypes.Target)
         {
-            return targetPosition;
+            return player.TargetMonster.transform.position;
         }
         else if (spawnType == FXSpawnTypes.TargetRandomRange)
         {
-            return targetPosition + new Vector3(Random.Range(0, 1f), Random.Range(0, 1f));
+            return player.TargetMonster.transform.position + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(0, 0.5f));
+        }
+        else if (spawnType == FXSpawnTypes.Owner)
+        {
+            return player.AttackPoint.position;
         }
 
         return spawnPossition;

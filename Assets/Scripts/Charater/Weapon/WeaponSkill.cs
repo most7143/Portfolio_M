@@ -19,7 +19,7 @@ public class WeaponSkill : MonoBehaviour
         {
             if (Type == SkillTypes.Attack)
             {
-                FXManager.Instance.Spawn(FXName, Owner.TargetMonster.transform.position);
+                FXManager.Instance.Spawn(FXName, Owner);
 
                 DamageInfo damageInfo = new DamageInfo();
 

@@ -63,6 +63,7 @@ public enum FXSpawnTypes
     None,
     Target,
     TargetRandomRange,
+    Owner,
 }
 
 public enum FXNames
@@ -72,6 +73,12 @@ public enum FXNames
     LightBomb,
     FireBombExplosion,
     PinkCut,
+    DeathSlash,
+    Cut,
+    DeathWaltz,
+    SavageClaw,
+    Slaughter,
+    CrimsonThunder,
 }
 
 public enum WeaponSkillNames
@@ -81,6 +88,12 @@ public enum WeaponSkillNames
     LightBomb,
     FireBombExplosion,
     PinkCut,
+    DeathSlash,
+    Cut,
+    DeathWaltz,
+    SavageClaw,
+    Slaughter,
+    CrimsonThunder,
 }
 
 public enum SkillTypes
@@ -99,7 +112,7 @@ public enum SkillConditions
     Dead,
 }
 
-public enum EventType
+public enum EventTypes
 {
     None,
     AttackExecuted,

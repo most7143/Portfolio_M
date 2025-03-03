@@ -11,14 +11,14 @@ public class SkillSystem : MonoBehaviour
 
     private void OnEnable()
     {
-        EventManager<EventType>.Register<WeaponNames>(EventType.AttackExecuted, ActivateToAttack);
-        EventManager<EventType>.Register<WeaponNames>(EventType.EquipedWeapon, RefreshSkill);
+        EventManager<EventTypes>.Register<WeaponNames>(EventTypes.AttackExecuted, ActivateToAttack);
+        EventManager<EventTypes>.Register<WeaponNames>(EventTypes.EquipedWeapon, RefreshSkill);
     }
 
     private void OnDisable()
     {
-        EventManager<EventType>.Unregister<WeaponNames>(EventType.AttackExecuted, ActivateToAttack);
-        EventManager<EventType>.Unregister<WeaponNames>(EventType.EquipedWeapon, RefreshSkill);
+        EventManager<EventTypes>.Unregister<WeaponNames>(EventTypes.AttackExecuted, ActivateToAttack);
+        EventManager<EventTypes>.Unregister<WeaponNames>(EventTypes.EquipedWeapon, RefreshSkill);
     }
 
     public void RefreshSkill(WeaponNames name)
@@ -51,6 +51,7 @@ public class SkillSystem : MonoBehaviour
         }
 
         _skills.Clear();
+        _weaponData = null;
     }
 
     public void Unregister(WeaponSkillNames name)

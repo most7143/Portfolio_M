@@ -68,7 +68,9 @@ public class WeaponController : MonoBehaviour
             Info.Icon = currentData.Icon;
         }
 
-        EventManager<EventType>.Send(EventType.EquipedWeapon, Name);
+        Name = Info.Name;
+
+        EventManager<EventTypes>.Send(EventTypes.EquipedWeapon, Name);
     }
 
     public WeaponNames NextTier(int tier)

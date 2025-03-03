@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8854224501517759975}
   - component: {fileID: 2278699063348229795}
   m_Layer: 5
-  m_Name: FX_LightBomb
+  m_Name: FX_DeathWaltz
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -84,12 +84,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 784852804, guid: d7ab28b4bacc0eb46ac9ac6e07ffc861, type: 3}
+  m_Sprite: {fileID: -1701950541, guid: 45058eb4a89b7d9468e1348143d18278, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 5.12, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -105,7 +105,7 @@ Animator:
   m_GameObject: {fileID: 5991189563488119585}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1b0f8475fc721d444bc0a6748c3a49c7, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5c9a5aeaf298bd54fbcfa5503903171a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -128,10 +128,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfc47c058cec4284187939429593d730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 2
-  SpawnType: 2
-  Renderer: {fileID: 0}
+  Name: 7
+  SpawnType: 1
+  Renderer: {fileID: 4966181810756221684}
   isRandomFlip: 0
   Alive: 0
-  Anim: {fileID: 0}
+  Anim: {fileID: 8854224501517759975}
   AliveTime: 1

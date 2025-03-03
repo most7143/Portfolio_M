@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Plumblossom
   m_EditorClassIdentifier: 
   Name: 8
-  FXName: 4
+  SkillNames: 04000000
   NameString: "\uAC1C\uD654"
   DescString: "\uD53C\uAC00 \uD280\uB294 \uD615\uD0DC\uAC00 \uB9C8\uCE58 \uAF43\uC774
     \uD53C\uB294 \uAC83\uACFC \uAC19\uB2E4"
