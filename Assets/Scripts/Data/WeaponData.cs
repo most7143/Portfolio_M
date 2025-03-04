@@ -16,4 +16,9 @@ public class WeaponData : ScriptableObject
     public float CriticalRate;
     public float CriticalDamage;
     public Sprite Icon;
+
+    private void OnValidate()
+    {
+        AssetUtility.RenameAsset(this, Name.ToString());
+    }
 }

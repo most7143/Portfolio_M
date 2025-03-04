@@ -55,7 +55,7 @@ public class InGameManager : MonoBehaviour
     {
         IsBattle = true;
 
-        MonsterSpanwer.Spawn(CharacterNames.BoneWorm);
+        MonsterSpanwer.Spawn(CharacterNames.SlimeGreen);
         StageManager.Spawn(StageNames.Forest);
 
         Player.StartAttack();

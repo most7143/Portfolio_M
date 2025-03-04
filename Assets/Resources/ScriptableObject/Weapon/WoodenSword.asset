@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WoodenSword
   m_EditorClassIdentifier: 
   Name: 1
-  SkillNames: 
+  SkillNames: 0a000000
   NameString: "\uBAA9\uAC80"
   DescString: 
   Tier: 1

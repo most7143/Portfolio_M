@@ -4,7 +4,7 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     public CharacterNames Name;
-    public string NameString;
+    [HideInInspector] public string NameString;
     public int Level = 1;
     public float MaxHp;
     public float CurrentHp;

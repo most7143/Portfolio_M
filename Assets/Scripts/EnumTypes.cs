@@ -6,6 +6,42 @@ public enum CharacterNames
     BoneWormBlue,
     BoneWormGreen,
     BoneWormWhite,
+
+    SlimeGreen,
+    SlimeBlue,
+    SlimeRed,
+    SlimeBlack,
+
+    RatBrown,
+    RatGreen,
+    RatBlack,
+    RatWhite,
+
+    SpiderGreen,
+    SpiderBlue,
+    SpiderBlack,
+    SpiderWhite,
+
+    ScorpionGreen,
+    ScorpionBlue,
+    ScorpionBlack,
+    ScorpionWhite,
+
+    WolfGreen,
+    WolfBlue,
+    WolfBlack,
+    WolfWhite,
+
+    CerberusGreen,
+    CerberusRed,
+    CerberusBlack,
+    CerberusWhite,
+
+    SkullGreen,
+    SkullBlue,
+    SkullRed,
+    SkullViolet,
+
     End,
 }
 

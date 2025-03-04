@@ -12,4 +12,9 @@ public class MonsterData : ScriptableObject
     public float Damage;
     public float DamageByLevel;
     public float AttackSpeed;
+
+    private void OnValidate()
+    {
+        AssetUtility.RenameAsset(this, Name.ToString());
+    }
 }
