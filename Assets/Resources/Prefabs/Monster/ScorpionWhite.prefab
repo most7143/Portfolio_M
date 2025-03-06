@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 584518497833966851}
   - component: {fileID: 3534711403590786747}
   m_Layer: 0
-  m_Name: BoneWorm
+  m_Name: ScorpionWhite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 625661522ee466043a902f71d9fc2f00, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3408ca7ca5a2e4e43ad819170cdff141, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,14 +97,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ce54d43630ee4e4094ff91916fe668c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 2
+  Name: 21
   NameString: 
   Level: 1
   MaxHp: 10
   CurrentHp: 0
   Damage: 0
   AttackSpeed: 5
+  CriticalRage: 0.05
+  CriticalDamage: 2
+  IsAlive: 0
   Renderer: {fileID: 584518497833966851}
-  Exp: 1
-  Gold: 1
-  data: {fileID: 0}
+  MaxLevel: 1
+  Spanwer: {fileID: 0}

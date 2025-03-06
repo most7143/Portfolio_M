@@ -2,7 +2,7 @@ public enum CharacterNames
 {
     None,
     Swordman,
-    BoneWorm,
+    BoneWormBlack,
     BoneWormBlue,
     BoneWormGreen,
     BoneWormWhite,

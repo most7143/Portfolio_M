@@ -263,7 +263,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 2000, y: 2000}
+  m_SizeDelta: {x: 2000, y: 1100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &93853871
 MonoBehaviour:
@@ -810,7 +810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentStage: {fileID: 0}
   Data: {fileID: 0}
-  ChangeLevel: 10
+  ChangeLevel: 100
 --- !u!4 &314467553
 Transform:
   m_ObjectHideFlags: 0
@@ -951,7 +951,7 @@ MonoBehaviour:
   Name: 1
   NameString: 
   Level: 1
-  MaxHp: 100
+  MaxHp: 1000
   CurrentHp: 0
   Damage: 4
   AttackSpeed: 1.5
@@ -1323,7 +1323,7 @@ MonoBehaviour:
   FXName: 7
   Type: 1
   Condition: 1
-  Chance: 0.1
+  Chance: 0.2
   ValueMultiply: 10
 --- !u!1 &416198438
 GameObject:
@@ -2033,6 +2033,10 @@ MonoBehaviour:
   SpawnMonster: {fileID: 0}
   SpawnPoint: {fileID: 1472118342}
   Level: 1
+  Damage: 5
+  MaxHP: 10
+  DamageByLevel: 1
+  MaxHPMultiplierByLevel: 1.05
   EXP: 10
   Gold: 5
 --- !u!1 &584289150
@@ -2138,7 +2142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2861f05aad76cc2498e5b3a65bdd828f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UprageButton: {fileID: 2132870729}
+  UprageButton: {fileID: 2132870732}
   PercentText: {fileID: 1553253004}
   UpgradeGoldText: {fileID: 2073389183}
   IconImage: {fileID: 447522164}
@@ -4989,7 +4993,7 @@ MonoBehaviour:
   Type: 1
   Condition: 1
   Chance: 0.1
-  ValueMultiply: 5
+  ValueMultiply: 20
 --- !u!1 &1872499546
 GameObject:
   m_ObjectHideFlags: 0
@@ -5804,6 +5808,7 @@ GameObject:
   - component: {fileID: 2132870731}
   - component: {fileID: 2132870730}
   - component: {fileID: 2132870729}
+  - component: {fileID: 2132870732}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -5913,6 +5918,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132870727}
   m_CullTransparentMesh: 1
+--- !u!114 &2132870732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132870727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b71e8261122a79f45af956e0deffec30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WeaponUpgrade: {fileID: 619528781}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

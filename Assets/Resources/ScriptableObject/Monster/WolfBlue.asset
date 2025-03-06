@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: WolfBlue
   m_EditorClassIdentifier: 
   Name: 23
-  NameString: "\uBCF8\uC6DC\uADF8\uB9B0"
-  Level: 21
-  MaxLevel: 30
+  NameString: "\uD478\uB978 \uB291\uB300"
+  Level: 141
+  MaxLevel: 160
   MaxHP: 50
   MaxHPMultiplierByLevel: 1.2
   Damage: 20

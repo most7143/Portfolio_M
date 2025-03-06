@@ -13,11 +13,7 @@ MonoBehaviour:
   m_Name: CerberusBlack
   m_EditorClassIdentifier: 
   Name: 28
-  NameString: "\uCD08\uB85D \uC2AC\uB77C\uC784"
-  Level: 1
-  MaxLevel: 10
-  MaxHP: 5
-  MaxHPMultiplierByLevel: 1.2
-  Damage: 1
-  DamageByLevel: 1
+  NameString: "\uAC80\uC740 \uC9C0\uC625\uACAC"
+  Level: 501
+  MaxLevel: 550
   AttackSpeed: 0.3

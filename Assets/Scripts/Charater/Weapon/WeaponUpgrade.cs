@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class WeaponUpgrade : MonoBehaviour
 {
-    public Button UprageButton;
+    public UpgradeButton UprageButton;
 
     public TextMeshProUGUI PercentText;
     public TextMeshProUGUI UpgradeGoldText;
@@ -19,7 +19,6 @@ public class WeaponUpgrade : MonoBehaviour
     private void Start()
     {
         InGameManager.Instance.Controller.Data.Gold += 100000;
-        UprageButton.onClick.AddListener(Upgrade);
         currentSucPercent = baseSucPercent;
         RefreshPercentText();
         RefreshCostColor();

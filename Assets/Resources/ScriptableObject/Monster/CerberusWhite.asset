@@ -13,11 +13,7 @@ MonoBehaviour:
   m_Name: CerberusWhite
   m_EditorClassIdentifier: 
   Name: 29
-  NameString: "\uBCF8\uC6DC\uBE14\uB8E8"
-  Level: 11
-  MaxLevel: 20
-  MaxHP: 20
-  MaxHPMultiplierByLevel: 1.2
-  Damage: 10
-  DamageByLevel: 1
+  NameString: "\uD558\uC580 \uC9C0\uC625\uACAC"
+  Level: 551
+  MaxLevel: 560
   AttackSpeed: 0.3

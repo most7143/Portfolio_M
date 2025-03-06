@@ -7,10 +7,6 @@ public class MonsterData : ScriptableObject
     public string NameString;
     public int Level = 1;
     public int MaxLevel = 1;
-    public float MaxHP;
-    public float MaxHPMultiplierByLevel;
-    public float Damage;
-    public float DamageByLevel;
     public float AttackSpeed;
 
     private void OnValidate()

@@ -13,11 +13,7 @@ MonoBehaviour:
   m_Name: SkullGreen
   m_EditorClassIdentifier: 
   Name: 30
-  NameString: "\uBCF8\uC6DC\uD654\uC774\uD2B8"
-  Level: 31
-  MaxLevel: 999
-  MaxHP: 100
-  MaxHPMultiplierByLevel: 1.2
-  Damage: 30
-  DamageByLevel: 1
+  NameString: "\uCD08\uB85D \uD574\uACE8"
+  Level: 301
+  MaxLevel: 325
   AttackSpeed: 0.3

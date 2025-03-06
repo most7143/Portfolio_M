@@ -13,11 +13,7 @@ MonoBehaviour:
   m_Name: BoneWormGreen
   m_EditorClassIdentifier: 
   Name: 4
-  NameString: "\uBCF8\uC6DC\uADF8\uB9B0"
-  Level: 21
-  MaxLevel: 30
-  MaxHP: 50
-  MaxHPMultiplierByLevel: 1.2
-  Damage: 20
-  DamageByLevel: 1
+  NameString: "\uBCF8\uC6DC \uADF8\uB9B0"
+  Level: 301
+  MaxLevel: 325
   AttackSpeed: 0.3

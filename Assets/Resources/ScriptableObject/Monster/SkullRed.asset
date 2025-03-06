@@ -13,11 +13,7 @@ MonoBehaviour:
   m_Name: SkullRed
   m_EditorClassIdentifier: 
   Name: 32
-  NameString: "\uCD08\uB85D \uC2AC\uB77C\uC784"
-  Level: 1
-  MaxLevel: 10
-  MaxHP: 5
-  MaxHPMultiplierByLevel: 1.2
-  Damage: 1
-  DamageByLevel: 1
+  NameString: "\uBD89\uC740 \uD574\uACE8"
+  Level: 251
+  MaxLevel: 275
   AttackSpeed: 0.3

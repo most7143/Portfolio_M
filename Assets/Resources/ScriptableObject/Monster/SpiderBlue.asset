@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: SpiderBlue
   m_EditorClassIdentifier: 
   Name: 15
-  NameString: "\uBCF8\uC6DC\uBE14\uB8E8"
-  Level: 11
-  MaxLevel: 20
+  NameString: "\uD30C\uB780 \uAC70\uBBF8"
+  Level: 81
+  MaxLevel: 90
   MaxHP: 20
   MaxHPMultiplierByLevel: 1.2
   Damage: 10

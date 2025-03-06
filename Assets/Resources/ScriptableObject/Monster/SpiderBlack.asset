@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: SpiderBlack
   m_EditorClassIdentifier: 
   Name: 16
-  NameString: "\uCD08\uB85D \uC2AC\uB77C\uC784"
-  Level: 1
-  MaxLevel: 10
+  NameString: "\uAC80\uC740 \uAC70\uBBF8"
+  Level: 91
+  MaxLevel: 100
   MaxHP: 5
   MaxHPMultiplierByLevel: 1.2
   Damage: 1

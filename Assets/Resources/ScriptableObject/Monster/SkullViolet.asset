@@ -13,11 +13,7 @@ MonoBehaviour:
   m_Name: SkullViolet
   m_EditorClassIdentifier: 
   Name: 33
-  NameString: "\uBCF8\uC6DC\uBE14\uB8E8"
-  Level: 11
-  MaxLevel: 20
-  MaxHP: 20
-  MaxHPMultiplierByLevel: 1.2
-  Damage: 10
-  DamageByLevel: 1
+  NameString: "\uBCF4\uB77C \uD574\uACE8"
+  Level: 376
+  MaxLevel: 400
   AttackSpeed: 0.3

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: ScorpionBlack
   m_EditorClassIdentifier: 
   Name: 20
-  NameString: "\uBCF8\uC6DC\uD654\uC774\uD2B8"
-  Level: 31
-  MaxLevel: 999
+  NameString: "\uAC80\uC740 \uC804\uAC08"
+  Level: 251
+  MaxLevel: 275
   MaxHP: 100
   MaxHPMultiplierByLevel: 1.2
   Damage: 30

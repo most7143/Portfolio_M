@@ -13,11 +13,7 @@ MonoBehaviour:
   m_Name: CerberusRed
   m_EditorClassIdentifier: 
   Name: 27
-  NameString: "\uBCF8\uC6DC\uADF8\uB9B0"
-  Level: 21
-  MaxLevel: 30
-  MaxHP: 50
-  MaxHPMultiplierByLevel: 1.2
-  Damage: 20
-  DamageByLevel: 1
+  NameString: "\uBD89\uC740 \uC9C0\uC625\uACAC"
+  Level: 451
+  MaxLevel: 500
   AttackSpeed: 0.3

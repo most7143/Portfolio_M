@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: WolfWhite
   m_EditorClassIdentifier: 
   Name: 25
-  NameString: "\uBCF8\uC6DC\uBE14\uB8E8"
-  Level: 11
-  MaxLevel: 20
+  NameString: "\uD558\uC580 \uB291\uB300"
+  Level: 181
+  MaxLevel: 200
   MaxHP: 20
   MaxHPMultiplierByLevel: 1.2
   Damage: 10

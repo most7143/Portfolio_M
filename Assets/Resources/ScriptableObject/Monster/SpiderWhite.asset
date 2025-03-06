@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: SpiderWhite
   m_EditorClassIdentifier: 
   Name: 17
-  NameString: "\uBCF8\uC6DC\uADF8\uB9B0"
-  Level: 21
-  MaxLevel: 30
+  NameString: "\uD770 \uAC70\uBBF8"
+  Level: 101
+  MaxLevel: 120
   MaxHP: 50
   MaxHPMultiplierByLevel: 1.2
   Damage: 20

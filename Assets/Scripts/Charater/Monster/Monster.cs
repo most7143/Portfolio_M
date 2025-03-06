@@ -8,15 +8,15 @@ public class Monster : Character
 
     private MonsterData data;
 
-    public void SetData()
+    public void SetData(float damage, float maxHp)
     {
         data = ResourcesManager.Instance.LoadScriptable<MonsterData>(Name.ToString());
         NameString = data.NameString;
         Level = data.Level;
         MaxLevel = data.MaxLevel;
-        MaxHp = data.MaxHP;
+        Damage = damage;
+        MaxHp = maxHp;
         CurrentHp = MaxHp;
-        Damage = data.Damage;
         AttackSpeed = data.AttackSpeed;
 
         Spanwer.RefreshLevelByData(Level);
@@ -45,6 +45,8 @@ public class Monster : Character
     {
         base.Dead();
 
+        RefreshData();
+
         if (Level <= MaxLevel)
         {
             Level += 1;
@@ -56,9 +58,6 @@ public class Monster : Character
         }
         else
         {
-            MaxHp = GetHP();
-            CurrentHp = MaxHp;
-            Damage = (Level - data.Level) * data.DamageByLevel;
             Spanwer.RefreshLevelByData(Level);
             UIManager.Instance.MonsterInfo.Refresh(this);
         }
@@ -70,17 +69,17 @@ public class Monster : Character
         InGameManager.Instance.RefreshStage(Level);
     }
 
-    private float GetHP()
+    private void RefreshData()
     {
-        int level = Level - data.Level;
+        Damage *= Spanwer.DamageByLevel;
+        MaxHp *= Spanwer.MaxHPMultiplierByLevel;
+        Damage = Mathf.CeilToInt(Damage);
 
-        float maxHp = data.MaxHP;
+        MaxHp = Mathf.RoundToInt(MaxHp);
 
-        for (int i = 0; i < level; i++)
-        {
-            maxHp *= data.MaxHPMultiplierByLevel;
-        }
+        Spanwer.MaxHP = MaxHp;
+        Spanwer.Damage = Damage;
 
-        return Mathf.Round(maxHp);
+        CurrentHp = MaxHp;
     }
 }
