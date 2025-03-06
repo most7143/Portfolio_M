@@ -10,16 +10,16 @@ public class UpgradeButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     public void OnPointerDown(PointerEventData eventData)
     {
         isPressed = true;
-        InvokeRepeating(nameof(ExecuteWhileHolding), 0f, 0.1f);
+        InvokeRepeating("Execute", 0f, 0.1f);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
         isPressed = false;
-        CancelInvoke(nameof(ExecuteWhileHolding)); // 중지
+        CancelInvoke("Execute");
     }
 
-    private void ExecuteWhileHolding()
+    private void Execute()
     {
         if (isPressed)
         {

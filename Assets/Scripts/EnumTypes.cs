@@ -115,6 +115,8 @@ public enum FXNames
     SavageClaw,
     Slaughter,
     CrimsonThunder,
+    CrimsonDoom,
+    FireCut,
 }
 
 public enum WeaponSkillNames
@@ -130,6 +132,8 @@ public enum WeaponSkillNames
     SavageClaw,
     Slaughter,
     CrimsonThunder,
+    CrimsonDoom,
+    FireCut,
 }
 
 public enum SkillTypes
