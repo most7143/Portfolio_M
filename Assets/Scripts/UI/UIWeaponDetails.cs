@@ -24,6 +24,8 @@ public class UIWeaponDetails : MonoBehaviour
             WeaponIcon.sprite = weaponData.Icon;
         }
 
+        StopAllCoroutines();
+
         StartCoroutine(StartShow());
     }
 

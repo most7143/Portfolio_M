@@ -34,7 +34,7 @@ public class InGameDataController : MonoBehaviour
 
     public void AddExp(float exp)
     {
-        float currentEXP = Mathf.Floor(exp);
+        float currentEXP = Mathf.FloorToInt(exp);
 
         Data.Experience += currentEXP;
 

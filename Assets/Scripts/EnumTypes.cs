@@ -136,6 +136,32 @@ public enum WeaponSkillNames
     FireCut,
 }
 
+public enum PassiveSkillNames
+{
+    None,
+
+    StaminaTraining,  // 체력단련
+    StrengthTraining, // 근력단련
+
+    Durability, // 강인함
+    WeaknessExposure, // 약점 노출
+    SurvivalOfTheFittest,// 약육 강식
+
+    Vampire, //흡혈귀
+    Gale, //돌풍
+
+    PowerOfGenesis, //창세의 힘
+}
+
+public enum PassiveGrades
+{
+    None,
+    Normal,
+    Rare,
+    Unique,
+    Legendary,
+}
+
 public enum SkillTypes
 {
     None,

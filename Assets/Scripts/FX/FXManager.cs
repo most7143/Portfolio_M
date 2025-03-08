@@ -10,8 +10,6 @@ public class FXManager : MonoBehaviour
         if (null == instance)
         {
             instance = this;
-
-            DontDestroyOnLoad(this.gameObject);
         }
         else
         {

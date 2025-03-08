@@ -19,6 +19,10 @@ public class WeaponUpgrade : MonoBehaviour
     private void Start()
     {
         InGameManager.Instance.Controller.Data.Gold += 100000;
+    }
+
+    public void Activate()
+    {
         currentSucPercent = baseSucPercent;
         RefreshPercentText();
         RefreshCostColor();
@@ -34,7 +38,12 @@ public class WeaponUpgrade : MonoBehaviour
 
         int upgradeCost = GetUpgradeCost(player.WeaponController.Info.Level);
 
-        if (TryUpgrade(player.WeaponController.Info, upgradeCost))
+        if (InGameManager.Instance.Controller.Data.Gold < upgradeCost)
+        {
+            return;
+        }
+
+        if (TryUpgrade(player.WeaponController.Info))
         {
             player.WeaponController.Info.Level += 1;
 
@@ -86,16 +95,11 @@ public class WeaponUpgrade : MonoBehaviour
         return weaponLevel * 2;
     }
 
-    private bool TryUpgrade(WeaponInfo weaponInfo, int upgradeCost)
+    private bool TryUpgrade(WeaponInfo weaponInfoupgradeCost)
     {
-        if (InGameManager.Instance.Controller.Data.Gold >= upgradeCost)
-        {
-            int range = Random.Range(0, 100);
+        int range = Random.Range(0, 100);
 
-            return range < currentSucPercent;
-        }
-
-        return false;
+        return range < currentSucPercent;
     }
 
     public int GetAddDamage(WeaponInfo weaponInfo)

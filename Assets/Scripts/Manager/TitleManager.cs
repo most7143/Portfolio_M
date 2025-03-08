@@ -8,6 +8,7 @@ public class TitleManager : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1f;
         StartButton.onClick.AddListener(() => LoadScene("LoadingScene"));
     }
 

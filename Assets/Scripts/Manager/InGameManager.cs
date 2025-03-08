@@ -1,5 +1,6 @@
 using Assets.Scripts.Manager;
 using Assets.Scripts.UI;
+using System.Collections;
 using UnityEngine;
 
 public class InGameManager : MonoBehaviour
@@ -11,8 +12,6 @@ public class InGameManager : MonoBehaviour
         if (null == instance)
         {
             instance = this;
-
-            DontDestroyOnLoad(this.gameObject);
         }
         else
         {
@@ -42,6 +41,8 @@ public class InGameManager : MonoBehaviour
     public InGameDataController Controller;
     public ObjectPooling ObjectPool;
 
+    public UIGameOver GameOver;
+
     [HideInInspector]
     public Monster Monster
     { get { return MonsterSpanwer.SpawnMonster; } }
@@ -64,7 +65,17 @@ public class InGameManager : MonoBehaviour
     public void StageFail()
     {
         IsBattle = false;
+        Time.timeScale = 1f;
         UIHandler.FadeOut();
+        StartCoroutine(GameOverProcess());
+    }
+
+    private IEnumerator GameOverProcess()
+    {
+        yield return new WaitForSeconds(1f);
+        GameOver.MaxKillMonsterLevel.SetText("최대 처치 몬스터 레벨 : {0} ", MonsterSpanwer.Level);
+
+        GameOver.Show();
     }
 
     public void RefreshStage(int monsterLevel)

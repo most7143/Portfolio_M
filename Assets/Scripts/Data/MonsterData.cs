@@ -9,8 +9,12 @@ public class MonsterData : ScriptableObject
     public int MaxLevel = 1;
     public float AttackSpeed;
 
+#if UNITY_EDITOR
+
     private void OnValidate()
     {
         AssetUtility.RenameAsset(this, Name.ToString());
     }
+
+#endif
 }

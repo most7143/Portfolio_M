@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 29
   NameString: "\uD558\uC580 \uC9C0\uC625\uACAC"
-  Level: 551
-  MaxLevel: 560
+  Level: 1101
+  MaxLevel: 9999
   AttackSpeed: 0.3

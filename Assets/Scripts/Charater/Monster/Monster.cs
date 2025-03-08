@@ -52,9 +52,9 @@ public class Monster : Character
             Level += 1;
         }
 
-        if (Level > MaxLevel && Name + 1 != CharacterNames.End)
+        if (Level > MaxLevel)
         {
-            InGameManager.Instance.MonsterSpanwer.Respawn(Name + 1);
+            InGameManager.Instance.MonsterSpanwer.Respawn(Level);
         }
         else
         {

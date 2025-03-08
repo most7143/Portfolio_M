@@ -10,12 +10,12 @@ EditorBuildSettings:
       Pack - RPG.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/MainScene.unity
-    guid: 3fc8acdd13e6c734bafef6554d6fdbcd
+    path: Assets/Scenes/TitleScene.unity
+    guid: dc2e6bf947cb5c64dba400d7f3ad5e9a
   - enabled: 1
     path: Assets/Scenes/LoadingScene.unity
     guid: 9399815bbb1d7e043b08f20ad6a0b761
   - enabled: 1
-    path: Assets/Scenes/TitleScene.unity
-    guid: dc2e6bf947cb5c64dba400d7f3ad5e9a
+    path: Assets/Scenes/MainScene.unity
+    guid: 3fc8acdd13e6c734bafef6554d6fdbcd
   m_configObjects: {}

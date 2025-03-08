@@ -88,4 +88,19 @@ public class ResourcesManager : MonoBehaviour
 
         return null;
     }
+
+    public Sprite LoadSprite(string name)
+    {
+        Sprite[] objects = Resources.LoadAll<Sprite>("Sprite");
+
+        foreach (Sprite obj in objects)
+        {
+            if (obj.name == name)
+            {
+                return obj;
+            }
+        }
+
+        return null;
+    }
 }

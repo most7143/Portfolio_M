@@ -14,10 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 25
   NameString: "\uD558\uC580 \uB291\uB300"
-  Level: 181
-  MaxLevel: 200
-  MaxHP: 20
-  MaxHPMultiplierByLevel: 1.2
-  Damage: 10
-  DamageByLevel: 1
+  Level: 201
+  MaxLevel: 225
   AttackSpeed: 0.3

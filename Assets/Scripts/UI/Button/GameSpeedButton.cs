@@ -27,12 +27,6 @@ public class GameSpeedButton : MonoBehaviour
 
             case 2:
                 {
-                    Speed = 3;
-                }
-                break;
-
-            case 3:
-                {
                     Speed = 1;
                 }
                 break;
