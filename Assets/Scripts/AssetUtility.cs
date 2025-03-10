@@ -1,11 +1,11 @@
-﻿#if UNITY_EDITOR
-
-using System.IO;
+﻿using System.IO;
 using UnityEditor;
 using UnityEngine;
 
 public static class AssetUtility
 {
+#if UNITY_EDITOR
+
     public static void RenameAsset(ScriptableObject scriptableObject, string newName)
     {
         if (Application.isPlaying) return; // 게임이 실행 중이면 처리하지 않음
@@ -48,6 +48,6 @@ public static class AssetUtility
             Debug.LogWarning(e.Message);
         }
     }
-}
 
 #endif
+}
