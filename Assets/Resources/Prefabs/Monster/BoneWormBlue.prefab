@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8168016136057375235}
   - component: {fileID: 584518497833966851}
   - component: {fileID: 3534711403590786747}
+  - component: {fileID: 9136431037187733074}
   m_Layer: 0
   m_Name: BoneWormBlue
   m_TagString: Untagged
@@ -101,11 +102,49 @@ MonoBehaviour:
   NameString: 
   Level: 1
   MaxHp: 10
-  CurrentHp: 0
   Damage: 0
   AttackSpeed: 5
+  IsAlive: 0
   Renderer: {fileID: 584518497833966851}
-  Exp: 1
-  Gold: 1
+  StatSystem: {fileID: 0}
   MaxLevel: 1
-  data: {fileID: 0}
+  Spanwer: {fileID: 0}
+--- !u!114 &9136431037187733074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21315307241282975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f5e56e8282934f4f99bccbb80513aa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Stats:
+  - Name: 1
+    Value: 1
+  - Name: 2
+    Value: 1
+  - Name: 3
+    Value: 0
+  - Name: 4
+    Value: 1
+  - Name: 5
+    Value: 1
+  - Name: 6
+    Value: 0
+  - Name: 7
+    Value: 1
+  - Name: 8
+    Value: 1
+  - Name: 9
+    Value: 0
+  - Name: 10
+    Value: 1
+  - Name: 11
+    Value: 1
+  - Name: 13
+    Value: 1
+  - Name: 14
+    Value: 1

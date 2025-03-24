@@ -6,19 +6,25 @@ public class Character : MonoBehaviour
     public CharacterNames Name;
     [HideInInspector] public string NameString;
     public int Level = 1;
-    public float MaxHp;
-    public float CurrentHp;
     public float Damage = 1;
-    public float AttackSpeed = 1;
 
-    public float CriticalRage = 0.05f;
-    public float CriticalDamage = 2f;
+    public float AttackSpeed = 1;
 
     protected float baseMaxHp;
 
     public bool IsAlive;
 
     public SpriteRenderer Renderer;
+
+    public StatSystem StatSystem;
+
+    public float CurrentHp;
+
+    public float MaxHp
+    {
+        get { return StatSystem.GetStat(StatNames.Health); }
+        set { StatSystem.SetStat(StatNames.Health, value); }
+    }
 
     protected virtual void Awake()
     {
@@ -77,11 +83,11 @@ public class Character : MonoBehaviour
 
         float critical = Random.Range(0f, 1f);
 
-        info.IsCritical = critical <= CriticalRage;
+        info.IsCritical = critical <= StatSystem.GetStat(StatNames.CriticalChance);
 
         if (info.IsCritical)
         {
-            info.Value *= CriticalDamage;
+            info.Value *= StatSystem.GetStat(StatNames.CriticalDamage);
         }
 
         info.Value = Mathf.RoundToInt(info.Value);

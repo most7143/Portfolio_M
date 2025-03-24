@@ -20,8 +20,8 @@ public class Player : Character
     {
         Damage = WeaponController.Info.Damage;
         AttackSpeed = WeaponController.Info.Speed;
-        CriticalRage = WeaponController.Info.CriticalRate;
-        CriticalDamage = WeaponController.Info.CriticalDamage;
+        StatSystem.SetStat(StatNames.CriticalChance, WeaponController.Info.CriticalRate);
+        StatSystem.SetStat(StatNames.CriticalDamage, WeaponController.Info.CriticalDamage);
 
         Animator.SetFloat("AttackSpeed", AttackSpeed * 2);
     }
