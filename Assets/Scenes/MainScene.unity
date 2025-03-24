@@ -1019,7 +1019,6 @@ GameObject:
   - component: {fileID: 322252491}
   - component: {fileID: 322252494}
   - component: {fileID: 322252495}
-  - component: {fileID: 322252496}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1115,6 +1114,7 @@ Transform:
   m_Children:
   - {fileID: 1302452156}
   - {fileID: 627508279}
+  - {fileID: 1245801768}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &322252494
@@ -1132,12 +1132,12 @@ MonoBehaviour:
   Name: 1
   NameString: 
   Level: 1
-  MaxHp: 1000
   Damage: 4
   AttackSpeed: 1.5
   IsAlive: 0
   Renderer: {fileID: 322252492}
   StatSystem: {fileID: 0}
+  CurrentHp: 0
   Animator: {fileID: 322252491}
   WeaponController: {fileID: 322252495}
   TargetMonster: {fileID: 0}
@@ -1155,29 +1155,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: 1
---- !u!114 &322252496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 322252490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bfcf7fc8baed1c4da2c7407e48e38ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Stats:
-  - Name: 0
-    Value: 0
-  - Name: 0
-    Value: 0
-  - Name: 0
-    Value: 0
-  - Name: 0
-    Value: 0
-  - Name: 0
-    Value: 0
 --- !u!1 &327137936
 GameObject:
   m_ObjectHideFlags: 0
@@ -4844,6 +4821,77 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxKillMonsterLevel: {fileID: 1394822890}
   Button: {fileID: 542642497}
+--- !u!1 &1245801767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1245801768}
+  - component: {fileID: 1245801769}
+  m_Layer: 0
+  m_Name: StatSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1245801768
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245801767}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 322252493}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1245801769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245801767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f5e56e8282934f4f99bccbb80513aa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Stats:
+  - Name: 1
+    Value: 1
+  - Name: 2
+    Value: 1
+  - Name: 3
+    Value: 0
+  - Name: 4
+    Value: 1
+  - Name: 5
+    Value: 1
+  - Name: 6
+    Value: 0
+  - Name: 7
+    Value: 1
+  - Name: 8
+    Value: 1
+  - Name: 9
+    Value: 0
+  - Name: 10
+    Value: 1
+  - Name: 11
+    Value: 1
+  - Name: 13
+    Value: 1
+  - Name: 14
+    Value: 1
 --- !u!1 &1250064418
 GameObject:
   m_ObjectHideFlags: 0
