@@ -22,13 +22,12 @@ public class Character : MonoBehaviour
 
     public float MaxHp
     {
-        get { return StatSystem.GetStat(StatNames.Health); }
+        get { return StatSystem.GetStatResult(StatNames.Health); }
         set { StatSystem.SetStat(StatNames.Health, value); }
     }
 
     protected virtual void Awake()
     {
-        CurrentHp = MaxHp;
         IsAlive = true;
     }
 

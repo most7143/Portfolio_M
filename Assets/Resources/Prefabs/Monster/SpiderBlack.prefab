@@ -101,12 +101,12 @@ MonoBehaviour:
   Name: 16
   NameString: 
   Level: 1
-  MaxHp: 10
   Damage: 0
   AttackSpeed: 5
   IsAlive: 0
   Renderer: {fileID: 584518497833966851}
-  StatSystem: {fileID: 0}
+  StatSystem: {fileID: 3098085660860076905}
+  CurrentHp: 0
   MaxLevel: 1
   Spanwer: {fileID: 0}
 --- !u!114 &3098085660860076905

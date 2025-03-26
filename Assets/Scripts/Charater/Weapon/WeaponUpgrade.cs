@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class WeaponUpgrade : MonoBehaviour
 {
+    public CanvasGroup Group;
     public UpgradeButton UprageButton;
 
     public TextMeshProUGUI PercentText;

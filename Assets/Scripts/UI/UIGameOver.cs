@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class UIGameOver : MonoBehaviour
 {
+    public CanvasGroup Group;
+
     public TextMeshProUGUI MaxKillMonsterLevel;
 
     public Button Button;
@@ -12,14 +14,15 @@ public class UIGameOver : MonoBehaviour
     private void Start()
     {
         Button.onClick.AddListener(() => LoadScene("TitleScene"));
-        Button.gameObject.SetActive(false);
-        MaxKillMonsterLevel.gameObject.SetActive(false);
+
+        Group.alpha = 0f;
+        Group.interactable = false;
     }
 
     public void Show()
     {
-        MaxKillMonsterLevel.gameObject.SetActive(true);
-        Button.gameObject.SetActive(true);
+        Group.alpha = 1f;
+        Group.interactable = true;
     }
 
     public void LoadScene(string sceneName)

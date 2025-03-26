@@ -14,6 +14,7 @@ public class Player : Character
         RefreshWeaponInfo();
 
         baseMaxHp = MaxHp;
+        CurrentHp = baseMaxHp;
     }
 
     public void RefreshWeaponInfo()

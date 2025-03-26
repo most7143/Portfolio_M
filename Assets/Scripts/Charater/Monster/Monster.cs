@@ -75,7 +75,7 @@ public class Monster : Character
         MaxHp *= Spanwer.MaxHPMultiplierByLevel;
         Damage = Mathf.CeilToInt(Damage);
 
-        MaxHp = Mathf.RoundToInt(MaxHp);
+        MaxHp = Mathf.CeilToInt(MaxHp);
 
         Spanwer.MaxHP = MaxHp;
         Spanwer.Damage = Damage;

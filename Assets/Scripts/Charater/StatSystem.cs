@@ -37,11 +37,11 @@ public class StatSystem : MonoBehaviour
     {
         if (_stats.ContainsKey(name))
         {
-            _stats[name] += value;
+            _stats[name] = value;
         }
     }
 
-    private float GetStatResult(StatNames name)
+    public float GetStatResult(StatNames name)
     {
         if (name == StatNames.Health)
         {
