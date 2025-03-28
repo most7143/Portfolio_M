@@ -30,7 +30,6 @@ public class UIPlayerInfo : MonoBehaviour
     {
         RefreshWeaponInfo(player.WeaponController.Info);
         RefreshHp(player);
-        RefreshLevel(player.Level);
         RefreshExp();
     }
 
@@ -101,11 +100,6 @@ public class UIPlayerInfo : MonoBehaviour
         {
             return "<color=white>" + damage.ToString() + "%</color>";
         }
-    }
-
-    public void RefreshLevel(int level)
-    {
-        LevelText.SetText("Rank " + level);
     }
 
     public void RefreshHp(Player player)

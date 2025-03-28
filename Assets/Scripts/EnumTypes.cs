@@ -221,6 +221,7 @@ public enum EventTypes
     MonsterDefeated,
     EquipedWeapon,
     AttackSkill,
+    LevelUp,
 }
 
 public enum DamageTypes
@@ -228,4 +229,12 @@ public enum DamageTypes
     None,
     Attack,
     Skill,
+}
+
+public enum LogTypes
+{
+    None,
+    Stat,
+    Character,
+    Damage,
 }

@@ -1,15 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class UICharacterTab : MonoBehaviour
+public class UICharacterTab : UITab
 {
-    private void Start()
+    public UICharacterInfo CharacterInfo;
+
+    public override void Activate()
     {
+        base.Activate();
+
+        CharacterInfo.Group.alpha = 1;
+        CharacterInfo.Group.blocksRaycasts = true;
+        CharacterInfo.Activate();
     }
 
-    // Update is called once per frame
-    private void Update()
+    public override void Deactivate()
     {
+        base.Deactivate();
+        CharacterInfo.Group.alpha = 0;
+        CharacterInfo.Group.blocksRaycasts = false;
     }
 }

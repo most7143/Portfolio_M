@@ -7,7 +7,7 @@
         base.Activate();
 
         Upgrade.Group.alpha = 1;
-        Upgrade.Group.interactable = true;
+        Upgrade.Group.blocksRaycasts = true;
         Upgrade.Activate();
     }
 
@@ -15,6 +15,6 @@
     {
         base.Deactivate();
         Upgrade.Group.alpha = 0;
-        Upgrade.Group.interactable = false;
+        Upgrade.Group.blocksRaycasts = false;
     }
 }

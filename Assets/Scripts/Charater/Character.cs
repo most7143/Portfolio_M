@@ -22,7 +22,7 @@ public class Character : MonoBehaviour
 
     public float MaxHp
     {
-        get { return StatSystem.GetStatResult(StatNames.Health); }
+        get { return StatSystem.GetStat(StatNames.Health) * StatSystem.GetStat(StatNames.HealthRate); }
         set { StatSystem.SetStat(StatNames.Health, value); }
     }
 
@@ -43,6 +43,8 @@ public class Character : MonoBehaviour
     public virtual void Hit(DamageInfo info)
     {
         StartCoroutine(ProcessHitEffect());
+
+        info.Value = CalculateHitDamage(info.Value);
 
         CurrentHp -= (int)info.Value;
 
@@ -92,6 +94,23 @@ public class Character : MonoBehaviour
         info.Value = Mathf.RoundToInt(info.Value);
 
         return info;
+    }
+
+    public float CalculateHitDamage(float damage)
+    {
+        float armor = StatSystem.GetStat(StatNames.Armor);
+        float armorRate = StatSystem.GetStat(StatNames.ArmorRate);
+        float reduece = StatSystem.GetStat(StatNames.DamageReduction);
+
+        float result = (damage - armor * armorRate);
+
+        float damageMultiplier = Mathf.Clamp(2 - reduece, 0f, 1f);
+        result *= damageMultiplier;
+
+        LogManager.LogInfo(LogTypes.Damage,
+  "(" + Name + ") :" + " 방어력(" + armor + "+" + (armorRate * 100f) + "%) 받는피해감소(" + (reduece - 1f) + "%) = " + result);
+
+        return result > 0 ? result : 0;
     }
 
     private float RandomDamage(float Damage)

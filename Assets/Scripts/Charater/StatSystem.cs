@@ -40,14 +40,4 @@ public class StatSystem : MonoBehaviour
             _stats[name] = value;
         }
     }
-
-    public float GetStatResult(StatNames name)
-    {
-        if (name == StatNames.Health)
-        {
-            return GetStat(StatNames.Health) * GetStat(StatNames.HealthRate);
-        }
-
-        return GetStat(name);
-    }
 }

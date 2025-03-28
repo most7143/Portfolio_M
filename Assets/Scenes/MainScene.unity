@@ -574,10 +574,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tabs:
+  - {fileID: 2136922435}
   - {fileID: 2004307440}
   - {fileID: 553814064}
   - {fileID: 1250064422}
-  - {fileID: 2136922435}
   SelectedIndex: 0
 --- !u!1 &191531442
 GameObject:
@@ -2823,8 +2823,8 @@ CanvasGroup:
   m_GameObject: {fileID: 619528779}
   m_Enabled: 1
   m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &627508278
 GameObject:
@@ -4222,8 +4222,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4283453520
-  m_fontColor: {r: 0.31446534, g: 0.31446534, b: 0.31446534, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4671,6 +4671,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1128835201}
+  - component: {fileID: 1128835203}
   - component: {fileID: 1128835202}
   m_Layer: 5
   m_Name: Character
@@ -4712,6 +4713,22 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1128835203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128835200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15406ab2eb9fc7b4fbf9997ffab5cb7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Group: {fileID: 1128835202}
+  RankText: {fileID: 1519668787}
+  ClassText: {fileID: 0}
+  ClassIcon: {fileID: 0}
 --- !u!1 &1158617681
 GameObject:
   m_ObjectHideFlags: 0
@@ -5235,7 +5252,7 @@ MonoBehaviour:
   - Name: 8
     Value: 1
   - Name: 9
-    Value: 0
+    Value: 1
   - Name: 10
     Value: 1
   - Name: 11
@@ -7826,7 +7843,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6ffe1e81faea0534f88820784f42eda9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f483ac0c0590cf84fbe1d002c25d22cd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8424,12 +8441,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2136922431}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fe03d0f48a419246902276e8f3f3d15, type: 3}
+  m_Script: {fileID: 11500000, guid: 73b9f865145c16c40ac9cd582d1fdb4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 167130661}
   Image: {fileID: 2136922433}
   Index: 0
+  CharacterInfo: {fileID: 1128835203}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

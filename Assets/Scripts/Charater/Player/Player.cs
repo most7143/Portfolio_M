@@ -55,7 +55,8 @@ public class Player : Character
         CurrentHp = MaxHp;
 
         UIManager.Instance.PlayerInfo.RefreshHp(this);
-        UIManager.Instance.PlayerInfo.RefreshLevel(Level);
+
+        EventManager<EventTypes>.Send(EventTypes.LevelUp, Level);
     }
 
     public void SkillAttack(DamageInfo info)
