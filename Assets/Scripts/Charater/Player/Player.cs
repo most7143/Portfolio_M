@@ -13,23 +13,27 @@ public class Player : Character
         WeaponController.SetWeaponData(WeaponNames.WoodenSword);
         RefreshWeaponInfo();
 
-        baseMaxHp = MaxHp;
-        CurrentHp = baseMaxHp;
+        CurrentHp = MaxHP;
     }
 
     public void RefreshWeaponInfo()
     {
-        Damage = WeaponController.Info.Damage;
-        AttackSpeed = WeaponController.Info.Speed;
-        StatSystem.SetStat(StatNames.CriticalChance, WeaponController.Info.CriticalRate);
-        StatSystem.SetStat(StatNames.CriticalDamage, WeaponController.Info.CriticalDamage);
+        StatSystem.RemoveStat(SID.Item, StatNames.CriticalChance);
+        StatSystem.RemoveStat(SID.Item, StatNames.CriticalDamage);
+        StatSystem.RemoveStat(SID.Item, StatNames.Attack);
+        StatSystem.RemoveStat(SID.Item, StatNames.AttackSpeed);
+
+        StatSystem.AddStat(SID.Item, StatNames.CriticalChance, WeaponController.Info.CriticalRate);
+        StatSystem.AddStat(SID.Item, StatNames.CriticalDamage, WeaponController.Info.CriticalDamage);
+        StatSystem.AddStat(SID.Item, StatNames.Attack, WeaponController.Info.Damage);
+        StatSystem.AddStat(SID.Item, StatNames.AttackSpeed, WeaponController.Info.Speed);
 
         Animator.SetFloat("AttackSpeed", AttackSpeed * 2);
     }
 
-    public override void Attack()
+    public override void OnAttack()
     {
-        base.Attack();
+        base.OnAttack();
         Animator.SetTrigger("Attack");
     }
 
@@ -50,9 +54,7 @@ public class Player : Character
     public void LevelUp()
     {
         Level += 1;
-
-        MaxHp = baseMaxHp * Level;
-        CurrentHp = MaxHp;
+        CurrentHp = MaxHP;
 
         UIManager.Instance.PlayerInfo.RefreshHp(this);
 

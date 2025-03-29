@@ -1207,8 +1207,6 @@ MonoBehaviour:
   Name: 1
   NameString: 
   Level: 1
-  Damage: 4
-  AttackSpeed: 1.5
   IsAlive: 0
   Renderer: {fileID: 322252492}
   StatSystem: {fileID: 1245801769}
@@ -2703,10 +2701,6 @@ MonoBehaviour:
   SpawnMonster: {fileID: 0}
   SpawnPoint: {fileID: 1472118342}
   Level: 1
-  Damage: 5
-  MaxHP: 10
-  DamageByLevel: 1.02
-  MaxHPMultiplierByLevel: 1.05
   EXP: 10
   Gold: 5
 --- !u!1 &584289150
@@ -5244,7 +5238,7 @@ MonoBehaviour:
   - Name: 4
     Value: 1
   - Name: 5
-    Value: 1
+    Value: 0
   - Name: 6
     Value: 0
   - Name: 7
@@ -5261,6 +5255,12 @@ MonoBehaviour:
     Value: 1
   - Name: 14
     Value: 1
+  - Name: 15
+    Value: 10
+  - Name: 16
+    Value: 50
+  - Name: 17
+    Value: 5
 --- !u!1 &1250064418
 GameObject:
   m_ObjectHideFlags: 0

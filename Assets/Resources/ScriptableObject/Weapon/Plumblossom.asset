@@ -20,7 +20,7 @@ MonoBehaviour:
   Tier: 8
   Level: 70
   LevelByBonus: 9
-  Speed: 2.3
+  Speed: 1.7
   Damage: 1
   CriticalRate: 0.35
   CriticalDamage: 2.5

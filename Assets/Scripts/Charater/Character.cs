@@ -6,11 +6,6 @@ public class Character : MonoBehaviour
     public CharacterNames Name;
     [HideInInspector] public string NameString;
     public int Level = 1;
-    public float Damage = 1;
-
-    public float AttackSpeed = 1;
-
-    protected float baseMaxHp;
 
     public bool IsAlive;
 
@@ -20,10 +15,15 @@ public class Character : MonoBehaviour
 
     public float CurrentHp;
 
-    public float MaxHp
+    public float AttackSpeed
+    { get { return StatSystem.GetStat(StatNames.AttackSpeed); } }
+
+    public float Attack
+    { get { return GetAttackStat(); } }
+
+    public float MaxHP
     {
-        get { return StatSystem.GetStat(StatNames.Health) * StatSystem.GetStat(StatNames.HealthRate); }
-        set { StatSystem.SetStat(StatNames.Health, value); }
+        get { return GetMaxHealthStat(); }
     }
 
     protected virtual void Awake()
@@ -36,7 +36,7 @@ public class Character : MonoBehaviour
         StartCoroutine(ProcessAttack());
     }
 
-    public virtual void Attack()
+    public virtual void OnAttack()
     {
     }
 
@@ -65,7 +65,7 @@ public class Character : MonoBehaviour
         yield return new WaitUntil(() => InGameManager.Instance.IsBattle);
         yield return new WaitForSeconds(1f / AttackSpeed);
 
-        Attack();
+        OnAttack();
         StartCoroutine(ProcessAttack());
     }
 
@@ -80,7 +80,11 @@ public class Character : MonoBehaviour
     {
         DamageInfo info = new DamageInfo();
 
-        info.Value = RandomDamage(Damage);
+        info.Value = RandomDamage(Attack);
+
+        LogManager.LogInfo(LogTypes.Attack, name + " / 공격력(랜덤):" + info.Value +
+            " (기본 공격력 : " + StatSystem.GetStat(SID.Base, StatNames.Attack) + " , 무기 공격력 : " + StatSystem.GetStat(SID.Item, StatNames.Attack)
+            + ", 배율 : " + StatSystem.GetStat(StatNames.AttackRate));
 
         float critical = Random.Range(0f, 1f);
 
@@ -101,14 +105,17 @@ public class Character : MonoBehaviour
         float armor = StatSystem.GetStat(StatNames.Armor);
         float armorRate = StatSystem.GetStat(StatNames.ArmorRate);
         float reduece = StatSystem.GetStat(StatNames.DamageReduction);
+        float armorByLevel = StatSystem.GetStat(StatNames.ArmorByLevel);
 
-        float result = (damage - armor * armorRate);
+        float armorValue = armor + (armorByLevel * (Level - 1));
+
+        float result = (damage - armorValue * armorRate);
 
         float damageMultiplier = Mathf.Clamp(2 - reduece, 0f, 1f);
         result *= damageMultiplier;
 
         LogManager.LogInfo(LogTypes.Damage,
-  "(" + Name + ") :" + " 방어력(" + armor + "+" + (armorRate * 100f) + "%) 받는피해감소(" + (reduece - 1f) + "%) = " + result);
+   name + " /" + " 방어력(" + armorValue + "+" + (armorRate * 100f) + "%) 받는피해감소(" + (reduece - 1f) + "%) = " + result);
 
         return result > 0 ? result : 0;
     }
@@ -119,5 +126,21 @@ public class Character : MonoBehaviour
         float max = Damage;
 
         return Mathf.RoundToInt(Random.Range(min, max));
+    }
+
+    protected float GetMaxHealthStat()
+    {
+        float maxHp = (StatSystem.GetStat(StatNames.Health) + (StatSystem.GetStat(StatNames.HealthByLevel) * (Level - 1)))
+            * StatSystem.GetStat(StatNames.HealthRate);
+
+        return Mathf.RoundToInt(maxHp);
+    }
+
+    protected float GetAttackStat()
+    {
+        float attack = (StatSystem.GetStat(StatNames.Attack) + (StatSystem.GetStat(StatNames.AttackByLevel) * (Level - 1)))
+             * StatSystem.GetStat(StatNames.AttackRate);
+
+        return Mathf.RoundToInt(attack);
     }
 }

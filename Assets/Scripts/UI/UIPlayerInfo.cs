@@ -104,7 +104,7 @@ public class UIPlayerInfo : MonoBehaviour
 
     public void RefreshHp(Player player)
     {
-        UIHandler.UpdateGauge(HPbar, player.MaxHp, player.CurrentHp, HPText);
+        UIHandler.UpdateGauge(HPbar, player.MaxHP, player.CurrentHp, HPText);
     }
 
     public void RefreshExp()

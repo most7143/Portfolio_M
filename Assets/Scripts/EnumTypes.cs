@@ -158,6 +158,10 @@ public enum StatNames
 
     WeaponTriggerChance,
     CurrencyGainRate,
+
+    AttackByLevel,
+    HealthByLevel,
+    ArmorByLevel,
 }
 
 public enum PassiveSkillNames
@@ -222,6 +226,7 @@ public enum EventTypes
     EquipedWeapon,
     AttackSkill,
     LevelUp,
+    RefreshPlayerHP,
 }
 
 public enum DamageTypes
@@ -237,4 +242,5 @@ public enum LogTypes
     Stat,
     Character,
     Damage,
+    Attack,
 }

@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: IronSword
   m_EditorClassIdentifier: 
   Name: 3
+  SkillNames: 
   NameString: "\uCCA0\uC81C\uAC80"
   DescString: "\uACAC\uC2B5 \uAE30\uC0AC\uB4E4\uC774 \uC37C\uB358 \uAC80"
   Tier: 3
   Level: 20
   LevelByBonus: 4
-  Speed: 1.2
+  Speed: 0.8
   Damage: 1
   CriticalRate: 0.1
   CriticalDamage: 2.2

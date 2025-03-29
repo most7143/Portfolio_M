@@ -17,7 +17,27 @@ public static class EventManager<Enum>
         }
     }
 
+    public static void Register(Enum eventType, Action listener)
+    {
+        if (!eventActions.ContainsKey(eventType))
+        {
+            eventActions[eventType] = listener;
+        }
+        else
+        {
+            eventActions[eventType] = Delegate.Combine(eventActions[eventType], listener);
+        }
+    }
+
     public static void Unregister<TValue>(Enum eventType, Action<TValue> listener)
+    {
+        if (eventActions.ContainsKey(eventType))
+        {
+            eventActions[eventType] = Delegate.Remove(eventActions[eventType], listener);
+        }
+    }
+
+    public static void Unregister(Enum eventType, Action listener)
     {
         if (eventActions.ContainsKey(eventType))
         {

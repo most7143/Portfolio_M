@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: GoldenIronSword
   m_EditorClassIdentifier: 
   Name: 4
+  SkillNames: 
   NameString: "\uD669\uCCA0\uAC80"
   DescString: "\uB204\uAD70\uAC00\uAC00 \uC0AC\uCE58\uC2A4\uB7FD\uAC8C \uB9CC\uB4E0
     \uAC80"
   Tier: 4
   Level: 30
   LevelByBonus: 5
-  Speed: 1.4
+  Speed: 0.9
   Damage: 1
   CriticalRate: 0.12
   CriticalDamage: 2.3

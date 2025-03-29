@@ -8,23 +8,19 @@ public class Monster : Character
 
     private MonsterData data;
 
-    public void SetData(float damage, float maxHp)
+    public void SetData()
     {
         data = ResourcesManager.Instance.LoadScriptable<MonsterData>(Name.ToString());
         NameString = data.NameString;
         Level = data.Level;
         MaxLevel = data.MaxLevel;
-        Damage = damage;
-        MaxHp = maxHp;
-        CurrentHp = MaxHp;
-        AttackSpeed = data.AttackSpeed;
-
+        CurrentHp = MaxHP;
         Spanwer.RefreshLevelByData(Level);
     }
 
-    public override void Attack()
+    public override void OnAttack()
     {
-        base.Attack();
+        base.OnAttack();
 
         if (InGameManager.Instance.Player.IsAlive)
         {
@@ -45,12 +41,12 @@ public class Monster : Character
     {
         base.Dead();
 
-        RefreshData();
-
         if (Level <= MaxLevel)
         {
             Level += 1;
         }
+
+        CurrentHp = MaxHP;
 
         if (Level > MaxLevel)
         {
@@ -67,19 +63,5 @@ public class Monster : Character
         InGameManager.Instance.Controller.AddExp(Spanwer.EXP);
 
         InGameManager.Instance.RefreshStage(Level);
-    }
-
-    private void RefreshData()
-    {
-        Damage *= Spanwer.DamageByLevel;
-        MaxHp *= Spanwer.MaxHPMultiplierByLevel;
-        Damage = Mathf.CeilToInt(Damage);
-
-        MaxHp = Mathf.CeilToInt(MaxHp);
-
-        Spanwer.MaxHP = MaxHp;
-        Spanwer.Damage = Damage;
-
-        CurrentHp = MaxHp;
     }
 }

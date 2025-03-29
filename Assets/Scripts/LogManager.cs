@@ -4,7 +4,8 @@ public static class LogManager
 {
     private static LogData data;
 
-    [System.Diagnostics.Conditional("UNITY_DEDITOR")]
+#if UNITY_EDITOR
+
     public static void LogInfo(LogTypes type, string text)
     {
         if (data == null)
@@ -21,4 +22,6 @@ public static class LogManager
             }
         }
     }
+
+#endif
 }

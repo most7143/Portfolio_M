@@ -19,7 +19,7 @@ MonoBehaviour:
   Tier: 9
   Level: 80
   LevelByBonus: 10
-  Speed: 2.6
+  Speed: 2
   Damage: 1
   CriticalRate: 0.35
   CriticalDamage: 3

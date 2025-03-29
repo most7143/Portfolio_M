@@ -21,14 +21,14 @@ public class UIMonsterInfo : MonoBehaviour
     {
         TargetMonster = target;
         NameText.SetText("Lv." + target.Level + " " + target.NameString);
-        HPText.SetText(TargetMonster.CurrentHp + " / " + TargetMonster.MaxHp);
+        HPText.SetText(TargetMonster.CurrentHp + " / " + TargetMonster.MaxHP);
     }
 
     public void RefreshHPBar()
     {
         if (TargetMonster != null)
         {
-            UIHandler.UpdateGauge(HPBar, TargetMonster.MaxHp, TargetMonster.CurrentHp, HPText);
+            UIHandler.UpdateGauge(HPBar, TargetMonster.MaxHP, TargetMonster.CurrentHp, HPText);
         }
     }
 }

@@ -19,7 +19,7 @@ MonoBehaviour:
   Tier: 5
   Level: 40
   LevelByBonus: 6
-  Speed: 1.6
+  Speed: 1
   Damage: 1
   CriticalRate: 0.15
   CriticalDamage: 2.4

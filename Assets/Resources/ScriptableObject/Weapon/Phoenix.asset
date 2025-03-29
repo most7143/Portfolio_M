@@ -20,7 +20,7 @@ MonoBehaviour:
   Tier: 11
   Level: 100
   LevelByBonus: 12
-  Speed: 3.5
+  Speed: 2.6
   Damage: 1
   CriticalRate: 0.65
   CriticalDamage: 3.5

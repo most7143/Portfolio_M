@@ -20,7 +20,7 @@ MonoBehaviour:
   Tier: 6
   Level: 50
   LevelByBonus: 7
-  Speed: 1.8
+  Speed: 1.2
   Damage: 1
   CriticalRate: 0.2
   CriticalDamage: 2.5

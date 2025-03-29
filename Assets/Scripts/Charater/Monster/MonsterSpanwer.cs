@@ -9,12 +9,6 @@ public class MonsterSpanwer : MonoBehaviour
 
     public int Level = 1;
 
-    [HideInInspector] public float Damage;
-    [HideInInspector] public float MaxHP;
-
-    public float DamageByLevel = 1.05f;
-    public float MaxHPMultiplierByLevel = 1.2f;
-
     [HideInInspector] public float EXP = 10;
     [HideInInspector] public int Gold = 5;
 
@@ -36,7 +30,7 @@ public class MonsterSpanwer : MonoBehaviour
             SpawnMonster = monster.GetComponent<Monster>();
 
             SpawnMonster.Spanwer = this;
-            SpawnMonster.SetData(Damage, MaxHP);
+            SpawnMonster.SetData();
 
             SpawnMonster.transform.SetParent(SpawnPoint);
             SpawnMonster.transform.localPosition = Vector3.zero;
@@ -46,9 +40,6 @@ public class MonsterSpanwer : MonoBehaviour
             UIManager.Instance.MonsterInfo.Refresh(SpawnMonster);
 
             SpawnMonster.StartAttack();
-
-            Damage = SpawnMonster.Damage;
-            MaxHP = SpawnMonster.MaxHp;
         }
     }
 
