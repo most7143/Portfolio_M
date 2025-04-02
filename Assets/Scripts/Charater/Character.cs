@@ -42,6 +42,11 @@ public class Character : MonoBehaviour
 
     public virtual void Hit(DamageInfo info)
     {
+        if (Dodge())
+        {
+            return;
+        }
+
         StartCoroutine(ProcessHitEffect());
 
         info.Value = CalculateHitDamage(info.Value);
@@ -76,6 +81,15 @@ public class Character : MonoBehaviour
         Renderer.color = Color.white;
     }
 
+    private bool Dodge()
+    {
+        float stat = StatSystem.GetStat(StatNames.DodgeRate);
+
+        float rend = Random.Range(0, 1f);
+
+        return stat >= rend;
+    }
+
     public DamageInfo CalculateDamage()
     {
         DamageInfo info = new DamageInfo();
@@ -83,7 +97,7 @@ public class Character : MonoBehaviour
         info.Value = RandomDamage(Attack);
 
         LogManager.LogInfo(LogTypes.Attack, name + " / 공격력(랜덤):" + info.Value +
-            " (기본 공격력 : " + StatSystem.GetStat(SID.Base, StatNames.Attack) + " , 무기 공격력 : " + StatSystem.GetStat(SID.Item, StatNames.Attack)
+            " (기본 공격력 : " + StatSystem.GetStat(StatTID.Base, StatNames.Attack) + " , 무기 공격력 : " + StatSystem.GetStat(StatTID.Weapon, StatNames.Attack)
             + ", 배율 : " + StatSystem.GetStat(StatNames.AttackRate));
 
         float critical = Random.Range(0f, 1f);

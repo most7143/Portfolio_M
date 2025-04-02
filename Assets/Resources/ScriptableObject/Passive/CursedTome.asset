@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b0138494f390bd4c9d60d37d96b8a97, type: 3}
-  m_Name: StaminaTraining
+  m_Name: CursedTome
   m_EditorClassIdentifier: 
-  Name: 2
-  Grade: 1
-  NameString: "\uCCB4\uB825 \uB2E8\uB828"
-  DescriptionString: "\uCD5C\uB300 HP\uAC00 {0} \uC99D\uAC00\uD55C\uB2E4."
-  RequireRank: 1
-  MaxLevel: 10
-  StatName: 7
-  BooleanStatName: 0
-  Value: 50
-  ValueByLevel: 20
-  MultiplierValue: 0
+  Name: 11
+  Grade: 4
+  NameString: "\uC800\uC8FC\uBC1B\uC740 \uB9C8\uB3C4\uC11C"
+  DescriptionString: "\uCD5C\uB300 \uCCB4\uB825\uC774 70% \uC81C\uD55C\uB418\uC9C0\uB9CC,
+    \uACF5\uACA9\uB825\uC774 {0}% \uC99D\uAC00\uD55C\uB2E4."
+  RequireRank: 20
+  MaxLevel: 1
+  StatName: 2
+  BooleanStatName: 19
+  Value: 0
+  ValueByLevel: 0
+  MultiplierValue: 1
   MultiplierValueByLevel: 0

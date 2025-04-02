@@ -9,6 +9,8 @@ public class PassiveSkillData : ScriptableObject
     public string DescriptionString;
     public int RequireRank;
     public int MaxLevel;
+    public StatNames StatName;
+    public StatNames BooleanStatName;
     public int Value;
     public int ValueByLevel;
     public float MultiplierValue;

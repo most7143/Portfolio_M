@@ -3,14 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public enum SID
-{
-    None,
-    Base,
-    Item,
-    Skill,
-}
-
 [Serializable]
 public struct StatInfo
 {
@@ -22,17 +14,17 @@ public class StatSystem : MonoBehaviour
 {
     public List<StatInfo> Stats;
 
-    private Dictionary<StatNames, Dictionary<SID, float>> _stats = new();
+    private Dictionary<StatNames, Dictionary<StatTID, float>> _stats = new();
 
     private void Awake()
     {
         for (int i = 0; i < Stats.Count; i++)
         {
-            Dictionary<SID, float> stat = new();
+            Dictionary<StatTID, float> stat = new();
 
             _stats.Add(Stats[i].Name, stat);
 
-            _stats[Stats[i].Name].Add(SID.Base, Stats[i].Value);
+            _stats[Stats[i].Name].Add(StatTID.Base, Stats[i].Value);
         }
     }
 
@@ -55,10 +47,10 @@ public class StatSystem : MonoBehaviour
             return result;
         }
 
-        return -1;
+        return 0;
     }
 
-    public float GetStat(SID sid, StatNames name)
+    public float GetStat(StatTID tid, StatNames name)
     {
         if (_stats.ContainsKey(name))
         {
@@ -70,7 +62,7 @@ public class StatSystem : MonoBehaviour
 
                 for (int j = 0; j < keys.Length; j++)
                 {
-                    if (keys[j] == sid)
+                    if (keys[j] == tid)
                     {
                         result += _stats[name][keys[j]];
                     }
@@ -80,22 +72,22 @@ public class StatSystem : MonoBehaviour
             return result;
         }
 
-        return -1;
+        return 0;
     }
 
-    public void AddStat(SID sid, StatNames name, float value)
+    public void AddStat(StatTID tid, StatNames name, float value)
     {
         if (_stats.ContainsKey(name))
         {
-            _stats[name].Add(sid, value);
+            _stats[name].Add(tid, value);
         }
     }
 
-    public void RemoveStat(SID sid, StatNames name)
+    public void RemoveStat(StatTID tid, StatNames name)
     {
         if (_stats.ContainsKey(name))
         {
-            _stats[name].Remove(sid);
+            _stats[name].Remove(tid);
         }
     }
 }

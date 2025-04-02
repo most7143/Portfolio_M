@@ -58,6 +58,7 @@ public class WeaponUpgrade : MonoBehaviour
             player.WeaponController.Info.Damage = GetAddDamage(player.WeaponController.Info);
 
             player.RefreshWeaponInfo();
+
             UIManager.Instance.PlayerInfo.RefreshWeaponInfo(player.WeaponController.Info);
 
             SetPecent(player.WeaponController.Info.Level);

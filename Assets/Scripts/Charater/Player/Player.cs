@@ -18,15 +18,15 @@ public class Player : Character
 
     public void RefreshWeaponInfo()
     {
-        StatSystem.RemoveStat(SID.Item, StatNames.CriticalChance);
-        StatSystem.RemoveStat(SID.Item, StatNames.CriticalDamage);
-        StatSystem.RemoveStat(SID.Item, StatNames.Attack);
-        StatSystem.RemoveStat(SID.Item, StatNames.AttackSpeed);
+        StatSystem.RemoveStat(StatTID.Weapon, StatNames.CriticalChance);
+        StatSystem.RemoveStat(StatTID.Weapon, StatNames.CriticalDamage);
+        StatSystem.RemoveStat(StatTID.Weapon, StatNames.Attack);
+        StatSystem.RemoveStat(StatTID.Weapon, StatNames.AttackSpeed);
 
-        StatSystem.AddStat(SID.Item, StatNames.CriticalChance, WeaponController.Info.CriticalRate);
-        StatSystem.AddStat(SID.Item, StatNames.CriticalDamage, WeaponController.Info.CriticalDamage);
-        StatSystem.AddStat(SID.Item, StatNames.Attack, WeaponController.Info.Damage);
-        StatSystem.AddStat(SID.Item, StatNames.AttackSpeed, WeaponController.Info.Speed);
+        StatSystem.AddStat(StatTID.Weapon, StatNames.CriticalChance, WeaponController.Info.CriticalRate);
+        StatSystem.AddStat(StatTID.Weapon, StatNames.CriticalDamage, WeaponController.Info.CriticalDamage);
+        StatSystem.AddStat(StatTID.Weapon, StatNames.Attack, WeaponController.Info.Damage);
+        StatSystem.AddStat(StatTID.Weapon, StatNames.AttackSpeed, WeaponController.Info.Speed);
 
         Animator.SetFloat("AttackSpeed", AttackSpeed * 2);
     }

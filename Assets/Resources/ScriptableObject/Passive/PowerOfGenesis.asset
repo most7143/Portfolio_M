@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b0138494f390bd4c9d60d37d96b8a97, type: 3}
-  m_Name: StaminaTraining
+  m_Name: PowerOfGenesis
   m_EditorClassIdentifier: 
-  Name: 2
-  Grade: 1
-  NameString: "\uCCB4\uB825 \uB2E8\uB828"
-  DescriptionString: "\uCD5C\uB300 HP\uAC00 {0} \uC99D\uAC00\uD55C\uB2E4."
-  RequireRank: 1
-  MaxLevel: 10
-  StatName: 7
+  Name: 13
+  Grade: 4
+  NameString: "\uCC3D\uC138\uC758 \uD798"
+  DescriptionString: "\uBB34\uAE30 \uC2A4\uD0AC \uBC1C\uB3D9 \uD655\uB960\uC774 {0}%
+    \uC99D\uAC00\uD55C\uB2E4."
+  RequireRank: 20
+  MaxLevel: 1
+  StatName: 13
   BooleanStatName: 0
-  Value: 50
-  ValueByLevel: 20
-  MultiplierValue: 0
+  Value: 0
+  ValueByLevel: 0
+  MultiplierValue: 1
   MultiplierValueByLevel: 0

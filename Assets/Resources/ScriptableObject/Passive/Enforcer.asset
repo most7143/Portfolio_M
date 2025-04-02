@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b0138494f390bd4c9d60d37d96b8a97, type: 3}
-  m_Name: StaminaTraining
+  m_Name: Enforcer
   m_EditorClassIdentifier: 
-  Name: 2
-  Grade: 1
-  NameString: "\uCCB4\uB825 \uB2E8\uB828"
-  DescriptionString: "\uCD5C\uB300 HP\uAC00 {0} \uC99D\uAC00\uD55C\uB2E4."
-  RequireRank: 1
-  MaxLevel: 10
-  StatName: 7
-  BooleanStatName: 0
-  Value: 50
-  ValueByLevel: 20
+  Name: 12
+  Grade: 4
+  NameString: "\uC9D1\uD589\uC790"
+  DescriptionString: "\uBAAC\uC2A4\uD130 \uC870\uC6B0 \uC2DC {0}\uCD08 \uB3D9\uC548
+    \uD53C\uD574\uB97C \uC785\uC9C0 \uC54A\uB294\uB2E4."
+  RequireRank: 20
+  MaxLevel: 1
+  StatName: 0
+  BooleanStatName: 18
+  Value: 1
+  ValueByLevel: 0
   MultiplierValue: 0
   MultiplierValueByLevel: 0
