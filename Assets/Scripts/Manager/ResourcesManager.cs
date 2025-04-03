@@ -41,6 +41,21 @@ public class ResourcesManager : MonoBehaviour
         return null;
     }
 
+    public T Load<T>(string name) where T : Component
+    {
+        T[] objects = Resources.LoadAll<T>("Prefabs");
+
+        foreach (T obj in objects)
+        {
+            if (obj.name == name)
+            {
+                return Instantiate(obj);
+            }
+        }
+
+        return null;
+    }
+
     public GameObject Load(FXNames fxName)
     {
         GameObject fx = Instantiate(Resources.Load<GameObject>("Prefabs/FX/FX_" + fxName.ToString()));

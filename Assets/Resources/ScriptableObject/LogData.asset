@@ -21,3 +21,5 @@ MonoBehaviour:
     IsUse: 0
   - Type: 4
     IsUse: 1
+  - Type: 5
+    IsUse: 1

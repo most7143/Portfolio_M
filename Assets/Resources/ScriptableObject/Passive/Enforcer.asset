@@ -21,7 +21,10 @@ MonoBehaviour:
   MaxLevel: 1
   StatName: 0
   BooleanStatName: 18
-  Value: 1
+  Value: 5
   ValueByLevel: 0
   MultiplierValue: 0
   MultiplierValueByLevel: 0
+  LearnChance: 0.1
+  LearnChanceByLevel: 0
+  Cost: 1000

@@ -17,12 +17,14 @@ public class UIGameOver : MonoBehaviour
 
         Group.alpha = 0f;
         Group.interactable = false;
+        Group.blocksRaycasts = false;
     }
 
     public void Show()
     {
         Group.alpha = 1f;
         Group.interactable = true;
+        Group.blocksRaycasts = true;
     }
 
     public void LoadScene(string sceneName)

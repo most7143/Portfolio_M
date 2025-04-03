@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class UICharacterInfo : MonoBehaviour
 {
-    public CanvasGroup Group;
-
     public TextMeshProUGUI RankText;
     public TextMeshProUGUI ClassText;
     public Sprite ClassIcon;

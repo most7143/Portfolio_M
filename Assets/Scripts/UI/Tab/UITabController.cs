@@ -9,7 +9,7 @@ public class UITabController : MonoBehaviour
 
     private void Start()
     {
-        Tabs[0].Activate();
+        Select(0);
     }
 
     public void Select(int index)

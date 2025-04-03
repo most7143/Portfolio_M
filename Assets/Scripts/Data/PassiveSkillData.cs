@@ -15,6 +15,9 @@ public class PassiveSkillData : ScriptableObject
     public int ValueByLevel;
     public float MultiplierValue;
     public float MultiplierValueByLevel;
+    public float LearnChance;
+    public float LearnChanceByLevel;
+    public float Cost;
 
 #if UNITY_EDITOR
 

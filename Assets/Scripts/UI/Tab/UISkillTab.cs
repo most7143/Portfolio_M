@@ -5,6 +5,7 @@ public class UISkillTab : UITab
     public override void Activate()
     {
         base.Activate();
+        UISkillInfo.Activate();
     }
 
     public override void Deactivate()

@@ -96,9 +96,9 @@ public class Character : MonoBehaviour
 
         info.Value = RandomDamage(Attack);
 
-        LogManager.LogInfo(LogTypes.Attack, name + " / 공격력(랜덤):" + info.Value +
-            " (기본 공격력 : " + StatSystem.GetStat(StatTID.Base, StatNames.Attack) + " , 무기 공격력 : " + StatSystem.GetStat(StatTID.Weapon, StatNames.Attack)
-            + ", 배율 : " + StatSystem.GetStat(StatNames.AttackRate));
+        LogManager.LogInfo(LogTypes.Attack, string.Format("[{0}] 총 공격력(랜덤) = {1} \n 기본 공격력({2}) + 무기 공격력({3}) + 패시브 공격력({4}) + 공격력 배율({5})",
+            name, info.Value, StatSystem.GetStat(StatTID.Base, StatNames.Attack), StatSystem.GetStat(StatTID.Weapon, StatNames.Attack), StatSystem.GetStat(StatTID.PassiveSkill, StatNames.Attack),
+            StatSystem.GetStat(StatNames.AttackRate)));
 
         float critical = Random.Range(0f, 1f);
 

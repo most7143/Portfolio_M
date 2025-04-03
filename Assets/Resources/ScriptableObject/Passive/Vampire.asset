@@ -25,3 +25,6 @@ MonoBehaviour:
   ValueByLevel: 0
   MultiplierValue: 0.02
   MultiplierValueByLevel: 0.02
+  LearnChance: 0.5
+  LearnChanceByLevel: 0.1
+  Cost: 500

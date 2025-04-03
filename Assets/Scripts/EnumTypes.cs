@@ -248,6 +248,7 @@ public enum LogTypes
     Character,
     Damage,
     Attack,
+    Skill,
 }
 
 public enum StatTID
@@ -255,5 +256,5 @@ public enum StatTID
     None,
     Base,
     Weapon,
-    Skill,
+    PassiveSkill,
 }

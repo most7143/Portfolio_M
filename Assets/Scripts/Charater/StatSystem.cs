@@ -34,14 +34,11 @@ public class StatSystem : MonoBehaviour
         {
             float result = 0;
 
-            for (int i = 0; i < _stats[name].Count; i++)
-            {
-                var values = _stats[name].Values.ToArray();
+            var values = _stats[name].Values.ToArray();
 
-                for (int j = 0; j < values.Length; j++)
-                {
-                    result += values[j];
-                }
+            for (int j = 0; j < values.Length; j++)
+            {
+                result += values[j];
             }
 
             return result;
@@ -56,16 +53,13 @@ public class StatSystem : MonoBehaviour
         {
             float result = 0;
 
-            for (int i = 0; i < _stats[name].Count; i++)
-            {
-                var keys = _stats[name].Keys.ToArray();
+            var keys = _stats[name].Keys.ToArray();
 
-                for (int j = 0; j < keys.Length; j++)
+            for (int j = 0; j < keys.Length; j++)
+            {
+                if (keys[j] == tid)
                 {
-                    if (keys[j] == tid)
-                    {
-                        result += _stats[name][keys[j]];
-                    }
+                    result += _stats[name][keys[j]];
                 }
             }
 
@@ -79,7 +73,14 @@ public class StatSystem : MonoBehaviour
     {
         if (_stats.ContainsKey(name))
         {
-            _stats[name].Add(tid, value);
+            if (_stats[name].ContainsKey(tid))
+            {
+                _stats[name][tid] += value;
+            }
+            else
+            {
+                _stats[name].Add(tid, value);
+            }
         }
     }
 
