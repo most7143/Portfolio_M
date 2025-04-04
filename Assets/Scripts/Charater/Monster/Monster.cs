@@ -14,7 +14,8 @@ public class Monster : Character
         NameString = data.NameString;
         Level = data.Level;
         MaxLevel = data.MaxLevel;
-        CurrentHp = MaxHP;
+
+        RefreshHP((int)MaxHP);
         Spanwer.RefreshLevelByData(Level);
     }
 
@@ -26,13 +27,13 @@ public class Monster : Character
         {
             DamageInfo info = CalculateDamage();
 
-            InGameManager.Instance.Player.Hit(info);
+            InGameManager.Instance.Player.Hit(ref info);
         }
     }
 
-    public override void Hit(DamageInfo info)
+    public override void Hit(ref DamageInfo info)
     {
-        base.Hit(info);
+        base.Hit(ref info);
 
         UIManager.Instance.MonsterInfo.RefreshHPBar();
     }
@@ -46,7 +47,7 @@ public class Monster : Character
             Level += 1;
         }
 
-        CurrentHp = MaxHP;
+        RefreshHP((int)MaxHP);
 
         if (Level > MaxLevel)
         {

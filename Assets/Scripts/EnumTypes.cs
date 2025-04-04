@@ -225,13 +225,13 @@ public enum SkillConditions
 public enum EventTypes
 {
     None,
-    AttackExecuted,
-    PlayerDamaged,
-    MonsterDefeated,
-    EquipedWeapon,
-    AttackSkill,
-    LevelUp,
-    RefreshPlayerHP,
+    PlayerAttackExecuted, // 공격
+    PlayerDamaged, // 플레이어 피해입음
+    EquipedWeapon, // 장비 장착
+    AttackSkill, // 무기 스킬 발동
+    LevelUp, // 플레이어 레벨업
+    RefreshPlayerHP, // 플레이어 HP 변화
+    SkillLevelUp, // 스킬 레벨업
 }
 
 public enum DamageTypes

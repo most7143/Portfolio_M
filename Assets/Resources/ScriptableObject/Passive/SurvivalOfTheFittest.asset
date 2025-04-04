@@ -16,7 +16,7 @@ MonoBehaviour:
   Grade: 2
   NameString: "\uC57D\uC721 \uAC15\uC2DD"
   DescriptionString: "\uCE58\uBA85\uD0C0 \uD53C\uD574\uAC00 {0}% \uC99D\uAC00\uD55C\uB2E4."
-  RequireRank: 5
+  RequireRank: 1
   MaxLevel: 5
   StatName: 4
   BooleanStatName: 0

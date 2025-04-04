@@ -13,7 +13,7 @@ public class Character : MonoBehaviour
 
     public StatSystem StatSystem;
 
-    public float CurrentHp;
+    public float CurrentHp { get; private set; }
 
     public float AttackSpeed
     { get { return StatSystem.GetStat(StatNames.AttackSpeed); } }
@@ -40,10 +40,11 @@ public class Character : MonoBehaviour
     {
     }
 
-    public virtual void Hit(DamageInfo info)
+    public virtual void Hit(ref DamageInfo info)
     {
         if (Dodge())
         {
+            InGameManager.Instance.ObjectPool.SpawnFloaty(transform.position, FloatyTypes.Dodge, "Miss");
             return;
         }
 
@@ -51,13 +52,34 @@ public class Character : MonoBehaviour
 
         info.Value = CalculateHitDamage(info.Value);
 
-        CurrentHp -= (int)info.Value;
+        if (info.Owner.Name == CharacterNames.Swordman)
+        {
+            OnHitPlayer(info);
+        }
+
+        RefreshHP(-(int)info.Value);
 
         if (CurrentHp <= 0)
         {
             CurrentHp = 0;
 
             Dead();
+        }
+    }
+
+    private void OnHitPlayer(DamageInfo info)
+    {
+        float onHit = info.Owner.StatSystem.GetStat(StatNames.HealingOnHit);
+
+        if (onHit <= 0)
+        {
+            return;
+        }
+
+        if (0.05f >= Random.Range(0, 1f))
+        {
+            int healingValue = Mathf.CeilToInt(info.Value * onHit);
+            info.Owner.Heal(healingValue);
         }
     }
 
@@ -94,11 +116,9 @@ public class Character : MonoBehaviour
     {
         DamageInfo info = new DamageInfo();
 
-        info.Value = RandomDamage(Attack);
+        info.Owner = this;
 
-        LogManager.LogInfo(LogTypes.Attack, string.Format("[{0}] 총 공격력(랜덤) = {1} \n 기본 공격력({2}) + 무기 공격력({3}) + 패시브 공격력({4}) + 공격력 배율({5})",
-            name, info.Value, StatSystem.GetStat(StatTID.Base, StatNames.Attack), StatSystem.GetStat(StatTID.Weapon, StatNames.Attack), StatSystem.GetStat(StatTID.PassiveSkill, StatNames.Attack),
-            StatSystem.GetStat(StatNames.AttackRate)));
+        info.Value = RandomDamage(Attack);
 
         float critical = Random.Range(0f, 1f);
 
@@ -111,7 +131,28 @@ public class Character : MonoBehaviour
 
         info.Value = Mathf.RoundToInt(info.Value);
 
+        Log(info);
+
         return info;
+    }
+
+    private void Log(DamageInfo info)
+    {
+        if (info.IsCritical)
+        {
+            LogManager.LogInfo(LogTypes.Attack, string.Format("[{0}] 피해 (랜덤) = {1} \n 기본 공격력({2}) + 무기 공격력({3}) + 패시브 공격력({4}) + 공격력 배율({5}%) \n" +
+   " 치명률({6}%) = 기본({7}%) + 무기({8}%) + 패시브 ({9}%) \n"
+   + "치명타 피해({10}%) = 기본({11}%) + 무기({12}%) + 패시브({13}%)",
+      name, info.Value, StatSystem.GetStat(StatTID.Base, StatNames.Attack), StatSystem.GetStat(StatTID.Weapon, StatNames.Attack), StatSystem.GetStat(StatTID.PassiveSkill, StatNames.Attack),
+      StatSystem.GetStat(StatNames.AttackRate) * 100f, StatSystem.GetStat(StatNames.CriticalChance) * 100f, StatSystem.GetStat(StatTID.Base, StatNames.CriticalChance) * 100f, StatSystem.GetStat(StatTID.Weapon, StatNames.CriticalChance) * 100f, StatSystem.GetStat(StatTID.PassiveSkill, StatNames.CriticalChance) * 100f,
+      StatSystem.GetStat(StatNames.CriticalDamage) * 100f, StatSystem.GetStat(StatTID.Base, StatNames.CriticalDamage) * 100f, StatSystem.GetStat(StatTID.Weapon, StatNames.CriticalDamage) * 100f, StatSystem.GetStat(StatTID.PassiveSkill, StatNames.CriticalDamage) * 100f));
+        }
+        else
+        {
+            LogManager.LogInfo(LogTypes.Attack, string.Format("[{0}] 피해 (랜덤) = {1} \n 기본 공격력({2}) + 무기 공격력({3}) + 패시브 공격력({4}) + 공격력 배율({5}%) \n",
+           name, info.Value, StatSystem.GetStat(StatTID.Base, StatNames.Attack), StatSystem.GetStat(StatTID.Weapon, StatNames.Attack), StatSystem.GetStat(StatTID.PassiveSkill, StatNames.Attack),
+           StatSystem.GetStat(StatNames.AttackRate) * 100f));
+        }
     }
 
     public float CalculateHitDamage(float damage)
@@ -131,7 +172,7 @@ public class Character : MonoBehaviour
         LogManager.LogInfo(LogTypes.Damage,
    name + " /" + " 방어력(" + armorValue + "+" + (armorRate * 100f) + "%) 받는피해감소(" + (reduece - 1f) + "%) = " + result);
 
-        return result > 0 ? result : 0;
+        return result > 0 ? result : 1;
     }
 
     private float RandomDamage(float Damage)
@@ -142,7 +183,7 @@ public class Character : MonoBehaviour
         return Mathf.RoundToInt(Random.Range(min, max));
     }
 
-    protected float GetMaxHealthStat()
+    private float GetMaxHealthStat()
     {
         float maxHp = (StatSystem.GetStat(StatNames.Health) + (StatSystem.GetStat(StatNames.HealthByLevel) * (Level - 1)))
             * StatSystem.GetStat(StatNames.HealthRate);
@@ -150,11 +191,53 @@ public class Character : MonoBehaviour
         return Mathf.RoundToInt(maxHp);
     }
 
-    protected float GetAttackStat()
+    private float GetAttackStat()
     {
         float attack = (StatSystem.GetStat(StatNames.Attack) + (StatSystem.GetStat(StatNames.AttackByLevel) * (Level - 1)))
              * StatSystem.GetStat(StatNames.AttackRate);
 
         return Mathf.RoundToInt(attack);
+    }
+
+    public void Heal(int value)
+    {
+        InGameManager.Instance.ObjectPool.SpawnFloaty(transform.position, FloatyTypes.Heal, RefreshHP(value).ToString());
+    }
+
+    public float GetCurrentMaxHP()
+    {
+        int isLimit = (int)(StatSystem.GetStat(StatNames.LimitHealth));
+
+        if (isLimit == 1)
+        {
+            return MaxHP * 0.7f;
+        }
+        else
+        {
+            return MaxHP;
+        }
+    }
+
+    public float RefreshHP(int value)
+    {
+        int resultValue = value;
+
+        CurrentHp += value;
+
+        float maxHP = GetCurrentMaxHP();
+
+        if (CurrentHp + value >= maxHP)
+        {
+            resultValue = (int)((CurrentHp + value) - maxHP);
+            CurrentHp = maxHP;
+        }
+        else
+        {
+            CurrentHp += resultValue;
+        }
+
+        EventManager<EventTypes>.Send(EventTypes.RefreshPlayerHP);
+
+        return resultValue;
     }
 }

@@ -23,5 +23,5 @@ MonoBehaviour:
   Speed: 1.4
   Damage: 1
   CriticalRate: 0.25
-  CriticalDamage: 2.5
+  CriticalDamage: 1.5
   Icon: {fileID: 1936746835, guid: 6eb16e372762d6b4cb708c44ebfab931, type: 3}

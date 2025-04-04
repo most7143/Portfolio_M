@@ -11,13 +11,13 @@ public class SkillSystem : MonoBehaviour
 
     private void OnEnable()
     {
-        EventManager<EventTypes>.Register<WeaponNames>(EventTypes.AttackExecuted, ActivateToAttack);
+        EventManager<EventTypes>.Register<WeaponNames>(EventTypes.PlayerAttackExecuted, ActivateToAttack);
         EventManager<EventTypes>.Register<WeaponNames>(EventTypes.EquipedWeapon, RefreshSkill);
     }
 
     private void OnDisable()
     {
-        EventManager<EventTypes>.Unregister<WeaponNames>(EventTypes.AttackExecuted, ActivateToAttack);
+        EventManager<EventTypes>.Unregister<WeaponNames>(EventTypes.PlayerAttackExecuted, ActivateToAttack);
         EventManager<EventTypes>.Unregister<WeaponNames>(EventTypes.EquipedWeapon, RefreshSkill);
     }
 

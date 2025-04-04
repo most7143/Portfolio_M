@@ -17,7 +17,7 @@ MonoBehaviour:
   NameString: "\uC9D1\uD589\uC790"
   DescriptionString: "\uBAAC\uC2A4\uD130 \uC870\uC6B0 \uC2DC {0}\uCD08 \uB3D9\uC548
     \uD53C\uD574\uB97C \uC785\uC9C0 \uC54A\uB294\uB2E4."
-  RequireRank: 20
+  RequireRank: 1
   MaxLevel: 1
   StatName: 0
   BooleanStatName: 18

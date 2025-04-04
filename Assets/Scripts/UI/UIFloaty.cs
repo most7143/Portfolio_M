@@ -11,7 +11,9 @@ public enum FloatyTypes
     SkillDamage,
     Success,
     Fail,
-    EXP,
+    Gold,
+    Dodge,
+    Heal,
 }
 
 public class UIFloaty : MonoBehaviour
@@ -28,9 +30,12 @@ public class UIFloaty : MonoBehaviour
 
     public Vector3 Offset;
 
+    private float _fontSize;
+
     public void Init()
     {
         Text.gameObject.SetActive(false);
+        _fontSize = Text.fontSize;
     }
 
     public void Spawn(Vector2 position, FloatyTypes type, string text)
@@ -42,8 +47,9 @@ public class UIFloaty : MonoBehaviour
         SetColor(type);
         Text.gameObject.SetActive(true);
         StartCoroutine(ProcessAlive());
+        RefreshSize(type);
 
-        if (type == FloatyTypes.Damage || type == FloatyTypes.CritialDamage || type == FloatyTypes.SkillDamage || type == FloatyTypes.EXP)
+        if (type == FloatyTypes.Damage || type == FloatyTypes.CritialDamage || type == FloatyTypes.SkillDamage || type == FloatyTypes.Gold || type == FloatyTypes.Dodge || type == FloatyTypes.Heal)
         {
             Rect.anchoredPosition = GetWorldPosition(position);
         }
@@ -70,7 +76,7 @@ public class UIFloaty : MonoBehaviour
         {
             Text.color = Color.white;
         }
-        else if (type == FloatyTypes.Success || type == FloatyTypes.EXP)
+        else if (type == FloatyTypes.Success || type == FloatyTypes.Gold)
         {
             Text.color = Color.yellow;
         }
@@ -81,6 +87,24 @@ public class UIFloaty : MonoBehaviour
         else if (type == FloatyTypes.SkillDamage)
         {
             Text.color = Color.cyan;
+        }
+        else if (type == FloatyTypes.Dodge)
+        {
+            Text.color = Color.gray;
+        }
+        else if (type == FloatyTypes.Heal)
+        {
+            Text.color = Color.green;
+        }
+    }
+
+    private void RefreshSize(FloatyTypes type)
+    {
+        Text.fontSize = _fontSize;
+
+        if (type == FloatyTypes.Gold)
+        {
+            Text.fontSize *= 0.7f;
         }
     }
 

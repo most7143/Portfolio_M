@@ -26,14 +26,22 @@ public class UISkillBox : MonoBehaviour
         LearnButton.onClick.AddListener(() => Learn());
     }
 
+    private void OnEnable()
+    {
+        EventManager<EventTypes>.Register(EventTypes.SkillLevelUp, Refresh);
+    }
+
+    private void OnDisable()
+    {
+        EventManager<EventTypes>.Unregister(EventTypes.SkillLevelUp, Refresh);
+    }
+
     public void Setup(PassiveSkillNames name)
     {
         Name = name;
         data = ResourcesManager.Instance.LoadScriptable<PassiveSkillData>(name.ToString());
         Icon.sprite = ResourcesManager.Instance.LoadSprite("Icon_" + name.ToString());
         NameText.SetText(data.NameString);
-        DescText.SetText(string.Format(data.DescriptionString, GetValue()));
-        LevelText.SetText(Level + "/" + data.MaxLevel);
         LockText.SetText(data.RequireRank + " 랭크 도달 시 개방");
         CostText.SetText(data.Cost + "G");
         Refresh();
@@ -52,14 +60,7 @@ public class UISkillBox : MonoBehaviour
         }
         else if (data.MultiplierValue != 0)
         {
-            float value = data.MultiplierValue + ((level - 1) * data.MultiplierValueByLevel);
-
-            if (data.StatName != StatNames.AttackSpeed)
-            {
-                value *= 100;
-            }
-
-            return value;
+            return data.MultiplierValue + ((level - 1) * data.MultiplierValueByLevel);
         }
 
         return 0;
@@ -77,6 +78,24 @@ public class UISkillBox : MonoBehaviour
         }
 
         SetChance();
+
+        LevelText.SetText(Level + "/" + data.MaxLevel);
+
+        float value = GetValue();
+
+        if (data.MultiplierValue > 0 && data.StatName != StatNames.AttackSpeed)
+            value = Mathf.FloorToInt(value * 100f);
+
+        DescText.SetText(string.Format(data.DescriptionString, value));
+
+        if (Level != data.MaxLevel)
+        {
+            CostText.SetText(data.Cost + "G");
+        }
+        else
+        {
+            CostText.SetText("MAX");
+        }
     }
 
     private void SetChance()
@@ -93,17 +112,18 @@ public class UISkillBox : MonoBehaviour
 
         if (InGameManager.Instance.Controller.TryUsingGold((int)data.Cost))
         {
-            float rand = Random.Range(0, 1);
+            float rand = Random.Range(0, 1f);
 
             if (_chance >= rand)
             {
                 LevelUpSkill();
                 InGameManager.Instance.Controller.UseGold((int)data.Cost);
                 InGameManager.Instance.ObjectPool.SpawnFloaty(LearnButton.transform.position, FloatyTypes.Success, "성공");
+                EventManager<EventTypes>.Send(EventTypes.SkillLevelUp);
             }
             else
             {
-                InGameManager.Instance.ObjectPool.SpawnFloaty(LearnButton.transform.position, FloatyTypes.Success, "실패");
+                InGameManager.Instance.ObjectPool.SpawnFloaty(LearnButton.transform.position, FloatyTypes.Fail, "실패");
             }
         }
     }
@@ -116,14 +136,30 @@ public class UISkillBox : MonoBehaviour
 
         if (data.StatName != StatNames.None)
         {
+            InGameManager.Instance.Player.StatSystem.RemoveStat(StatTID.PassiveSkill, data.StatName);
             InGameManager.Instance.Player.StatSystem.AddStat(StatTID.PassiveSkill, data.StatName, value);
-            LogManager.LogInfo(LogTypes.Skill, string.Format("[{0}] 기술로 인해 {1} 효과가 , {2} 만큼 상승", Name, data.StatName, value));
+            LogManager.LogInfo(LogTypes.Skill, string.Format("[{0}] 기술로 인해 {1} 효과가 , {2} 만큼 상승", data.NameString, data.StatName, value));
         }
 
         if (data.BooleanStatName != StatNames.None)
         {
+            InGameManager.Instance.Player.StatSystem.RemoveStat(StatTID.PassiveSkill, data.BooleanStatName);
             InGameManager.Instance.Player.StatSystem.AddStat(StatTID.PassiveSkill, data.BooleanStatName, 1);
-            LogManager.LogInfo(LogTypes.Skill, string.Format("[{0}] 기술로 인해 {1} 효과가 발동", Name, data.BooleanStatName));
+            BooleanStat(data.BooleanStatName);
+            LogManager.LogInfo(LogTypes.Skill, string.Format("[{0}] 기술로 인해 {1} 효과가 발동", data.NameString, data.BooleanStatName));
+        }
+    }
+
+    private void BooleanStat(StatNames statName)
+    {
+        if (statName == StatNames.LimitHealth)
+        {
+            Player player = InGameManager.Instance.Player;
+
+            if (player.CurrentHp > player.GetCurrentMaxHP())
+            {
+                player.RefreshHP((int)player.MaxHP);
+            }
         }
     }
 }

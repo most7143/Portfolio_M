@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class UIPlayerInfo : MonoBehaviour
 {
-    public TextMeshProUGUI LevelText;
     public TextMeshProUGUI GoldText;
     public TextMeshProUGUI WeaponText;
     public TextMeshProUGUI WeaponDamageText;
@@ -29,8 +28,18 @@ public class UIPlayerInfo : MonoBehaviour
     public void Setup(Player player)
     {
         RefreshWeaponInfo(player.WeaponController.Info);
-        RefreshHp(player);
+        RefreshHp();
         RefreshExp();
+    }
+
+    private void OnEnable()
+    {
+        EventManager<EventTypes>.Register(EventTypes.RefreshPlayerHP, RefreshHp);
+    }
+
+    private void OnDisable()
+    {
+        EventManager<EventTypes>.Unregister(EventTypes.RefreshPlayerHP, RefreshHp);
     }
 
     public void RefreshWeaponInfo(WeaponInfo weaponInfo)
@@ -102,8 +111,10 @@ public class UIPlayerInfo : MonoBehaviour
         }
     }
 
-    public void RefreshHp(Player player)
+    public void RefreshHp()
     {
+        Player player = InGameManager.Instance.Player;
+
         UIHandler.UpdateGauge(HPbar, player.MaxHP, player.CurrentHp, HPText);
     }
 

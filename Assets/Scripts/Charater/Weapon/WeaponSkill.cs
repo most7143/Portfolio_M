@@ -15,7 +15,9 @@ public class WeaponSkill : MonoBehaviour
     {
         float rand = Random.Range(0, 1f);
 
-        if (Chance >= rand)
+        float chance = Chance * Owner.StatSystem.GetStat(StatNames.WeaponTriggerChance);
+
+        if (chance >= rand)
         {
             if (Type == SkillTypes.Attack)
             {
@@ -23,10 +25,11 @@ public class WeaponSkill : MonoBehaviour
 
                 DamageInfo damageInfo = new DamageInfo();
 
+                damageInfo.Owner = Owner;
                 damageInfo.Type = DamageTypes.Skill;
                 damageInfo.Value = Mathf.RoundToInt(Owner.Attack * ValueMultiply);
 
-                Owner.SkillAttack(damageInfo);
+                Owner.SkillAttack(ref damageInfo);
             }
             else if (Type == SkillTypes.Buff)
             {

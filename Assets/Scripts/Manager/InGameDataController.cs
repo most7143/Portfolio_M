@@ -12,9 +12,15 @@ public class InGameDataController : MonoBehaviour
 
     public void AddGold(int gold)
     {
-        Data.Gold += gold;
+        Player player = InGameManager.Instance.Player;
+
+        int resultGold = Mathf.CeilToInt(gold * player.StatSystem.GetStat(StatNames.CurrencyGainRate));
+
+        Data.Gold += resultGold;
 
         UIManager.Instance.PlayerInfo.RefreshGold(Data.Gold);
+
+        InGameManager.Instance.ObjectPool.SpawnFloaty(InGameManager.Instance.Player.transform.position, FloatyTypes.Gold, "+" + resultGold + "G");
     }
 
     public void UseGold(int gold)
@@ -37,10 +43,6 @@ public class InGameDataController : MonoBehaviour
         float currentEXP = Mathf.FloorToInt(exp);
 
         Data.Experience += currentEXP;
-
-        Debug.Log(Data.Experience + " / " + Data.NextEXP);
-
-        InGameManager.Instance.ObjectPool.SpawnFloaty(InGameManager.Instance.Player.transform.position, FloatyTypes.EXP, "+" + currentEXP + " exp");
 
         if (Data.NextEXP <= Data.Experience)
         {

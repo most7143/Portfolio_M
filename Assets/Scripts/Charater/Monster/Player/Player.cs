@@ -13,7 +13,7 @@ public class Player : Character
         WeaponController.SetWeaponData(WeaponNames.WoodenSword);
         RefreshWeaponInfo();
 
-        CurrentHp = MaxHP;
+        RefreshHP((int)MaxHP);
     }
 
     public void RefreshWeaponInfo()
@@ -37,11 +37,9 @@ public class Player : Character
         Animator.SetTrigger("Attack");
     }
 
-    public override void Hit(DamageInfo info)
+    public override void Hit(ref DamageInfo info)
     {
-        base.Hit(info);
-
-        UIManager.Instance.PlayerInfo.RefreshHp(this);
+        base.Hit(ref info);
     }
 
     public override void Dead()
@@ -54,16 +52,15 @@ public class Player : Character
     public void LevelUp()
     {
         Level += 1;
-        CurrentHp = MaxHP;
 
-        UIManager.Instance.PlayerInfo.RefreshHp(this);
+        RefreshHP((int)MaxHP);
 
         EventManager<EventTypes>.Send(EventTypes.LevelUp, Level);
     }
 
-    public void SkillAttack(DamageInfo info)
+    public void SkillAttack(ref DamageInfo info)
     {
-        TargetMonster.Hit(info);
+        TargetMonster.Hit(ref info);
 
         Vector3 position = new Vector3(TargetMonster.transform.position.x + Random.Range(0, 0.5f), TargetMonster.transform.position.y + Random.Range(0, 0.5f));
 
@@ -80,7 +77,8 @@ public class Player : Character
         if (TargetMonster != null)
         {
             DamageInfo info = CalculateDamage();
-            TargetMonster.Hit(info);
+
+            TargetMonster.Hit(ref info);
 
             if (info.IsCritical)
             {
@@ -91,7 +89,7 @@ public class Player : Character
                 InGameManager.Instance.ObjectPool.SpawnFloaty(TargetMonster.transform.position, FloatyTypes.Damage, info.Value.ToString());
             }
 
-            EventManager<EventTypes>.Send(EventTypes.AttackExecuted, WeaponController.Name);
+            EventManager<EventTypes>.Send(EventTypes.PlayerAttackExecuted, WeaponController.Name);
         }
     }
 }
