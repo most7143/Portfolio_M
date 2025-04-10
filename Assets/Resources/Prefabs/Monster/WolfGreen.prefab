@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 584518497833966851}
   - component: {fileID: 3534711403590786747}
   - component: {fileID: 1474639031683293616}
+  - component: {fileID: 4714599130768939488}
   m_Layer: 0
   m_Name: WolfGreen
   m_TagString: Untagged
@@ -101,11 +102,10 @@ MonoBehaviour:
   Name: 22
   NameString: 
   Level: 1
-  AttackSpeed: 5
   IsAlive: 0
   Renderer: {fileID: 584518497833966851}
   StatSystem: {fileID: 1474639031683293616}
-  CurrentHp: 0
+  BuffSystem: {fileID: 4714599130768939488}
   MaxLevel: 1
   Spanwer: {fileID: 0}
 --- !u!114 &1474639031683293616
@@ -153,3 +153,17 @@ MonoBehaviour:
     Value: 20
   - Name: 17
     Value: 2
+  IsInvincibility: 0
+--- !u!114 &4714599130768939488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21315307241282975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f758ef30a08aed4fbb36cf4673e2545, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Owner: {fileID: 0}

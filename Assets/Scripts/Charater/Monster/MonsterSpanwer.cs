@@ -20,6 +20,8 @@ public class MonsterSpanwer : MonoBehaviour
             EXP *= 1.02f;
             Gold = (int)(Gold * 1.03f);
         }
+
+        EventManager<EventTypes>.Send(EventTypes.ChangeMonsterLevel);
     }
 
     public void Spawn(CharacterNames chareacterName)

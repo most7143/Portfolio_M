@@ -12,9 +12,13 @@ public struct StatInfo
 
 public class StatSystem : MonoBehaviour
 {
+    public Character Owenr;
+
     public List<StatInfo> Stats;
 
     private Dictionary<StatNames, Dictionary<StatTID, float>> _stats = new();
+
+    public bool IsInvincibility = false;
 
     private void Awake()
     {
@@ -81,6 +85,14 @@ public class StatSystem : MonoBehaviour
             {
                 _stats[name].Add(tid, value);
             }
+
+            if (Owenr != null)
+            {
+                if (Owenr.Name == CharacterNames.Swordman)
+                {
+                    EventManager<EventTypes>.Send(EventTypes.RefreshPlayerStst);
+                }
+            }
         }
     }
 
@@ -89,6 +101,14 @@ public class StatSystem : MonoBehaviour
         if (_stats.ContainsKey(name))
         {
             _stats[name].Remove(tid);
+
+            if (Owenr != null)
+            {
+                if (Owenr.Name == CharacterNames.Swordman)
+                {
+                    EventManager<EventTypes>.Send(EventTypes.RefreshPlayerStst);
+                }
+            }
         }
     }
 }

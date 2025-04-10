@@ -1,12 +1,12 @@
 ﻿public class UIWeaponTab : UITab
 {
-    public WeaponUpgrade Upgrade;
+    public UIWeaponInfo WeaponInfo;
 
     public override void Activate()
     {
         base.Activate();
 
-        Upgrade.Activate();
+        WeaponInfo.Activate();
     }
 
     public override void Deactivate()

@@ -64,5 +64,7 @@ public class Monster : Character
         InGameManager.Instance.Controller.AddExp(Spanwer.EXP);
 
         InGameManager.Instance.RefreshStage(Level);
+
+        EventManager<EventTypes>.Send(EventTypes.MonsterDead);
     }
 }

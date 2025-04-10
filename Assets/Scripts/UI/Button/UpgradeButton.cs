@@ -4,13 +4,13 @@ using UnityEngine.EventSystems;
 
 public class UpgradeButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    public WeaponUpgrade WeaponUpgrade;
+    public UIWeaponInfo UIWeaponInfo;
 
     private bool isPressed = false;
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        WeaponUpgrade.Upgrade();
+        UIWeaponInfo.Upgrade();
 
         StartCoroutine(PressProcess());
     }
@@ -33,7 +33,7 @@ public class UpgradeButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     {
         if (isPressed)
         {
-            WeaponUpgrade.Upgrade();
+            UIWeaponInfo.Upgrade();
         }
     }
 }

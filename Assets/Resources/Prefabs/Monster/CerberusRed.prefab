@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 584518497833966851}
   - component: {fileID: 3534711403590786747}
   - component: {fileID: 8157946921801124288}
+  - component: {fileID: 9090967187541076532}
   m_Layer: 0
   m_Name: CerberusRed
   m_TagString: Untagged
@@ -101,11 +102,10 @@ MonoBehaviour:
   Name: 27
   NameString: 
   Level: 1
-  AttackSpeed: 5
   IsAlive: 0
   Renderer: {fileID: 584518497833966851}
   StatSystem: {fileID: 8157946921801124288}
-  CurrentHp: 0
+  BuffSystem: {fileID: 9090967187541076532}
   MaxLevel: 1
   Spanwer: {fileID: 0}
 --- !u!114 &8157946921801124288
@@ -153,3 +153,17 @@ MonoBehaviour:
     Value: 20
   - Name: 17
     Value: 2
+  IsInvincibility: 0
+--- !u!114 &9090967187541076532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21315307241282975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f758ef30a08aed4fbb36cf4673e2545, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Owner: {fileID: 0}

@@ -11,7 +11,11 @@ public class Character : MonoBehaviour
 
     public SpriteRenderer Renderer;
 
+    public PassiveSystem PassiveSystem;
+
     public StatSystem StatSystem;
+
+    public BuffSystem BuffSystem;
 
     public float CurrentHp { get; private set; }
 
@@ -21,6 +25,9 @@ public class Character : MonoBehaviour
     public float Attack
     { get { return GetAttackStat(); } }
 
+    public float Armor
+    { get { return GetArmorStat(); } }
+
     public float MaxHP
     {
         get { return GetMaxHealthStat(); }
@@ -29,6 +36,7 @@ public class Character : MonoBehaviour
     protected virtual void Awake()
     {
         IsAlive = true;
+        BuffSystem.Owner = this;
     }
 
     public void StartAttack()
@@ -42,9 +50,23 @@ public class Character : MonoBehaviour
 
     public virtual void Hit(ref DamageInfo info)
     {
+        if (StatSystem.IsInvincibility)
+        {
+            return;
+        }
+
         if (Dodge())
         {
             InGameManager.Instance.ObjectPool.SpawnFloaty(transform.position, FloatyTypes.Dodge, "Miss");
+
+            if (Name == CharacterNames.Swordman)
+            {
+                if (UIManager.Instance.PlayerInfo.UIPassiveSkillInfo.IsMaxSkillLevel(PassiveSkillNames.OmniDirectionalMobility))
+                {
+                    InGameManager.Instance.Controller.AddGold(InGameManager.Instance.MonsterSpanwer.Gold);
+                }
+            }
+
             return;
         }
 
@@ -127,32 +149,35 @@ public class Character : MonoBehaviour
         if (info.IsCritical)
         {
             info.Value *= StatSystem.GetStat(StatNames.CriticalDamage);
-        }
 
-        info.Value = Mathf.RoundToInt(info.Value);
-
-        Log(info);
-
-        return info;
-    }
-
-    private void Log(DamageInfo info)
-    {
-        if (info.IsCritical)
-        {
             LogManager.LogInfo(LogTypes.Attack, string.Format("[{0}] 피해 (랜덤) = {1} \n 기본 공격력({2}) + 무기 공격력({3}) + 패시브 공격력({4}) + 공격력 배율({5}%) \n" +
-   " 치명률({6}%) = 기본({7}%) + 무기({8}%) + 패시브 ({9}%) \n"
-   + "치명타 피해({10}%) = 기본({11}%) + 무기({12}%) + 패시브({13}%)",
-      name, info.Value, StatSystem.GetStat(StatTID.Base, StatNames.Attack), StatSystem.GetStat(StatTID.Weapon, StatNames.Attack), StatSystem.GetStat(StatTID.PassiveSkill, StatNames.Attack),
-      StatSystem.GetStat(StatNames.AttackRate) * 100f, StatSystem.GetStat(StatNames.CriticalChance) * 100f, StatSystem.GetStat(StatTID.Base, StatNames.CriticalChance) * 100f, StatSystem.GetStat(StatTID.Weapon, StatNames.CriticalChance) * 100f, StatSystem.GetStat(StatTID.PassiveSkill, StatNames.CriticalChance) * 100f,
-      StatSystem.GetStat(StatNames.CriticalDamage) * 100f, StatSystem.GetStat(StatTID.Base, StatNames.CriticalDamage) * 100f, StatSystem.GetStat(StatTID.Weapon, StatNames.CriticalDamage) * 100f, StatSystem.GetStat(StatTID.PassiveSkill, StatNames.CriticalDamage) * 100f));
+  " 치명률({6}%) = 기본({7}%) + 무기({8}%) + 패시브 ({9}%) + 버프({10}%) \n"
+  + "치명타 피해({11}%) = 기본({12}%) + 무기({13}%) + 패시브({14}%)",
+     name, info.Value, StatSystem.GetStat(StatTID.Base, StatNames.Attack), StatSystem.GetStat(StatTID.Weapon, StatNames.Attack), StatSystem.GetStat(StatTID.PassiveSkill, StatNames.Attack),
+     StatSystem.GetStat(StatNames.AttackRate) * 100f, StatSystem.GetStat(StatNames.CriticalChance) * 100f, StatSystem.GetStat(StatTID.Base, StatNames.CriticalChance) * 100f, StatSystem.GetStat(StatTID.Weapon, StatNames.CriticalChance) * 100f, StatSystem.GetStat(StatTID.PassiveSkill, StatNames.CriticalChance) * 100f,
+     StatSystem.GetStat(StatTID.Buff, StatNames.CriticalChance) * 100f + StatSystem.GetStat(StatTID.BuffStack, StatNames.CriticalChance) * 100f,
+     StatSystem.GetStat(StatNames.CriticalDamage) * 100f, StatSystem.GetStat(StatTID.Base, StatNames.CriticalDamage) * 100f, StatSystem.GetStat(StatTID.Weapon, StatNames.CriticalDamage) * 100f, StatSystem.GetStat(StatTID.PassiveSkill, StatNames.CriticalDamage) * 100f));
+
+            if (Name == CharacterNames.Swordman)
+            {
+                EventManager<EventTypes>.Send(EventTypes.PlayerAttackToCritical);
+            }
         }
         else
         {
             LogManager.LogInfo(LogTypes.Attack, string.Format("[{0}] 피해 (랜덤) = {1} \n 기본 공격력({2}) + 무기 공격력({3}) + 패시브 공격력({4}) + 공격력 배율({5}%) \n",
-           name, info.Value, StatSystem.GetStat(StatTID.Base, StatNames.Attack), StatSystem.GetStat(StatTID.Weapon, StatNames.Attack), StatSystem.GetStat(StatTID.PassiveSkill, StatNames.Attack),
-           StatSystem.GetStat(StatNames.AttackRate) * 100f));
+          name, info.Value, StatSystem.GetStat(StatTID.Base, StatNames.Attack), StatSystem.GetStat(StatTID.Weapon, StatNames.Attack), StatSystem.GetStat(StatTID.PassiveSkill, StatNames.Attack),
+          StatSystem.GetStat(StatNames.AttackRate) * 100f));
+
+            if (Name == CharacterNames.Swordman)
+            {
+                EventManager<EventTypes>.Send(EventTypes.PlayerAttackToNoCritical);
+            }
         }
+
+        info.Value = Mathf.RoundToInt(info.Value);
+
+        return info;
     }
 
     public float CalculateHitDamage(float damage)
@@ -197,6 +222,14 @@ public class Character : MonoBehaviour
              * StatSystem.GetStat(StatNames.AttackRate);
 
         return Mathf.RoundToInt(attack);
+    }
+
+    private float GetArmorStat()
+    {
+        float armor = (StatSystem.GetStat(StatNames.Armor) + (StatSystem.GetStat(StatNames.ArmorByLevel) * (Level - 1)))
+             * StatSystem.GetStat(StatNames.ArmorRate);
+
+        return Mathf.RoundToInt(armor);
     }
 
     public void Heal(int value)

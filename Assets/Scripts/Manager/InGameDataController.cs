@@ -4,6 +4,8 @@ public class InGameDataController : MonoBehaviour
 {
     public InGameData Data = new();
 
+    public RectTransform GoldPoint;
+
     public void Setup()
     {
         Data.Experience = 0;
@@ -20,7 +22,7 @@ public class InGameDataController : MonoBehaviour
 
         UIManager.Instance.PlayerInfo.RefreshGold(Data.Gold);
 
-        InGameManager.Instance.ObjectPool.SpawnFloaty(InGameManager.Instance.Player.transform.position, FloatyTypes.Gold, "+" + resultGold + "G");
+        InGameManager.Instance.ObjectPool.SpawnFloaty(GoldPoint.position, FloatyTypes.Gold, "+" + resultGold + "G");
     }
 
     public void UseGold(int gold)

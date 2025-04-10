@@ -20,6 +20,8 @@ MonoBehaviour:
   - Type: 3
     IsUse: 0
   - Type: 4
-    IsUse: 1
+    IsUse: 0
   - Type: 5
+    IsUse: 0
+  - Type: 6
     IsUse: 0

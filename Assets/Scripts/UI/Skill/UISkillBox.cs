@@ -4,11 +4,15 @@ using UnityEngine.UI;
 
 public class UISkillBox : MonoBehaviour
 {
+    public RectTransform Rect;
     public PassiveSkillNames Name;
     public int Level = 0;
+    public int MaxLevel = 0;
+    public Image BackGround;
     public Image Icon;
     public TextMeshProUGUI NameText;
     public TextMeshProUGUI DescText;
+    public TextMeshProUGUI BunousDescText;
     public TextMeshProUGUI LevelText;
     public TextMeshProUGUI CostText;
     public TextMeshProUGUI ChanceText;
@@ -19,10 +23,13 @@ public class UISkillBox : MonoBehaviour
 
     private float _chance;
 
-    private PassiveSkillData data;
+    private Vector2 _origin;
+
+    public PassiveSkillData Data;
 
     private void Start()
     {
+        _origin = Rect.sizeDelta;
         LearnButton.onClick.AddListener(() => Learn());
     }
 
@@ -39,11 +46,17 @@ public class UISkillBox : MonoBehaviour
     public void Setup(PassiveSkillNames name)
     {
         Name = name;
-        data = ResourcesManager.Instance.LoadScriptable<PassiveSkillData>(name.ToString());
+        Data = ResourcesManager.Instance.LoadScriptable<PassiveSkillData>(name.ToString());
+
+        if (Data != null)
+        {
+            MaxLevel = Data.MaxLevel;
+        }
+
         Icon.sprite = ResourcesManager.Instance.LoadSprite("Icon_" + name.ToString());
-        NameText.SetText(data.NameString);
-        LockText.SetText(data.RequireRank + " 랭크 도달 시 개방");
-        CostText.SetText(data.Cost + "G");
+
+        LockText.SetText(Data.RequireRank + " 랭크 도달 시 개방");
+        CostText.SetText(Data.Cost + "G");
         Refresh();
     }
 
@@ -54,21 +67,37 @@ public class UISkillBox : MonoBehaviour
         if (Level < 1)
             level = 1;
 
-        if (data.Value != 0)
+        if (Data.Value != 0)
         {
-            return data.Value + ((level - 1) * data.ValueByLevel);
+            return Data.Value + ((level - 1) * Data.ValueByLevel);
         }
-        else if (data.MultiplierValue != 0)
+        else if (Data.MultiplierValue != 0)
         {
-            return data.MultiplierValue + ((level - 1) * data.MultiplierValueByLevel);
+            return Data.MultiplierValue + ((level - 1) * Data.MultiplierValueByLevel);
         }
 
         return 0;
     }
 
+    private float GetMaxLevelValue()
+    {
+        float value = 0;
+
+        if (Data.MaxLevelValue > 0)
+        {
+            value = Data.MaxLevelValue;
+        }
+        else if (Data.MultiplierMaxLevelValue > 0)
+        {
+            value = Data.MultiplierMaxLevelValue;
+        }
+
+        return value;
+    }
+
     public void Refresh()
     {
-        if (InGameManager.Instance.Player.Level >= data.RequireRank)
+        if (InGameManager.Instance.Player.Level >= Data.RequireRank)
         {
             LockTrans.gameObject.SetActive(false);
         }
@@ -77,47 +106,67 @@ public class UISkillBox : MonoBehaviour
             LockTrans.gameObject.SetActive(true);
         }
 
-        SetChance();
-
-        LevelText.SetText(Level + "/" + data.MaxLevel);
+        LevelText.SetText(Level + "/" + Data.MaxLevel);
 
         float value = GetValue();
 
-        if (data.MultiplierValue > 0 && data.StatName != StatNames.AttackSpeed)
-            value = Mathf.FloorToInt(value * 100f);
+        if (Data.MultiplierValue > 0 && Data.StatName != StatNames.AttackSpeed)
+            value = Mathf.RoundToInt(value * 100f);
 
-        DescText.SetText(string.Format(data.DescriptionString, value));
-
-        if (Level != data.MaxLevel)
+        if (Level != Data.MaxLevel)
         {
-            CostText.SetText(data.Cost + "G");
+            NameText.SetText(Data.NameString);
+            DescText.SetText(string.Format(Data.DescriptionString, value));
+            BunousDescText.gameObject.SetActive(false);
+            CostText.SetText(Data.Cost + "G");
         }
         else
         {
+            Rect.sizeDelta = new Vector2(_origin.x, _origin.y + 20f);
+            NameText.SetText("<color=#96FFFF>" + Data.MaxLevelNameString + "</color>");
+            BackGround.color = Color.cyan;
+
+            float maxLevelValue = GetMaxLevelValue();
+
+            if (Data.MultiplierMaxLevelValue > 0 && Data.StatName != StatNames.AttackSpeed)
+                maxLevelValue = Mathf.FloorToInt(maxLevelValue * 100f);
+
+            DescText.SetText(string.Format(Data.MaxLevelDescriptionString, value, maxLevelValue));
+            BunousDescText.gameObject.SetActive(true);
+            BunousDescText.color = Color.cyan;
+            BunousDescText.SetText(Data.BunousDescriptionString);
             CostText.SetText("MAX");
         }
+
+        SetChance();
     }
 
     private void SetChance()
     {
-        _chance = data.LearnChance - (Level * data.LearnChanceByLevel);
-
-        ChanceText.SetText(_chance * 100f + "%");
+        if (Level == Data.MaxLevel)
+        {
+            ChanceText.gameObject.SetActive(false);
+        }
+        else
+        {
+            _chance = Data.LearnChance - (Level * Data.LearnChanceByLevel);
+            ChanceText.SetText(_chance * 100f + "%");
+        }
     }
 
     public void Learn()
     {
-        if (data.MaxLevel == Level)
+        if (Data.MaxLevel == Level)
             return;
 
-        if (InGameManager.Instance.Controller.TryUsingGold((int)data.Cost))
+        if (InGameManager.Instance.Controller.TryUsingGold((int)Data.Cost))
         {
             float rand = Random.Range(0, 1f);
 
             if (_chance >= rand)
             {
                 LevelUpSkill();
-                InGameManager.Instance.Controller.UseGold((int)data.Cost);
+                InGameManager.Instance.Controller.UseGold((int)Data.Cost);
                 InGameManager.Instance.ObjectPool.SpawnFloaty(LearnButton.transform.position, FloatyTypes.Success, "성공");
                 EventManager<EventTypes>.Send(EventTypes.SkillLevelUp);
             }
@@ -134,19 +183,55 @@ public class UISkillBox : MonoBehaviour
 
         float value = GetValue();
 
-        if (data.StatName != StatNames.None)
+        Player player = InGameManager.Instance.Player;
+
+        if (Data.StatName != StatNames.None)
         {
-            InGameManager.Instance.Player.StatSystem.RemoveStat(StatTID.PassiveSkill, data.StatName);
-            InGameManager.Instance.Player.StatSystem.AddStat(StatTID.PassiveSkill, data.StatName, value);
-            LogManager.LogInfo(LogTypes.Skill, string.Format("[{0}] 기술로 인해 {1} 효과가 , {2} 만큼 상승", data.NameString, data.StatName, value));
+            player.StatSystem.RemoveStat(StatTID.PassiveSkill, Data.StatName);
+            player.StatSystem.AddStat(StatTID.PassiveSkill, Data.StatName, value);
+            LogManager.LogInfo(LogTypes.Skill, string.Format("[{0}] 기술로 인해 {1} 효과가 , {2} 만큼 상승", Data.NameString, Data.StatName, value));
         }
 
-        if (data.BooleanStatName != StatNames.None)
+        if (Data.BooleanStatName != StatNames.None)
         {
-            InGameManager.Instance.Player.StatSystem.RemoveStat(StatTID.PassiveSkill, data.BooleanStatName);
-            InGameManager.Instance.Player.StatSystem.AddStat(StatTID.PassiveSkill, data.BooleanStatName, 1);
-            BooleanStat(data.BooleanStatName);
-            LogManager.LogInfo(LogTypes.Skill, string.Format("[{0}] 기술로 인해 {1} 효과가 발동", data.NameString, data.BooleanStatName));
+            player.StatSystem.RemoveStat(StatTID.PassiveSkill, Data.BooleanStatName);
+            player.StatSystem.AddStat(StatTID.PassiveSkill, Data.BooleanStatName, 1);
+            BooleanStat(Data.BooleanStatName);
+            LogManager.LogInfo(LogTypes.Skill, string.Format("[{0}] 기술로 인해 {1} 효과가 발동", Data.NameString, Data.BooleanStatName));
+        }
+
+        if (Level == Data.MaxLevel)
+        {
+            MaxLevelupSkill();
+        }
+
+        LevleUpBuff();
+    }
+
+    private void MaxLevelupSkill()
+    {
+        if (Data.MaxLevelStatName != StatNames.None)
+        {
+            if (Data.MaxLevelType != PassiveSkillTypes.Stack)
+            {
+                InGameManager.Instance.Player.StatSystem.AddStat(StatTID.PassiveSkillMaxLevel, Data.MaxLevelStatName, GetMaxLevelValue());
+                LogManager.LogInfo(LogTypes.Skill, string.Format("[{0}] 기술의 만렙으로 인해 {1} 로 변경 ", Data.NameString, Data.MaxLevelNameString));
+            }
+        }
+        else if (Data.MaxLevelBuffName != BuffNames.None)
+        {
+            float value = 0;
+
+            if (Data.MaxLevelValue > 0)
+            {
+                value = Data.MaxLevelValue;
+            }
+            else if (Data.MultiplierMaxLevelValue > 0)
+            {
+                value = Data.MultiplierMaxLevelValue;
+            }
+
+            InGameManager.Instance.Player.BuffSystem.Register(Data.MaxLevelBuffName, Data.AliveTime, value);
         }
     }
 
@@ -160,6 +245,22 @@ public class UISkillBox : MonoBehaviour
             {
                 player.RefreshHP((int)player.MaxHP);
             }
+        }
+    }
+
+    private void LevleUpBuff()
+    {
+        int level = Level;
+
+        if (Level < 1)
+            level = 1;
+
+        Player player = InGameManager.Instance.Player;
+
+        if (Data.BuffName != BuffNames.None)
+        {
+            float aliveTime = Data.AliveTime + ((level - 1) * Data.AliveTimeByLevel);
+            player.BuffSystem.Register(Data.BuffName, aliveTime, GetValue());
         }
     }
 }

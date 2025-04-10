@@ -1,6 +1,6 @@
 public class UISkillTab : UITab
 {
-    public UISkillInfo UISkillInfo;
+    public UIPassiveSkillInfo UISkillInfo;
 
     public override void Activate()
     {

@@ -15,15 +15,25 @@ MonoBehaviour:
   Name: 1
   Grade: 1
   NameString: "\uADFC\uB825 \uB2E8\uB828"
+  MaxLevelNameString: "\uC0B4\uC721 \uC911\uB3C5"
   DescriptionString: "\uACF5\uACA9\uB825\uC774 {0} \uC99D\uAC00\uD55C\uB2E4."
+  MaxLevelDescriptionString: "\uACF5\uACA9\uB825\uC774 {0} , {1}% \uC99D\uAC00\uD55C\uB2E4."
+  BunousDescriptionString: "\uAC15\uD568\uC5D0 \uC9C0\uBC30\uB2F9\uD55C \uC790\uC5D0\uAC8C
+    \uC0DD\uAE30\uB294 \uC99D\uC0C1"
   RequireRank: 1
-  MaxLevel: 10
+  MaxLevel: 20
   StatName: 1
+  MaxLevelStatName: 2
   BooleanStatName: 0
+  BuffName: 0
+  AliveTime: 0
+  AliveTimeByLevel: 0
   Value: 20
   ValueByLevel: 10
+  MaxLevelValue: 0
   MultiplierValue: 0
   MultiplierValueByLevel: 0
+  MultiplierMaxLevelValue: 0.4
   LearnChance: 1
-  LearnChanceByLevel: 0.05
+  LearnChanceByLevel: 0.03
   Cost: 100

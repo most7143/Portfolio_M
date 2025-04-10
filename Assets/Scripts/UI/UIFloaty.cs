@@ -31,6 +31,7 @@ public class UIFloaty : MonoBehaviour
     public Vector3 Offset;
 
     private float _fontSize;
+    private float _aliveTime = 0.5f;
 
     public void Init()
     {
@@ -49,7 +50,7 @@ public class UIFloaty : MonoBehaviour
         StartCoroutine(ProcessAlive());
         RefreshSize(type);
 
-        if (type == FloatyTypes.Damage || type == FloatyTypes.CritialDamage || type == FloatyTypes.SkillDamage || type == FloatyTypes.Gold || type == FloatyTypes.Dodge || type == FloatyTypes.Heal)
+        if (type == FloatyTypes.Damage || type == FloatyTypes.CritialDamage || type == FloatyTypes.SkillDamage || type == FloatyTypes.Dodge || type == FloatyTypes.Heal)
         {
             Rect.anchoredPosition = GetWorldPosition(position);
         }
@@ -57,8 +58,13 @@ public class UIFloaty : MonoBehaviour
         {
             Rect.position = position;
         }
+
         Fade.FadeOut();
-        Move();
+
+        if (type != FloatyTypes.Gold)
+        {
+            Move();
+        }
 
         if (type == FloatyTypes.SkillDamage)
         {

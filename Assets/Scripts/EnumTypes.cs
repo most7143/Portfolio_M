@@ -206,11 +206,32 @@ public enum PassiveGrades
     Legendary,
 }
 
+public enum PassiveSkillTypes
+{
+    None,
+    Stack,
+}
+
 public enum SkillTypes
 {
     None,
     Attack,
     Buff,
+}
+
+public enum BuffNames
+{
+    None,
+    WeaknessExposure, // 약점노출 - 치명타 실패 마다 확률 증가
+    Enforcer,// 집행자 - 몬스터 조우 시 5초 동안 피해를 입지 않음.
+}
+
+public enum BuffTypes
+{
+    None,
+    Stat,
+    Trigger,
+    Stack,
 }
 
 public enum SkillConditions
@@ -222,16 +243,29 @@ public enum SkillConditions
     Dead,
 }
 
+public enum BuffConditions
+{
+    None,
+    MonsterSpawnd,
+    PlayerAttackToNoCritical,
+    PlayerAttackToCritical,
+}
+
 public enum EventTypes
 {
     None,
     PlayerAttackExecuted, // 공격
+    PlayerAttackToNoCritical, // 공격 시 치명타가 아닌 경우
+    PlayerAttackToCritical, // 공격 시 치명타인 경우
     PlayerDamaged, // 플레이어 피해입음
     EquipedWeapon, // 장비 장착
     AttackSkill, // 무기 스킬 발동
     LevelUp, // 플레이어 레벨업
     RefreshPlayerHP, // 플레이어 HP 변화
+    RefreshPlayerStst, // 플레이어 스텟 변화
     SkillLevelUp, // 스킬 레벨업
+    ChangeMonsterLevel, // 몬스터 레벨 변화
+    MonsterDead, //몬스터 사망.
 }
 
 public enum DamageTypes
@@ -249,6 +283,7 @@ public enum LogTypes
     Damage,
     Attack,
     Skill,
+    Buff,
 }
 
 public enum StatTID
@@ -257,4 +292,7 @@ public enum StatTID
     Base,
     Weapon,
     PassiveSkill,
+    PassiveSkillMaxLevel,
+    Buff,
+    BuffStack,
 }

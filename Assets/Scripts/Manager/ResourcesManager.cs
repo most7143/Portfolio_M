@@ -41,6 +41,17 @@ public class ResourcesManager : MonoBehaviour
         return null;
     }
 
+    public GameObject Load(BuffNames buffName)
+    {
+        GameObject ui = Instantiate(Resources.Load<GameObject>("Prefabs/Buff/Buff_" + buffName.ToString()));
+
+        if (ui != null)
+        {
+            return ui;
+        }
+        return null;
+    }
+
     public T Load<T>(string name) where T : Component
     {
         T[] objects = Resources.LoadAll<T>("Prefabs");
