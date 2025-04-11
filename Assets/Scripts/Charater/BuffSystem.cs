@@ -13,6 +13,7 @@ public class BuffSystem : MonoBehaviour
         EventManager<EventTypes>.Register(EventTypes.ChangeMonsterLevel, ChangeMonsterLevel);
         EventManager<EventTypes>.Register(EventTypes.PlayerAttackToNoCritical, AttackToNoCritical);
         EventManager<EventTypes>.Register(EventTypes.PlayerAttackToCritical, AttackToCritical);
+        EventManager<EventTypes>.Register(EventTypes.PlayerDamaged, PlayerDamaged);
     }
 
     private void OnDisable()
@@ -20,6 +21,7 @@ public class BuffSystem : MonoBehaviour
         EventManager<EventTypes>.Unregister(EventTypes.ChangeMonsterLevel, ChangeMonsterLevel);
         EventManager<EventTypes>.Register(EventTypes.PlayerAttackToNoCritical, AttackToNoCritical);
         EventManager<EventTypes>.Register(EventTypes.PlayerAttackToCritical, AttackToCritical);
+        EventManager<EventTypes>.Unregister(EventTypes.PlayerDamaged, PlayerDamaged);
     }
 
     public void Register(BuffNames buffNames, float aliveTime, float value)
@@ -98,6 +100,28 @@ public class BuffSystem : MonoBehaviour
                 }
 
                 if (buffs[i].EndConditions == BuffConditions.PlayerAttackToCritical)
+                {
+                    buffs[i].Deactivate();
+                }
+            }
+        }
+    }
+
+    public void PlayerDamaged()
+    {
+        Buff[] buffs = Buffs.Values.ToArray();
+
+        if (buffs.Length > 0)
+        {
+            for (int i = 0; i < buffs.Length; i++)
+            {
+                if (buffs[i].Conditions == BuffConditions.PlayerDamaged)
+                {
+                    buffs[i].gameObject.SetActive(true);
+                    buffs[i].Actiavte(Owner);
+                }
+
+                if (buffs[i].EndConditions == BuffConditions.PlayerDamaged)
                 {
                     buffs[i].Deactivate();
                 }

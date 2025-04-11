@@ -1671,6 +1671,7 @@ MonoBehaviour:
   WeaponController: {fileID: 322252495}
   TargetMonster: {fileID: 0}
   AttackPoint: {fileID: 627508279}
+  Data: {fileID: 11400000, guid: e3ef6f14ccfafa649ae28f29aa629e48, type: 2}
 --- !u!114 &322252495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5984,46 +5985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f5e56e8282934f4f99bccbb80513aa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Owenr: {fileID: 0}
-  Stats:
-  - Name: 1
-    Value: 1
-  - Name: 2
-    Value: 1
-  - Name: 3
-    Value: 0
-  - Name: 4
-    Value: 1
-  - Name: 5
-    Value: 0
-  - Name: 6
-    Value: 0
-  - Name: 7
-    Value: 1000
-  - Name: 8
-    Value: 1
-  - Name: 9
-    Value: 1
-  - Name: 10
-    Value: 1
-  - Name: 11
-    Value: 1
-  - Name: 13
-    Value: 1
-  - Name: 14
-    Value: 1
-  - Name: 15
-    Value: 10
-  - Name: 16
-    Value: 50
-  - Name: 17
-    Value: 5
-  - Name: 12
-    Value: 0
-  - Name: 18
-    Value: 0
-  - Name: 19
-    Value: 0
+  Owenr: {fileID: 322252494}
   IsInvincibility: 0
 --- !u!1 &1250064418
 GameObject:
@@ -9421,8 +9383,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 80}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 75, y: 80}
+  m_SizeDelta: {x: 150, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2055445715
 MonoBehaviour:
@@ -9721,6 +9683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43fe3847d5e2b53409e3937be4c038e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Rect: {fileID: 2087642673}
   CanvasGroup: {fileID: 2087642674}
   Player: {fileID: 322252494}
   DamageText: {fileID: 402777833}

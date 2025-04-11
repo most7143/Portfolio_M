@@ -1,3 +1,4 @@
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +13,8 @@ public class UICharacterInfo : MonoBehaviour
     public UIBaseStatGroup StatGroup;
     private bool _isStatInfo;
 
+    private Vector3 originGroup;
+
     private void OnEnable()
     {
         EventManager<EventTypes>.Register<int>(EventTypes.LevelUp, RefreshRank);
@@ -24,6 +27,7 @@ public class UICharacterInfo : MonoBehaviour
 
     private void Start()
     {
+        originGroup = StatGroup.Rect.anchoredPosition3D;
         StatButton.onClick.AddListener(() => StatButtonClick());
     }
 
@@ -40,26 +44,14 @@ public class UICharacterInfo : MonoBehaviour
 
     public void StatButtonClick()
     {
-        if (false == _isStatInfo)
-        {
-            ShowStat();
-        }
-        else
-        {
-            HideStat();
-        }
-    }
-
-    private void ShowStat()
-    {
         StatGroup.Refresh();
-        StatGroup.CanvasGroup.alpha = 1;
-        _isStatInfo = true;
-    }
 
-    private void HideStat()
-    {
-        StatGroup.CanvasGroup.alpha = 0;
-        _isStatInfo = false;
+        float duration = 0.5f;
+        float targetX = _isStatInfo ? originGroup.x : originGroup.x - 150;
+        float alpha = _isStatInfo ? 0 : 1;
+
+        StatGroup.Rect.DOAnchorPosX(targetX, duration).SetEase(Ease.OutQuad);
+        StatGroup.CanvasGroup.DOFade(alpha, duration);
+        _isStatInfo = !_isStatInfo;
     }
 }

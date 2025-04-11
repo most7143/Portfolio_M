@@ -12,6 +12,10 @@ public class MonsterSpanwer : MonoBehaviour
     [HideInInspector] public float EXP = 10;
     [HideInInspector] public int Gold = 5;
 
+    public float AttackByLevel = 2;
+    public float HealthByLevel = 20;
+    public float ArmorByLevel = 1;
+
     public void RefreshLevelByData(int level)
     {
         if (Level < level)
@@ -32,6 +36,7 @@ public class MonsterSpanwer : MonoBehaviour
             SpawnMonster = monster.GetComponent<Monster>();
 
             SpawnMonster.Spanwer = this;
+
             SpawnMonster.SetData();
 
             SpawnMonster.transform.SetParent(SpawnPoint);

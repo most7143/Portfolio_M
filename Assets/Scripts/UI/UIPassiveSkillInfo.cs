@@ -84,10 +84,10 @@ public class UIPassiveSkillInfo : MonoBehaviour
     {
         if (IsMaxSkillLevel(PassiveSkillNames.SurvivalOfTheFittest))
         {
-            int stack = Mathf.FloorToInt(InGameManager.Instance.MonsterSpanwer.Level - 1 / 10);
+            int stack = Mathf.FloorToInt((InGameManager.Instance.MonsterSpanwer.Level - 1) / 10);
             InGameManager.Instance.Player.StatSystem.RemoveStat(StatTID.PassiveSkillMaxLevel, _skills[PassiveSkillNames.SurvivalOfTheFittest].Data.MaxLevelStatName);
             InGameManager.Instance.Player.StatSystem.AddStat(StatTID.PassiveSkillMaxLevel, _skills[PassiveSkillNames.SurvivalOfTheFittest].Data.MaxLevelStatName,
-                _skills[PassiveSkillNames.SurvivalOfTheFittest].Data.MaxLevelValue * stack);
+                _skills[PassiveSkillNames.SurvivalOfTheFittest].Data.MultiplierMaxLevelValue * stack);
         }
     }
 }

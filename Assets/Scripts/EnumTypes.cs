@@ -156,14 +156,15 @@ public enum StatNames
 
     DodgeRate,
 
-    WeaponTriggerChance,
-    CurrencyGainRate,
-
     AttackByLevel,
     HealthByLevel,
     ArmorByLevel,
 
-    InvincibilityTime,
+    WeaponTriggerChance,
+    CurrencyGainRate,
+    IncreaseHealingOnHitChance,
+
+    //bool
     LimitHealth,
 }
 
@@ -224,6 +225,7 @@ public enum BuffNames
     None,
     WeaknessExposure, // 약점노출 - 치명타 실패 마다 확률 증가
     Enforcer,// 집행자 - 몬스터 조우 시 5초 동안 피해를 입지 않음.
+    Durability, // 같은 몬스터에게 피해를 받을 때 마다 방어력 증가
 }
 
 public enum BuffTypes
@@ -249,6 +251,7 @@ public enum BuffConditions
     MonsterSpawnd,
     PlayerAttackToNoCritical,
     PlayerAttackToCritical,
+    PlayerDamaged,
 }
 
 public enum EventTypes

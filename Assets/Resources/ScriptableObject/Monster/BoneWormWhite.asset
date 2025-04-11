@@ -16,4 +16,10 @@ MonoBehaviour:
   NameString: "\uBCF8\uC6DC \uD654\uC774\uD2B8"
   Level: 501
   MaxLevel: 550
+  Attack: 2
+  AttackByLevel: 2
+  Health: 20
+  HealthByLevel: 20
+  Armor: 1
+  ArmorByLevel: 1
   AttackSpeed: 0.3

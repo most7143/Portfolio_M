@@ -23,8 +23,9 @@ MonoBehaviour:
   RequireRank: 1
   MaxLevel: 20
   StatName: 7
-  MaxLevelStatName: 0
-  BooleanStatName: 8
+  MaxLevelStatName: 8
+  MaxLevelConditions: 0
+  BooleanStatName: 0
   BuffName: 0
   MaxLevelBuffName: 0
   AliveTime: 0

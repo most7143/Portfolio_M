@@ -16,7 +16,7 @@ public class PassiveSkillData : ScriptableObject
 
     [Header("Stat")] public StatNames StatName;
     public StatNames MaxLevelStatName;
-    public PassiveSkillTypes MaxLevelType;
+    public SkillConditions MaxLevelConditions;
     public StatNames BooleanStatName;
 
     [Header("Buff")] public BuffNames BuffName;

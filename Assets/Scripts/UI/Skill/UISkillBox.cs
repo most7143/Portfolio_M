@@ -210,12 +210,14 @@ public class UISkillBox : MonoBehaviour
 
     private void MaxLevelupSkill()
     {
+        LogManager.LogInfo(LogTypes.Skill, string.Format("[{0}] 기술의 만렙으로 인해 {1} 로 변경 ", Data.NameString, Data.MaxLevelNameString));
+
         if (Data.MaxLevelStatName != StatNames.None)
         {
-            if (Data.MaxLevelType != PassiveSkillTypes.Stack)
+            if (Data.MaxLevelConditions == SkillConditions.None)
             {
                 InGameManager.Instance.Player.StatSystem.AddStat(StatTID.PassiveSkillMaxLevel, Data.MaxLevelStatName, GetMaxLevelValue());
-                LogManager.LogInfo(LogTypes.Skill, string.Format("[{0}] 기술의 만렙으로 인해 {1} 로 변경 ", Data.NameString, Data.MaxLevelNameString));
+                LogManager.LogInfo(LogTypes.Skill, string.Format("[{0}] 의 스텟 {1} 부여 ", Data.MaxLevelNameString, Data.MaxLevelStatName));
             }
         }
         else if (Data.MaxLevelBuffName != BuffNames.None)
@@ -232,6 +234,7 @@ public class UISkillBox : MonoBehaviour
             }
 
             InGameManager.Instance.Player.BuffSystem.Register(Data.MaxLevelBuffName, Data.AliveTime, value);
+            LogManager.LogInfo(LogTypes.Skill, string.Format("[{0}] 의 버프 {1} 부여 ", Data.MaxLevelNameString, Data.MaxLevelBuffName));
         }
     }
 

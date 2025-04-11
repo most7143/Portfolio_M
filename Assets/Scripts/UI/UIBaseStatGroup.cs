@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class UIBaseStatGroup : MonoBehaviour
 {
+    public RectTransform Rect;
     public CanvasGroup CanvasGroup;
     public Player Player;
 

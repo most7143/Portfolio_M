@@ -7,6 +7,41 @@ public class Player : Character
     public Monster TargetMonster;
     public Transform AttackPoint;
 
+    public PlayerData Data;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        InitPlayerData();
+    }
+
+    private void InitPlayerData()
+    {
+        StatSystem.AddStat(StatTID.Base, StatNames.Attack, Data.Attack);
+        StatSystem.AddStat(StatTID.Base, StatNames.AttackRate, 1);
+        StatSystem.AddStat(StatTID.Base, StatNames.AttackByLevel, Data.AttackByLevel);
+
+        StatSystem.AddStat(StatTID.Base, StatNames.AttackSpeed, Data.AttackSpeed);
+
+        StatSystem.AddStat(StatTID.Base, StatNames.CriticalChance, Data.CriticalRate);
+        StatSystem.AddStat(StatTID.Base, StatNames.CriticalDamage, Data.CriticalDamage);
+
+        StatSystem.AddStat(StatTID.Base, StatNames.Health, Data.Health);
+        StatSystem.AddStat(StatTID.Base, StatNames.HealthRate, 1);
+        StatSystem.AddStat(StatTID.Base, StatNames.HealthByLevel, Data.HealthByLevel);
+
+        StatSystem.AddStat(StatTID.Base, StatNames.Armor, Data.Armor);
+        StatSystem.AddStat(StatTID.Base, StatNames.ArmorRate, 1);
+        StatSystem.AddStat(StatTID.Base, StatNames.ArmorByLevel, Data.ArmorByLevel);
+
+        StatSystem.AddStat(StatTID.Base, StatNames.DodgeRate, Data.DodgeRate);
+
+        StatSystem.AddStat(StatTID.Base, StatNames.DamageReduction, 1);
+        StatSystem.AddStat(StatTID.Base, StatNames.WeaponTriggerChance, 1);
+        StatSystem.AddStat(StatTID.Base, StatNames.CurrencyGainRate, 1);
+    }
+
     private void Start()
     {
         WeaponController.InitWeaponDatas();
@@ -37,9 +72,14 @@ public class Player : Character
         Animator.SetTrigger("Attack");
     }
 
-    public override void Hit(ref DamageInfo info)
+    public override bool Hit(ref DamageInfo info)
     {
-        base.Hit(ref info);
+        if (base.Hit(ref info))
+        {
+            EventManager<EventTypes>.Send(EventTypes.PlayerDamaged);
+        }
+
+        return true;
     }
 
     public override void Dead()

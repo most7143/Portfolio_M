@@ -14,23 +14,9 @@ public class StatSystem : MonoBehaviour
 {
     public Character Owenr;
 
-    public List<StatInfo> Stats;
-
     private Dictionary<StatNames, Dictionary<StatTID, float>> _stats = new();
 
     public bool IsInvincibility = false;
-
-    private void Awake()
-    {
-        for (int i = 0; i < Stats.Count; i++)
-        {
-            Dictionary<StatTID, float> stat = new();
-
-            _stats.Add(Stats[i].Name, stat);
-
-            _stats[Stats[i].Name].Add(StatTID.Base, Stats[i].Value);
-        }
-    }
 
     public float GetStat(StatNames name)
     {
@@ -75,23 +61,25 @@ public class StatSystem : MonoBehaviour
 
     public void AddStat(StatTID tid, StatNames name, float value)
     {
-        if (_stats.ContainsKey(name))
+        if (false == _stats.ContainsKey(name))
         {
-            if (_stats[name].ContainsKey(tid))
-            {
-                _stats[name][tid] += value;
-            }
-            else
-            {
-                _stats[name].Add(tid, value);
-            }
+            _stats.Add(name, new Dictionary<StatTID, float>());
+        }
 
-            if (Owenr != null)
+        if (_stats[name].ContainsKey(tid))
+        {
+            _stats[name][tid] += value;
+        }
+        else
+        {
+            _stats[name].Add(tid, value);
+        }
+
+        if (Owenr != null)
+        {
+            if (Owenr.Name == CharacterNames.Swordman)
             {
-                if (Owenr.Name == CharacterNames.Swordman)
-                {
-                    EventManager<EventTypes>.Send(EventTypes.RefreshPlayerStst);
-                }
+                EventManager<EventTypes>.Send(EventTypes.RefreshPlayerStst);
             }
         }
     }

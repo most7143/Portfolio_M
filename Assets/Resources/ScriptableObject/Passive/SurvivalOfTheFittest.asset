@@ -17,15 +17,16 @@ MonoBehaviour:
   NameString: "\uC57D\uC721 \uAC15\uC2DD"
   MaxLevelNameString: "\uD3EC\uC2DD\uC790"
   DescriptionString: "\uCE58\uBA85\uD0C0 \uD53C\uD574\uAC00 {0}% \uC99D\uAC00\uD55C\uB2E4."
-  MaxLevelDescriptionString: "\uCE58\uBA85\uD0C0 \uD53C\uD574 {0}% \uC99D\uAC00 \\n
+  MaxLevelDescriptionString: "\uCE58\uBA85\uD0C0 \uD53C\uD574 {0}% \uC99D\uAC00 <br>
     \uCC98\uCE58 \uD55C \uBAAC\uC2A4\uD130 10 \uB9C8\uB9AC\uB2F9 \uCE58\uBA85\uD0C0
     \uD53C\uD574 {1}% \uC99D\uAC00"
-  BunousDescriptionString: 
+  BunousDescriptionString: "\uBA39\uC774\uC0AC\uC2AC \uCD5C\uC0C1\uC704\uC5D0 \uAD70\uB9BC\uD55C
+    \uC790"
   RequireRank: 1
   MaxLevel: 5
   StatName: 4
   MaxLevelStatName: 4
-  MaxLevelType: 1
+  MaxLevelConditions: 3
   BooleanStatName: 0
   BuffName: 0
   MaxLevelBuffName: 0

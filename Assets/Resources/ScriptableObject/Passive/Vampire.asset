@@ -15,16 +15,30 @@ MonoBehaviour:
   Name: 8
   Grade: 3
   NameString: "\uD761\uD608\uADC0"
+  MaxLevelNameString: "\uD53C\uC758 \uC11C\uC57D"
   DescriptionString: "\uACF5\uACA9 \uC2DC 5%\uD655\uB960\uB85C \uC900 \uD53C\uD574\uC758
     {0}% \uB9CC\uD07C \uD68C\uBCF5\uD55C\uB2E4."
+  MaxLevelDescriptionString: "\uACF5\uACA9 \uC2DC 5% \uD655\uB960\uB85C \uC900 \uD53C\uD574\uC758
+    {0}% \uB9CC\uD07C \uD68C\uBCF5\uD55C\uB2E4. <br>\uBC1C\uB3D9 \uD655\uB960\uC774
+    {1}\uBC30\uB85C \uC99D\uAC00"
+  BunousDescriptionString: "\uD53C\uB85C \uB9FA\uC5B4\uC9C4 \uC11C\uC57D\uC73C\uB85C
+    \uB2A5\uB825\uC744 \uB354 \uC798 \uB2E4\uB8F0 \uC218 \uC788\uAC8C \uB41C\uB2E4."
   RequireRank: 1
   MaxLevel: 3
   StatName: 6
+  MaxLevelStatName: 19
+  MaxLevelConditions: 0
   BooleanStatName: 0
+  BuffName: 0
+  MaxLevelBuffName: 0
+  AliveTime: 0
+  AliveTimeByLevel: 0
   Value: 0
   ValueByLevel: 0
+  MaxLevelValue: 3
   MultiplierValue: 0.02
   MultiplierValueByLevel: 0.02
+  MultiplierMaxLevelValue: 0
   LearnChance: 0.5
   LearnChanceByLevel: 0.1
   Cost: 500

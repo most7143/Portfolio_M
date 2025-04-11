@@ -48,11 +48,11 @@ public class Character : MonoBehaviour
     {
     }
 
-    public virtual void Hit(ref DamageInfo info)
+    public virtual bool Hit(ref DamageInfo info)
     {
         if (StatSystem.IsInvincibility)
         {
-            return;
+            return false;
         }
 
         if (Dodge())
@@ -67,7 +67,7 @@ public class Character : MonoBehaviour
                 }
             }
 
-            return;
+            return false;
         }
 
         StartCoroutine(ProcessHitEffect());
@@ -87,6 +87,8 @@ public class Character : MonoBehaviour
 
             Dead();
         }
+
+        return true;
     }
 
     private void OnHitPlayer(DamageInfo info)
@@ -98,7 +100,7 @@ public class Character : MonoBehaviour
             return;
         }
 
-        if (0.05f >= Random.Range(0, 1f))
+        if (0.05f * info.Owner.StatSystem.GetStat(StatNames.IncreaseHealingOnHitChance) >= Random.Range(0, 1f))
         {
             int healingValue = Mathf.CeilToInt(info.Value * onHit);
             info.Owner.Heal(healingValue);
@@ -254,8 +256,6 @@ public class Character : MonoBehaviour
     public float RefreshHP(int value)
     {
         int resultValue = value;
-
-        CurrentHp += value;
 
         float maxHP = GetCurrentMaxHP();
 

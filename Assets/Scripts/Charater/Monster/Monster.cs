@@ -15,6 +15,22 @@ public class Monster : Character
         Level = data.Level;
         MaxLevel = data.MaxLevel;
 
+        StatSystem.AddStat(StatTID.Base, StatNames.Attack, data.Attack);
+        StatSystem.AddStat(StatTID.Base, StatNames.AttackRate, 1);
+        StatSystem.AddStat(StatTID.Base, StatNames.AttackByLevel, data.AttackByLevel);
+
+        StatSystem.AddStat(StatTID.Base, StatNames.AttackSpeed, 1);
+
+        StatSystem.AddStat(StatTID.Base, StatNames.Health, data.Health);
+        StatSystem.AddStat(StatTID.Base, StatNames.HealthRate, 1);
+        StatSystem.AddStat(StatTID.Base, StatNames.HealthByLevel, data.HealthByLevel);
+
+        StatSystem.AddStat(StatTID.Base, StatNames.Armor, data.Armor);
+        StatSystem.AddStat(StatTID.Base, StatNames.ArmorRate, 1);
+        StatSystem.AddStat(StatTID.Base, StatNames.ArmorByLevel, data.ArmorByLevel);
+
+        StatSystem.AddStat(StatTID.Base, StatNames.DamageReduction, 1);
+
         RefreshHP((int)MaxHP);
         Spanwer.RefreshLevelByData(Level);
     }
@@ -31,11 +47,14 @@ public class Monster : Character
         }
     }
 
-    public override void Hit(ref DamageInfo info)
+    public override bool Hit(ref DamageInfo info)
     {
-        base.Hit(ref info);
+        if (base.Hit(ref info))
+        {
+            UIManager.Instance.MonsterInfo.RefreshHPBar();
+        }
 
-        UIManager.Instance.MonsterInfo.RefreshHPBar();
+        return true;
     }
 
     public override void Dead()

@@ -7,6 +7,16 @@ public class MonsterData : ScriptableObject
     public string NameString;
     public int Level = 1;
     public int MaxLevel = 1;
+
+    public float Attack;
+    public float AttackByLevel;
+
+    public float Health;
+    public float HealthByLevel;
+
+    public float Armor;
+    public float ArmorByLevel;
+
     public float AttackSpeed;
 
 #if UNITY_EDITOR
