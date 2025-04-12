@@ -31,7 +31,6 @@ public class UIFloaty : MonoBehaviour
     public Vector3 Offset;
 
     private float _fontSize;
-    private float _aliveTime = 0.5f;
 
     public void Init()
     {

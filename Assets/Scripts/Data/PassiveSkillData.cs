@@ -20,9 +20,11 @@ public class PassiveSkillData : ScriptableObject
     public StatNames BooleanStatName;
 
     [Header("Buff")] public BuffNames BuffName;
+    public CharacterTypes Target = CharacterTypes.Player;
     public BuffNames MaxLevelBuffName;
     public float AliveTime;
     public float AliveTimeByLevel;
+    public float MaxLevelAliveTime;
 
     [Header("Value")] public int Value;
     public int ValueByLevel;

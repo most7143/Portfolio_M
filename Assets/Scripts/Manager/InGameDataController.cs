@@ -19,10 +19,13 @@ public class InGameDataController : MonoBehaviour
         int resultGold = Mathf.CeilToInt(gold * player.StatSystem.GetStat(StatNames.CurrencyGainRate));
 
         Data.Gold += resultGold;
+        Data.AccumulatedGold += resultGold;
 
         UIManager.Instance.PlayerInfo.RefreshGold(Data.Gold);
 
         InGameManager.Instance.ObjectPool.SpawnFloaty(GoldPoint.position, FloatyTypes.Gold, "+" + resultGold + "G");
+
+        EventManager<EventTypes>.Send(EventTypes.AddCurrency);
     }
 
     public void UseGold(int gold)
@@ -32,6 +35,7 @@ public class InGameDataController : MonoBehaviour
             Data.Gold -= gold;
 
             UIManager.Instance.PlayerInfo.RefreshGold(Data.Gold);
+            EventManager<EventTypes>.Send(EventTypes.UseCurrency);
         }
     }
 

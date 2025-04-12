@@ -26,11 +26,14 @@ MonoBehaviour:
   MaxLevel: 5
   StatName: 3
   MaxLevelStatName: 0
+  MaxLevelConditions: 0
   BooleanStatName: 0
   BuffName: 0
+  Target: 1
   MaxLevelBuffName: 1
-  AliveTime: 999
+  AliveTime: 0
   AliveTimeByLevel: 0
+  MaxLevelAliveTime: 999
   Value: 0
   ValueByLevel: 0
   MaxLevelValue: 0

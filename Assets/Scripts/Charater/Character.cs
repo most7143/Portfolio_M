@@ -20,7 +20,7 @@ public class Character : MonoBehaviour
     public float CurrentHp { get; private set; }
 
     public float AttackSpeed
-    { get { return StatSystem.GetStat(StatNames.AttackSpeed); } }
+    { get { return GetAttackSpeed(); } }
 
     public float Attack
     { get { return GetAttackStat(); } }
@@ -100,7 +100,10 @@ public class Character : MonoBehaviour
             return;
         }
 
-        if (0.05f * info.Owner.StatSystem.GetStat(StatNames.IncreaseHealingOnHitChance) >= Random.Range(0, 1f))
+        float percent = 0.05f * (info.Owner.StatSystem.GetStat(StatNames.IncreaseHealingOnHitChance) == 0 ? 1 : info.Owner.StatSystem.GetStat(StatNames.IncreaseHealingOnHitChance));
+
+        Debug.Log(percent);
+        if (percent >= Random.Range(0, 1f))
         {
             int healingValue = Mathf.CeilToInt(info.Value * onHit);
             info.Owner.Heal(healingValue);
@@ -177,7 +180,9 @@ public class Character : MonoBehaviour
             }
         }
 
-        info.Value = Mathf.RoundToInt(info.Value);
+        LogManager.LogInfo(LogTypes.Attack, string.Format("최종 피해({0}) = 피해({1}) * 피해량 배율({2}%)", Mathf.RoundToInt(info.Value * StatSystem.GetStat(StatNames.DamageRate)), info.Value, StatSystem.GetStat(StatNames.DamageRate) * 100f));
+
+        info.Value = Mathf.RoundToInt(info.Value * StatSystem.GetStat(StatNames.DamageRate) * 1f);
 
         return info;
     }
@@ -232,6 +237,13 @@ public class Character : MonoBehaviour
              * StatSystem.GetStat(StatNames.ArmorRate);
 
         return Mathf.RoundToInt(armor);
+    }
+
+    public float GetAttackSpeed()
+    {
+        float attackSpeed = StatSystem.GetStat(StatNames.AttackSpeed) * (StatSystem.GetStat(StatNames.DoubleAttackSpeed) == 0 ? 1 : 2);
+
+        return attackSpeed;
     }
 
     public void Heal(int value)

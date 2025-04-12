@@ -13,12 +13,16 @@ public class UIPassiveSkillInfo : MonoBehaviour
     {
         EventManager<EventTypes>.Register(EventTypes.SkillLevelUp, Refresh);
         EventManager<EventTypes>.Register(EventTypes.MonsterDead, MonsterDead);
+        EventManager<EventTypes>.Register(EventTypes.AddCurrency, AddCurrecy);
+        EventManager<EventTypes>.Register(EventTypes.MonsterSpawnd, MonsterSpawnd);
     }
 
     private void OnDisable()
     {
         EventManager<EventTypes>.Unregister(EventTypes.SkillLevelUp, Refresh);
         EventManager<EventTypes>.Unregister(EventTypes.MonsterDead, MonsterDead);
+        EventManager<EventTypes>.Unregister(EventTypes.AddCurrency, AddCurrecy);
+        EventManager<EventTypes>.Unregister(EventTypes.MonsterSpawnd, MonsterSpawnd);
     }
 
     public void Activate()
@@ -55,6 +59,9 @@ public class UIPassiveSkillInfo : MonoBehaviour
         {
             _skills[Skills[i]].Refresh();
         }
+
+        MonsterDead();
+        AddCurrecy();
     }
 
     public UISkillBox GetPassiveSkill(PassiveSkillNames name)
@@ -80,6 +87,14 @@ public class UIPassiveSkillInfo : MonoBehaviour
         return false;
     }
 
+    public void MonsterSpawnd()
+    {
+        if (IsMaxSkillLevel(PassiveSkillNames.CursedTome))
+        {
+            InGameManager.Instance.MonsterSpanwer.SpawnMonster.BuffSystem.Register(BuffNames.CursedTome, _skills[PassiveSkillNames.CursedTome].Data.AliveTime, 1);
+        }
+    }
+
     public void MonsterDead()
     {
         if (IsMaxSkillLevel(PassiveSkillNames.SurvivalOfTheFittest))
@@ -88,6 +103,17 @@ public class UIPassiveSkillInfo : MonoBehaviour
             InGameManager.Instance.Player.StatSystem.RemoveStat(StatTID.PassiveSkillMaxLevel, _skills[PassiveSkillNames.SurvivalOfTheFittest].Data.MaxLevelStatName);
             InGameManager.Instance.Player.StatSystem.AddStat(StatTID.PassiveSkillMaxLevel, _skills[PassiveSkillNames.SurvivalOfTheFittest].Data.MaxLevelStatName,
                 _skills[PassiveSkillNames.SurvivalOfTheFittest].Data.MultiplierMaxLevelValue * stack);
+        }
+    }
+
+    public void AddCurrecy()
+    {
+        if (IsMaxSkillLevel(PassiveSkillNames.TreasureHunter))
+        {
+            int stack = Mathf.FloorToInt((InGameManager.Instance.Controller.Data.AccumulatedGold) / 1000);
+            InGameManager.Instance.Player.StatSystem.RemoveStat(StatTID.PassiveSkillMaxLevel, _skills[PassiveSkillNames.TreasureHunter].Data.MaxLevelStatName);
+            InGameManager.Instance.Player.StatSystem.AddStat(StatTID.PassiveSkillMaxLevel, _skills[PassiveSkillNames.TreasureHunter].Data.MaxLevelStatName,
+                _skills[PassiveSkillNames.TreasureHunter].Data.MaxLevelValue * stack);
         }
     }
 }

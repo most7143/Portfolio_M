@@ -1,8 +1,11 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SkillSystem : MonoBehaviour
 {
+    public Player Player;
+
     public List<WeaponSkill> Skills;
 
     private Dictionary<WeaponSkillNames, WeaponSkill> _skills = new();
@@ -23,9 +26,8 @@ public class SkillSystem : MonoBehaviour
 
     public void RefreshSkill(WeaponNames name)
     {
-        ResetSkillAlive();
-
         WeaponData weaponData = ResourcesManager.Instance.LoadScriptable<WeaponData>(name.ToString());
+        _weaponData = weaponData;
 
         if (weaponData.SkillNames.Count > 0)
         {
@@ -35,33 +37,13 @@ public class SkillSystem : MonoBehaviour
                 {
                     if (weaponData.SkillNames[i] == Skills[j].Name)
                     {
-                        _skills.Add(Skills[j].Name, Skills[j]);
-                        Skills[j].Alive = true;
+                        if (false == _skills.ContainsKey(Skills[j].Name))
+                        {
+                            _skills.Add(Skills[j].Name, Skills[j]);
+                            Skills[j].Alive = true;
+                        }
                     }
                 }
-            }
-        }
-    }
-
-    private void ResetSkillAlive()
-    {
-        for (int i = 0; i < Skills.Count; i++)
-        {
-            Skills[i].Alive = false;
-        }
-
-        _skills.Clear();
-        _weaponData = null;
-    }
-
-    public void Unregister(WeaponSkillNames name)
-    {
-        for (int i = 0; i < Skills.Count; i++)
-        {
-            if (Skills[i].Name == name)
-            {
-                _skills.Remove(name);
-                Skills[i].Alive = false;
             }
         }
     }
@@ -81,9 +63,42 @@ public class SkillSystem : MonoBehaviour
         {
             for (int i = 0; i < skillNames.Length; i++)
             {
-                _skills[skillNames[i]].Activate();
+                _skills[skillNames[i]].ActivateByChance();
+            }
+
+            if (Player != null)
+            {
+                if (Player.StatSystem.GetStat(StatNames.RandomWeaponSkill) == 1)
+                {
+                    float rand = Random.Range(0, 1f);
+
+                    if (rand >= 0.5f)
+                    {
+                        WeaponSkillNames anySkill = GetDifferentSkill();
+
+                        if (anySkill != WeaponSkillNames.None)
+                        {
+                            _skills[anySkill].Activate();
+                        }
+                    }
+                }
             }
         }
+    }
+
+    private WeaponSkillNames GetDifferentSkill()
+    {
+        List<WeaponSkillNames> weaponSkills = _weaponData.SkillNames.ToList();
+        List<WeaponSkillNames> equipedSkills = _skills.Keys.ToList();
+
+        List<WeaponSkillNames> availableSkills = equipedSkills
+            .Where(skill => !weaponSkills.Contains(skill))
+            .ToList();
+
+        if (availableSkills.Count == 0)
+            return WeaponSkillNames.None;
+
+        return availableSkills[Random.Range(0, availableSkills.Count)];
     }
 
     public List<WeaponSkill> GetSkillNamesToCondition(SkillConditions conditions)

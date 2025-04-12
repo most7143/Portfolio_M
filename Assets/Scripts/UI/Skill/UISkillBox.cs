@@ -196,7 +196,6 @@ public class UISkillBox : MonoBehaviour
         {
             player.StatSystem.RemoveStat(StatTID.PassiveSkill, Data.BooleanStatName);
             player.StatSystem.AddStat(StatTID.PassiveSkill, Data.BooleanStatName, 1);
-            BooleanStat(Data.BooleanStatName);
             LogManager.LogInfo(LogTypes.Skill, string.Format("[{0}] 기술로 인해 {1} 효과가 발동", Data.NameString, Data.BooleanStatName));
         }
 
@@ -205,7 +204,7 @@ public class UISkillBox : MonoBehaviour
             MaxLevelupSkill();
         }
 
-        LevleUpBuff();
+        LevelUpBuff();
     }
 
     private void MaxLevelupSkill()
@@ -233,25 +232,20 @@ public class UISkillBox : MonoBehaviour
                 value = Data.MultiplierMaxLevelValue;
             }
 
-            InGameManager.Instance.Player.BuffSystem.Register(Data.MaxLevelBuffName, Data.AliveTime, value);
-            LogManager.LogInfo(LogTypes.Skill, string.Format("[{0}] 의 버프 {1} 부여 ", Data.MaxLevelNameString, Data.MaxLevelBuffName));
-        }
-    }
-
-    private void BooleanStat(StatNames statName)
-    {
-        if (statName == StatNames.LimitHealth)
-        {
-            Player player = InGameManager.Instance.Player;
-
-            if (player.CurrentHp > player.GetCurrentMaxHP())
+            if (Data.Target == CharacterTypes.Player)
             {
-                player.RefreshHP((int)player.MaxHP);
+                InGameManager.Instance.Player.BuffSystem.Register(Data.MaxLevelBuffName, Data.MaxLevelAliveTime, value);
             }
+            else
+            {
+                InGameManager.Instance.MonsterSpanwer.SpawnMonster.BuffSystem.Register(Data.MaxLevelBuffName, Data.MaxLevelAliveTime, value);
+            }
+
+            LogManager.LogInfo(LogTypes.Buff, string.Format("[{0}] 의 버프 {1} 부여 ", Data.MaxLevelNameString, Data.MaxLevelBuffName));
         }
     }
 
-    private void LevleUpBuff()
+    private void LevelUpBuff()
     {
         int level = Level;
 

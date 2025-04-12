@@ -30,8 +30,10 @@ public class Monster : Character
         StatSystem.AddStat(StatTID.Base, StatNames.ArmorByLevel, data.ArmorByLevel);
 
         StatSystem.AddStat(StatTID.Base, StatNames.DamageReduction, 1);
+        StatSystem.AddStat(StatTID.Base, StatNames.DamageRate, 1);
 
         RefreshHP((int)MaxHP);
+
         Spanwer.RefreshLevelByData(Level);
     }
 

@@ -11,7 +11,7 @@ public class WeaponSkill : MonoBehaviour
     public float Chance;
     public float ValueMultiply;
 
-    public void Activate()
+    public void ActivateByChance()
     {
         float rand = Random.Range(0, 1f);
 
@@ -19,21 +19,26 @@ public class WeaponSkill : MonoBehaviour
 
         if (chance >= rand)
         {
-            if (Type == SkillTypes.Attack)
-            {
-                FXManager.Instance.Spawn(FXName, Owner);
+            Activate();
+        }
+    }
 
-                DamageInfo damageInfo = new DamageInfo();
+    public void Activate()
+    {
+        if (Type == SkillTypes.Attack)
+        {
+            FXManager.Instance.Spawn(FXName, Owner);
 
-                damageInfo.Owner = Owner;
-                damageInfo.Type = DamageTypes.Skill;
-                damageInfo.Value = Mathf.RoundToInt(Owner.Attack * ValueMultiply);
+            DamageInfo damageInfo = new DamageInfo();
 
-                Owner.SkillAttack(ref damageInfo);
-            }
-            else if (Type == SkillTypes.Buff)
-            {
-            }
+            damageInfo.Owner = Owner;
+            damageInfo.Type = DamageTypes.Skill;
+            damageInfo.Value = Mathf.RoundToInt(Owner.Attack * ValueMultiply);
+
+            Owner.SkillAttack(ref damageInfo);
+        }
+        else if (Type == SkillTypes.Buff)
+        {
         }
     }
 }

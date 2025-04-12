@@ -1,4 +1,5 @@
 using System;
+using System.Buffers;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -17,6 +18,14 @@ public class StatSystem : MonoBehaviour
     private Dictionary<StatNames, Dictionary<StatTID, float>> _stats = new();
 
     public bool IsInvincibility = false;
+
+    private void Awake()
+    {
+        if (Owenr == null)
+        {
+            Owenr = this.GetComponent<Character>();
+        }
+    }
 
     public float GetStat(StatNames name)
     {
@@ -79,8 +88,10 @@ public class StatSystem : MonoBehaviour
         {
             if (Owenr.Name == CharacterNames.Swordman)
             {
-                EventManager<EventTypes>.Send(EventTypes.RefreshPlayerStst);
+                EventManager<EventTypes>.Send(EventTypes.RefreshPlayerStst, name);
             }
+
+            StatTrigger(name);
         }
     }
 
@@ -94,7 +105,21 @@ public class StatSystem : MonoBehaviour
             {
                 if (Owenr.Name == CharacterNames.Swordman)
                 {
-                    EventManager<EventTypes>.Send(EventTypes.RefreshPlayerStst);
+                    EventManager<EventTypes>.Send(EventTypes.RefreshPlayerStst, name);
+                }
+            }
+        }
+    }
+
+    private void StatTrigger(StatNames name)
+    {
+        if (name == StatNames.LimitHealth)
+        {
+            if (GetStat(StatNames.LimitHealth) == 1)
+            {
+                if (Owenr.CurrentHp > Owenr.GetCurrentMaxHP())
+                {
+                    Owenr.RefreshHP((int)Owenr.MaxHP);
                 }
             }
         }

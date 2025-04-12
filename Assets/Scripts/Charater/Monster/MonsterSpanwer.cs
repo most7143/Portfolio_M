@@ -31,6 +31,7 @@ public class MonsterSpanwer : MonoBehaviour
     public void Spawn(CharacterNames chareacterName)
     {
         GameObject monster = ResourcesManager.Instance.Load(chareacterName);
+
         if (monster != null)
         {
             SpawnMonster = monster.GetComponent<Monster>();
@@ -47,6 +48,8 @@ public class MonsterSpanwer : MonoBehaviour
             UIManager.Instance.MonsterInfo.Refresh(SpawnMonster);
 
             SpawnMonster.StartAttack();
+
+            EventManager<EventTypes>.Send(EventTypes.MonsterSpawnd);
         }
     }
 

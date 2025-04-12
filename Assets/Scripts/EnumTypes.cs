@@ -62,7 +62,7 @@ public enum WeaponNames
     DoomsDay,
 }
 
-public enum StringTypes
+public enum CharacterTypes
 {
     None,
     Player,
@@ -164,8 +164,10 @@ public enum StatNames
     CurrencyGainRate,
     IncreaseHealingOnHitChance,
 
-    //bool
     LimitHealth,
+    DoubleAttackSpeed,
+    RandomWeaponSkill,
+    DamageRate,
 }
 
 public enum PassiveSkillNames
@@ -225,7 +227,10 @@ public enum BuffNames
     None,
     WeaknessExposure, // 약점노출 - 치명타 실패 마다 확률 증가
     Enforcer,// 집행자 - 몬스터 조우 시 5초 동안 피해를 입지 않음.
-    Durability, // 같은 몬스터에게 피해를 받을 때 마다 방어력 증가
+    Enforcer2,// 불공정 집행 - 몬스터 조우 시 5초 동안 피해 입지 않음 , 지속시간 3초 증가와 주는 피해 증가
+    Durability, // 철갑 - 같은 몬스터에게 피해를 받을 때 마다 방어력 증가
+    Gale, // 아이올로스의 숨결 -6초동안 공격속도 2배로 증가 6초 쿨
+    CursedTome, // 벨리알의 마서 - 적의 체력을 70% 제한
 }
 
 public enum BuffTypes
@@ -243,6 +248,7 @@ public enum SkillConditions
     Demaged,
     Killed,
     Dead,
+    AddedGold,
 }
 
 public enum BuffConditions
@@ -252,6 +258,7 @@ public enum BuffConditions
     PlayerAttackToNoCritical,
     PlayerAttackToCritical,
     PlayerDamaged,
+    CoolDown,
 }
 
 public enum EventTypes
@@ -267,8 +274,12 @@ public enum EventTypes
     RefreshPlayerHP, // 플레이어 HP 변화
     RefreshPlayerStst, // 플레이어 스텟 변화
     SkillLevelUp, // 스킬 레벨업
+    MonsterSpawnd,//몬스터 스폰
     ChangeMonsterLevel, // 몬스터 레벨 변화
     MonsterDead, //몬스터 사망.
+
+    AddCurrency, // 재화획득
+    UseCurrency, // 재화사용
 }
 
 public enum DamageTypes

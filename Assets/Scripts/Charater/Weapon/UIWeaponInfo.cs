@@ -29,7 +29,7 @@ public class UIWeaponInfo : MonoBehaviour
 
     private void Start()
     {
-        InGameManager.Instance.Controller.Data.Gold += 100000;
+        InGameManager.Instance.Controller.AddGold(100000);
     }
 
     public void Activate()

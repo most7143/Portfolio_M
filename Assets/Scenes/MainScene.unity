@@ -3381,6 +3381,9 @@ MonoBehaviour:
   Level: 1
   EXP: 10
   Gold: 5
+  AttackByLevel: 2
+  HealthByLevel: 20
+  ArmorByLevel: 1
 --- !u!1 &584289150
 GameObject:
   m_ObjectHideFlags: 0
@@ -6359,6 +6362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c89950771db959c40a0a9d0f047c183b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 322252494}
   Skills:
   - {fileID: 118564508}
   - {fileID: 858847875}

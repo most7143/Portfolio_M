@@ -18,9 +18,9 @@ MonoBehaviour:
   - Type: 2
     IsUse: 0
   - Type: 3
-    IsUse: 1
-  - Type: 4
     IsUse: 0
+  - Type: 4
+    IsUse: 1
   - Type: 5
     IsUse: 0
   - Type: 6

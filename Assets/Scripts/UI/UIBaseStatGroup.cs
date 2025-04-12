@@ -17,15 +17,15 @@ public class UIBaseStatGroup : MonoBehaviour
 
     private void OnEnable()
     {
-        EventManager<EventTypes>.Register(EventTypes.RefreshPlayerStst, Refresh);
+        EventManager<EventTypes>.Register<StatNames>(EventTypes.RefreshPlayerStst, Refresh);
     }
 
     private void OnDisable()
     {
-        EventManager<EventTypes>.Unregister(EventTypes.RefreshPlayerStst, Refresh);
+        EventManager<EventTypes>.Unregister<StatNames>(EventTypes.RefreshPlayerStst, Refresh);
     }
 
-    public void Refresh()
+    public void Refresh(StatNames name = StatNames.None)
     {
         DamageText.SetText("공격력 : " + Player.Attack.ToString());
         SpeedText.SetText("공격속도 : " + Player.AttackSpeed.ToString());

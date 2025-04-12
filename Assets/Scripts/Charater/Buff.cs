@@ -8,7 +8,10 @@ public class Buff : MonoBehaviour
     public BuffTypes Type;
     public BuffConditions Conditions;
     public BuffConditions EndConditions;
-    [HideInInspector] public Character Owner;
+
+    public BuffNames IgnoreBuffName;
+
+    public Character Owner;
 
     public StatNames StatName;
 
@@ -16,13 +19,21 @@ public class Buff : MonoBehaviour
 
     [HideInInspector] public float AliveTime;
 
+    public float CoolDown;
+
     public Image Icon;
 
     private Coroutine _coroutine;
 
-    public void Actiavte(Character character)
+    public void Activate()
     {
-        Owner = character;
+        Buff ignoreBuff = Owner.BuffSystem.GetBuff(IgnoreBuffName);
+
+        if (ignoreBuff != null)
+        {
+            Owner.BuffSystem.Deactivate(Name);
+            return;
+        }
 
         if (_coroutine != null)
         {
@@ -36,19 +47,6 @@ public class Buff : MonoBehaviour
     {
         if (Owner != null)
         {
-            if (Type == BuffTypes.Stat)
-            {
-                Owner.StatSystem.RemoveStat(StatTID.Buff, StatName);
-            }
-            else if (Type == BuffTypes.Stack)
-            {
-                Owner.StatSystem.RemoveStat(StatTID.BuffStack, StatName);
-            }
-            else if (Type == BuffTypes.Trigger)
-            {
-                OffTrigger();
-            }
-
             Owner.BuffSystem.Deactivate(Name);
         }
     }
@@ -65,27 +63,25 @@ public class Buff : MonoBehaviour
         {
             Owner.StatSystem.AddStat(StatTID.BuffStack, StatName, Value);
         }
-        else if (Type == BuffTypes.Trigger)
-        {
-            OnTrigger();
-        }
+
+        OnTrigger();
 
         yield return new WaitForSeconds(AliveTime);
 
         Deactivate();
     }
 
-    private void OnTrigger()
+    public void OnTrigger()
     {
-        if (Name == BuffNames.Enforcer)
+        if (Name == BuffNames.Enforcer || Name == BuffNames.Enforcer2)
         {
             Owner.StatSystem.IsInvincibility = true;
         }
     }
 
-    private void OffTrigger()
+    public void OffTrigger()
     {
-        if (Name == BuffNames.Enforcer)
+        if (Name == BuffNames.Enforcer || Name == BuffNames.Enforcer2)
         {
             Owner.StatSystem.IsInvincibility = false;
         }

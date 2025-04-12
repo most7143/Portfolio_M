@@ -16,6 +16,16 @@ public class Player : Character
         InitPlayerData();
     }
 
+    private void OnEnable()
+    {
+        EventManager<EventTypes>.Register<StatNames>(EventTypes.RefreshPlayerStst, ResfreshStat);
+    }
+
+    private void OnDisable()
+    {
+        EventManager<EventTypes>.Unregister<StatNames>(EventTypes.RefreshPlayerStst, ResfreshStat);
+    }
+
     private void InitPlayerData()
     {
         StatSystem.AddStat(StatTID.Base, StatNames.Attack, Data.Attack);
@@ -40,6 +50,7 @@ public class Player : Character
         StatSystem.AddStat(StatTID.Base, StatNames.DamageReduction, 1);
         StatSystem.AddStat(StatTID.Base, StatNames.WeaponTriggerChance, 1);
         StatSystem.AddStat(StatTID.Base, StatNames.CurrencyGainRate, 1);
+        StatSystem.AddStat(StatTID.Base, StatNames.DamageRate, 1);
     }
 
     private void Start()
@@ -49,6 +60,14 @@ public class Player : Character
         RefreshWeaponInfo();
 
         RefreshHP((int)MaxHP);
+    }
+
+    private void ResfreshStat(StatNames name)
+    {
+        if (name == StatNames.AttackSpeed)
+        {
+            Animator.SetFloat("AttackSpeed", AttackSpeed * 2);
+        }
     }
 
     public void RefreshWeaponInfo()
