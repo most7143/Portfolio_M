@@ -27,15 +27,17 @@ MonoBehaviour:
   MaxLevelConditions: 0
   BooleanStatName: 0
   BuffName: 0
+  Target: 1
   MaxLevelBuffName: 0
   AliveTime: 0
   AliveTimeByLevel: 0
+  MaxLevelAliveTime: 0
   Value: 50
   ValueByLevel: 20
   MaxLevelValue: 0
   MultiplierValue: 0
   MultiplierValueByLevel: 0
-  MultiplierMaxLevelValue: 0.4
+  MultiplierMaxLevelValue: 0.5
   LearnChance: 1
   LearnChanceByLevel: 0.03
   Cost: 100

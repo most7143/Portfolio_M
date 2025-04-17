@@ -21,8 +21,8 @@ MonoBehaviour:
     , \uD68D\uB4DD\uD55C \uACE8\uB4DC 1000\uB2F9 \uACF5\uACA9\uB825\uC774 {1}\uC99D\uAC00"
   BunousDescriptionString: "\uB3C8\uC744 \uBB34\uCC99\uC774\uB098 \uC88B\uC544\uD558\uB294
     \uC545\uB9C8"
-  RequireRank: 1
-  MaxLevel: 3
+  RequireRank: 35
+  MaxLevel: 7
   StatName: 17
   MaxLevelStatName: 1
   MaxLevelConditions: 5
@@ -32,12 +32,13 @@ MonoBehaviour:
   MaxLevelBuffName: 0
   AliveTime: 0
   AliveTimeByLevel: 0
+  MaxLevelAliveTime: 0
   Value: 0
   ValueByLevel: 0
   MaxLevelValue: 1
   MultiplierValue: 0.4
   MultiplierValueByLevel: 0.3
   MultiplierMaxLevelValue: 0
-  LearnChance: 0.5
-  LearnChanceByLevel: 0.1
+  LearnChance: 0.6
+  LearnChanceByLevel: 0.05
   Cost: 500

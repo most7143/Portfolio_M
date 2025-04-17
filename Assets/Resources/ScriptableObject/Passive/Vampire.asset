@@ -23,22 +23,24 @@ MonoBehaviour:
     {1}\uBC30 \uC99D\uAC00"
   BunousDescriptionString: "\uD53C\uB85C \uB9FA\uC5B4\uC9C4 \uC11C\uC57D\uC73C\uB85C
     \uB2A5\uB825\uC744 \uB354 \uC798 \uB2E4\uB8F0 \uC218 \uC788\uAC8C \uB41C\uB2E4."
-  RequireRank: 1
-  MaxLevel: 3
+  RequireRank: 35
+  MaxLevel: 7
   StatName: 6
   MaxLevelStatName: 18
   MaxLevelConditions: 0
   BooleanStatName: 0
   BuffName: 0
+  Target: 1
   MaxLevelBuffName: 0
   AliveTime: 0
   AliveTimeByLevel: 0
+  MaxLevelAliveTime: 0
   Value: 0
   ValueByLevel: 0
   MaxLevelValue: 3
   MultiplierValue: 0.02
   MultiplierValueByLevel: 0.02
   MultiplierMaxLevelValue: 0
-  LearnChance: 0.5
-  LearnChanceByLevel: 0.1
+  LearnChance: 0.6
+  LearnChanceByLevel: 0.05
   Cost: 500

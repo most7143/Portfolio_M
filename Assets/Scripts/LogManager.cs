@@ -3,7 +3,6 @@ using UnityEngine;
 public static class LogManager
 {
     private static LogData data;
-
 #if UNITY_EDITOR
 
     public static void LogInfo(LogTypes type, string text)

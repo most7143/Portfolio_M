@@ -53,7 +53,9 @@ public class Buff : MonoBehaviour
 
     private IEnumerator ProcessActivate()
     {
+#if UNITY_EDITOR
         LogManager.LogInfo(LogTypes.Buff, string.Format("[{0}] 효과 발동", Name.ToString()));
+#endif
 
         if (Type == BuffTypes.Stat)
         {

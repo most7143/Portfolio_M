@@ -923,6 +923,7 @@ MonoBehaviour:
   Rect: {fileID: 2476610049707845922}
   Name: 0
   Level: 0
+  MaxLevel: 0
   BackGround: {fileID: 8069821008539934021}
   Icon: {fileID: 3608761082785784177}
   NameText: {fileID: 1776904927950839145}
@@ -931,9 +932,10 @@ MonoBehaviour:
   LevelText: {fileID: 5380432721816840805}
   CostText: {fileID: 6140557618265979580}
   ChanceText: {fileID: 7168246574147419885}
-  LearnButton: {fileID: 2940798027262082922}
+  LearnButton: {fileID: 679908056333451659}
   LockTrans: {fileID: 2036900432674078510}
   LockText: {fileID: 3897357745017719039}
+  Data: {fileID: 0}
 --- !u!1 &4063638958651910429
 GameObject:
   m_ObjectHideFlags: 0
@@ -1325,7 +1327,7 @@ GameObject:
   - component: {fileID: 2649408620247045413}
   - component: {fileID: 5314827612231554684}
   - component: {fileID: 6738500559129020390}
-  - component: {fileID: 2940798027262082922}
+  - component: {fileID: 679908056333451659}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1391,7 +1393,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2940798027262082922
+--- !u!114 &679908056333451659
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1400,7 +1402,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6794162531157174688}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: a5e699bb767de7c4ca48fa878fc00900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:

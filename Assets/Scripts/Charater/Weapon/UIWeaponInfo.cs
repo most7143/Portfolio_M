@@ -4,8 +4,7 @@ using UnityEngine.UI;
 
 public class UIWeaponInfo : MonoBehaviour
 {
-    public UpgradeButton UprageButton;
-
+    public XButton UpgradeButton;
     public TextMeshProUGUI WeaponText;
     public TextMeshProUGUI WeaponDamageText;
     public TextMeshProUGUI AttackSpeedText;
@@ -30,6 +29,7 @@ public class UIWeaponInfo : MonoBehaviour
     private void Start()
     {
         InGameManager.Instance.Controller.AddGold(100000);
+        UpgradeButton.OnExecute = Upgrade;
     }
 
     public void Activate()

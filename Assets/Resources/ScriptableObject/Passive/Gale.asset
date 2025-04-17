@@ -21,8 +21,8 @@ MonoBehaviour:
     \uACF5\uACA9\uC18D\uB3C4\uAC00 {1}\uBC30\uB85C \uC99D\uAC00 (6\uCD08 \uCFE8)"
   BunousDescriptionString: "\uBAB8\uC774 \uAE43\uD138\uCC98\uB7FC \uAC00\uBCCD\uAC8C
     \uB290\uAEF4\uC9C4\uB2E4."
-  RequireRank: 1
-  MaxLevel: 3
+  RequireRank: 35
+  MaxLevel: 7
   StatName: 5
   MaxLevelStatName: 0
   MaxLevelConditions: 0
@@ -39,6 +39,6 @@ MonoBehaviour:
   MultiplierValue: 0.2
   MultiplierValueByLevel: 0.2
   MultiplierMaxLevelValue: 0
-  LearnChance: 0.5
-  LearnChanceByLevel: 0.1
+  LearnChance: 0.6
+  LearnChanceByLevel: 0.05
   Cost: 500

@@ -30,7 +30,9 @@ public class BuffSystem : MonoBehaviour
     {
         if (false == Buffs.ContainsKey(buffNames))
         {
+#if UNITY_EDITOR
             LogManager.LogInfo(LogTypes.Buff, string.Format("[{0}] 가 등록됩니다.", buffNames.ToString()));
+#endif
 
             Buff buff = ResourcesManager.Instance.Load(buffNames).GetComponent<Buff>();
             buff.transform.SetParent(transform);

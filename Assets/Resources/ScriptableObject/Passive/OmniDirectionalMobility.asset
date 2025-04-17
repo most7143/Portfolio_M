@@ -21,15 +21,18 @@ MonoBehaviour:
     \uD68C\uD53C \uC131\uACF5\uC2DC \uACE8\uB4DC\uB97C \uD68D\uB4DD"
   BunousDescriptionString: "\uB208\uC5D0 \uBCF4\uC774\uB294 \uAC83\uC774 \uC804\uBD80\uAC00
     \uC544\uB2C8\uB2E4"
-  RequireRank: 1
-  MaxLevel: 5
+  RequireRank: 20
+  MaxLevel: 10
   StatName: 12
   MaxLevelStatName: 0
+  MaxLevelConditions: 0
   BooleanStatName: 0
   BuffName: 0
+  Target: 1
   MaxLevelBuffName: 0
   AliveTime: 0
   AliveTimeByLevel: 0
+  MaxLevelAliveTime: 0
   Value: 0
   ValueByLevel: 0
   MaxLevelValue: 0
@@ -37,5 +40,5 @@ MonoBehaviour:
   MultiplierValueByLevel: 0.03
   MultiplierMaxLevelValue: 0
   LearnChance: 0.8
-  LearnChanceByLevel: 0.07
+  LearnChanceByLevel: 0.04
   Cost: 300

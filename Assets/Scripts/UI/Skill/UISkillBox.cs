@@ -16,7 +16,7 @@ public class UISkillBox : MonoBehaviour
     public TextMeshProUGUI LevelText;
     public TextMeshProUGUI CostText;
     public TextMeshProUGUI ChanceText;
-    public Button LearnButton;
+    public XButton LearnButton;
 
     public Transform LockTrans;
     public TextMeshProUGUI LockText;
@@ -30,7 +30,7 @@ public class UISkillBox : MonoBehaviour
     private void Start()
     {
         _origin = Rect.sizeDelta;
-        LearnButton.onClick.AddListener(() => Learn());
+        LearnButton.OnExecute = Learn;
     }
 
     private void OnEnable()
@@ -123,7 +123,7 @@ public class UISkillBox : MonoBehaviour
         else
         {
             Rect.sizeDelta = new Vector2(_origin.x, _origin.y + 20f);
-            NameText.SetText("<color=#96FFFF>" + Data.MaxLevelNameString + "</color>");
+            NameText.SetText("<color=#00FFFF>" + Data.MaxLevelNameString + "</color>");
             BackGround.color = Color.cyan;
 
             float maxLevelValue = GetMaxLevelValue();
@@ -133,7 +133,6 @@ public class UISkillBox : MonoBehaviour
 
             DescText.SetText(string.Format(Data.MaxLevelDescriptionString, value, maxLevelValue));
             BunousDescText.gameObject.SetActive(true);
-            BunousDescText.color = Color.cyan;
             BunousDescText.SetText(Data.BunousDescriptionString);
             CostText.SetText("MAX");
         }
@@ -189,14 +188,18 @@ public class UISkillBox : MonoBehaviour
         {
             player.StatSystem.RemoveStat(StatTID.PassiveSkill, Data.StatName);
             player.StatSystem.AddStat(StatTID.PassiveSkill, Data.StatName, value);
+#if UNITY_EDITOR
             LogManager.LogInfo(LogTypes.Skill, string.Format("[{0}] 기술로 인해 {1} 효과가 , {2} 만큼 상승", Data.NameString, Data.StatName, value));
+#endif
         }
 
         if (Data.BooleanStatName != StatNames.None)
         {
             player.StatSystem.RemoveStat(StatTID.PassiveSkill, Data.BooleanStatName);
             player.StatSystem.AddStat(StatTID.PassiveSkill, Data.BooleanStatName, 1);
+#if UNITY_EDITOR
             LogManager.LogInfo(LogTypes.Skill, string.Format("[{0}] 기술로 인해 {1} 효과가 발동", Data.NameString, Data.BooleanStatName));
+#endif
         }
 
         if (Level == Data.MaxLevel)
@@ -209,14 +212,18 @@ public class UISkillBox : MonoBehaviour
 
     private void MaxLevelupSkill()
     {
+#if UNITY_EDITOR
         LogManager.LogInfo(LogTypes.Skill, string.Format("[{0}] 기술의 만렙으로 인해 {1} 로 변경 ", Data.NameString, Data.MaxLevelNameString));
+#endif
 
         if (Data.MaxLevelStatName != StatNames.None)
         {
             if (Data.MaxLevelConditions == SkillConditions.None)
             {
                 InGameManager.Instance.Player.StatSystem.AddStat(StatTID.PassiveSkillMaxLevel, Data.MaxLevelStatName, GetMaxLevelValue());
+#if UNITY_EDITOR
                 LogManager.LogInfo(LogTypes.Skill, string.Format("[{0}] 의 스텟 {1} 부여 ", Data.MaxLevelNameString, Data.MaxLevelStatName));
+#endif
             }
         }
         else if (Data.MaxLevelBuffName != BuffNames.None)
@@ -240,8 +247,9 @@ public class UISkillBox : MonoBehaviour
             {
                 InGameManager.Instance.MonsterSpanwer.SpawnMonster.BuffSystem.Register(Data.MaxLevelBuffName, Data.MaxLevelAliveTime, value);
             }
-
+#if UNITY_EDITOR
             LogManager.LogInfo(LogTypes.Buff, string.Format("[{0}] 의 버프 {1} 부여 ", Data.MaxLevelNameString, Data.MaxLevelBuffName));
+#endif
         }
     }
 

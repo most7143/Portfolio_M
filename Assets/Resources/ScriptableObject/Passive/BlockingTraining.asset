@@ -23,17 +23,20 @@ MonoBehaviour:
   MaxLevel: 20
   StatName: 9
   MaxLevelStatName: 10
+  MaxLevelConditions: 0
   BooleanStatName: 0
   BuffName: 0
+  Target: 1
   MaxLevelBuffName: 0
   AliveTime: 0
   AliveTimeByLevel: 0
+  MaxLevelAliveTime: 0
   Value: 10
   ValueByLevel: 5
   MaxLevelValue: 0
   MultiplierValue: 0
   MultiplierValueByLevel: 0
-  MultiplierMaxLevelValue: 0.4
+  MultiplierMaxLevelValue: 0.5
   LearnChance: 1
   LearnChanceByLevel: 0.03
   Cost: 100

@@ -6,12 +6,6 @@ public class InGameDataController : MonoBehaviour
 
     public RectTransform GoldPoint;
 
-    public void Setup()
-    {
-        Data.Experience = 0;
-        Data.NextEXP = 100;
-    }
-
     public void AddGold(int gold)
     {
         Player player = InGameManager.Instance.Player;
@@ -55,7 +49,7 @@ public class InGameDataController : MonoBehaviour
             Data.Experience -= Data.NextEXP;
 
             InGameManager.Instance.Player.LevelUp();
-            Data.NextEXP *= 1.3f;
+            Data.NextEXP *= 1.1f;
         }
 
         UIManager.Instance.PlayerInfo.RefreshExp();

@@ -9,20 +9,30 @@ public class MonsterSpanwer : MonoBehaviour
 
     public int Level = 1;
 
-    [HideInInspector] public float EXP = 10;
-    [HideInInspector] public int Gold = 5;
+    public float EXP { get; private set; }
+
+    public int Gold { get; private set; }
 
     public float AttackByLevel = 2;
     public float HealthByLevel = 20;
     public float ArmorByLevel = 1;
+
+    public float EXPRateByLevel = 1.03f;
+    public float GoldRateByLevel = 1.03f;
+
+    private void Start()
+    {
+        EXP = 20;
+        Gold = 100;
+    }
 
     public void RefreshLevelByData(int level)
     {
         if (Level < level)
         {
             Level++;
-            EXP *= 1.02f;
-            Gold = (int)(Gold * 1.03f);
+            EXP *= EXPRateByLevel;
+            Gold = (int)(Gold * GoldRateByLevel);
         }
 
         EventManager<EventTypes>.Send(EventTypes.ChangeMonsterLevel);
