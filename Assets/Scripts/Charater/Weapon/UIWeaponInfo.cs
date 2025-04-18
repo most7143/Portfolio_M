@@ -28,7 +28,7 @@ public class UIWeaponInfo : MonoBehaviour
 
     private void Start()
     {
-        InGameManager.Instance.Controller.AddGold(100000);
+        InGameManager.Instance.Controller.AddCurrency(CurrencyTypes.Gold, 100000);
         UpgradeButton.OnExecute = Upgrade;
     }
 
@@ -85,7 +85,7 @@ public class UIWeaponInfo : MonoBehaviour
             InGameManager.Instance.ObjectPool.SpawnFloaty(UIPoint.position, FloatyTypes.Fail, "½ÇÆÐ");
         }
 
-        InGameManager.Instance.Controller.UseGold(upgradeCost);
+        InGameManager.Instance.Controller.UseCurrency(CurrencyTypes.Gold, upgradeCost);
     }
 
     private bool TryWeaponUpgradeTier(WeaponInfo weaponInfo)

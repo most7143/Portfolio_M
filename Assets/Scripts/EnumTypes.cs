@@ -310,3 +310,10 @@ public enum StatTID
     Buff,
     BuffStack,
 }
+
+public enum CurrencyTypes
+{
+    None,
+    Gold,
+    Gem,
+}

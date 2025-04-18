@@ -158,14 +158,14 @@ public class UISkillBox : MonoBehaviour
         if (Data.MaxLevel == Level)
             return;
 
-        if (InGameManager.Instance.Controller.TryUsingGold((int)Data.Cost))
+        if (InGameManager.Instance.Controller.TryUsingCurrency(CurrencyTypes.Gold, (int)Data.Cost))
         {
             float rand = Random.Range(0, 1f);
 
             if (_chance >= rand)
             {
                 LevelUpSkill();
-                InGameManager.Instance.Controller.UseGold((int)Data.Cost);
+                InGameManager.Instance.Controller.TryUsingCurrency(CurrencyTypes.Gold, (int)Data.Cost);
                 InGameManager.Instance.ObjectPool.SpawnFloaty(LearnButton.transform.position, FloatyTypes.Success, "성공");
                 EventManager<EventTypes>.Send(EventTypes.SkillLevelUp);
             }

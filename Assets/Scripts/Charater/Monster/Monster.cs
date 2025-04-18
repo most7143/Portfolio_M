@@ -80,7 +80,7 @@ public class Monster : Character
             UIManager.Instance.MonsterInfo.Refresh(this);
         }
 
-        InGameManager.Instance.Controller.AddGold(Spanwer.Gold);
+        InGameManager.Instance.Controller.AddCurrencyAnim(CurrencyTypes.Gold, transform.position, Spanwer.Gold);
 
         InGameManager.Instance.Controller.AddExp(Spanwer.EXP);
 

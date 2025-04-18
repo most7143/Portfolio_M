@@ -63,7 +63,7 @@ public class Character : MonoBehaviour
             {
                 if (UIManager.Instance.PlayerInfo.UIPassiveSkillInfo.IsMaxSkillLevel(PassiveSkillNames.OmniDirectionalMobility))
                 {
-                    InGameManager.Instance.Controller.AddGold(InGameManager.Instance.MonsterSpanwer.Gold);
+                    InGameManager.Instance.Controller.AddCurrency(CurrencyTypes.Gold, InGameManager.Instance.MonsterSpanwer.Gold);
                 }
             }
 
