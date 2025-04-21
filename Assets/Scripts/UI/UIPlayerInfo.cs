@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class UIPlayerInfo : MonoBehaviour
 {
+    public TextMeshProUGUI GemText;
+
     public TextMeshProUGUI GoldText;
 
     public UIWeaponInfo UIWeaponInfo;
@@ -16,17 +18,26 @@ public class UIPlayerInfo : MonoBehaviour
 
     public Image ExpBar;
 
-    public void RefreshGold(int gold)
+    public void RefreshCurrency(CurrencyTypes type, int value)
     {
-        GoldText.SetText(gold.ToString());
-
-        UIWeaponInfo.RefreshCostColor();
+        if (type == CurrencyTypes.Gold)
+        {
+            GoldText.SetText(value.ToString());
+            UIWeaponInfo.RefreshCostColor();
+        }
+        else if (type == CurrencyTypes.Gem)
+        {
+            GemText.SetText(value.ToString());
+        }
     }
 
     public void Setup(Player player)
     {
         RefreshHp();
         RefreshExp();
+
+        RefreshCurrency(CurrencyTypes.Gold, InGameManager.Instance.Controller.Data.Gold);
+        RefreshCurrency(CurrencyTypes.Gem, InGameManager.Instance.Controller.Data.Gem);
     }
 
     private void OnEnable()

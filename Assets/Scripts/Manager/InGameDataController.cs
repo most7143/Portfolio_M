@@ -6,9 +6,18 @@ public class InGameDataController : MonoBehaviour
 
     public RectTransform GoldPoint;
 
+    public RectTransform GemPoint;
+
     public void AddCurrencyAnim(CurrencyTypes type, Vector3 startPos, int value)
     {
-        InGameManager.Instance.ObjectPool.SpawnCurrency(startPos, CurrencyTypes.Gold, GoldPoint, value);
+        if (type == CurrencyTypes.Gold)
+        {
+            InGameManager.Instance.ObjectPool.SpawnCurrency(startPos, CurrencyTypes.Gold, GoldPoint, value);
+        }
+        else if (type == CurrencyTypes.Gem)
+        {
+            InGameManager.Instance.ObjectPool.SpawnCurrency(startPos, CurrencyTypes.Gem, GemPoint, value);
+        }
     }
 
     public void AddCurrency(CurrencyTypes type, int value)
@@ -21,13 +30,15 @@ public class InGameDataController : MonoBehaviour
 
             Data.Gold += resultGold;
             Data.AccumulatedGold += resultGold;
-            UIManager.Instance.PlayerInfo.RefreshGold(Data.Gold);
+            UIManager.Instance.PlayerInfo.RefreshCurrency(CurrencyTypes.Gold, Data.Gold);
 
-            InGameManager.Instance.ObjectPool.SpawnFloaty(GoldPoint.position, FloatyTypes.Gold, "+" + resultGold + "G");
+            InGameManager.Instance.ObjectPool.SpawnFloaty(GoldPoint.position, FloatyTypes.Gold, "+" + resultGold);
         }
         else if (type == CurrencyTypes.Gem)
         {
             Data.Gem += value;
+            UIManager.Instance.PlayerInfo.RefreshCurrency(CurrencyTypes.Gem, Data.Gem);
+            InGameManager.Instance.ObjectPool.SpawnFloaty(GoldPoint.position, FloatyTypes.Gem, "+" + value);
         }
 
         EventManager<EventTypes>.Send(EventTypes.AddCurrency);
@@ -38,13 +49,13 @@ public class InGameDataController : MonoBehaviour
         if (type == CurrencyTypes.Gold)
         {
             Data.Gold -= value;
-            UIManager.Instance.PlayerInfo.RefreshGold(Data.Gold);
+            UIManager.Instance.PlayerInfo.RefreshCurrency(CurrencyTypes.Gold, Data.Gold);
         }
         else if (type == CurrencyTypes.Gem)
         {
             Data.Gem -= value;
+            UIManager.Instance.PlayerInfo.RefreshCurrency(CurrencyTypes.Gem, Data.Gem);
         }
-
         EventManager<EventTypes>.Send(EventTypes.UseCurrency);
     }
 

@@ -317,3 +317,11 @@ public enum CurrencyTypes
     Gold,
     Gem,
 }
+
+public enum PocketTypes
+{
+    None,
+    Yellow,
+    Red,
+    Black,
+}

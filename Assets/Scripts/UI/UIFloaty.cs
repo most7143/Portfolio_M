@@ -12,6 +12,7 @@ public enum FloatyTypes
     Success,
     Fail,
     Gold,
+    Gem,
     Dodge,
     Heal,
 }
@@ -60,7 +61,7 @@ public class UIFloaty : MonoBehaviour
 
         Fade.FadeOut();
 
-        if (type != FloatyTypes.Gold)
+        if (type != FloatyTypes.Gold && type != FloatyTypes.Gem)
         {
             Move();
         }
@@ -81,7 +82,7 @@ public class UIFloaty : MonoBehaviour
         {
             Text.color = Color.white;
         }
-        else if (type == FloatyTypes.Success || type == FloatyTypes.Gold)
+        else if (type == FloatyTypes.Success || type == FloatyTypes.Gold || type == FloatyTypes.Gem)
         {
             Text.color = Color.yellow;
         }
@@ -107,7 +108,7 @@ public class UIFloaty : MonoBehaviour
     {
         Text.fontSize = _fontSize;
 
-        if (type == FloatyTypes.Gold)
+        if (type is FloatyTypes.Gold or FloatyTypes.Gem)
         {
             Text.fontSize *= 0.7f;
         }

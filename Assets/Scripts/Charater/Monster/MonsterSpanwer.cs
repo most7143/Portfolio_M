@@ -13,6 +13,8 @@ public class MonsterSpanwer : MonoBehaviour
 
     public int Gold { get; private set; }
 
+    public int Gem { get; private set; }
+
     public float AttackByLevel = 2;
     public float HealthByLevel = 20;
     public float ArmorByLevel = 1;
@@ -24,6 +26,7 @@ public class MonsterSpanwer : MonoBehaviour
     {
         EXP = 20;
         Gold = 100;
+        Gem = 1;
     }
 
     public void RefreshLevelByData(int level)
@@ -33,6 +36,7 @@ public class MonsterSpanwer : MonoBehaviour
             Level++;
             EXP *= EXPRateByLevel;
             Gold = (int)(Gold * GoldRateByLevel);
+            Gem = 1 + level / 3;
         }
 
         EventManager<EventTypes>.Send(EventTypes.ChangeMonsterLevel);

@@ -80,12 +80,24 @@ public class Monster : Character
             UIManager.Instance.MonsterInfo.Refresh(this);
         }
 
-        InGameManager.Instance.Controller.AddCurrencyAnim(CurrencyTypes.Gold, transform.position, Spanwer.Gold);
+        DropCurrency();
 
         InGameManager.Instance.Controller.AddExp(Spanwer.EXP);
 
         InGameManager.Instance.RefreshStage(Level);
 
         EventManager<EventTypes>.Send(EventTypes.MonsterDead);
+    }
+
+    private void DropCurrency()
+    {
+        float rand = Random.Range(0, 1f);
+
+        if (0.5f >= rand)
+        {
+            InGameManager.Instance.Controller.AddCurrencyAnim(CurrencyTypes.Gem, transform.position, Spanwer.Gem);
+        }
+
+        InGameManager.Instance.Controller.AddCurrencyAnim(CurrencyTypes.Gold, transform.position, Spanwer.Gold);
     }
 }

@@ -60,7 +60,7 @@ public class ObjectPooling : MonoBehaviour
     {
         CurrencyObject currency = GetCurrency();
 
-        currency.Spawn(startPos, endRect, value);
+        currency.Spawn(type, startPos, endRect, value);
     }
 
     private UIFloaty GetFolaty()

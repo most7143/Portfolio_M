@@ -1,5 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CurrencyObject : MonoBehaviour
 {
@@ -10,19 +11,27 @@ public class CurrencyObject : MonoBehaviour
     public float moveDuration = 0.8f;
     public float arcHeight = 100f;
 
+    public Image Icon;
+
     public CurrencyTypes Type = CurrencyTypes.Gold;
+
     public float Value;
+    public Vector3 Offset;
 
     public void Init()
     {
         gameObject.SetActive(false);
     }
 
-    public void Spawn(Vector3 worldPosition, RectTransform traget, float value)
+    public void Spawn(CurrencyTypes type, Vector3 worldPosition, RectTransform target, float value)
     {
+        Type = type;
+
+        Icon.sprite = ResourcesManager.Instance.LoadSprite("Icon_" + Type.ToString());
+
         gameObject.SetActive(true);
         IsAlive = true;
-        targetUI = traget;
+        targetUI = target;
         Value = value;
 
         Vector3 screenPos = Camera.main.WorldToScreenPoint(worldPosition);
@@ -31,7 +40,7 @@ public class CurrencyObject : MonoBehaviour
         coinRect.anchoredPosition = screenPos;
         Vector2 start = screenPos;
 
-        Vector2 end = RectTransformUtility.WorldToScreenPoint(null, targetUI.position);
+        Vector2 end = RectTransformUtility.WorldToScreenPoint(null, targetUI.position + Offset);
         end = new Vector3(end.x - CanvasRect.localPosition.x, end.y - CanvasRect.localPosition.y);
 
         float randomArcHeight = arcHeight * Random.Range(0.8f, 1.2f);
@@ -46,18 +55,33 @@ public class CurrencyObject : MonoBehaviour
         }, 1f, moveDuration).SetEase(Ease.Linear).OnComplete(() => OnArrive());
     }
 
+    private void SetSprite()
+    {
+        Icon.sprite = ResourcesManager.Instance.LoadSprite("Icon_" + Type.ToString());
+    }
+
     private void OnArrive()
     {
         IsAlive = false;
-        gameObject.SetActive(false);
 
-        int resultGold = Mathf.CeilToInt(Value * InGameManager.Instance.Player.StatSystem.GetStat(StatNames.CurrencyGainRate));
+        if (Type == CurrencyTypes.Gold)
+        {
+            int resultGold = Mathf.CeilToInt(Value * InGameManager.Instance.Player.StatSystem.GetStat(StatNames.CurrencyGainRate));
+            InGameManager.Instance.Controller.Data.Gold += resultGold;
+            InGameManager.Instance.Controller.Data.AccumulatedGold += resultGold;
 
-        InGameManager.Instance.Controller.Data.Gold += resultGold;
-        InGameManager.Instance.Controller.Data.AccumulatedGold += resultGold;
+            InGameManager.Instance.ObjectPool.SpawnFloaty(targetUI.position, FloatyTypes.Gold, "+" + resultGold);
+            UIManager.Instance.PlayerInfo.RefreshCurrency(CurrencyTypes.Gold, InGameManager.Instance.Controller.Data.Gold);
+        }
+        else if (Type == CurrencyTypes.Gem)
+        {
+            InGameManager.Instance.Controller.Data.Gem += (int)Value;
+            InGameManager.Instance.ObjectPool.SpawnFloaty(targetUI.position, FloatyTypes.Gem, "+" + Value);
+            UIManager.Instance.PlayerInfo.RefreshCurrency(CurrencyTypes.Gem, InGameManager.Instance.Controller.Data.Gem);
+        }
 
-        InGameManager.Instance.ObjectPool.SpawnFloaty(targetUI.position, FloatyTypes.Gold, "+" + Value + "G");
-        UIManager.Instance.PlayerInfo.RefreshGold(InGameManager.Instance.Controller.Data.Gold);
         EventManager<EventTypes>.Send(EventTypes.AddCurrency);
+
+        gameObject.SetActive(false);
     }
 }
