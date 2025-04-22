@@ -322,6 +322,6 @@ public enum PocketTypes
 {
     None,
     Yellow,
-    Red,
+    Green,
     Black,
 }
