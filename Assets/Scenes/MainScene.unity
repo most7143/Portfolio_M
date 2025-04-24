@@ -922,7 +922,7 @@ MonoBehaviour:
   - {fileID: 2136922435}
   - {fileID: 2004307440}
   - {fileID: 553814064}
-  - {fileID: 0}
+  - {fileID: 1250064422}
   SelectedIndex: -1
 --- !u!1 &191531442
 GameObject:
@@ -6397,8 +6397,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 100}
+  m_AnchoredPosition: {x: 0, y: -0.5508}
+  m_SizeDelta: {x: 0, y: 98.8984}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1233494919
 MonoBehaviour:
@@ -6566,6 +6566,7 @@ MonoBehaviour:
   CanvasGroup: {fileID: 1540606296}
   Image: {fileID: 1250064420}
   Index: 3
+  ShopInfo: {fileID: 1540606297}
 --- !u!1 &1256786460
 GameObject:
   m_ObjectHideFlags: 0
@@ -8281,6 +8282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d89c5afa15d04aa4789f91c952cc4c57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Content: {fileID: 124839844}
 --- !u!1 &1553253002
 GameObject:
   m_ObjectHideFlags: 0

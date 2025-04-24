@@ -199,7 +199,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1 <sprite=1>
+  m_text: 100<sprite=1>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eba9c57b85e7219408b4b487f286d985, type: 2}
   m_sharedMaterial: {fileID: -9203167284099549291, guid: eba9c57b85e7219408b4b487f286d985, type: 2}
@@ -208,8 +208,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -362,8 +362,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 0
-  Icon: {fileID: 0}
-  Button: {fileID: 0}
+  Icon: {fileID: 1978234392171967440}
+  Button: {fileID: 5281177847446650355}
+  NameText: {fileID: 4890309393561782330}
+  DescText: {fileID: 5292790312932787242}
+  CostText: {fileID: 4112393739785992646}
 --- !u!1 &2993877564044391751
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,7 +507,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uACE8\uB4DC\uB97C 3~100\uBC30 \uAE4C\uC9C0 \uC5BB\uC744 \uC218 \uC788\uB2E4."
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eba9c57b85e7219408b4b487f286d985, type: 2}
   m_sharedMaterial: {fileID: -9203167284099549291, guid: eba9c57b85e7219408b4b487f286d985, type: 2}
@@ -713,7 +716,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uB178\uB780 \uC8FC\uBA38\uB2C8"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eba9c57b85e7219408b4b487f286d985, type: 2}
   m_sharedMaterial: {fileID: -9203167284099549291, guid: eba9c57b85e7219408b4b487f286d985, type: 2}
@@ -856,7 +859,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: -68, y: 0}
-  m_SizeDelta: {x: 128, y: 64}
+  m_SizeDelta: {x: 96, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7819424596001569915
 CanvasRenderer:
@@ -927,7 +930,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 21300000, guid: 3ff3633852f93cf488b1328f8f25b93b, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 3ff3633852f93cf488b1328f8f25b93b, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 3ff3633852f93cf488b1328f8f25b93b, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 580e575c1e5b7684886f907a46567361, type: 3}
     m_DisabledSprite: {fileID: 21300000, guid: 580e575c1e5b7684886f907a46567361, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal

@@ -22,12 +22,12 @@ public class UIPlayerInfo : MonoBehaviour
     {
         if (type == CurrencyTypes.Gold)
         {
-            GoldText.SetText(value.ToString());
+            GoldText.SetText(value.ToString() + "<sprite=0>");
             UIWeaponInfo.RefreshCostColor();
         }
         else if (type == CurrencyTypes.Gem)
         {
-            GemText.SetText(value.ToString());
+            GemText.SetText(value.ToString() + "<sprite=1>");
         }
     }
 

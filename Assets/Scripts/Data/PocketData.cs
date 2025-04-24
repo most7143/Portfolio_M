@@ -10,6 +10,7 @@ public class PocketData : ScriptableObject
     public List<float> Chance;
     public List<StatNames> Stats;
     public List<float> Values;
+    public int Cost;
 
 #if UNITY_EDITOR
 

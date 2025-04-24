@@ -1,6 +1,6 @@
 public class UIShopTab : UITab
 {
-    private UIShopInfo ShopInfo;
+    public UIShopInfo ShopInfo;
 
     public override void Activate()
     {
