@@ -62,6 +62,14 @@ public enum WeaponNames
     DoomsDay,
 }
 
+public enum AccessoryTypes
+{
+    None,
+    Necklace,
+    Ring,
+    Other,
+}
+
 public enum CharacterTypes
 {
     None,
@@ -207,6 +215,17 @@ public enum PassiveGrades
     Rare,
     Unique,
     Legendary,
+}
+
+public enum GradeTypes
+{
+    None,
+    Normal,
+    Rare,
+    Magic,
+    Unique,
+    Legendary,
+    Mythic,
 }
 
 public enum PassiveSkillTypes
