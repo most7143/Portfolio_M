@@ -7,6 +7,8 @@ public class Player : Character
     public Monster TargetMonster;
     public Transform AttackPoint;
 
+    public AccessorySystem AccessorySystem;
+
     public PlayerData Data;
 
     protected override void Awake()

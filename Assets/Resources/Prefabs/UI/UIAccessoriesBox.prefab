@@ -413,7 +413,6 @@ GameObject:
   - component: {fileID: 4278114175041722595}
   - component: {fileID: 3617142290194710216}
   - component: {fileID: 5862183464621070789}
-  - component: {fileID: 8007519111206396006}
   m_Layer: 5
   m_Name: UIAccessoriesBox
   m_TagString: Untagged
@@ -485,24 +484,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8007519111206396006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2408739560545396518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63ba7dbcb9c71f44183164cf84b06b26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 0
-  Icon: {fileID: 1978234392171967440}
-  Button: {fileID: 5281177847446650355}
-  NameText: {fileID: 4890309393561782330}
-  DescText: {fileID: 5292790312932787242}
-  CostText: {fileID: 4112393739785992646}
 --- !u!1 &2993877564044391751
 GameObject:
   m_ObjectHideFlags: 0

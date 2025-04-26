@@ -89,6 +89,13 @@ public class UIPocketBox : MonoBehaviour
                 value = Mathf.FloorToInt(InGameManager.Instance.MonsterSpanwer.Gold * data.Values[selectIndex]);
                 InGameManager.Instance.Controller.AddCurrency(CurrencyTypes.Gold, value);
             }
+            else if (Type == PocketTypes.Green || Type == PocketTypes.Red || Type == PocketTypes.Black)
+            {
+                if (InGameManager.Instance.Player.AccessorySystem.GetGrade(data.AccessoryType) < data.Grades[selectIndex])
+                {
+                    InGameManager.Instance.Player.AccessorySystem.Upgrade(data.AccessoryType, data.Grades[selectIndex]);
+                }
+            }
         }
     }
 }

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bca54cd6681f9cf48ab3a91b6a58bd2c, type: 3}
-  m_Name: BlackPocket
+  m_Name: RedPocket
   m_EditorClassIdentifier: 
-  Type: 4
-  NameString: "\uB178\uB780 \uC8FC\uBA38\uB2C8"
+  Type: 3
+  NameString: "\uAC80\uC740 \uC8FC\uBA38\uB2C8"
   DescriptionString: "\uACE8\uB4DC\uB97C 3~100\uBC30 \uAE4C\uC9C0 \uD68D\uB4DD \uD560
     \uC218 \uC788\uB2E4."
   Chance:
@@ -23,8 +23,7 @@ MonoBehaviour:
   - 0.2
   - 0.3
   - 0.35
-  Grades: 
-  AccessoryType: 0
+  Stats: 
   Values:
   - 100
   - 50

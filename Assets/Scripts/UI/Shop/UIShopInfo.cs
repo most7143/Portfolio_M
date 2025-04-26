@@ -36,8 +36,6 @@ public class UIShopInfo : MonoBehaviour
                 box.transform.SetParent(Content);
                 Pockets.Add(box);
             }
-
-            return;
         }
     }
 
