@@ -5,16 +5,19 @@ using UnityEngine;
 public class UIShopInfo : MonoBehaviour
 {
     public RectTransform Content;
+    public List<UIAccessoryBox> Accessories;
     private List<UIPocketBox> Pockets = new();
 
     private void OnEnable()
     {
         EventManager<EventTypes>.Register(EventTypes.AddCurrency, Refresh);
+        EventManager<EventTypes>.Register(EventTypes.RefreshAccessory, RefreshAcc);
     }
 
     private void OnDisable()
     {
         EventManager<EventTypes>.Unregister(EventTypes.AddCurrency, Refresh);
+        EventManager<EventTypes>.Unregister(EventTypes.RefreshAccessory, RefreshAcc);
     }
 
     private void Start()
@@ -41,10 +44,9 @@ public class UIShopInfo : MonoBehaviour
 
     public void Activate()
     {
-        for (int i = 0; i < Pockets.Count; i++)
-        {
-            Pockets[i].Actiavte();
-        }
+        Refresh();
+
+        RefreshAcc();
     }
 
     public void Refresh()
@@ -52,6 +54,14 @@ public class UIShopInfo : MonoBehaviour
         for (int i = 0; i < Pockets.Count; i++)
         {
             Pockets[i].Actiavte();
+        }
+    }
+
+    public void RefreshAcc()
+    {
+        for (int i = 0; i < Accessories.Count; i++)
+        {
+            Accessories[i].Refresh();
         }
     }
 }

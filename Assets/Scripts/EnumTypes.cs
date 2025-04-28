@@ -217,15 +217,15 @@ public enum PassiveGrades
     Legendary,
 }
 
-public enum GradeTypes
+public enum GradeNames
 {
-    None,
-    Normal,
-    Rare,
-    Magic,
-    Unique,
-    Legendary,
-    Mythic,
+    None = 7,
+    Normal = 6,
+    Rare = 5,
+    Magic = 4,
+    Unique = 3,
+    Legendary = 2,
+    Mythic = 1,
 }
 
 public enum PassiveSkillTypes
@@ -299,6 +299,8 @@ public enum EventTypes
 
     AddCurrency, // ÀçÈ­È¹µæ
     UseCurrency, // ÀçÈ­»ç¿ë
+
+    RefreshAccessory, // ¾Ç¼¼¼­¸® º¯È­
 }
 
 public enum DamageTypes
@@ -326,6 +328,9 @@ public enum StatTID
     Weapon,
     PassiveSkill,
     PassiveSkillMaxLevel,
+    Necklace,
+    Ring,
+    Other,
     Buff,
     BuffStack,
 }

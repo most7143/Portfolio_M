@@ -6,8 +6,10 @@ public class AccessoryData : ScriptableObject
 {
     public AccessoryTypes Type;
     public string[] NameStrings;
+    public string[] DescriptionStrings;
     public List<StatNames> StatNames;
-    public List<float> Values;
+    public List<float> Chance;
+    public List<string> Values;
 
 #if UNITY_EDITOR
 

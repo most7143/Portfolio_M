@@ -8,7 +8,7 @@ public class PocketData : ScriptableObject
     public string NameString;
     public string DescriptionString;
     public List<float> Chance;
-    public List<GradeTypes> Grades;
+    public List<GradeNames> Grades;
     public AccessoryTypes AccessoryType;
     public List<float> Values;
     public int Cost;

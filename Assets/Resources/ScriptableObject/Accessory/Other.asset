@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54f2097a385ca3047be46cd5578f2605, type: 3}
+  m_Name: Other
+  m_EditorClassIdentifier: 
+  Type: 3
+  NameStrings:
+  - "\uC138\uC774\uBE44\uC5B4\uC2A4 \uBE14\uB7EC\uB4DC"
+  - "\uC2A4\uCF08\uB808\uD1A4 \uC644\uB4DC"
+  - "\uC545\uC758 \uBB38\uC11C"
+  - "\uBD88\uAE38\uD55C \uD3EC\uC158"
+  - "\uC624\uBE0C"
+  - "\uB3D9\uBB3C \uACC4\uC57D\uC11C"
+  DescriptionStrings:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  StatNames: 05000000160000000b00000004000000020000000a00000008000000010000000900000007000000
+  Chance:
+  - 0.04
+  - 0.04
+  - 0.05
+  - 0.08
+  - 0.09
+  - 0.09
+  - 0.09
+  - 0.17
+  - 0.17
+  - 0.18
+  Values:
+  - 0.3,0.2,0.1
+  - 0.05,0.04,0.03
+  - 0.04,0.03,0.02
+  - 0.15,0.12,0.1
+  - 0.07,0.06,0.05
+  - 0.07,0.06,0.05
+  - 0.07,0.06,0.05
+  - 30,25,20
+  - 18,16,14
+  - 70,60,50

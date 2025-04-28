@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Background_Pannel_Unique_0
+      name: Background_Pannel_Unique
       rect:
         serializedVersion: 2
         x: 6
@@ -131,7 +131,7 @@ TextureImporter:
         width: 245
         height: 118
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 12, y: 12, z: 12, w: 11}
       outline: []
       physicsShape: []
@@ -154,7 +154,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Background_Pannel_Unique_0: -675971056
+      Background_Pannel_Unique: -675971056
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

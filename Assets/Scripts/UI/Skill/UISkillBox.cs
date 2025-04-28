@@ -123,7 +123,7 @@ public class UISkillBox : MonoBehaviour
         else
         {
             Rect.sizeDelta = new Vector2(_origin.x, _origin.y + 20f);
-            NameText.SetText(EXColor.SetGradeColor(GradeTypes.Mythic, Data.MaxLevelNameString));
+            NameText.SetText(EXText.SetGradeColor(GradeNames.Mythic, Data.MaxLevelNameString));
             BackGround.color = Color.cyan;
 
             float maxLevelValue = GetMaxLevelValue();

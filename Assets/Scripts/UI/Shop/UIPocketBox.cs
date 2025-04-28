@@ -91,7 +91,12 @@ public class UIPocketBox : MonoBehaviour
             }
             else if (Type == PocketTypes.Green || Type == PocketTypes.Red || Type == PocketTypes.Black)
             {
-                if (InGameManager.Instance.Player.AccessorySystem.GetGrade(data.AccessoryType) < data.Grades[selectIndex])
+                int curGradeIndex = (int)InGameManager.Instance.Player.AccessorySystem.GetGrade(data.AccessoryType);
+                int nexGradeIndx = (int)data.Grades[selectIndex];
+
+                Debug.Log(curGradeIndex + " < " + nexGradeIndx);
+
+                if (curGradeIndex > nexGradeIndx)
                 {
                     InGameManager.Instance.Player.AccessorySystem.Upgrade(data.AccessoryType, data.Grades[selectIndex]);
                 }

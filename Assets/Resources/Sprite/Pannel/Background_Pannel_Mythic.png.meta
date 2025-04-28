@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Background_Pannel_Mythic_0
+      name: Background_Pannel_Mythic
       rect:
         serializedVersion: 2
         x: 6
@@ -131,7 +131,7 @@ TextureImporter:
         width: 245
         height: 118
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 12, y: 15, z: 14, w: 11}
       outline: []
       physicsShape: []
@@ -154,7 +154,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Background_Pannel_Mythic_0: -237991636
+      Background_Pannel_Mythic: -237991636
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

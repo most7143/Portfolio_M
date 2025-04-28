@@ -14,21 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 3
   NameString: "\uAC80\uC740 \uC8FC\uBA38\uB2C8"
-  DescriptionString: "\uACE8\uB4DC\uB97C 3~100\uBC30 \uAE4C\uC9C0 \uD68D\uB4DD \uD560
-    \uC218 \uC788\uB2E4."
+  DescriptionString: "<style=Normal>\uB178\uB9D0</style>~<style=Mythic>\uBBF8\uC2A4\uD2F1</style>
+    \uB4F1\uAE09\uC758 \uC7A5\uC2E0\uAD6C2\uB97C \uD68D\uB4DD\uD569\uB2C8\uB2E4."
   Chance:
-  - 0.01
-  - 0.04
-  - 0.1
-  - 0.2
-  - 0.3
-  - 0.35
-  Stats: 
-  Values:
-  - 100
-  - 50
-  - 25
-  - 12
-  - 7
-  - 3
+  - 0.004
+  - 0.021
+  - 0.057
+  - 0.123
+  - 0.246
+  - 0.55
+  Grades: 010000000200000003000000040000000500000006000000
+  AccessoryType: 2
+  Values: []
   Cost: 3

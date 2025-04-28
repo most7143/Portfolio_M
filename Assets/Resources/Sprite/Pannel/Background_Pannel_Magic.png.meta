@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Background_Pannel_Magic_0
+      name: Background_Pannel_Magic
       rect:
         serializedVersion: 2
         x: 6
@@ -131,7 +131,7 @@ TextureImporter:
         width: 245
         height: 118
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 13, y: 13, z: 13, w: 13}
       outline: []
       physicsShape: []
@@ -154,7 +154,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Background_Pannel_Magic_0: -1375279870
+      Background_Pannel_Magic: -1375279870
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -17,13 +17,14 @@ MonoBehaviour:
   DescriptionString: "\uACE8\uB4DC\uB97C 3~100\uBC30 \uAE4C\uC9C0 \uD68D\uB4DD \uD560
     \uC218 \uC788\uB2E4."
   Chance:
-  - 0.01
-  - 0.04
-  - 0.1
-  - 0.2
-  - 0.3
-  - 0.35
-  Stats: 
+  - 0.004
+  - 0.021
+  - 0.057
+  - 0.123
+  - 0.246
+  - 0.55
+  Grades: 
+  AccessoryType: 0
   Values:
   - 100
   - 50
