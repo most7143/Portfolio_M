@@ -46,8 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 5
   Type: 1
-  Conditions: 0
+  Conditions: 5
   EndConditions: 0
+  IgnoreBuffName: 0
   Owner: {fileID: 0}
   StatName: 20
   Value: 0

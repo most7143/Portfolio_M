@@ -116,11 +116,30 @@ public class Character : MonoBehaviour
 
     public IEnumerator ProcessAttack()
     {
-        yield return new WaitUntil(() => InGameManager.Instance.IsBattle);
-        yield return new WaitForSeconds(1f / AttackSpeed);
+        //yield return new WaitUntil(() => InGameManager.Instance.IsBattle);
+        //yield return new WaitForSeconds(1f / AttackSpeed * InGameManager.Instance.GameSpeed);
 
-        OnAttack();
-        StartCoroutine(ProcessAttack());
+        //OnAttack();
+        //StartCoroutine(ProcessAttack());
+
+        yield return new WaitUntil(() => InGameManager.Instance.IsBattle);
+
+        float timer = 0f;
+
+        while (InGameManager.Instance.IsBattle)
+        {
+            timer += Time.deltaTime * InGameManager.Instance.GameSpeed;
+
+            float interval = 1f / AttackSpeed;
+
+            if (timer >= interval)
+            {
+                timer -= interval;
+                OnAttack();
+            }
+
+            yield return null;
+        }
     }
 
     public IEnumerator ProcessHitEffect()

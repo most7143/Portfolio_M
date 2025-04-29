@@ -4,8 +4,6 @@ using UnityEngine.UI;
 
 public class GameSpeedButton : MonoBehaviour
 {
-    private int Speed = 1;
-
     public Button XButton;
 
     public TextMeshProUGUI Text;
@@ -17,23 +15,23 @@ public class GameSpeedButton : MonoBehaviour
 
     private void OnClick()
     {
-        switch (Speed)
+        switch (InGameManager.Instance.GameSpeed)
         {
             case 1:
                 {
-                    Speed = 2;
+                    InGameManager.Instance.GameSpeed = 2f;
                 }
                 break;
 
             case 2:
                 {
-                    Speed = 1;
+                    InGameManager.Instance.GameSpeed = 1f;
                 }
                 break;
         }
 
-        Time.timeScale = Speed;
+        EventManager<EventTypes>.Send(EventTypes.RefreshAttackSpeed);
 
-        Text.SetText("X" + Speed);
+        Text.SetText("X" + InGameManager.Instance.GameSpeed);
     }
 }

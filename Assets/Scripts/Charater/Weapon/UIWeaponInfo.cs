@@ -28,8 +28,6 @@ public class UIWeaponInfo : MonoBehaviour
 
     private void Start()
     {
-        InGameManager.Instance.Controller.AddCurrency(CurrencyTypes.Gold, 100000);
-        InGameManager.Instance.Controller.AddCurrency(CurrencyTypes.Gem, 100000);
         UpgradeButton.OnExecute = Upgrade;
     }
 

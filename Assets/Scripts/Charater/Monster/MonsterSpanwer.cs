@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class MonsterSpanwer : MonoBehaviour
@@ -22,11 +24,15 @@ public class MonsterSpanwer : MonoBehaviour
     public float EXPRateByLevel = 1.03f;
     public float GoldRateByLevel = 1.03f;
 
+    public Dictionary<int, MonsterData> _datas = new();
+
     private void Start()
     {
         EXP = 20;
         Gold = 100;
         Gem = 1;
+
+        InitDatas();
     }
 
     public void RefreshLevelByData(int level)
@@ -52,7 +58,7 @@ public class MonsterSpanwer : MonoBehaviour
 
             SpawnMonster.Spanwer = this;
 
-            SpawnMonster.SetData();
+            SpawnMonster.SetData(GetData(chareacterName));
 
             SpawnMonster.transform.SetParent(SpawnPoint);
             SpawnMonster.transform.localPosition = Vector3.zero;
@@ -82,7 +88,7 @@ public class MonsterSpanwer : MonoBehaviour
         }
     }
 
-    private CharacterNames GetNextMonster(int level)
+    private void InitDatas()
     {
         CharacterNames[] monsters = Enum.GetValues(typeof(CharacterNames)) as CharacterNames[];
 
@@ -92,11 +98,30 @@ public class MonsterSpanwer : MonoBehaviour
 
             if (monster != null)
             {
-                if (monster.Level == level)
-                {
-                    return monster.Name;
-                }
+                _datas.Add(monster.Level, monster);
             }
+        }
+    }
+
+    private MonsterData GetData(CharacterNames name)
+    {
+        MonsterData[] datas = _datas.Values.ToArray();
+
+        for (int i = 0; i < datas.Length; i++)
+        {
+            if (datas[i].Name == name)
+            {
+                return datas[i];
+            }
+        }
+        return null;
+    }
+
+    private CharacterNames GetNextMonster(int level)
+    {
+        if (_datas.ContainsKey(level))
+        {
+            return _datas[level].Name;
         }
 
         return CharacterNames.None;

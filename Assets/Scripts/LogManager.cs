@@ -12,12 +12,15 @@ public static class LogManager
             data = ResourcesManager.Instance.LoadScriptable<LogData>("LogData");
         }
 
-        for (int i = 0; i < data.Data.Count; i++)
+        if (data != null)
         {
-            if (data.Data[i].Type == type
-                && data.Data[i].IsUse)
+            for (int i = 0; i < data.Data.Count; i++)
             {
-                Debug.Log("[" + type.ToString() + "] : " + text);
+                if (data.Data[i].Type == type
+                    && data.Data[i].IsUse)
+                {
+                    Debug.Log("[" + type.ToString() + "] : " + text);
+                }
             }
         }
     }

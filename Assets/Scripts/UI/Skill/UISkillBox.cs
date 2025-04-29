@@ -36,11 +36,13 @@ public class UISkillBox : MonoBehaviour
     private void OnEnable()
     {
         EventManager<EventTypes>.Register(EventTypes.SkillLevelUp, Refresh);
+        EventManager<EventTypes>.Register<int>(EventTypes.LevelUp, Unlock);
     }
 
     private void OnDisable()
     {
         EventManager<EventTypes>.Unregister(EventTypes.SkillLevelUp, Refresh);
+        EventManager<EventTypes>.Unregister<int>(EventTypes.LevelUp, Unlock);
     }
 
     public void Setup(PassiveSkillNames name)
@@ -56,7 +58,7 @@ public class UISkillBox : MonoBehaviour
         Icon.sprite = ResourcesManager.Instance.LoadSprite("Icon_" + name.ToString());
 
         LockText.SetText(Data.RequireRank + " 랭크 도달 시 개방");
-        CostText.SetText(Data.Cost + "G");
+        CostText.SetText(Data.Cost + "<sprite=0>");
         Refresh();
     }
 
@@ -95,17 +97,16 @@ public class UISkillBox : MonoBehaviour
         return value;
     }
 
-    public void Refresh()
+    public void Unlock(int level)
     {
-        if (InGameManager.Instance.Player.Level >= Data.RequireRank)
+        if (Data.RequireRank <= level)
         {
             LockTrans.gameObject.SetActive(false);
         }
-        else
-        {
-            LockTrans.gameObject.SetActive(true);
-        }
+    }
 
+    public void Refresh()
+    {
         LevelText.SetText(Level + "/" + Data.MaxLevel);
 
         float value = GetValue();
@@ -118,7 +119,7 @@ public class UISkillBox : MonoBehaviour
             NameText.SetText(Data.NameString);
             DescText.SetText(string.Format(Data.DescriptionString, value));
             BunousDescText.gameObject.SetActive(false);
-            CostText.SetText(Data.Cost + "G");
+            CostText.SetText(Data.Cost + "<sprite=0>");
         }
         else
         {
@@ -165,7 +166,7 @@ public class UISkillBox : MonoBehaviour
             if (_chance >= rand)
             {
                 LevelUpSkill();
-                InGameManager.Instance.Controller.TryUsingCurrency(CurrencyTypes.Gold, (int)Data.Cost);
+                InGameManager.Instance.Controller.UseCurrency(CurrencyTypes.Gold, (int)Data.Cost);
                 InGameManager.Instance.ObjectPool.SpawnFloaty(LearnButton.transform.position, FloatyTypes.Success, "성공");
                 EventManager<EventTypes>.Send(EventTypes.SkillLevelUp);
             }

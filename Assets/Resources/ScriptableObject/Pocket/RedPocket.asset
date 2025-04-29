@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RedPocket
   m_EditorClassIdentifier: 
   Type: 3
-  NameString: "\uAC80\uC740 \uC8FC\uBA38\uB2C8"
+  NameString: "\uBE68\uAC04 \uC8FC\uBA38\uB2C8"
   DescriptionString: "<style=Normal>\uB178\uB9D0</style>~<style=Mythic>\uBBF8\uC2A4\uD2F1</style>
     \uB4F1\uAE09\uC758 \uC7A5\uC2E0\uAD6C2\uB97C \uD68D\uB4DD\uD569\uB2C8\uB2E4."
   Chance:
@@ -26,4 +26,5 @@ MonoBehaviour:
   Grades: 010000000200000003000000040000000500000006000000
   AccessoryType: 2
   Values: []
+  UnlockRank: 3
   Cost: 3

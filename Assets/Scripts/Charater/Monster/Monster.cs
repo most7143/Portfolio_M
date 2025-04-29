@@ -8,9 +8,9 @@ public class Monster : Character
 
     private MonsterData data;
 
-    public void SetData()
+    public void SetData(MonsterData monsterData)
     {
-        data = ResourcesManager.Instance.LoadScriptable<MonsterData>(Name.ToString());
+        data = monsterData;
         NameString = data.NameString;
         Level = data.Level;
         MaxLevel = data.MaxLevel;

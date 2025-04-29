@@ -6,22 +6,33 @@ using UnityEngine.UI;
 
 public class XButton : Button
 {
+    public bool IsPressClick = true;
     public Action OnExecute;
 
     public override void OnPointerDown(PointerEventData eventData)
     {
         base.OnPointerDown(eventData);
 
-        Execute();
-        StartCoroutine(PressProcess());
+        if (interactable)
+        {
+            Execute();
+
+            if (IsPressClick)
+            {
+                StartCoroutine(PressProcess());
+            }
+        }
     }
 
     public override void OnPointerUp(PointerEventData eventData)
     {
         base.OnPointerUp(eventData);
 
-        StopAllCoroutines();
-        CancelInvoke("Execute");
+        if (IsPressClick)
+        {
+            StopAllCoroutines();
+            CancelInvoke("Execute");
+        }
     }
 
     private IEnumerator PressProcess()
@@ -35,6 +46,23 @@ public class XButton : Button
         if (OnExecute != null)
         {
             OnExecute.Invoke();
+        }
+    }
+
+    public void RefreshInteraction(bool isAlive)
+    {
+        interactable = isAlive;
+
+        if (image != null)
+        {
+            if (interactable)
+            {
+                image.color = Color.white;
+            }
+            else
+            {
+                image.color = Color.gray;
+            }
         }
     }
 }

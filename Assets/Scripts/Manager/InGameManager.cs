@@ -33,6 +33,7 @@ public class InGameManager : MonoBehaviour
 
     public bool IsBattle;
     public int StageLevel = 1;
+    public float GameSpeed = 1;
     public Player Player;
 
     public StageManager StageManager;
@@ -54,12 +55,14 @@ public class InGameManager : MonoBehaviour
 
     private void BattleStart()
     {
-        IsBattle = true;
+        Player.Init();
 
         MonsterSpanwer.Spawn(CharacterNames.SlimeGreen);
         StageManager.Spawn(StageNames.Forest);
 
         Player.StartAttack();
+
+        IsBattle = true;
     }
 
     public void StageFail()

@@ -7,12 +7,21 @@ public class UIStageInfo : MonoBehaviour
 
     public GameSpeedButton SpeedButton;
 
+    public XButton CheatButton;
+
     private void Start()
     {
+        CheatButton.OnExecute = Cheat;
     }
 
     public void Refresh(StageData stageData)
     {
         NameText.SetText(stageData.NameString);
+    }
+
+    public void Cheat()
+    {
+        InGameManager.Instance.Controller.AddCurrency(CurrencyTypes.Gold, 100000);
+        InGameManager.Instance.Controller.AddCurrency(CurrencyTypes.Gem, 100000);
     }
 }

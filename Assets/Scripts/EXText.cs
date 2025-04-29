@@ -11,15 +11,21 @@
         {
             case StatNames.Attack:
             case StatNames.AttackRate:
-                return "공격력";
+                {
+                    return "공격력";
+                }
 
             case StatNames.Armor:
             case StatNames.ArmorRate:
-                return "방어력";
+                {
+                    return "방어력";
+                }
 
             case StatNames.Health:
             case StatNames.HealthRate:
-                return "체력";
+                {
+                    return "체력";
+                }
 
             case StatNames.AttackSpeed:
                 return "공격속도";

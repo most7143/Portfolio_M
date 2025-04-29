@@ -99,12 +99,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ce54d43630ee4e4094ff91916fe668c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 19
+  Name: 31
   NameString: 
   Level: 1
   IsAlive: 0
   Renderer: {fileID: 584518497833966851}
-  StatSystem: {fileID: 6238549172138149438, guid: 11199b15f0011e349ab6a5e66e99738b, type: 3}
+  PassiveSystem: {fileID: 0}
+  StatSystem: {fileID: 2185582286971510160}
   BuffSystem: {fileID: 5452172401878200372}
   MaxLevel: 1
   Spanwer: {fileID: 0}
@@ -120,39 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f5e56e8282934f4f99bccbb80513aa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Stats:
-  - Name: 1
-    Value: 2
-  - Name: 2
-    Value: 1
-  - Name: 3
-    Value: 0
-  - Name: 4
-    Value: 1
-  - Name: 5
-    Value: 1
-  - Name: 6
-    Value: 0
-  - Name: 7
-    Value: 10
-  - Name: 8
-    Value: 1
-  - Name: 9
-    Value: 1
-  - Name: 10
-    Value: 1
-  - Name: 11
-    Value: 1
-  - Name: 13
-    Value: 1
-  - Name: 14
-    Value: 1
-  - Name: 15
-    Value: 2
-  - Name: 16
-    Value: 20
-  - Name: 17
-    Value: 2
+  Owenr: {fileID: 0}
   IsInvincibility: 0
 --- !u!114 &5452172401878200372
 MonoBehaviour:

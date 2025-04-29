@@ -301,6 +301,8 @@ public enum EventTypes
     UseCurrency, // 재화사용
 
     RefreshAccessory, // 악세서리 변화
+
+    RefreshAttackSpeed, // 스텟 혹은 배속에 따른 공격속도 변화
 }
 
 public enum DamageTypes

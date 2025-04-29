@@ -11,7 +11,7 @@ public class ObjectPooling : MonoBehaviour
 
     public List<CurrencyObject> Currencies;
 
-    public int InitCount = 15;
+    public int InitCount = 30;
 
     private void Awake()
     {
@@ -22,28 +22,42 @@ public class ObjectPooling : MonoBehaviour
     {
         for (int i = 0; i < InitCount; i++)
         {
-            GameObject floatyObj = Instantiate(Floaty);
-
-            UIFloaty floaty = floatyObj.GetComponent<UIFloaty>();
-
-            floaty.Init();
-
-            floaty.transform.SetParent(transform);
-
-            floaties.Add(floaty);
+            InitFloaty();
         }
 
         for (int i = 0; i < InitCount; i++)
         {
-            GameObject currencyObj = Instantiate(Currency);
-
-            CurrencyObject currency = currencyObj.GetComponent<CurrencyObject>();
-
-            currency.transform.SetParent(transform);
-            currency.Init();
-
-            Currencies.Add(currency);
+            InitCurrency();
         }
+    }
+
+    private CurrencyObject InitCurrency()
+    {
+        GameObject currencyObj = Instantiate(Currency);
+
+        CurrencyObject currency = currencyObj.GetComponent<CurrencyObject>();
+
+        currency.transform.SetParent(transform);
+        currency.Init();
+
+        Currencies.Add(currency);
+
+        return currency;
+    }
+
+    private UIFloaty InitFloaty()
+    {
+        GameObject floatyObj = Instantiate(Floaty);
+
+        UIFloaty floaty = floatyObj.GetComponent<UIFloaty>();
+
+        floaty.Init();
+
+        floaty.transform.SetParent(transform);
+
+        floaties.Add(floaty);
+
+        return floaty;
     }
 
     public void SpawnFloaty(Vector2 position, FloatyTypes type, string text)
@@ -73,7 +87,7 @@ public class ObjectPooling : MonoBehaviour
             }
         }
 
-        return null;
+        return InitFloaty();
     }
 
     private CurrencyObject GetCurrency()
@@ -86,6 +100,6 @@ public class ObjectPooling : MonoBehaviour
             }
         }
 
-        return null;
+        return InitCurrency();
     }
 }

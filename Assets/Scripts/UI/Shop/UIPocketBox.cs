@@ -10,21 +10,39 @@ public class UIPocketBox : MonoBehaviour
     private PocketData data;
 
     public XButton Button;
+    public RectTransform FloatyPoint;
     public TextMeshProUGUI NameText;
     public TextMeshProUGUI DescText;
     public TextMeshProUGUI CostText;
 
+    public Image LockImage;
+    public TextMeshProUGUI LockText;
+
     private void Start()
     {
+        LockImage.gameObject.SetActive(true);
         Button.OnExecute = Click;
     }
 
     private void OnEnable()
     {
+        EventManager<EventTypes>.Register<int>(EventTypes.LevelUp, UnLock);
     }
 
     private void OnDisable()
     {
+        EventManager<EventTypes>.Unregister<int>(EventTypes.LevelUp, UnLock);
+    }
+
+    public void UnLock(int level)
+    {
+        if (data != null)
+        {
+            if (data.UnlockRank <= level)
+            {
+                LockImage.gameObject.SetActive(false);
+            }
+        }
     }
 
     public void Init(PocketTypes type)
@@ -39,6 +57,7 @@ public class UIPocketBox : MonoBehaviour
         {
             NameText.SetText(data.NameString);
             DescText.SetText(data.DescriptionString);
+            LockText.SetText(data.UnlockRank + " 랭크 달성 시 해금");
         }
     }
 
@@ -57,6 +76,8 @@ public class UIPocketBox : MonoBehaviour
         {
             CostText.color = Color.red;
         }
+
+        UnLock(InGameManager.Instance.Player.Level);
     }
 
     public void Click()
@@ -80,8 +101,6 @@ public class UIPocketBox : MonoBehaviour
                 }
             }
 
-            InGameManager.Instance.Controller.UseCurrency(CurrencyTypes.Gem, data.Cost);
-
             int value = 0;
 
             if (Type == PocketTypes.Yellow)
@@ -94,13 +113,24 @@ public class UIPocketBox : MonoBehaviour
                 int curGradeIndex = (int)InGameManager.Instance.Player.AccessorySystem.GetGrade(data.AccessoryType);
                 int nexGradeIndx = (int)data.Grades[selectIndex];
 
-                Debug.Log(curGradeIndex + " < " + nexGradeIndx);
+                if (curGradeIndex == 1)
+                {
+                    InGameManager.Instance.ObjectPool.SpawnFloaty(FloatyPoint.position, FloatyTypes.Fail, "구매 불가");
+                    return;
+                }
 
                 if (curGradeIndex > nexGradeIndx)
                 {
                     InGameManager.Instance.Player.AccessorySystem.Upgrade(data.AccessoryType, data.Grades[selectIndex]);
+                    InGameManager.Instance.ObjectPool.SpawnFloaty(FloatyPoint.position, FloatyTypes.Success, "성공!");
+                }
+                else
+                {
+                    InGameManager.Instance.ObjectPool.SpawnFloaty(FloatyPoint.position, FloatyTypes.Fail, "실패");
                 }
             }
+
+            InGameManager.Instance.Controller.UseCurrency(CurrencyTypes.Gem, data.Cost);
         }
     }
 }

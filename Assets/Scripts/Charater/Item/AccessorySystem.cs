@@ -58,15 +58,15 @@ public class AccessorySystem : MonoBehaviour
         AccessoryItem item = items[type];
 
         item.ClearOption();
-        item.Stats = GetStats(item);
-        item.Values = GetValues(item);
+        SetStats(item);
+        SetValues(item);
 
         EventManager<EventTypes>.Send(EventTypes.RefreshAccessory);
     }
 
-    private List<StatNames> GetStats(AccessoryItem item)
+    private void SetStats(AccessoryItem item)
     {
-        List<StatNames> stats = new();
+        List<ValueInfo> Values = new();
 
         int count = 1;
 
@@ -90,22 +90,25 @@ public class AccessorySystem : MonoBehaviour
                 chance += item.Data.Chance[j];
                 if (rand < chance)
                 {
-                    stats.Add(item.Data.StatNames[j]);
+                    ValueInfo value = new();
+                    value.Name = item.Data.StatNames[j];
+
+                    Values.Add(value);
                     break;
                 }
             }
         }
 
-        return stats;
+        item.Values = Values;
     }
 
-    private List<float> GetValues(AccessoryItem item)
+    private void SetValues(AccessoryItem item)
     {
-        List<float> values = new();
+        List<ValueInfo> Values = new();
 
-        for (int i = 0; i < item.Stats.Count; i++)
+        for (int i = 0; i < item.Values.Count; i++)
         {
-            StatNames stat = item.Stats[i];
+            StatNames stat = item.Values[i].Name;
             float chance = 0;
             int count = 0;
 
@@ -125,10 +128,17 @@ public class AccessorySystem : MonoBehaviour
                         {
                             float value = GetStringToValue(item.Data.Values[j], count);
 
-                            values.Add(value);
+                            value = GetValueByGrade(item.Grade, value);
+
+                            ValueInfo valueInfo = new();
+                            valueInfo.Name = stat;
+                            valueInfo.Value = value;
+                            valueInfo.Rank = count + 1;
+
+                            Values.Add(valueInfo);
 
                             InGameManager.Instance.Player.StatSystem.AddStat((StatTID)System.Enum.Parse(typeof(StatTID), item.Type.ToString()),
-                                item.Data.StatNames[i], value);
+                            item.Data.StatNames[j], value);
 
                             isSetValue = true;
                         }
@@ -143,13 +153,31 @@ public class AccessorySystem : MonoBehaviour
             }
         }
 
-        return values;
+        item.Values = Values;
+    }
+
+    private float GetValueByGrade(GradeNames grade, float value)
+    {
+        if (grade == GradeNames.Rare || grade == GradeNames.Magic)
+        {
+            return value * 2f;
+        }
+        else if (grade == GradeNames.Unique || grade == GradeNames.Legendary)
+        {
+            return value * 3f;
+        }
+        else if (grade == GradeNames.Mythic)
+        {
+            return value * 5f;
+        }
+
+        return value;
     }
 
     private float ValueByChance(int count)
     {
-        if (count == 1) return 0.1f;
-        else if (count == 2) return 0.3f;
+        if (count == 0) return 0.1f;
+        else if (count == 1) return 0.3f;
         else return 0.6f;
     }
 

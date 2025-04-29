@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 50
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,13 +126,13 @@ TextureImporter:
       name: Background_Pannel_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 5
-        width: 245
-        height: 118
+        x: 0
+        y: 0
+        width: 340
+        height: 90
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 14, y: 15, z: 15, w: 13}
+      border: {x: 15, y: 11, z: 13, w: 10}
       outline: []
       physicsShape: []
       tessellationDetail: 0

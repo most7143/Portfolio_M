@@ -91,8 +91,17 @@ public class StatSystem : MonoBehaviour
                 EventManager<EventTypes>.Send(EventTypes.RefreshPlayerStst, name);
             }
 
+            if (name == StatNames.AttackSpeed || name == StatNames.DoubleAttackSpeed)
+            {
+                EventManager<EventTypes>.Send(EventTypes.RefreshAttackSpeed);
+            }
+
             StatTrigger(name);
         }
+#if UNITY_EDITOR
+
+        LogManager.LogInfo(LogTypes.Stat, string.Format("{0} / {1} = {2} 이 추가됩니다. ({3}) ", Owenr.Name.ToString(), name, value, tid.ToString()));
+#endif
     }
 
     public void RemoveStat(StatTID tid, StatNames name)
@@ -108,6 +117,11 @@ public class StatSystem : MonoBehaviour
                     EventManager<EventTypes>.Send(EventTypes.RefreshPlayerStst, name);
                 }
             }
+
+#if UNITY_EDITOR
+
+            LogManager.LogInfo(LogTypes.Stat, string.Format("{0} / {1} 이 제거됩니다. ({2}) ", Owenr.Name.ToString(), name, tid.ToString()));
+#endif
         }
     }
 

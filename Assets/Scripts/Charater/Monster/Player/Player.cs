@@ -14,18 +14,25 @@ public class Player : Character
     protected override void Awake()
     {
         base.Awake();
-
-        InitPlayerData();
     }
 
     private void OnEnable()
     {
-        EventManager<EventTypes>.Register<StatNames>(EventTypes.RefreshPlayerStst, ResfreshStat);
+        EventManager<EventTypes>.Register(EventTypes.RefreshAttackSpeed, ResfreshAttackStat);
     }
 
     private void OnDisable()
     {
-        EventManager<EventTypes>.Unregister<StatNames>(EventTypes.RefreshPlayerStst, ResfreshStat);
+        EventManager<EventTypes>.Unregister(EventTypes.RefreshAttackSpeed, ResfreshAttackStat);
+    }
+
+    public void Init()
+    {
+        InitPlayerData();
+        WeaponController.InitWeaponDatas();
+        WeaponController.SetWeaponData(WeaponNames.WoodenSword);
+        RefreshWeaponInfo();
+        RefreshHP((int)MaxHP);
     }
 
     private void InitPlayerData()
@@ -55,21 +62,9 @@ public class Player : Character
         StatSystem.AddStat(StatTID.Base, StatNames.DamageRate, 1);
     }
 
-    private void Start()
+    private void ResfreshAttackStat()
     {
-        WeaponController.InitWeaponDatas();
-        WeaponController.SetWeaponData(WeaponNames.WoodenSword);
-        RefreshWeaponInfo();
-
-        RefreshHP((int)MaxHP);
-    }
-
-    private void ResfreshStat(StatNames name)
-    {
-        if (name == StatNames.AttackSpeed)
-        {
-            Animator.SetFloat("AttackSpeed", AttackSpeed * 2);
-        }
+        Animator.SetFloat("AttackSpeed", AttackSpeed * InGameManager.Instance.GameSpeed);
     }
 
     public void RefreshWeaponInfo()
@@ -84,7 +79,7 @@ public class Player : Character
         StatSystem.AddStat(StatTID.Weapon, StatNames.Attack, WeaponController.Info.Damage);
         StatSystem.AddStat(StatTID.Weapon, StatNames.AttackSpeed, WeaponController.Info.Speed);
 
-        Animator.SetFloat("AttackSpeed", AttackSpeed * 2);
+        Animator.SetFloat("AttackSpeed", AttackSpeed * 2 * InGameManager.Instance.GameSpeed);
     }
 
     public override void OnAttack()

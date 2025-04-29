@@ -21,8 +21,8 @@ MonoBehaviour:
   - "\uB8E8\uBE44 \uBC18\uC9C0"
   - "\uC740 \uBC18\uC9C0"
   DescriptionStrings:
-  - 
-  - 
+  - "\uCC98\uC74C \uD0C4\uC0DD\uD55C \uC6D0\uC11D"
+  - "\uC601\uD63C\uC758 \uC2EC\uC5F0\uC744 \uB4E4\uC5EC\uB2E4 \uBCF4\uB294 \uBC18\uC9C0"
   - 
   - 
   - 
@@ -36,9 +36,9 @@ MonoBehaviour:
   - 0.05
   - 0.05
   - 0.05
-  - 0.23
-  - 0.23
-  - 0.23
+  - 0.24
+  - 0.24
+  - 0.24
   Values:
   - 0.3,0.2,0.1
   - 0.06,0.05,0.04

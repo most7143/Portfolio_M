@@ -26,4 +26,5 @@ MonoBehaviour:
   Grades: 010000000200000003000000040000000500000006000000
   AccessoryType: 3
   Values: []
+  UnlockRank: 4
   Cost: 3
