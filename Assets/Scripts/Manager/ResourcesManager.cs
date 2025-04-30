@@ -41,6 +41,17 @@ public class ResourcesManager : MonoBehaviour
         return null;
     }
 
+    public GameObject Load(UIPopupNames uiName)
+    {
+        GameObject ui = Instantiate(Resources.Load<GameObject>("Prefabs/UI/Popup/" + string.Format("UI{0}Popup", uiName.ToString())));
+
+        if (ui != null)
+        {
+            return ui;
+        }
+        return null;
+    }
+
     public GameObject Load(BuffNames buffName)
     {
         GameObject ui = Instantiate(Resources.Load<GameObject>("Prefabs/Buff/Buff_" + buffName.ToString()));

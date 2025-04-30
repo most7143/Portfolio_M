@@ -57,6 +57,7 @@ public class UISkillBox : MonoBehaviour
 
         Icon.sprite = ResourcesManager.Instance.LoadSprite("Icon_" + name.ToString());
 
+        Unlock(InGameManager.Instance.Player.Level);
         LockText.SetText(Data.RequireRank + " 랭크 도달 시 개방");
         CostText.SetText(Data.Cost + "<sprite=0>");
         Refresh();

@@ -1,4 +1,4 @@
-public enum CharacterNames
+ï»¿public enum CharacterNames
 {
     None,
     Swordman,
@@ -43,6 +43,53 @@ public enum CharacterNames
     SkullViolet,
 
     End,
+}
+
+public enum ClassNames
+{
+    None,
+
+    // Tier 1
+
+    Swordman, //ê²€ì‚¬
+    Brawler, // ë¬´íˆ¬ì‚¬
+    Knight, // ë‚˜ì´íŠ¸
+    Crusader,//í¬ë£¨ì„¸ì´ë”
+    Berserker, //ë²„ì„œì»¤
+    Druid, // ë“œë£¨ì´ë“œ
+
+    Tracer, // íŠ¸ë ˆì´ì„œ
+    Rogue, // ë¡œê·¸
+    Hunter, //í—Œí„°
+    DarkKnight, //ì•”í‘ê¸°ì‚¬
+
+    Gambler, // ë„ë°•ì‚¬
+    Merchant, // ìƒì¸
+    Blacksmith, // ì¥ì¸
+    Diviner, // ì ìˆ ì‚¬
+}
+
+public enum ClassTraitTypes
+{
+    None,
+
+    //Tier1
+
+    Might, // ë¬´ë ¥ â€“ ë¬´íˆ¬ì‚¬ (Brawler)
+    Discipline, // ê·œìœ¨ â€“ ë‚˜ì´íŠ¸ (Knight)
+    Divinity, // ì‹ ì„± â€“ í¬ë£¨ì„¸ì´ë” (Crusader)
+    Fury, // ë¶„ë…¸ â€“ ë²„ì„œì»¤ (Berserker)
+    Feral, // ì•¼ì„± â€“ ë“œë£¨ì´ë“œ (Druid)
+
+    Swiftness, // ì‹ ì† â€“ íŠ¸ë ˆì´ì„œ (Tracer)
+    Assassination, // ì•”ì‚´ â€“ ë¡œê·¸ (Rogue)
+    Precision, // ì •ë°€ â€“ í—Œí„° (Hunter)
+    Darkness, // ì–´ë‘  â€“ ì•”í‘ê¸°ì‚¬ (Dark Knight)
+
+    Fortune, // í–‰ìš´ â€“ ê²œë¸”ëŸ¬ (Gambler)
+    Insight, // ê°ê° â€“ ìƒì¸ (Merchant)
+    Craftsmanship, // ì¥ì¸ â€“ ëŒ€ì¥ì¥ì´ (Blacksmith)
+    Fate, // ìš´ëª… â€“ ì ìˆ ì‚¬ (Diviner)
 }
 
 public enum WeaponNames
@@ -184,28 +231,28 @@ public enum PassiveSkillNames
 
     //Rank1
 
-    StrengthTraining, // ±Ù·Â´Ü·Ã - °ø°İ·Â Áõ°¡
-    StaminaTraining,  // Ã¼·Â´Ü·Ã - Ã¼·Â Áõ°¡
-    BlockingTraining, // ¸·±âÈÆ·Ã - ¹æ¾î·Â Áõ°¡
+    StrengthTraining, // ê·¼ë ¥ë‹¨ë ¨ - ê³µê²©ë ¥ ì¦ê°€
+    StaminaTraining,  // ì²´ë ¥ë‹¨ë ¨ - ì²´ë ¥ ì¦ê°€
+    BlockingTraining, // ë§‰ê¸°í›ˆë ¨ - ë°©ì–´ë ¥ ì¦ê°€
 
     //Rank2
 
-    OmniDirectionalMobility, // ÀÔÃ¼ ±âµ¿ - È¸ÇÇÀ² % Áõ°¡
-    WeaknessExposure, // ¾àÁ¡ ³ëÃâ - Ä¡¸íÅ¸ È®·ü % Áõ°¡
-    SurvivalOfTheFittest,// ¾àÀ° °­½Ä - Ä¡¸íÅ¸ µ¥¹ÌÁö % Áõ°¡
+    OmniDirectionalMobility, // ì…ì²´ ê¸°ë™ - íšŒí”¼ìœ¨ % ì¦ê°€
+    WeaknessExposure, // ì•½ì  ë…¸ì¶œ - ì¹˜ëª…íƒ€ í™•ë¥  % ì¦ê°€
+    SurvivalOfTheFittest,// ì•½ìœ¡ ê°•ì‹ - ì¹˜ëª…íƒ€ ë°ë¯¸ì§€ % ì¦ê°€
 
     //Rank3
 
-    Durability, // °­ÀÎÇÔ - ¹Ş´Â ÇÇÇØ % °¨¼Ò
-    Vampire, //ÈíÇ÷±Í - ÀÏ¹İ°ø°İ½Ã 5% È®·ü·Î ÁØ %È¸º¹
-    Gale, //µ¹Ç³ - °ø°İ¼Óµµ n Áõ°¡
-    TreasureHunter, // º¸¹° »ç³É²Û - ÀçÈ­ È¹µæ·® %Áõ°¡
+    Durability, // ê°•ì¸í•¨ - ë°›ëŠ” í”¼í•´ % ê°ì†Œ
+    Vampire, //í¡í˜ˆê·€ - ì¼ë°˜ê³µê²©ì‹œ 5% í™•ë¥ ë¡œ ì¤€ %íšŒë³µ
+    Gale, //ëŒí’ - ê³µê²©ì†ë„ n ì¦ê°€
+    TreasureHunter, // ë³´ë¬¼ ì‚¬ëƒ¥ê¾¼ - ì¬í™” íšë“ëŸ‰ %ì¦ê°€
 
     //Rank4
 
-    CursedTome, //ÀúÁÖ¹ŞÀº ¸¶µµ¼­ - ÃÖ´ë Ã¼·ÂÀÌ 70%·Î Á¦ÇÑµÇÁö¸¸, °ø°İ·Â 100% »ó½Â
-    Enforcer, // ÁıÇàÀÚ - ¸ó½ºÅÍ Á¶¿ì ½Ã 5ÃÊ µ¿¾È ÇÇÇØ¸¦ ÀÔÁö ¾ÊÀ½.
-    PowerOfGenesis, //Ã¢¼¼ÀÇ Èû - ¹«±â½ºÅ³ ¹ßµ¿ È®·ü 100% Áõ°¡
+    CursedTome, //ì €ì£¼ë°›ì€ ë§ˆë„ì„œ - ìµœëŒ€ ì²´ë ¥ì´ 70%ë¡œ ì œí•œë˜ì§€ë§Œ, ê³µê²©ë ¥ 100% ìƒìŠ¹
+    Enforcer, // ì§‘í–‰ì - ëª¬ìŠ¤í„° ì¡°ìš° ì‹œ 5ì´ˆ ë™ì•ˆ í”¼í•´ë¥¼ ì…ì§€ ì•ŠìŒ.
+    PowerOfGenesis, //ì°½ì„¸ì˜ í˜ - ë¬´ê¸°ìŠ¤í‚¬ ë°œë™ í™•ë¥  100% ì¦ê°€
 }
 
 public enum PassiveGrades
@@ -244,12 +291,12 @@ public enum SkillTypes
 public enum BuffNames
 {
     None,
-    WeaknessExposure, // ¾àÁ¡³ëÃâ - Ä¡¸íÅ¸ ½ÇÆĞ ¸¶´Ù È®·ü Áõ°¡
-    Enforcer,// ÁıÇàÀÚ - ¸ó½ºÅÍ Á¶¿ì ½Ã 5ÃÊ µ¿¾È ÇÇÇØ¸¦ ÀÔÁö ¾ÊÀ½.
-    Enforcer2,// ºÒ°øÁ¤ ÁıÇà - ¸ó½ºÅÍ Á¶¿ì ½Ã 5ÃÊ µ¿¾È ÇÇÇØ ÀÔÁö ¾ÊÀ½ , Áö¼Ó½Ã°£ 3ÃÊ Áõ°¡¿Í ÁÖ´Â ÇÇÇØ Áõ°¡
-    Durability, // Ã¶°© - °°Àº ¸ó½ºÅÍ¿¡°Ô ÇÇÇØ¸¦ ¹ŞÀ» ¶§ ¸¶´Ù ¹æ¾î·Â Áõ°¡
-    Gale, // ¾ÆÀÌ¿Ã·Î½ºÀÇ ¼û°á -6ÃÊµ¿¾È °ø°İ¼Óµµ 2¹è·Î Áõ°¡ 6ÃÊ Äğ
-    CursedTome, // º§¸®¾ËÀÇ ¸¶¼­ - ÀûÀÇ Ã¼·ÂÀ» 70% Á¦ÇÑ
+    WeaknessExposure, // ì•½ì ë…¸ì¶œ - ì¹˜ëª…íƒ€ ì‹¤íŒ¨ ë§ˆë‹¤ í™•ë¥  ì¦ê°€
+    Enforcer,// ì§‘í–‰ì - ëª¬ìŠ¤í„° ì¡°ìš° ì‹œ 5ì´ˆ ë™ì•ˆ í”¼í•´ë¥¼ ì…ì§€ ì•ŠìŒ.
+    Enforcer2,// ë¶ˆê³µì • ì§‘í–‰ - ëª¬ìŠ¤í„° ì¡°ìš° ì‹œ 5ì´ˆ ë™ì•ˆ í”¼í•´ ì…ì§€ ì•ŠìŒ , ì§€ì†ì‹œê°„ 3ì´ˆ ì¦ê°€ì™€ ì£¼ëŠ” í”¼í•´ ì¦ê°€
+    Durability, // ì² ê°‘ - ê°™ì€ ëª¬ìŠ¤í„°ì—ê²Œ í”¼í•´ë¥¼ ë°›ì„ ë•Œ ë§ˆë‹¤ ë°©ì–´ë ¥ ì¦ê°€
+    Gale, // ì•„ì´ì˜¬ë¡œìŠ¤ì˜ ìˆ¨ê²° -6ì´ˆë™ì•ˆ ê³µê²©ì†ë„ 2ë°°ë¡œ ì¦ê°€ 6ì´ˆ ì¿¨
+    CursedTome, // ë²¨ë¦¬ì•Œì˜ ë§ˆì„œ - ì ì˜ ì²´ë ¥ì„ 70% ì œí•œ
 }
 
 public enum BuffTypes
@@ -283,26 +330,26 @@ public enum BuffConditions
 public enum EventTypes
 {
     None,
-    PlayerAttackExecuted, // °ø°İ
-    PlayerAttackToNoCritical, // °ø°İ ½Ã Ä¡¸íÅ¸°¡ ¾Æ´Ñ °æ¿ì
-    PlayerAttackToCritical, // °ø°İ ½Ã Ä¡¸íÅ¸ÀÎ °æ¿ì
-    PlayerDamaged, // ÇÃ·¹ÀÌ¾î ÇÇÇØÀÔÀ½
-    EquipedWeapon, // Àåºñ ÀåÂø
-    AttackSkill, // ¹«±â ½ºÅ³ ¹ßµ¿
-    LevelUp, // ÇÃ·¹ÀÌ¾î ·¹º§¾÷
-    RefreshPlayerHP, // ÇÃ·¹ÀÌ¾î HP º¯È­
-    RefreshPlayerStst, // ÇÃ·¹ÀÌ¾î ½ºÅİ º¯È­
-    SkillLevelUp, // ½ºÅ³ ·¹º§¾÷
-    MonsterSpawnd,//¸ó½ºÅÍ ½ºÆù
-    ChangeMonsterLevel, // ¸ó½ºÅÍ ·¹º§ º¯È­
-    MonsterDead, //¸ó½ºÅÍ »ç¸Á.
+    PlayerAttackExecuted, // ê³µê²©
+    PlayerAttackToNoCritical, // ê³µê²© ì‹œ ì¹˜ëª…íƒ€ê°€ ì•„ë‹Œ ê²½ìš°
+    PlayerAttackToCritical, // ê³µê²© ì‹œ ì¹˜ëª…íƒ€ì¸ ê²½ìš°
+    PlayerDamaged, // í”Œë ˆì´ì–´ í”¼í•´ì…ìŒ
+    EquipedWeapon, // ì¥ë¹„ ì¥ì°©
+    AttackSkill, // ë¬´ê¸° ìŠ¤í‚¬ ë°œë™
+    LevelUp, // í”Œë ˆì´ì–´ ë ˆë²¨ì—…
+    RefreshPlayerHP, // í”Œë ˆì´ì–´ HP ë³€í™”
+    RefreshPlayerStst, // í”Œë ˆì´ì–´ ìŠ¤í…Ÿ ë³€í™”
+    SkillLevelUp, // ìŠ¤í‚¬ ë ˆë²¨ì—…
+    MonsterSpawnd,//ëª¬ìŠ¤í„° ìŠ¤í°
+    ChangeMonsterLevel, // ëª¬ìŠ¤í„° ë ˆë²¨ ë³€í™”
+    MonsterDead, //ëª¬ìŠ¤í„° ì‚¬ë§.
 
-    AddCurrency, // ÀçÈ­È¹µæ
-    UseCurrency, // ÀçÈ­»ç¿ë
+    AddCurrency, // ì¬í™”íšë“
+    UseCurrency, // ì¬í™”ì‚¬ìš©
 
-    RefreshAccessory, // ¾Ç¼¼¼­¸® º¯È­
+    RefreshAccessory, // ì•…ì„¸ì„œë¦¬ ë³€í™”
 
-    RefreshAttackSpeed, // ½ºÅİ È¤Àº ¹è¼Ó¿¡ µû¸¥ °ø°İ¼Óµµ º¯È­
+    RefreshAttackSpeed, // ìŠ¤í…Ÿ í˜¹ì€ ë°°ì†ì— ë”°ë¥¸ ê³µê²©ì†ë„ ë³€í™”
 }
 
 public enum DamageTypes
@@ -351,4 +398,17 @@ public enum PocketTypes
     Green,
     Red,
     Black,
+}
+
+public enum UIPopupNames
+{
+    None,
+    SelectTrait, //íŠ¹ì„± ì„ íƒ íŒì—…
+}
+
+public enum LanguageTypes
+{
+    None,
+    Korea,
+    English,
 }
