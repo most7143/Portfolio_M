@@ -9,6 +9,8 @@ public class Player : Character
 
     public AccessorySystem AccessorySystem;
 
+    public ClassTraitSystem ClassTraitSystem;
+
     public PlayerData Data;
 
     protected override void Awake()

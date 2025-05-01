@@ -33,7 +33,7 @@ public class InGameManager : MonoBehaviour
 
     public bool IsBattle;
     public int StageLevel = 1;
-    public float GameSpeed = 1;
+
     public Player Player;
 
     public StageManager StageManager;
@@ -44,9 +44,13 @@ public class InGameManager : MonoBehaviour
 
     public UIGameOver GameOver;
 
+    public float GameSpeed = 1;
+
     [HideInInspector]
     public Monster Monster
     { get { return MonsterSpanwer.SpawnMonster; } }
+
+    private float _originGameSpeed = 1;
 
     private void Start()
     {
@@ -84,5 +88,17 @@ public class InGameManager : MonoBehaviour
     public void RefreshStage(int monsterLevel)
     {
         StageManager.ChangeStage(monsterLevel);
+    }
+
+    public void ContinueBattle()
+    {
+        GameSpeed = _originGameSpeed;
+    }
+
+    public void PauseBattle()
+    {
+        _originGameSpeed = GameSpeed;
+
+        GameSpeed = 0;
     }
 }

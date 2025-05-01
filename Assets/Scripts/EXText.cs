@@ -77,4 +77,54 @@
 
         return "";
     }
+
+    public static string GetTraitLanguage(this ClassNames name)
+    {
+        switch (name)
+        {
+            case ClassNames.Swordman:
+                return "검사";
+
+            case ClassNames.Brawler:
+                return "무투사";
+
+            case ClassNames.Knight:
+                return "나이트";
+
+            case ClassNames.Crusader:
+                return "크루세이더";
+
+            case ClassNames.Berserker:
+                return "버서커";
+
+            case ClassNames.Druid:
+                return "드루이드";
+
+            case ClassNames.Tracer:
+                return "트레이서";
+
+            case ClassNames.Rogue:
+                return "로그";
+
+            case ClassNames.Hunter:
+                return "헌터";
+
+            case ClassNames.DarkKnight:
+                return "암흑기사";
+
+            case ClassNames.Gambler:
+                return "도박사";
+
+            case ClassNames.Merchant:
+                return "상인";
+
+            case ClassNames.Blacksmith:
+                return "대장장이";
+
+            case ClassNames.Diviner:
+                return "점술사";
+        }
+
+        return "";
+    }
 }

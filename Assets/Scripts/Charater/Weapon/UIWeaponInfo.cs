@@ -60,7 +60,8 @@ public class UIWeaponInfo : MonoBehaviour
             {
                 WeaponNames weapon = Player.WeaponController.NextTier(Player.WeaponController.Info.Tier);
                 Player.WeaponController.SetWeaponData(weapon);
-                UIDetailsManager.Instance.WeaponDetails.Refresh(weapon);
+
+                SpawnDetails(weapon);
             }
 
             Player.WeaponController.Info.Damage = GetAddDamage(Player.WeaponController.Info);
@@ -85,6 +86,17 @@ public class UIWeaponInfo : MonoBehaviour
         }
 
         InGameManager.Instance.Controller.UseCurrency(CurrencyTypes.Gold, upgradeCost);
+    }
+
+    private void SpawnDetails(WeaponNames name)
+    {
+        UIDetailsManager.Instance.Spawn(UIDetailsNames.WeaponUpgrade);
+        UIWeaponDetails details = UIDetailsManager.Instance.Details.GetComponent<UIWeaponDetails>();
+
+        if (details != null)
+        {
+            details.Refresh(name);
+        }
     }
 
     private bool TryWeaponUpgradeTier(WeaponInfo weaponInfo)

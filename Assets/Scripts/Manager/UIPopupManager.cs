@@ -54,6 +54,8 @@ public class UIPopupManager : MonoBehaviour
             }
         }
 
+        popups[popupName].gameObject.transform.SetParent(transform, false);
+        Popup = popups[popupName];
         popups[popupName].gameObject.SetActive(true);
         popups[popupName].Spawn();
     }

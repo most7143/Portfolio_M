@@ -9,6 +9,17 @@ public class XButton : Button
     public bool IsPressClick = true;
     public Action OnExecute;
 
+    private Coroutine pressRoutine;
+
+    protected override void OnDisable()
+    {
+        if (pressRoutine != null)
+        {
+            StopCoroutine(pressRoutine);
+            pressRoutine = null;
+        }
+    }
+
     public override void OnPointerDown(PointerEventData eventData)
     {
         base.OnPointerDown(eventData);
@@ -19,7 +30,13 @@ public class XButton : Button
 
             if (IsPressClick)
             {
-                StartCoroutine(PressProcess());
+                if (pressRoutine != null)
+                    StopCoroutine(pressRoutine);
+
+                if (gameObject.activeInHierarchy)
+                {
+                    pressRoutine = StartCoroutine(PressProcess());
+                }
             }
         }
     }

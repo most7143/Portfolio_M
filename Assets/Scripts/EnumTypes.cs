@@ -69,7 +69,7 @@ public enum ClassNames
     Diviner, // 점술사
 }
 
-public enum ClassTraitTypes
+public enum ClassTraitNames
 {
     None,
 
@@ -350,6 +350,7 @@ public enum EventTypes
     RefreshAccessory, // 악세서리 변화
 
     RefreshAttackSpeed, // 스텟 혹은 배속에 따른 공격속도 변화
+    AddTrait, // 특성 획득
 }
 
 public enum DamageTypes
@@ -403,7 +404,13 @@ public enum PocketTypes
 public enum UIPopupNames
 {
     None,
-    SelectTrait, //특성 선택 팝업
+    ClassTrait, //특성 선택 팝업
+}
+
+public enum UIDetailsNames
+{
+    None,
+    WeaponUpgrade,
 }
 
 public enum LanguageTypes
