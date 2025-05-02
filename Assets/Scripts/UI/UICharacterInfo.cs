@@ -18,11 +18,13 @@ public class UICharacterInfo : MonoBehaviour
     private void OnEnable()
     {
         EventManager<EventTypes>.Register<int>(EventTypes.LevelUp, RefreshRank);
+        EventManager<EventTypes>.Register<ClassNames>(EventTypes.ChangeClass, RefreshClass);
     }
 
     private void OnDisable()
     {
         EventManager<EventTypes>.Unregister<int>(EventTypes.LevelUp, RefreshRank);
+        EventManager<EventTypes>.Unregister<ClassNames>(EventTypes.ChangeClass, RefreshClass);
     }
 
     private void Start()
@@ -40,6 +42,11 @@ public class UICharacterInfo : MonoBehaviour
     public void RefreshRank(int level)
     {
         RankText.SetText("Rank " + level);
+    }
+
+    public void RefreshClass(ClassNames name)
+    {
+        ClassText.SetText(name.GetClassLanguage());
     }
 
     public void StatButtonClick()

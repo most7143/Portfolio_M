@@ -86,20 +86,7 @@ public class UIPocketBox : MonoBehaviour
         {
             float rand = Random.Range(0, 1f);
 
-            int selectIndex = data.Chance.Count - 1;
-
-            float chance = 0;
-
-            for (int i = 0; i < data.Chance.Count; i++)
-            {
-                chance += data.Chance[i];
-
-                if (rand < chance)
-                {
-                    selectIndex = i;
-                    break;
-                }
-            }
+            int selectIndex = (int)EXValue.GetChanceByGrade() - 1;
 
             int value = 0;
 
@@ -119,7 +106,7 @@ public class UIPocketBox : MonoBehaviour
                     return;
                 }
 
-                if (curGradeIndex > nexGradeIndx)
+                if (curGradeIndex == 0 || curGradeIndex > nexGradeIndx)
                 {
                     InGameManager.Instance.Player.AccessorySystem.Upgrade(data.AccessoryType, data.Grades[selectIndex]);
                     InGameManager.Instance.ObjectPool.SpawnFloaty(FloatyPoint.position, FloatyTypes.Success, "¼º°ø!");

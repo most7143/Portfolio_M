@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class ImageLoop : MonoBehaviour
 {
+    public CanvasGroup Group;
     public Image TargetImage;
     public Sprite[] Sprites;
     public float Speed = 5f;

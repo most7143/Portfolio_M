@@ -1,8 +1,25 @@
 ﻿public static class EXText
 {
-    public static string SetGradeColor(GradeNames type, string text)
+    public static string GetGradeColor(GradeNames type, string text)
     {
         return string.Format("<style={0}>{1}</style>", type.ToString(), text);
+    }
+
+    public static string GetStatPercent(StatNames stat, float value)
+    {
+        switch (stat)
+        {
+            case StatNames.Attack:
+            case StatNames.Armor:
+            case StatNames.Health:
+            case StatNames.AttackSpeed:
+                {
+                    return value.ToString();
+                }
+
+            default:
+                return string.Format("{0}%", value * 100f);
+        }
     }
 
     public static string GetStatLanguage(this StatNames stat)
@@ -78,7 +95,7 @@
         return "";
     }
 
-    public static string GetTraitLanguage(this ClassNames name)
+    public static string GetClassLanguage(this ClassNames name)
     {
         switch (name)
         {
@@ -123,6 +140,45 @@
 
             case ClassNames.Diviner:
                 return "점술사";
+
+            case ClassNames.SwordMaster:
+                return "소드마스터";
+
+            case ClassNames.LordKnight:
+                return "로드나이트";
+
+            case ClassNames.Paladin:
+                return "팔라딘";
+
+            case ClassNames.Revenger:
+                return "리벤저";
+
+            case ClassNames.ArchDruid:
+                return "아크드루이드";
+
+            case ClassNames.TimeTraveler:
+                return "타임 트래블러";
+
+            case ClassNames.ShadowDancer:
+                return "섀도우댄서";
+
+            case ClassNames.StormTrooper:
+                return "스톰트루퍼";
+
+            case ClassNames.Necromancer:
+                return "네크로맨서";
+
+            case ClassNames.Phantom:
+                return "팬텀";
+
+            case ClassNames.TradeMaster:
+                return "상단주";
+
+            case ClassNames.MasterCraftsman:
+                return "명장";
+
+            case ClassNames.Arcana:
+                return "아르카나";
         }
 
         return "";

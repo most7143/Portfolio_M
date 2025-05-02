@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 [CreateAssetMenu(menuName = "ClassTrait")]
 public class ClassTraitData : ScriptableObject
 {
     public ClassTraitNames Name;
     public string NameString;
-    public ClassNames ClassName;
+    public List<ClassNames> ClassNames;
 
 #if UNITY_EDITOR
 

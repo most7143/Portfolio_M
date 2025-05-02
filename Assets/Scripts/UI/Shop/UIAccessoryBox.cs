@@ -45,9 +45,9 @@ public class UIAccessoryBox : MonoBehaviour
 
         if (item.Grade != GradeNames.None)
         {
-            NameText.SetText(EXText.SetGradeColor(item.Grade, item.NameString));
-            GradeText.SetText(EXText.SetGradeColor(item.Grade, item.Grade.GetGradeLanguage()));
-            DescriptionText.SetText(EXText.SetGradeColor(item.Grade, item.DescriptionString));
+            NameText.SetText(EXText.GetGradeColor(item.Grade, item.NameString));
+            GradeText.SetText(EXText.GetGradeColor(item.Grade, item.Grade.GetGradeLanguage()));
+            DescriptionText.SetText(EXText.GetGradeColor(item.Grade, item.DescriptionString));
         }
         else
         {
@@ -80,28 +80,11 @@ public class UIAccessoryBox : MonoBehaviour
                 StatNames name = item.Values[i].Name;
                 float statValue = item.Values[i].Value;
 
-                value += name.GetStatLanguage() + " : " + GetColor(item.Values[i].Rank, GetPercent(name, statValue)) + "\n";
+                value += name.GetStatLanguage() + " : " + GetColor(item.Values[i].Rank, EXText.GetStatPercent(name, statValue)) + "\n";
             }
         }
 
         return value;
-    }
-
-    private string GetPercent(StatNames stat, float value)
-    {
-        switch (stat)
-        {
-            case StatNames.Attack:
-            case StatNames.Armor:
-            case StatNames.Health:
-            case StatNames.AttackSpeed:
-                {
-                    return value.ToString();
-                }
-
-            default:
-                return string.Format("{0}%", value * 100f);
-        }
     }
 
     private string GetColor(int rank, string value)

@@ -114,7 +114,7 @@ public class UIWeaponInfo : MonoBehaviour
 
     private int GetUpgradeCost(int weaponLevel)
     {
-        return weaponLevel * 2;
+        return (int)(weaponLevel * 10 * (1 - Player.StatSystem.GetStat(StatNames.DecreaseWeaponUpgradeCost)));
     }
 
     private bool TryUpgrade(WeaponInfo weaponInfoupgradeCost)

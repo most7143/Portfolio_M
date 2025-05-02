@@ -49,7 +49,7 @@ public enum ClassNames
 {
     None,
 
-    // Tier 1
+    // Tier 0
 
     Swordman, //검사
     Brawler, // 무투사
@@ -67,6 +67,24 @@ public enum ClassNames
     Merchant, // 상인
     Blacksmith, // 장인
     Diviner, // 점술사
+
+    //Tier 1
+
+    SwordMaster, // 소드마스터(무력)
+    LordKnight, // 로드나이트(규율)
+    Paladin, // 팔라딘(신성)
+    Revenger, // 리벤저(분노)
+    ArchDruid, // 아크드루이드(야성)
+
+    TimeTraveler, // 타임 트래블러(신속)
+    StormTrooper, // 스톰 트루퍼(정밀)
+    ShadowDancer, // 섀도우댄서(암살)
+    Necromancer, // 네크로맨서(어둠)
+
+    Phantom, // 팬텀(행운)
+    TradeMaster,// 상단주(감각)
+    MasterCraftsman, // 명장(장인)
+    Arcana,// 아르카나(운)
 }
 
 public enum ClassTraitNames
@@ -223,6 +241,10 @@ public enum StatNames
     DoubleAttackSpeed,
     RandomWeaponSkill,
     DamageRate,
+
+    IncreaseHighGradeRate,
+    DecreaseWeaponUpgradeCost,
+    AddRerollTrait,
 }
 
 public enum PassiveSkillNames
@@ -266,13 +288,13 @@ public enum PassiveGrades
 
 public enum GradeNames
 {
-    None = 7,
-    Normal = 6,
-    Rare = 5,
-    Magic = 4,
-    Unique = 3,
-    Legendary = 2,
-    Mythic = 1,
+    None,
+    Mythic,
+    Legendary,
+    Unique,
+    Magic,
+    Rare,
+    Normal,
 }
 
 public enum PassiveSkillTypes
@@ -351,6 +373,8 @@ public enum EventTypes
 
     RefreshAttackSpeed, // 스텟 혹은 배속에 따른 공격속도 변화
     AddTrait, // 특성 획득
+
+    ChangeClass,// 클래스 전직
 }
 
 public enum DamageTypes
@@ -383,6 +407,9 @@ public enum StatTID
     Other,
     Buff,
     BuffStack,
+    Class1,
+    Class2,
+    Class3,
 }
 
 public enum CurrencyTypes

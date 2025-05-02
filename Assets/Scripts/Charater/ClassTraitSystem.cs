@@ -1,9 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ClassTraitSystem : MonoBehaviour
 {
-    public List<ClassTraitNames> Traits = new();
+    public ClassNames Class;
+
+    public int ClassTier = 0;
+
+    public Dictionary<ClassTraitNames, int> Traits = new();
+
+    public int MaxLevel = 30;
 
     private void OnEnable()
     {
@@ -15,16 +23,57 @@ public class ClassTraitSystem : MonoBehaviour
         EventManager<EventTypes>.Unregister<int>(EventTypes.LevelUp, OpenPopup);
     }
 
-    public void Add(ClassTraitNames name)
+    private void Start()
     {
-        Traits.Add(name);
+        List<ClassTraitNames> traitNames = Enum.GetValues(typeof(ClassTraitNames)).Cast<ClassTraitNames>().ToList();
+
+        for (int i = 0; i < 5; i++)
+        {
+            int rand = UnityEngine.Random.Range(1, traitNames.Count);
+
+            Traits.Add(traitNames[rand], 0);
+
+            EventManager<EventTypes>.Send(EventTypes.AddTrait, traitNames[rand]);
+            traitNames.RemoveAt(rand);
+        }
+    }
+
+    public List<ClassTraitNames> GetNames()
+    {
+        return Traits.Keys.ToList();
+    }
+
+    public void Add(ClassTraitNames name, int count)
+    {
+        Traits[name] += count;
     }
 
     public void OpenPopup(int level)
     {
-        if (level % 2 == 0)
+        UIPopupManager.Instance.Spawn(UIPopupNames.ClassTrait);
+    }
+
+    public void ChangeClass(ClassNames name)
+    {
+        if (Class == name)
+            return;
+
+        Player player = InGameManager.Instance.Player;
+        ClassData data = ResourcesManager.Instance.LoadScriptable<ClassData>(name.ToString());
+
+        if (data != null)
         {
-            UIPopupManager.Instance.Spawn(UIPopupNames.ClassTrait);
+            Class = name;
+            ClassTier++;
+            if (data.Stats.Count > 0)
+            {
+                for (int i = 0; i < data.Stats.Count; i++)
+                {
+                    player.StatSystem.AddStat(StatTID.Class1, data.Stats[i], data.Values[i]);
+                    EventManager<EventTypes>.Send(EventTypes.ChangeClass, name);
+                }
+            }
+            MaxLevel *= 2;
         }
     }
 }
