@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e19e9b6f842545f4da1b14e127fe45a8, type: 3}
-  m_Name: Brawler
+  m_Name: StormTrooper
   m_EditorClassIdentifier: 
-  Name: 2
-  NameText: "\uBB34\uD22C\uC0AC"
-  DescritpionText: 
-  Stats: 02000000
-  Values:
-  - 0.3
+  Name: 21
+  NameText: "\uC2A4\uD1B0\uD22C\uB974\uD37C"
+  DescritpionText: "\uC2A4\uD1B0\uD22C\uB974\uD37C"
+  StatDescriptionText: "\u3141\u3141\u3141\u3141\u3141\u3141"
+  Stats: 
+  Values: []
+  Projectiles: 01000000

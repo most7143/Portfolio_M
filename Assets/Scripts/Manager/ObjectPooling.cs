@@ -7,9 +7,11 @@ public class ObjectPooling : MonoBehaviour
 
     public GameObject Currency;
 
-    public List<UIFloaty> floaties;
+    private List<UIFloaty> floaties = new();
 
-    public List<CurrencyObject> Currencies;
+    private List<CurrencyObject> Currencies = new();
+
+    private Dictionary<ProjectileNames, Queue<Projectile>> Projectiles = new();
 
     public int InitCount = 30;
 
@@ -77,6 +79,10 @@ public class ObjectPooling : MonoBehaviour
         currency.Spawn(type, startPos, endRect, value);
     }
 
+    public void SpawnProejctile()
+    {
+    }
+
     private UIFloaty GetFolaty()
     {
         for (int i = 0; i < floaties.Count; i++)
@@ -101,5 +107,39 @@ public class ObjectPooling : MonoBehaviour
         }
 
         return InitCurrency();
+    }
+
+    public Projectile GetProjectile(ProjectileNames name)
+    {
+        if (!Projectiles.ContainsKey(name))
+            Projectiles[name] = new Queue<Projectile>();
+
+        Queue<Projectile> queue = Projectiles[name];
+
+        if (queue.Count > 0)
+        {
+            Projectile proj = queue.Dequeue();
+            proj.gameObject.SetActive(true);
+            return proj;
+        }
+
+        GameObject projectileObj = ResourcesManager.Instance.Load(name);
+        if (projectileObj != null)
+        {
+            Projectile newProj = projectileObj.GetComponent<Projectile>();
+            return newProj;
+        }
+
+        Debug.LogError($"[{name}] 프리팹이 등록되어 있지 않습니다.");
+        return null;
+    }
+
+    public void ReturnProjectile(ProjectileNames name, Projectile proj)
+    {
+        if (Projectiles.ContainsKey(name))
+            Projectiles[name] = new Queue<Projectile>();
+
+        proj.gameObject.SetActive(false);
+        Projectiles[name].Enqueue(proj);
     }
 }

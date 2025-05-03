@@ -13,6 +13,7 @@ public class ClassTraitCard : MonoBehaviour
     public TextMeshProUGUI CountText;
 
     public Image BackGround;
+    public Image IconImage;
 
     public XButton Button;
 
@@ -38,6 +39,7 @@ public class ClassTraitCard : MonoBehaviour
             Name = name;
             count = GetGradeByCount();
             NameText.SetText(data.NameString);
+            IconImage.sprite = ResourcesManager.Instance.LoadSprite("Icon_Trait_" + Name.ToString());
             BackGround.sprite = ResourcesManager.Instance.LoadSprite("BackgroundCard_" + Grade.ToString());
             DescriptionText.SetText("직업 : " + data.ClassNames[tier].GetClassLanguage());
             CountText.SetText(data.NameString + " +" + count);

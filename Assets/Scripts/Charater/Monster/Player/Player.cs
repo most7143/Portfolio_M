@@ -11,6 +11,8 @@ public class Player : Character
 
     public ClassTraitSystem ClassTraitSystem;
 
+    public ProjectileSystem ProjectileSystem;
+
     public PlayerData Data;
 
     protected override void Awake()

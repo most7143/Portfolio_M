@@ -73,7 +73,28 @@ public class ClassTraitSystem : MonoBehaviour
                     EventManager<EventTypes>.Send(EventTypes.ChangeClass, name);
                 }
             }
+
+            if (data.Projectiles.Count > 0)
+            {
+                for (int i = 0; i < data.Projectiles.Count; i++)
+                {
+                    player.ProjectileSystem.Register(data.Projectiles[i]);
+                }
+            }
+
             MaxLevel *= 2;
+
+            Clear();
+        }
+    }
+
+    private void Clear()
+    {
+        ClassTraitNames[] values = Traits.Keys.ToArray();
+
+        for (int i = 0; i < values.Length; i++)
+        {
+            Traits[values[i]] = 0;
         }
     }
 }

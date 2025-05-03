@@ -7,8 +7,8 @@ public class UITraitSlot : MonoBehaviour
     public ClassTraitNames Name;
     public ClassNames ClassName;
     public bool IsSet = false;
-    public Image Icon;
-    public TextMeshProUGUI NameText;
+    public Image Background;
+    public Image IconImage;
     public TextMeshProUGUI CountText;
 
     public XButton Button;
@@ -35,7 +35,7 @@ public class UITraitSlot : MonoBehaviour
     public void Refresh(int tier)
     {
         ClassName = data.ClassNames[tier];
-        NameText.SetText(data.NameString);
+        IconImage.sprite = ResourcesManager.Instance.LoadSprite("Icon_Trait_" + Name.ToString());
         int count = InGameManager.Instance.Player.ClassTraitSystem.Traits[Name];
 
         if (count == 0)
@@ -54,7 +54,7 @@ public class UITraitSlot : MonoBehaviour
     {
         if (count >= InGameManager.Instance.Player.ClassTraitSystem.MaxLevel)
         {
-            LoopImage.transform.position = Icon.transform.position;
+            LoopImage.transform.position = Background.transform.position;
             LoopImage.enabled = true;
             LoopImage.Group.alpha = 1;
             _isChange = true;

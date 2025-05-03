@@ -32,7 +32,7 @@ public class WeaponSkill : MonoBehaviour
             DamageInfo damageInfo = new DamageInfo();
 
             damageInfo.Owner = Owner;
-            damageInfo.Type = DamageTypes.Skill;
+            damageInfo.Type = DamageTypes.WeaponSkill;
             damageInfo.Value = Mathf.RoundToInt(Owner.Attack * ValueMultiply);
 
             Owner.SkillAttack(ref damageInfo);

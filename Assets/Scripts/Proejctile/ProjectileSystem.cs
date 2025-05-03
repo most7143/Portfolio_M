@@ -1,0 +1,48 @@
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+
+public class ProjectileSystem : MonoBehaviour
+{
+    public List<ProjectileSkill> Skills;
+
+    private Dictionary<ProjectileNames, ProjectileSkill> _skills = new();
+
+    private void OnEnable()
+    {
+        EventManager<EventTypes>.Register<WeaponNames>(EventTypes.PlayerAttackExecuted, ActivateToAttack);
+    }
+
+    private void OnDisable()
+    {
+        EventManager<EventTypes>.Unregister<WeaponNames>(EventTypes.PlayerAttackExecuted, ActivateToAttack);
+    }
+
+    public void Register(ProjectileNames name)
+    {
+        for (int i = 0; i < Skills.Count; i++)
+        {
+            if (Skills[i].Name == name)
+            {
+                _skills.Add(name, Skills[i]);
+                break;
+            }
+        }
+    }
+
+    public void ActivateToAttack(WeaponNames weapon)
+    {
+        if (_skills.Count == 0)
+            return;
+
+        ProjectileSkill[] skills = _skills.Values.ToArray();
+
+        for (int i = 0; i < skills.Length; i++)
+        {
+            if (skills[i].SkillConditions == SkillConditions.Attack)
+            {
+                skills[i].Shot();
+            }
+        }
+    }
+}

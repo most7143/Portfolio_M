@@ -102,8 +102,8 @@
             case ClassNames.Swordman:
                 return "검사";
 
-            case ClassNames.Brawler:
-                return "무투사";
+            case ClassNames.Gladiator:
+                return "검투사";
 
             case ClassNames.Knight:
                 return "나이트";

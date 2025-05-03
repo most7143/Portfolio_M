@@ -7,8 +7,10 @@ public class ClassData : ScriptableObject
     public ClassNames Name;
     public string NameText;
     public string DescritpionText;
+    public string StatDescriptionText;
     public List<StatNames> Stats;
     public List<float> Values;
+    public List<ProjectileNames> Projectiles;
 
 #if UNITY_EDITOR
 

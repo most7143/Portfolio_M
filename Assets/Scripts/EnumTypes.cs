@@ -52,7 +52,7 @@ public enum ClassNames
     // Tier 0
 
     Swordman, //검사
-    Brawler, // 무투사
+    Gladiator, // 검투사
     Knight, // 나이트
     Crusader,//크루세이더
     Berserker, //버서커
@@ -381,7 +381,21 @@ public enum DamageTypes
 {
     None,
     Attack,
-    Skill,
+    WeaponSkill,
+    Proejctile,
+}
+
+public enum ProjectileNames
+{
+    None,
+    StormTrooper,
+}
+
+public enum ProjectileMoveTypes
+{
+    None,
+    Linear,
+    Curved,
 }
 
 public enum LogTypes

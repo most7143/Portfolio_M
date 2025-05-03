@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 8
   NameText: "\uB85C\uADF8"
-  DescritpionText: 
+  DescritpionText: "\uADF8\uB9BC\uC790 \uC18D\uC758 \uADF8\uB9BC\uC790"
+  StatDescriptionText: "\uCE58\uBA85\uD0C0 \uD53C\uD574 {0} \uC99D\uAC00"
   Stats: 04000000
   Values:
   - 0.4
