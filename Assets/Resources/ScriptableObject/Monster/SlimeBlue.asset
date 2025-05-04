@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: SlimeBlue
   m_EditorClassIdentifier: 
   Name: 7
-  NameString: "\uD30C\uB780 \uC2AC\uB77C\uC784"
+  NameString: SlimeBlue
+  NameText: "\uD30C\uB780 \uC2AC\uB77C\uC784"
   Level: 11
   MaxLevel: 20
   Attack: 2

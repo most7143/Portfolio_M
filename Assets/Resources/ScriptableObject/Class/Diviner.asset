@@ -13,9 +13,14 @@ MonoBehaviour:
   m_Name: Diviner
   m_EditorClassIdentifier: 
   Name: 14
+  NameString: Diviner
   NameText: "\uC810\uC220\uC0AC"
   DescritpionText: "\uBCC4\uACFC \uC6B4\uBA85\uC758 \uC8FC\uC220\uC0AC"
   StatDescriptionText: "\uD2B9\uC131 \uC120\uD0DD \uC2DC {0}\uD68C \uB9AC\uB864 \uAC00\uB2A5"
   Stats: 19000000
+  StatStirng:
+  - AddRerollTrait
   Values:
   - 1
+  Projectiles: 
+  ProjectileString: []

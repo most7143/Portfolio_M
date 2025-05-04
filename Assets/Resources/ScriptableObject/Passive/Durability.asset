@@ -13,24 +13,30 @@ MonoBehaviour:
   m_Name: Durability
   m_EditorClassIdentifier: 
   Name: 7
+  NameString: Durability
   Grade: 3
-  NameString: "\uAC15\uC778\uD568"
-  MaxLevelNameString: "\uCCA0\uAC11"
-  DescriptionString: "\uBC1B\uB294 \uD53C\uD574\uAC00 {0}% \uAC10\uC18C\uD55C\uB2E4."
-  MaxLevelDescriptionString: "\uBC1B\uB294 \uD53C\uD574 {0}% \uAC10\uC18C \uBC0F 
-    \uAC19\uC740 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uBC1B\uC744 \uB54C\uB9C8\uB2E4
-    \uBC29\uC5B4\uB825 {1} \uC99D\uAC00"
-  BunousDescriptionString: "\uACE0\uD1B5\uC740 \uACAC\uB51C\uC218\uB85D \uB2E8\uB2E8\uD574\uC9C0\uAE30
+  NameText: "\uAC15\uC778\uD568"
+  MaxLevelNameText: "\uCCA0\uAC11"
+  DescriptionText: "\uBC1B\uB294 \uD53C\uD574\uAC00 {0}% \uAC10\uC18C\uD55C\uB2E4."
+  MaxLevelDescriptionText: "\uBC1B\uB294 \uD53C\uD574 {0}% \uAC10\uC18C \uBC0F  \uAC19\uC740
+    \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uBC1B\uC744 \uB54C\uB9C8\uB2E4 \uBC29\uC5B4\uB825
+    {1} \uC99D\uAC00"
+  BunousDescriptionText: "\uACE0\uD1B5\uC740 \uACAC\uB51C\uC218\uB85D \uB2E8\uB2E8\uD574\uC9C0\uAE30
     \uB9C8\uB828"
   RequireRank: 35
   MaxLevel: 7
   StatName: 11
+  StatString: DamageReduction
   MaxLevelStatName: 0
+  MaxLevelStatString: 
   MaxLevelConditions: 0
   BooleanStatName: 0
+  BooleanStatString: 
   BuffName: 0
+  BuffString: 
   Target: 1
   MaxLevelBuffName: 4
+  MaxLevelBuffString: Durability
   AliveTime: 0
   AliveTimeByLevel: 0
   MaxLevelAliveTime: 999

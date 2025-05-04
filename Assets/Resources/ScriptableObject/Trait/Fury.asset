@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: Fury
   m_EditorClassIdentifier: 
   Name: 4
-  NameString: "\uBD84\uB178"
+  NameString: Fury
+  NameText: "\uBD84\uB178"
   ClassNames: 0500000012000000
+  ClassNamesString:
+  - Berserker
+  - Revenger

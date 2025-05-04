@@ -5,6 +5,7 @@ public class MonsterData : ScriptableObject
 {
     public CharacterNames Name;
     public string NameString;
+    public string NameText;
     public int Level = 1;
     public int MaxLevel = 1;
 
@@ -23,6 +24,10 @@ public class MonsterData : ScriptableObject
 
     private void OnValidate()
     {
+        if (!string.IsNullOrEmpty(NameString))
+        {
+            Name = EXEnum.Parse<CharacterNames>(NameString);
+        }
         AssetUtility.RenameAsset(this, Name.ToString());
     }
 

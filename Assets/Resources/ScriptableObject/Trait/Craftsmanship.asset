@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: Craftsmanship
   m_EditorClassIdentifier: 
   Name: 12
-  NameString: "\uC7A5\uC778"
+  NameString: Craftsmanship
+  NameText: "\uC7A5\uC778"
   ClassNames: 0d0000001a000000
+  ClassNamesString:
+  - Blacksmith
+  - MasterCraftsman

@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Other
   m_EditorClassIdentifier: 
   Type: 3
-  NameStrings:
+  NameTexts:
   - "\uC138\uC774\uBE44\uC5B4\uC2A4 \uBE14\uB7EC\uB4DC"
   - "\uC2A4\uCF08\uB808\uD1A4 \uC644\uB4DC"
   - "\uC545\uC758 \uBB38\uC11C"
   - "\uBD88\uAE38\uD55C \uD3EC\uC158"
   - "\uC624\uBE0C"
   - "\uB3D9\uBB3C \uACC4\uC57D\uC11C"
-  DescriptionStrings:
+  DescriptionTexts:
   - "\uAC00\uC7A5 \uAE68\uB057\uD558\uB2E4\uB294 \uAD6C\uC6D0\uC790\uC758 \uD53C"
   - "\uC8FD\uC740 \uB9DD\uB839\uC744 \uC870\uC885\uD558\uB294 \uC644\uB4DC"
   - 
@@ -28,6 +28,17 @@ MonoBehaviour:
   - 
   - 
   StatNames: 05000000160000000b00000004000000020000000a00000008000000010000000900000007000000
+  StatString:
+  - AttackSpeed
+  - DamageRate
+  - DamageReduction
+  - CriticalDamage
+  - AttackRate
+  - ArmorRate
+  - HealthRate
+  - Attack
+  - Armor
+  - Health
   Chance:
   - 0.04
   - 0.04

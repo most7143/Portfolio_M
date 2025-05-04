@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: Fortune
   m_EditorClassIdentifier: 
   Name: 10
-  NameString: "\uD589\uC6B4"
+  NameString: Fortune
+  NameText: "\uD589\uC6B4"
   ClassNames: 0b00000018000000
+  ClassNamesString:
+  - Gambler
+  - Phantom

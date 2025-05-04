@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: SpiderGreen
   m_EditorClassIdentifier: 
   Name: 14
-  NameString: "\uCD08\uB85D \uAC70\uBBF8"
+  NameString: SpiderGreen
+  NameText: "\uCD08\uB85D \uAC70\uBBF8"
   Level: 81
   MaxLevel: 90
   Attack: 2

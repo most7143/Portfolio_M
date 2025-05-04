@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: WolfGreen
   m_EditorClassIdentifier: 
   Name: 22
-  NameString: "\uCD08\uB85D \uB291\uB300"
+  NameString: WolfGreen
+  NameText: "\uCD08\uB85D \uB291\uB300"
   Level: 141
   MaxLevel: 160
   Attack: 2

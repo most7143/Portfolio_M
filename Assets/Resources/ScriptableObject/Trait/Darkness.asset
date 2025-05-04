@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: Darkness
   m_EditorClassIdentifier: 
   Name: 9
-  NameString: "\uC5B4\uB460"
+  NameString: Darkness
+  NameText: "\uC5B4\uB460"
   ClassNames: 0a00000017000000
+  ClassNamesString:
+  - DarkKnight
+  - Necromancer

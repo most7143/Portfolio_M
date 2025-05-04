@@ -117,15 +117,15 @@ public class UISkillBox : MonoBehaviour
 
         if (Level != Data.MaxLevel)
         {
-            NameText.SetText(Data.NameString);
-            DescText.SetText(string.Format(Data.DescriptionString, value));
+            NameText.SetText(Data.NameText);
+            DescText.SetText(string.Format(Data.DescriptionText, value));
             BunousDescText.gameObject.SetActive(false);
             CostText.SetText(Data.Cost + "<sprite=0>");
         }
         else
         {
             Rect.sizeDelta = new Vector2(_origin.x, _origin.y + 20f);
-            NameText.SetText(EXText.GetGradeColor(GradeNames.Mythic, Data.MaxLevelNameString));
+            NameText.SetText(EXText.GetGradeColor(GradeNames.Mythic, Data.MaxLevelNameText));
             BackGround.color = Color.cyan;
 
             float maxLevelValue = GetMaxLevelValue();
@@ -133,9 +133,9 @@ public class UISkillBox : MonoBehaviour
             if (Data.MultiplierMaxLevelValue > 0 && Data.StatName != StatNames.AttackSpeed)
                 maxLevelValue = Mathf.FloorToInt(maxLevelValue * 100f);
 
-            DescText.SetText(string.Format(Data.MaxLevelDescriptionString, value, maxLevelValue));
+            DescText.SetText(string.Format(Data.MaxLevelDescriptionText, value, maxLevelValue));
             BunousDescText.gameObject.SetActive(true);
-            BunousDescText.SetText(Data.BunousDescriptionString);
+            BunousDescText.SetText(Data.BunousDescriptionText);
             CostText.SetText("MAX");
         }
 
@@ -191,7 +191,7 @@ public class UISkillBox : MonoBehaviour
             player.StatSystem.RemoveStat(StatTID.PassiveSkill, Data.StatName);
             player.StatSystem.AddStat(StatTID.PassiveSkill, Data.StatName, value);
 #if UNITY_EDITOR
-            LogManager.LogInfo(LogTypes.Skill, string.Format("[{0}] 기술로 인해 {1} 효과가 , {2} 만큼 상승", Data.NameString, Data.StatName, value));
+            LogManager.LogInfo(LogTypes.Skill, string.Format("[{0}] 기술로 인해 {1} 효과가 , {2} 만큼 상승", Data.NameText, Data.StatName, value));
 #endif
         }
 
@@ -200,7 +200,7 @@ public class UISkillBox : MonoBehaviour
             player.StatSystem.RemoveStat(StatTID.PassiveSkill, Data.BooleanStatName);
             player.StatSystem.AddStat(StatTID.PassiveSkill, Data.BooleanStatName, 1);
 #if UNITY_EDITOR
-            LogManager.LogInfo(LogTypes.Skill, string.Format("[{0}] 기술로 인해 {1} 효과가 발동", Data.NameString, Data.BooleanStatName));
+            LogManager.LogInfo(LogTypes.Skill, string.Format("[{0}] 기술로 인해 {1} 효과가 발동", Data.NameText, Data.BooleanStatName));
 #endif
         }
 
@@ -215,7 +215,7 @@ public class UISkillBox : MonoBehaviour
     private void MaxLevelupSkill()
     {
 #if UNITY_EDITOR
-        LogManager.LogInfo(LogTypes.Skill, string.Format("[{0}] 기술의 만렙으로 인해 {1} 로 변경 ", Data.NameString, Data.MaxLevelNameString));
+        LogManager.LogInfo(LogTypes.Skill, string.Format("[{0}] 기술의 만렙으로 인해 {1} 로 변경 ", Data.NameText, Data.MaxLevelNameText));
 #endif
 
         if (Data.MaxLevelStatName != StatNames.None)
@@ -224,7 +224,7 @@ public class UISkillBox : MonoBehaviour
             {
                 InGameManager.Instance.Player.StatSystem.AddStat(StatTID.PassiveSkillMaxLevel, Data.MaxLevelStatName, GetMaxLevelValue());
 #if UNITY_EDITOR
-                LogManager.LogInfo(LogTypes.Skill, string.Format("[{0}] 의 스텟 {1} 부여 ", Data.MaxLevelNameString, Data.MaxLevelStatName));
+                LogManager.LogInfo(LogTypes.Skill, string.Format("[{0}] 의 스텟 {1} 부여 ", Data.MaxLevelNameText, Data.MaxLevelStatName));
 #endif
             }
         }
@@ -250,7 +250,7 @@ public class UISkillBox : MonoBehaviour
                 InGameManager.Instance.MonsterSpanwer.SpawnMonster.BuffSystem.Register(Data.MaxLevelBuffName, Data.MaxLevelAliveTime, value);
             }
 #if UNITY_EDITOR
-            LogManager.LogInfo(LogTypes.Buff, string.Format("[{0}] 의 버프 {1} 부여 ", Data.MaxLevelNameString, Data.MaxLevelBuffName));
+            LogManager.LogInfo(LogTypes.Buff, string.Format("[{0}] 의 버프 {1} 부여 ", Data.MaxLevelNameText, Data.MaxLevelBuffName));
 #endif
         }
     }

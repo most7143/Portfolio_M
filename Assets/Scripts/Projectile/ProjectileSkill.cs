@@ -4,12 +4,23 @@ public class ProjectileSkill : MonoBehaviour
 {
     public Character Owenr;
     public ProjectileNames Name;
+    public string NameString;
     public SkillConditions SkillConditions;
 
     public Vector3 SpawnOffsetPosition;
+    public bool IsRandomSpawnPoint;
     public float Chance;
     public float DamgeRate;
     public float Speed;
+
+    private void OnValidate()
+    {
+        if (!string.IsNullOrEmpty(NameString))
+        {
+            Name = EXEnum.Parse<ProjectileNames>(NameString);
+            gameObject.name = Name.ToString();
+        }
+    }
 
     public void Shot()
     {
@@ -21,7 +32,13 @@ public class ProjectileSkill : MonoBehaviour
 
             if (projectile != null)
             {
-                projectile.transform.position = Owenr.transform.position + SpawnOffsetPosition;
+                Vector3 spawnPoint = SpawnOffsetPosition;
+                if (IsRandomSpawnPoint)
+                {
+                    spawnPoint += new Vector3(Random.Range(0, 1f), Random.Range(0, 1f));
+                }
+
+                projectile.transform.position = Owenr.transform.position + spawnPoint;
                 projectile.Owner = Owenr;
                 projectile.DamageRate = DamgeRate;
                 projectile.Speed = Speed;

@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: Discipline
   m_EditorClassIdentifier: 
   Name: 2
-  NameString: "\uADDC\uC728"
+  NameString: Discipline
+  NameText: "\uADDC\uC728"
   ClassNames: 0300000010000000
+  ClassNamesString:
+  - Knight
+  - LordKnight

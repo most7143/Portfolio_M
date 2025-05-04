@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: Insight
   m_EditorClassIdentifier: 
   Name: 11
-  NameString: "\uAC10\uAC01"
+  NameString: Insight
+  NameText: "\uAC10\uAC01"
   ClassNames: 0c00000019000000
+  ClassNamesString:
+  - Merchant
+  - TradeMaster

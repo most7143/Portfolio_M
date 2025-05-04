@@ -175,7 +175,7 @@ public class UIWeaponInfo : MonoBehaviour
 
     public void RefreshWeaponInfo(WeaponInfo weaponInfo)
     {
-        WeaponText.SetText("Lv." + weaponInfo.Level + " " + weaponInfo.NameString);
+        WeaponText.SetText("Lv." + weaponInfo.Level + " " + weaponInfo.NameText);
         WeaponDamageText.SetText("공격력 : " + RefreshColorByDamage(weaponInfo.Damage));
         AttackSpeedText.SetText("공격속도 : " + weaponInfo.Speed.ToString());
         CriticalRateText.SetText("치명타 확률 : " + RefreshColorByCriticalRate(weaponInfo.CriticalRate * 100f));

@@ -6,10 +6,21 @@ public class WeaponSkill : MonoBehaviour
     public Player Owner;
     public WeaponSkillNames Name;
     public FXNames FXName;
+    public string NameString;
     public SkillTypes Type;
     public SkillConditions Condition;
     public float Chance;
     public float ValueMultiply;
+
+    private void OnValidate()
+    {
+        if (!string.IsNullOrEmpty(NameString))
+        {
+            Name = EXEnum.Parse<WeaponSkillNames>(NameString);
+            FXName = EXEnum.Parse<FXNames>(NameString);
+            transform.name = NameString;
+        }
+    }
 
     public void ActivateByChance()
     {

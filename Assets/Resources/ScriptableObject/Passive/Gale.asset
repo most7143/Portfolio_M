@@ -13,23 +13,29 @@ MonoBehaviour:
   m_Name: Gale
   m_EditorClassIdentifier: 
   Name: 9
+  NameString: Gale
   Grade: 3
-  NameString: "\uB3CC\uD48D"
-  MaxLevelNameString: "\uC544\uC774\uC62C\uB85C\uC2A4\uC758 \uC228\uACB0"
-  DescriptionString: "\uACF5\uACA9\uC18D\uB3C4\uAC00 {0} \uC99D\uAC00\uD55C\uB2E4."
-  MaxLevelDescriptionString: "\uACF5\uACA9\uC18D\uB3C4 {0} \uC99D\uAC00 6\uCD08 \uB3D9\uC548
+  NameText: "\uB3CC\uD48D"
+  MaxLevelNameText: "\uC544\uC774\uC62C\uB85C\uC2A4\uC758 \uC228\uACB0"
+  DescriptionText: "\uACF5\uACA9\uC18D\uB3C4\uAC00 {0} \uC99D\uAC00\uD55C\uB2E4."
+  MaxLevelDescriptionText: "\uACF5\uACA9\uC18D\uB3C4 {0} \uC99D\uAC00 6\uCD08 \uB3D9\uC548
     \uACF5\uACA9\uC18D\uB3C4\uAC00 {1}\uBC30\uB85C \uC99D\uAC00 (6\uCD08 \uCFE8)"
-  BunousDescriptionString: "\uBAB8\uC774 \uAE43\uD138\uCC98\uB7FC \uAC00\uBCCD\uAC8C
+  BunousDescriptionText: "\uBAB8\uC774 \uAE43\uD138\uCC98\uB7FC \uAC00\uBCCD\uAC8C
     \uB290\uAEF4\uC9C4\uB2E4."
   RequireRank: 35
   MaxLevel: 7
   StatName: 5
+  StatString: AttackSpeed
   MaxLevelStatName: 0
+  MaxLevelStatString: 
   MaxLevelConditions: 0
   BooleanStatName: 0
+  BooleanStatString: 
   BuffName: 0
+  BuffString: 
   Target: 1
   MaxLevelBuffName: 5
+  MaxLevelBuffString: Gale
   AliveTime: 0
   AliveTimeByLevel: 0
   MaxLevelAliveTime: 6

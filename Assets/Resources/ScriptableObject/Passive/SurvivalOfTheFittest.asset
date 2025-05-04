@@ -13,24 +13,30 @@ MonoBehaviour:
   m_Name: SurvivalOfTheFittest
   m_EditorClassIdentifier: 
   Name: 6
+  NameString: SurvivalOfTheFittest
   Grade: 2
-  NameString: "\uC57D\uC721 \uAC15\uC2DD"
-  MaxLevelNameString: "\uD3EC\uC2DD\uC790"
-  DescriptionString: "\uCE58\uBA85\uD0C0 \uD53C\uD574\uAC00 {0}% \uC99D\uAC00\uD55C\uB2E4."
-  MaxLevelDescriptionString: "\uCE58\uBA85\uD0C0 \uD53C\uD574 {0}% \uC99D\uAC00 <br>
+  NameText: "\uC57D\uC721 \uAC15\uC2DD"
+  MaxLevelNameText: "\uD3EC\uC2DD\uC790"
+  DescriptionText: "\uCE58\uBA85\uD0C0 \uD53C\uD574\uAC00 {0}% \uC99D\uAC00\uD55C\uB2E4."
+  MaxLevelDescriptionText: "\uCE58\uBA85\uD0C0 \uD53C\uD574 {0}% \uC99D\uAC00 <br>
     \uCC98\uCE58 \uD55C \uBAAC\uC2A4\uD130 10 \uB9C8\uB9AC\uB2F9 \uCE58\uBA85\uD0C0
     \uD53C\uD574 {1}% \uC99D\uAC00"
-  BunousDescriptionString: "\uBA39\uC774\uC0AC\uC2AC \uCD5C\uC0C1\uC704\uC5D0 \uAD70\uB9BC\uD55C
+  BunousDescriptionText: "\uBA39\uC774\uC0AC\uC2AC \uCD5C\uC0C1\uC704\uC5D0 \uAD70\uB9BC\uD55C
     \uC790"
   RequireRank: 20
   MaxLevel: 10
   StatName: 4
+  StatString: CriticalDamage
   MaxLevelStatName: 4
+  MaxLevelStatString: CriticalDamage
   MaxLevelConditions: 3
   BooleanStatName: 0
+  BooleanStatString: 
   BuffName: 0
+  BuffString: 
   Target: 1
   MaxLevelBuffName: 0
+  MaxLevelBuffString: 
   AliveTime: 0
   AliveTimeByLevel: 0
   MaxLevelAliveTime: 0

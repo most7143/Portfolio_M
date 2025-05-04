@@ -13,10 +13,15 @@ MonoBehaviour:
   m_Name: Phoenix
   m_EditorClassIdentifier: 
   Name: 11
+  NameString: Phoenix
   SkillNames: 01000000030000000c000000
-  NameString: "\uD53C\uB2C9\uC2A4"
-  DescString: "\uB05D\uC5C6\uC774 \uD0C0\uC624\uB974\uB294 \uBD88\uC0AC\uC870\uC758
-    \uD798\uC774 \uB290\uAEF4\uC9C4\uB2E4 "
+  SkillNameString:
+  - FireBomb
+  - FireBombExplosion
+  - FireCut
+  NameText: "\uD53C\uB2C9\uC2A4"
+  DescText: "\uB05D\uC5C6\uC774 \uD0C0\uC624\uB974\uB294 \uBD88\uC0AC\uC870\uC758
+    \uD798\uC774 \uB290\uAEF4\uC9C4\uB2E4"
   Tier: 11
   Level: 100
   LevelByBonus: 12

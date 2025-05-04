@@ -70,7 +70,6 @@ public class ClassTraitSystem : MonoBehaviour
                 for (int i = 0; i < data.Stats.Count; i++)
                 {
                     player.StatSystem.AddStat(StatTID.Class1, data.Stats[i], data.Values[i]);
-                    EventManager<EventTypes>.Send(EventTypes.ChangeClass, name);
                 }
             }
 
@@ -82,6 +81,7 @@ public class ClassTraitSystem : MonoBehaviour
                 }
             }
 
+            EventManager<EventTypes>.Send(EventTypes.ChangeClass, name);
             MaxLevel *= 2;
 
             Clear();

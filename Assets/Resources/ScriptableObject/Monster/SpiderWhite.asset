@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: SpiderWhite
   m_EditorClassIdentifier: 
   Name: 17
-  NameString: "\uD770 \uAC70\uBBF8"
+  NameString: SpiderWhite
+  NameText: "\uD770 \uAC70\uBBF8"
   Level: 121
   MaxLevel: 140
   Attack: 2

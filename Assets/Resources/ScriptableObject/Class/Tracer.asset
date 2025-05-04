@@ -13,9 +13,14 @@ MonoBehaviour:
   m_Name: Tracer
   m_EditorClassIdentifier: 
   Name: 7
+  NameString: Tracer
   NameText: "\uD2B8\uB808\uC774\uC11C"
   DescritpionText: "\uC21C\uAC04 \uC774\uB3D9\uC758 \uB2EC\uC778"
   StatDescriptionText: "\uD68C\uD53C\uC728 {0} \uC99D\uAC00"
   Stats: 0c000000
+  StatStirng:
+  - DodgeRate
   Values:
   - 0.08
+  Projectiles: 
+  ProjectileString: []

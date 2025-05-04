@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: Fate
   m_EditorClassIdentifier: 
   Name: 13
-  NameString: "\uC6B4\uBA85"
+  NameString: Fate
+  NameText: "\uC6B4\uBA85"
   ClassNames: 0e0000001b000000
+  ClassNamesString:
+  - Diviner
+  - Arcana

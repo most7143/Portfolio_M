@@ -13,8 +13,8 @@ public class UIWeaponDetails : UIDetails
 
         if (weaponData != null)
         {
-            NameText.SetText(weaponData.NameString);
-            DescText.SetText(weaponData.DescString);
+            NameText.SetText(weaponData.NameText);
+            DescText.SetText(weaponData.DescText);
             WeaponIcon.sprite = weaponData.Icon;
         }
     }

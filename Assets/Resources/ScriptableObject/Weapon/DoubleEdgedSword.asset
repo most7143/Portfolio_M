@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: DoubleEdgedSword
   m_EditorClassIdentifier: 
   Name: 5
+  NameString: DoubleEdgedSword
   SkillNames: 08000000
-  NameString: "\uC591\uB0A0\uAC80"
-  DescString: "\uCD5C\uC120\uC758 \uBC29\uC5B4\uB294 \uACF5\uACA9\uC784\uC744 \uBA85\uC2EC\uD558\uB77C"
+  SkillNameString:
+  - SavageClaw
+  NameText: "\uC591\uB0A0\uAC80"
+  DescText: "\uCD5C\uC120\uC758 \uBC29\uC5B4\uB294 \uACF5\uACA9\uC784\uC744 \uBA85\uC2EC\uD558\uB77C"
   Tier: 5
   Level: 40
   LevelByBonus: 6

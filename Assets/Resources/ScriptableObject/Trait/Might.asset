@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: Might
   m_EditorClassIdentifier: 
   Name: 1
-  NameString: "\uBB34\uB825"
+  NameString: Might
+  NameText: "\uBB34\uB825"
   ClassNames: 020000000f000000
+  ClassNamesString:
+  - Gladiator
+  - SwordMaster

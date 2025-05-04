@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: StormTrooper
   m_EditorClassIdentifier: 
   Name: 21
+  NameString: StormTrooper
   NameText: "\uC2A4\uD1B0\uD22C\uB974\uD37C"
   DescritpionText: "\uC2A4\uD1B0\uD22C\uB974\uD37C"
   StatDescriptionText: "\u3141\u3141\u3141\u3141\u3141\u3141"
   Stats: 
+  StatStirng: []
   Values: []
-  Projectiles: 01000000
+  Projectiles: 02000000
+  ProjectileString:
+  - StormTrooper

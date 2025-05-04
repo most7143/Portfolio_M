@@ -13,24 +13,30 @@ MonoBehaviour:
   m_Name: WeaknessExposure
   m_EditorClassIdentifier: 
   Name: 5
+  NameString: WeaknessExposure
   Grade: 2
-  NameString: "\uC57D\uC810 \uB178\uCD9C"
-  MaxLevelNameString: "\uC608\uB9AC\uD55C \uC5F0\uACA9"
-  DescriptionString: "\uCE58\uBA85\uD0C0 \uD655\uB960\uC774 {0}% \uC99D\uAC00\uD55C\uB2E4."
-  MaxLevelDescriptionString: "\uCE58\uBA85\uD0C0 \uD655\uB960\uC774 {0}% \uC99D\uAC00
+  NameText: "\uC57D\uC810 \uB178\uCD9C"
+  MaxLevelNameText: "\uC608\uB9AC\uD55C \uC5F0\uACA9"
+  DescriptionText: "\uCE58\uBA85\uD0C0 \uD655\uB960\uC774 {0}% \uC99D\uAC00\uD55C\uB2E4."
+  MaxLevelDescriptionText: "\uCE58\uBA85\uD0C0 \uD655\uB960\uC774 {0}% \uC99D\uAC00
     \uBC0F \uCE58\uBA85\uD0C0 \uACF5\uACA9 \uC2E4\uD328\uB9C8\uB2E4 \uD655\uB960\uC774
     {1}% \uC99D\uAC00\uD55C\uB2E4"
-  BunousDescriptionString: "\uBE44\uAEF4\uAC04 \uACF5\uACA9\uC870\uCC28\uB3C4 \uAE09\uC18C\uB97C
+  BunousDescriptionText: "\uBE44\uAEF4\uAC04 \uACF5\uACA9\uC870\uCC28\uB3C4 \uAE09\uC18C\uB97C
     \uACA8\uB204\uAC8C \uD55C\uB2E4"
   RequireRank: 20
   MaxLevel: 10
   StatName: 3
+  StatString: CriticalChance
   MaxLevelStatName: 0
+  MaxLevelStatString: 
   MaxLevelConditions: 0
   BooleanStatName: 0
+  BooleanStatString: 
   BuffName: 0
+  BuffString: 
   Target: 1
   MaxLevelBuffName: 1
+  MaxLevelBuffString: WeaknessExposure
   AliveTime: 0
   AliveTimeByLevel: 0
   MaxLevelAliveTime: 999

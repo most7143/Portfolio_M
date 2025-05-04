@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: ScorpionGreen
   m_EditorClassIdentifier: 
   Name: 18
-  NameString: "\uCD08\uB85D \uC804\uAC08"
+  NameString: ScorpionGreen
+  NameText: "\uCD08\uB85D \uC804\uAC08"
   Level: 226
   MaxLevel: 250
   Attack: 2

@@ -6,8 +6,8 @@ public struct WeaponInfo
 {
     public WeaponNames Name;
     public WeaponSkillNames[] SkillNames;
-    public string NameString;
-    public string DescString;
+    public string NameText;
+    public string DescText;
     public int Tier;
     public int Level;
     public int LevelByBonus;
@@ -57,8 +57,8 @@ public class WeaponController : MonoBehaviour
             Info.Tier = currentData.Tier;
             Info.Name = currentData.Name;
             Info.SkillNames = currentData.SkillNames.ToArray();
-            Info.NameString = currentData.NameString;
-            Info.DescString = currentData.DescString;
+            Info.NameText = currentData.NameText;
+            Info.DescText = currentData.DescText;
             Info.Level = currentData.Level;
             Info.LevelByBonus = currentData.LevelByBonus;
             Info.Speed = currentData.Speed;

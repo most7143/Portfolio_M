@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: RatBrown
   m_EditorClassIdentifier: 
   Name: 10
-  NameString: "\uAC08\uC0C9\uC950"
+  NameString: RatBrown
+  NameText: "\uAC08\uC0C9\uC950"
   Level: 41
   MaxLevel: 50
   Attack: 2

@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: WoodenSword
   m_EditorClassIdentifier: 
   Name: 1
+  NameString: WoodenSword
   SkillNames: 
-  NameString: "\uBAA9\uAC80"
-  DescString: 
+  SkillNameString: []
+  NameText: "\uBAA9\uAC80"
+  DescText: 
   Tier: 1
   Level: 1
   LevelByBonus: 2

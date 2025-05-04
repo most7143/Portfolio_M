@@ -13,23 +13,29 @@ MonoBehaviour:
   m_Name: OmniDirectionalMobility
   m_EditorClassIdentifier: 
   Name: 4
+  NameString: OmniDirectionalMobility
   Grade: 2
-  NameString: "\uC785\uCCB4 \uAE30\uB3D9"
-  MaxLevelNameString: "\uD398\uC774\uD06C"
-  DescriptionString: "\uD68C\uD53C\uC728\uC774 {0}% \uC99D\uAC00\uD55C\uB2E4."
-  MaxLevelDescriptionString: "\uD68C\uD53C\uC728\uC774 {0}% \uC99D\uAC00\uD558\uBA70,
+  NameText: "\uC785\uCCB4 \uAE30\uB3D9"
+  MaxLevelNameText: "\uD398\uC774\uD06C"
+  DescriptionText: "\uD68C\uD53C\uC728\uC774 {0}% \uC99D\uAC00\uD55C\uB2E4."
+  MaxLevelDescriptionText: "\uD68C\uD53C\uC728\uC774 {0}% \uC99D\uAC00\uD558\uBA70,
     \uD68C\uD53C \uC131\uACF5\uC2DC \uACE8\uB4DC\uB97C \uD68D\uB4DD"
-  BunousDescriptionString: "\uB208\uC5D0 \uBCF4\uC774\uB294 \uAC83\uC774 \uC804\uBD80\uAC00
+  BunousDescriptionText: "\uB208\uC5D0 \uBCF4\uC774\uB294 \uAC83\uC774 \uC804\uBD80\uAC00
     \uC544\uB2C8\uB2E4"
   RequireRank: 20
   MaxLevel: 10
   StatName: 12
+  StatString: DodgeRate
   MaxLevelStatName: 0
+  MaxLevelStatString: 
   MaxLevelConditions: 0
   BooleanStatName: 0
+  BooleanStatString: 
   BuffName: 0
+  BuffString: 
   Target: 1
   MaxLevelBuffName: 0
+  MaxLevelBuffString: 
   AliveTime: 0
   AliveTimeByLevel: 0
   MaxLevelAliveTime: 0

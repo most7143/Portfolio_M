@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: Divinity
   m_EditorClassIdentifier: 
   Name: 3
-  NameString: "\uC2E0\uC131"
+  NameString: Divinity
+  NameText: "\uC2E0\uC131"
   ClassNames: 0400000011000000
+  ClassNamesString:
+  - Crusader
+  - Paladin

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: SlimeGreen
   m_EditorClassIdentifier: 
   Name: 6
-  NameString: "\uCD08\uB85D \uC2AC\uB77C\uC784"
+  NameString: SlimeGreen
+  NameText: "\uCD08\uB85D \uC2AC\uB77C\uC784"
   Level: 1
   MaxLevel: 10
   Attack: 2

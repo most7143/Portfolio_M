@@ -13,10 +13,15 @@ MonoBehaviour:
   m_Name: Gambler
   m_EditorClassIdentifier: 
   Name: 11
+  NameString: Gambler
   NameText: "\uB3C4\uBC15\uC0AC"
   DescritpionText: "\uC6B4\uC5D0 \uC0B4\uC544\uAC00\uB294 \uC790"
   StatDescriptionText: "\uB192\uC740 \uB4F1\uAE09\uC774 \uB098\uC62C \uD655\uB960\uC774
     {0} \uC99D\uAC00"
   Stats: 17000000
+  StatStirng:
+  - IncreaseHighGradeRate
   Values:
   - 0.3
+  Projectiles: 
+  ProjectileString: []

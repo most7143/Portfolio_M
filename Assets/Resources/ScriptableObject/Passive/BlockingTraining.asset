@@ -13,21 +13,27 @@ MonoBehaviour:
   m_Name: BlockingTraining
   m_EditorClassIdentifier: 
   Name: 3
+  NameString: BlockingTraining
   Grade: 1
-  NameString: "\uB9C9\uAE30 \uD6C8\uB828"
-  MaxLevelNameString: "\uC120\uBD09\uB300"
-  DescriptionString: "\uBC29\uC5B4\uB825\uC774 {0} \uC99D\uAC00\uD55C\uB2E4"
-  MaxLevelDescriptionString: "\uBC29\uC5B4\uB825\uC774 {0}, {1}% \uC99D\uAC00\uD55C\uB2E4."
-  BunousDescriptionString: "\uCD5C\uC804\uBC29\uC5D0 \uD2B9\uD654\uB41C \uC790"
+  NameText: "\uB9C9\uAE30\uD6C8\uB828"
+  MaxLevelNameText: "\uC120\uBD09\uB300"
+  DescriptionText: "\uBC29\uC5B4\uB825\uC774 {0} \uC99D\uAC00\uD55C\uB2E4"
+  MaxLevelDescriptionText: "\uBC29\uC5B4\uB825\uC774 {0}, {1}% \uC99D\uAC00\uD55C\uB2E4."
+  BunousDescriptionText: "\uCD5C\uC804\uBC29\uC5D0 \uD2B9\uD654\uB41C \uC790"
   RequireRank: 1
   MaxLevel: 20
   StatName: 9
+  StatString: Armor
   MaxLevelStatName: 10
+  MaxLevelStatString: ArmorRate
   MaxLevelConditions: 0
   BooleanStatName: 0
+  BooleanStatString: 
   BuffName: 0
+  BuffString: 
   Target: 1
   MaxLevelBuffName: 0
+  MaxLevelBuffString: 
   AliveTime: 0
   AliveTimeByLevel: 0
   MaxLevelAliveTime: 0

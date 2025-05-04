@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Ring
   m_EditorClassIdentifier: 
   Type: 2
-  NameStrings:
+  NameTexts:
   - "\uD0DC\uCD08\uC758 \uB3CC"
   - "\uC18C\uC6B8 \uC624\uBE0C \uC5B4\uBE44\uC2A4"
   - "\uD3ED\uAD70\uC758 \uBC18\uC9C0"
   - "\uC0AC\uD30C\uC774\uC5B4 \uBC18\uC9C0"
   - "\uB8E8\uBE44 \uBC18\uC9C0"
   - "\uC740 \uBC18\uC9C0"
-  DescriptionStrings:
+  DescriptionTexts:
   - "\uCC98\uC74C \uD0C4\uC0DD\uD55C \uC6D0\uC11D"
   - "\uC601\uD63C\uC758 \uC2EC\uC5F0\uC744 \uB4E4\uC5EC\uB2E4 \uBCF4\uB294 \uBC18\uC9C0"
   - 
@@ -28,6 +28,17 @@ MonoBehaviour:
   - 
   - 
   StatNames: 0500000011000000030000000c000000020000000a00000008000000010000000900000007000000
+  StatString:
+  - AttackSpeed
+  - CurrencyGainRate
+  - CriticalChance
+  - DodgeRate
+  - AttackRate
+  - ArmorRate
+  - HealthRate
+  - Attack
+  - Armor
+  - Health
   Chance:
   - 0.01
   - 0.04

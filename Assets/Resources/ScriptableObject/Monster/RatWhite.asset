@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: RatWhite
   m_EditorClassIdentifier: 
   Name: 13
-  NameString: "\uD770\uC950"
+  NameString: RatWhite
+  NameText: "\uD770\uC950"
   Level: 71
   MaxLevel: 80
   Attack: 2

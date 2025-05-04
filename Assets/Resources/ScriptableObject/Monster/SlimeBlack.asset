@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: SlimeBlack
   m_EditorClassIdentifier: 
   Name: 9
-  NameString: "\uAC80\uC815 \uC2AC\uB77C\uC784"
+  NameString: SlimeBlack
+  NameText: "\uAC80\uC815 \uC2AC\uB77C\uC784"
   Level: 31
   MaxLevel: 40
   Attack: 2

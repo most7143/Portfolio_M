@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: Swordman
   m_EditorClassIdentifier: 
   Name: 1
+  NameString: Swordman
   NameText: "\uAC80\uC0AC"
   DescritpionText: "\uBB34\uC77C\uD47C \uC5EC\uD589\uC790"
   StatDescriptionText: 
   Stats: 
+  StatStirng: []
   Values: []
+  Projectiles: 
+  ProjectileString: []

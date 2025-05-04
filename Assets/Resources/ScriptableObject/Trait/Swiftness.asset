@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: Swiftness
   m_EditorClassIdentifier: 
   Name: 6
-  NameString: "\uC2E0\uC18D"
+  NameString: Swiftness
+  NameText: "\uC2E0\uC18D"
   ClassNames: 0700000014000000
+  ClassNamesString:
+  - Tracer
+  - TimeTraveler

@@ -47,8 +47,8 @@ public class AccessorySystem : MonoBehaviour
 
         int index = (int)grade - 1;
 
-        items[type].NameString = items[type].Data.NameStrings[index];
-        items[type].DescriptionString = items[type].Data.DescriptionStrings[index];
+        items[type].NameString = items[type].Data.NameTexts[index];
+        items[type].DescriptionString = items[type].Data.DescriptionTexts[index];
 
         ResetOption(type);
     }

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: BoneWormBlack
   m_EditorClassIdentifier: 
   Name: 2
-  NameString: "\uBCF8\uC6DC \uBE14\uB799"
+  NameString: BoneWormBlack
+  NameText: "\uBCF8\uC6DC \uBE14\uB799"
   Level: 451
   MaxLevel: 500
   Attack: 2

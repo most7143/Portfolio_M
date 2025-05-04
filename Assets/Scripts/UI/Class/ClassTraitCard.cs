@@ -38,11 +38,11 @@ public class ClassTraitCard : MonoBehaviour
         {
             Name = name;
             count = GetGradeByCount();
-            NameText.SetText(data.NameString);
+            NameText.SetText(data.NameText);
             IconImage.sprite = ResourcesManager.Instance.LoadSprite("Icon_Trait_" + Name.ToString());
             BackGround.sprite = ResourcesManager.Instance.LoadSprite("BackgroundCard_" + Grade.ToString());
             DescriptionText.SetText("직업 : " + data.ClassNames[tier].GetClassLanguage());
-            CountText.SetText(data.NameString + " +" + count);
+            CountText.SetText(data.NameText + " +" + count);
             GradeText.SetText(EXText.GetGradeColor(Grade, Grade.GetGradeLanguage()));
         }
     }

@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: Kris
   m_EditorClassIdentifier: 
   Name: 7
+  NameString: Kris
   SkillNames: 09000000
-  NameString: "\uCEE4\uC288"
-  DescString: "\uB3C4\uBB34\uC9C0 \uC608\uCE21\uD560 \uC218 \uC5C6\uB294 \uAC80\uC758
+  SkillNameString:
+  - Slaughter
+  NameText: "\uCEE4\uC288"
+  DescText: "\uB3C4\uBB34\uC9C0 \uC608\uCE21\uD560 \uC218 \uC5C6\uB294 \uAC80\uC758
     \uADA4\uC801\uC774\uB2E4"
   Tier: 7
   Level: 60

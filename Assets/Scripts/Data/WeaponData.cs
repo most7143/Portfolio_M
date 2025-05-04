@@ -5,9 +5,11 @@ using UnityEngine;
 public class WeaponData : ScriptableObject
 {
     public WeaponNames Name;
-    public List<WeaponSkillNames> SkillNames;
     public string NameString;
-    public string DescString;
+    public List<WeaponSkillNames> SkillNames;
+    public List<string> SkillNameString;
+    public string NameText;
+    public string DescText;
     public int Tier;
     public int Level;
     public int LevelByBonus;
@@ -21,7 +23,20 @@ public class WeaponData : ScriptableObject
 
     private void OnValidate()
     {
-        AssetUtility.RenameAsset(this, Name.ToString());
+        if (!string.IsNullOrEmpty(NameString))
+        {
+            Name = EXEnum.Parse<WeaponNames>(NameString);
+        }
+
+        // AssetUtility.RenameAsset(this, Name.ToString());
+
+        if (SkillNameString.Count > 0)
+        {
+            for (int i = 0; i < SkillNameString.Count; i++)
+            {
+                SkillNames[i] = EXEnum.Parse<WeaponSkillNames>(SkillNameString[i]);
+            }
+        }
     }
 
 #endif

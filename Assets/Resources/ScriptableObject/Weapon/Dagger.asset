@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Dagger
   m_EditorClassIdentifier: 
   Name: 2
+  NameString: Dagger
   SkillNames: 
-  NameString: "\uB300\uAC70"
-  DescString: "\uC544\uC9C1\uC740 \uB179\uC2AC\uC9C0 \uC54A\uC740 \uB300\uAC70"
+  SkillNameString: []
+  NameText: "\uB300\uAC70"
+  DescText: "\uC544\uC9C1\uC740 \uB179\uC2AC\uC9C0 \uC54A\uC740 \uB300\uAC70"
   Tier: 2
   Level: 10
   LevelByBonus: 3

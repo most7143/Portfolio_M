@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: CerberusGreen
   m_EditorClassIdentifier: 
   Name: 26
-  NameString: "\uCD08\uB85D \uC9C0\uC625\uACAC"
+  NameString: CerberusGreen
+  NameText: "\uCD08\uB85D \uC9C0\uC625\uACAC"
   Level: 801
   MaxLevel: 900
   Attack: 2

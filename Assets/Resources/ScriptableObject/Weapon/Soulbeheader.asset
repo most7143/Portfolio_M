@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: Soulbeheader
   m_EditorClassIdentifier: 
   Name: 9
+  NameString: Soulbeheader
   SkillNames: 05000000
-  NameString: "\uC601\uD63C\uCC38\uC218\uC790"
-  DescString: "\uC8FD\uC740 \uB9DD\uC790\uB4E4\uC758 \uC18C\uB9AC\uAC00 \uC6B8\uB9B0\uB2E4"
+  SkillNameString:
+  - DeathSlash
+  NameText: "\uC601\uD63C\uCC38\uC218\uC790"
+  DescText: "\uC8FD\uC740 \uB9DD\uC790\uB4E4\uC758 \uC18C\uB9AC\uAC00 \uC6B8\uB9B0\uB2E4"
   Tier: 9
   Level: 80
   LevelByBonus: 10

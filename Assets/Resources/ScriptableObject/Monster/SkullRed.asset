@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: SkullRed
   m_EditorClassIdentifier: 
   Name: 32
-  NameString: "\uBD89\uC740 \uD574\uACE8"
+  NameString: SkullRed
+  NameText: "\uBD89\uC740 \uD574\uACE8"
   Level: 651
   MaxLevel: 700
   Attack: 2

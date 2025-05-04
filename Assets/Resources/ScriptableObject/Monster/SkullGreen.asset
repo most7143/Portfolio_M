@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: SkullGreen
   m_EditorClassIdentifier: 
   Name: 30
-  NameString: "\uCD08\uB85D \uD574\uACE8"
+  NameString: SkullGreen
+  NameText: "\uCD08\uB85D \uD574\uACE8"
   Level: 551
   MaxLevel: 600
   Attack: 2

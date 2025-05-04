@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: CerberusBlack
   m_EditorClassIdentifier: 
   Name: 28
-  NameString: "\uAC80\uC740 \uC9C0\uC625\uACAC"
+  NameString: CerberusBlack
+  NameText: "\uAC80\uC740 \uC9C0\uC625\uACAC"
   Level: 1001
   MaxLevel: 1100
   Attack: 2

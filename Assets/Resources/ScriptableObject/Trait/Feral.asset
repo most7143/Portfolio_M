@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: Feral
   m_EditorClassIdentifier: 
   Name: 5
-  NameString: "\uC57C\uC131"
+  NameString: Feral
+  NameText: "\uC57C\uC131"
   ClassNames: 0600000013000000
+  ClassNamesString:
+  - Druid
+  - ArchDruid

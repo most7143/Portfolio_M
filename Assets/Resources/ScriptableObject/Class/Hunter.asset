@@ -13,9 +13,14 @@ MonoBehaviour:
   m_Name: Hunter
   m_EditorClassIdentifier: 
   Name: 9
+  NameString: Hunter
   NameText: "\uD5CC\uD130"
   DescritpionText: "\uC801\uC744 \uB193\uCE58\uC9C0 \uC54A\uB294 \uCD94\uACA9\uC790"
   StatDescriptionText: "\uCE58\uBA85\uD0C0 \uD655\uB960 {0} \uC99D\uAC00"
   Stats: 03000000
+  StatStirng:
+  - CriticalChance
   Values:
   - 0.15
+  Projectiles: 
+  ProjectileString: []

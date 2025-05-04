@@ -11,7 +11,7 @@ public class Monster : Character
     public void SetData(MonsterData monsterData)
     {
         data = monsterData;
-        NameString = data.NameString;
+        NameString = data.NameText;
         Level = data.Level;
         MaxLevel = data.MaxLevel;
 

@@ -4,24 +4,30 @@
 public class PassiveSkillData : ScriptableObject
 {
     [Header("Base")] public PassiveSkillNames Name;
-    public PassiveGrades Grade;
     public string NameString;
-    public string MaxLevelNameString;
-    public string DescriptionString;
-    public string MaxLevelDescriptionString;
-    public string BunousDescriptionString;
+    public PassiveGrades Grade;
+    public string NameText;
+    public string MaxLevelNameText;
+    public string DescriptionText;
+    public string MaxLevelDescriptionText;
+    public string BunousDescriptionText;
 
     public int RequireRank;
     public int MaxLevel;
 
     [Header("Stat")] public StatNames StatName;
+    public string StatString;
     public StatNames MaxLevelStatName;
+    public string MaxLevelStatString;
     public SkillConditions MaxLevelConditions;
     public StatNames BooleanStatName;
+    public string BooleanStatString;
 
     [Header("Buff")] public BuffNames BuffName;
+    public string BuffString;
     public CharacterTypes Target = CharacterTypes.Player;
     public BuffNames MaxLevelBuffName;
+    public string MaxLevelBuffString;
     public float AliveTime;
     public float AliveTimeByLevel;
     public float MaxLevelAliveTime;
@@ -41,6 +47,36 @@ public class PassiveSkillData : ScriptableObject
 
     private void OnValidate()
     {
+        if (!string.IsNullOrEmpty(NameString))
+        {
+            Name = EXEnum.Parse<PassiveSkillNames>(NameString);
+        }
+
+        if (!string.IsNullOrEmpty(StatString))
+        {
+            StatName = EXEnum.Parse<StatNames>(StatString);
+        }
+
+        if (!string.IsNullOrEmpty(MaxLevelStatString))
+        {
+            MaxLevelStatName = EXEnum.Parse<StatNames>(MaxLevelStatString);
+        }
+
+        if (!string.IsNullOrEmpty(BooleanStatString))
+        {
+            BooleanStatName = EXEnum.Parse<StatNames>(BooleanStatString);
+        }
+
+        if (!string.IsNullOrEmpty(BuffString))
+        {
+            BuffName = EXEnum.Parse<BuffNames>(BuffString);
+        }
+
+        if (!string.IsNullOrEmpty(MaxLevelBuffString))
+        {
+            MaxLevelBuffName = EXEnum.Parse<BuffNames>(MaxLevelBuffString);
+        }
+
         AssetUtility.RenameAsset(this, Name.ToString());
     }
 

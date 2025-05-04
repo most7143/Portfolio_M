@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: SpiderBlue
   m_EditorClassIdentifier: 
   Name: 15
-  NameString: "\uD30C\uB780 \uAC70\uBBF8"
+  NameString: SpiderBlue
+  NameText: "\uD30C\uB780 \uAC70\uBBF8"
   Level: 91
   MaxLevel: 100
   Attack: 2

@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: Precision
   m_EditorClassIdentifier: 
   Name: 8
-  NameString: "\uC815\uBC00"
+  NameString: Precision
+  NameText: "\uC815\uBC00"
   ClassNames: 0900000015000000
+  ClassNamesString:
+  - Hunter
+  - StormTrooper

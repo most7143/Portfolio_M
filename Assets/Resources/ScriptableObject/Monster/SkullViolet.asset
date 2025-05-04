@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: SkullViolet
   m_EditorClassIdentifier: 
   Name: 33
-  NameString: "\uBCF4\uB77C \uD574\uACE8"
+  NameString: SkullViolet
+  NameText: "\uBCF4\uB77C \uD574\uACE8"
   Level: 701
   MaxLevel: 800
   Attack: 2

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: WolfBlack
   m_EditorClassIdentifier: 
   Name: 24
-  NameString: "\uAC80\uC740 \uB291\uB300"
+  NameString: WolfBlack
+  NameText: "\uAC80\uC740 \uB291\uB300"
   Level: 181
   MaxLevel: 200
   Attack: 2

@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Necklace
   m_EditorClassIdentifier: 
   Type: 1
-  NameStrings:
+  NameTexts:
   - "\uBCA8\uD398\uACE0\uB974"
   - "\uC655\uAC00\uC758 \uC720\uC0B0"
   - "\uC808\uB9DD\uC758 \uBAA9\uAC78\uC774"
   - "\uD0D0\uC695\uC758 \uBAA9\uAC78\uC774"
   - "\uC740\uBE5B \uBAA9\uAC78\uC774"
   - "\uC624\uB798\uB41C \uBAA9\uAC78\uC774"
-  DescriptionStrings:
+  DescriptionTexts:
   - "\uB098\uD0DC\uC758 \uC8C4\uC545"
   - "\uD0C0\uB77D\uD55C \uC655\uC871\uC758 \uB9C8\uC9C0\uB9C9 \uBB3C\uAC74"
   - 
@@ -28,6 +28,13 @@ MonoBehaviour:
   - 
   - 
   StatNames: 020000000a00000008000000010000000900000007000000
+  StatString:
+  - AttackRate
+  - ArmorRate
+  - HealthRate
+  - Attack
+  - Armor
+  - Health
   Chance:
   - 0.05
   - 0.05

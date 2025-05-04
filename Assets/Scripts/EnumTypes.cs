@@ -388,6 +388,7 @@ public enum DamageTypes
 public enum ProjectileNames
 {
     None,
+    SwordMaster,
     StormTrooper,
 }
 

@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: GoldenIronSword
   m_EditorClassIdentifier: 
   Name: 4
+  NameString: GoldenIronSword
   SkillNames: 
-  NameString: "\uD669\uCCA0\uAC80"
-  DescString: "\uB204\uAD70\uAC00\uAC00 \uC0AC\uCE58\uC2A4\uB7FD\uAC8C \uB9CC\uB4E0
+  SkillNameString: []
+  NameText: "\uD669\uCCA0\uAC80"
+  DescText: "\uB204\uAD70\uAC00\uAC00 \uC0AC\uCE58\uC2A4\uB7FD\uAC8C \uB9CC\uB4E0
     \uAC80"
   Tier: 4
   Level: 30

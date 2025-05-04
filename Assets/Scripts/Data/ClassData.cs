@@ -5,18 +5,42 @@ using UnityEngine;
 public class ClassData : ScriptableObject
 {
     public ClassNames Name;
+    public string NameString;
     public string NameText;
     public string DescritpionText;
     public string StatDescriptionText;
     public List<StatNames> Stats;
+    public List<string> StatStirng;
     public List<float> Values;
     public List<ProjectileNames> Projectiles;
+    public List<string> ProjectileString;
 
 #if UNITY_EDITOR
 
     private void OnValidate()
     {
+        if (!string.IsNullOrEmpty(NameString))
+        {
+            Name = EXEnum.Parse<ClassNames>(NameString);
+        }
+
         AssetUtility.RenameAsset(this, Name.ToString());
+
+        if (ProjectileString.Count > 0)
+        {
+            for (int i = 0; i < ProjectileString.Count; i++)
+            {
+                Projectiles[i] = EXEnum.Parse<ProjectileNames>(ProjectileString[i]);
+            }
+        }
+
+        if (StatStirng.Count > 0)
+        {
+            for (int i = 0; i < StatStirng.Count; i++)
+            {
+                Stats[i] = EXEnum.Parse<StatNames>(StatStirng[i]);
+            }
+        }
     }
 
 #endif

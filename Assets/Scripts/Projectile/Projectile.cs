@@ -7,15 +7,26 @@ public class Projectile : MonoBehaviour
     public Rigidbody2D Rigid;
     public Collider2D Collider;
     public ProjectileNames Name;
+    public string NameString;
     public ProjectileMoveTypes MoveType;
     public float CurvedAngle = 45f;
     public Animator Animator;
-    public float DamageRate = 1;
-    public float Speed = 3;
+    public bool IsLookDirection;
+    [HideInInspector] public float DamageRate = 1;
+    [HideInInspector] public float Speed = 3;
 
     private float hitDelay = 0.1f;
 
     private Vector3 launchDirection = Vector3.right + Vector3.up;
+
+    private void OnValidate()
+    {
+        if (!string.IsNullOrEmpty(NameString))
+        {
+            Name = EXEnum.Parse<ProjectileNames>(NameString);
+            transform.name = "Projectile_" + Name.ToString();
+        }
+    }
 
     public void Init()
     {
@@ -35,12 +46,22 @@ public class Projectile : MonoBehaviour
                 Vector3 velocity = CalculateLaunchVelocity(transform.position, monster.transform.position, Random.Range(CurvedAngle - 2, CurvedAngle + 2));
                 Rigid.velocity = velocity;
                 Rigid.gravityScale = 1;
+
+                if (IsLookDirection)
+                {
+                    transform.right = velocity.normalized;
+                }
             }
             else if (MoveType == ProjectileMoveTypes.Linear)
             {
                 Vector3 direction = (monster.transform.position - transform.position).normalized;
                 Rigid.velocity = direction * Speed;
                 Rigid.gravityScale = 0;
+
+                if (IsLookDirection)
+                {
+                    transform.right = direction.normalized;
+                }
             }
         }
     }
@@ -74,7 +95,7 @@ public class Projectile : MonoBehaviour
 
     private IEnumerator ProcessHit()
     {
-        yield return new WaitForSeconds(Random.Range(hitDelay, hitDelay + 0.2f));
+        yield return new WaitForSeconds(Random.Range(0f, hitDelay));
         yield return new WaitUntil(() => InGameManager.Instance.Monster != null);
         DamageInfo damageInfo = new();
         damageInfo.Owner = Owner;

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: SpiderBlack
   m_EditorClassIdentifier: 
   Name: 16
-  NameString: "\uAC80\uC740 \uAC70\uBBF8"
+  NameString: SpiderBlack
+  NameText: "\uAC80\uC740 \uAC70\uBBF8"
   Level: 101
   MaxLevel: 120
   Attack: 2
