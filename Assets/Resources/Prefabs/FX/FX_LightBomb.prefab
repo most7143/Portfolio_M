@@ -129,6 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: 2
+  NameString: LightBomb
   SpawnType: 2
   Renderer: {fileID: 0}
   isRandomFlip: 0

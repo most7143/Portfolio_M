@@ -45,11 +45,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: 6
+  NameString: CursedTome
   Type: 1
   Conditions: 0
   EndConditions: 0
+  IgnoreBuffName: 0
+  IgnoreNameString: 
   Owner: {fileID: 0}
   StatName: 19
+  StatString: LimitHealth
   Value: 0
   AliveTime: 0
   CoolDown: 0

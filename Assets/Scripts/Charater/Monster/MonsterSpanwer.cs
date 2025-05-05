@@ -58,6 +58,10 @@ public class MonsterSpanwer : MonoBehaviour
 
             SpawnMonster.Spanwer = this;
 
+            SpawnMonster.Target = InGameManager.Instance.Player;
+
+            InGameManager.Instance.Player.Target = SpawnMonster;
+
             SpawnMonster.SetData(GetData(chareacterName));
 
             SpawnMonster.transform.SetParent(SpawnPoint);

@@ -15,11 +15,20 @@ MonoBehaviour:
   Name: 15
   NameString: SwordMaster
   NameText: "\uC18C\uB4DC\uB9C8\uC2A4\uD130"
-  DescritpionText: "\uC18C\uB4DC\uB9C8\uC2A4\uD130"
-  StatDescriptionText: "\uC18C\uB4DC\uB9C8\uC2A4\uD130"
-  Stats: 
-  StatStirng: []
-  Values: []
+  DescritpionText: "\uAC80\uC220\uC758 \uB2EC\uC778"
+  StatDescriptionText: "\uC801\uC758 \uBC29\uC5B4\uB825\uC744 {0} \uBB34\uC2DC\uD55C\uB2E4."
+  ProjectileDescritonText: "\uACF5\uACA9\uC2DC {0}% \uD655\uB960\uB85C \uACF5\uACA9\uB825\uC758
+    {1}% \uD53C\uD574\uB97C \uC8FC\uB294 \uAC80 \uC0DD\uC131"
+  BuffDescritonText: 
+  Stats: 1c000000
+  StatStirng:
+  - IgnoreArmor
+  Values:
+  - 0.5
   Projectiles: 01000000
   ProjectileString:
   - SwordMaster
+  BuffNames: 
+  BuffString: []
+  BuffAliveTimes: []
+  BuffValues: []

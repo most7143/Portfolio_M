@@ -12,6 +12,8 @@ public class UIStageInfo : MonoBehaviour
     public XButton TextButton;
 
     public ClassNames ClassName;
+    public ClassNames ClassName2;
+    private int test;
 
     private void Start()
     {
@@ -32,6 +34,15 @@ public class UIStageInfo : MonoBehaviour
 
     public void Test()
     {
-        InGameManager.Instance.Player.ClassTraitSystem.ChangeClass(ClassName);
+        test++;
+
+        if (test == 1)
+        {
+            InGameManager.Instance.Player.ClassTraitSystem.ChangeClass(ClassName);
+        }
+        else
+        {
+            InGameManager.Instance.Player.ClassTraitSystem.ChangeClass(ClassName2);
+        }
     }
 }

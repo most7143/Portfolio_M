@@ -45,4 +45,12 @@ public class ProjectileSystem : MonoBehaviour
             }
         }
     }
+
+    public ProjectileSkill GetProjectile(ProjectileNames name)
+    {
+        if (_skills.ContainsKey(name))
+            return _skills[name];
+
+        return null;
+    }
 }

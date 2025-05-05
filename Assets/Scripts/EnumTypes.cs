@@ -245,6 +245,10 @@ public enum StatNames
     IncreaseHighGradeRate,
     DecreaseWeaponUpgradeCost,
     AddRerollTrait,
+
+    DamageReflection,
+    ArmorConvertToAttack,
+    IgnoreArmor,
 }
 
 public enum PassiveSkillNames
@@ -319,6 +323,10 @@ public enum BuffNames
     Durability, // 철갑 - 같은 몬스터에게 피해를 받을 때 마다 방어력 증가
     Gale, // 아이올로스의 숨결 -6초동안 공격속도 2배로 증가 6초 쿨
     CursedTome, // 벨리알의 마서 - 적의 체력을 70% 제한
+
+    //Class
+
+    LordKnight,
 }
 
 public enum BuffTypes
@@ -425,6 +433,7 @@ public enum StatTID
     Class1,
     Class2,
     Class3,
+    Convert,
 }
 
 public enum CurrencyTypes

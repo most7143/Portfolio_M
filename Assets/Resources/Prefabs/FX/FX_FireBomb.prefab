@@ -129,6 +129,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: 1
+  NameString: FireBomb
   SpawnType: 2
+  Renderer: {fileID: 0}
+  isRandomFlip: 0
   Alive: 0
+  Anim: {fileID: 0}
   AliveTime: 1

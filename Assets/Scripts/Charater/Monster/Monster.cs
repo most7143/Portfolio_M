@@ -19,7 +19,7 @@ public class Monster : Character
         StatSystem.AddStat(StatTID.Base, StatNames.AttackRate, 1);
         StatSystem.AddStat(StatTID.Base, StatNames.AttackByLevel, data.AttackByLevel);
 
-        StatSystem.AddStat(StatTID.Base, StatNames.AttackSpeed, 1);
+        StatSystem.AddStat(StatTID.Base, StatNames.AttackSpeed, data.AttackSpeed);
 
         StatSystem.AddStat(StatTID.Base, StatNames.Health, data.Health);
         StatSystem.AddStat(StatTID.Base, StatNames.HealthRate, 1);
@@ -77,6 +77,7 @@ public class Monster : Character
         else
         {
             Spanwer.RefreshLevelByData(Level);
+
             UIManager.Instance.MonsterInfo.Refresh(this);
         }
 

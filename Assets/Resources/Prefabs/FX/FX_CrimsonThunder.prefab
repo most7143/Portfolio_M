@@ -128,7 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfc47c058cec4284187939429593d730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 6
+  Name: 10
+  NameString: CrimsonThunder
   SpawnType: 1
   Renderer: {fileID: 4966181810756221684}
   isRandomFlip: 0

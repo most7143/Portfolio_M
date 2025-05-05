@@ -5,15 +5,18 @@ using UnityEngine.UI;
 public class Buff : MonoBehaviour
 {
     public BuffNames Name;
+    public string NameString;
     public BuffTypes Type;
     public BuffConditions Conditions;
     public BuffConditions EndConditions;
 
     public BuffNames IgnoreBuffName;
+    public string IgnoreNameString;
 
     public Character Owner;
 
     public StatNames StatName;
+    public string StatString;
 
     [HideInInspector] public float Value;
 
@@ -24,6 +27,24 @@ public class Buff : MonoBehaviour
     public Image Icon;
 
     private Coroutine _coroutine;
+
+    private void OnValidate()
+    {
+        if (!string.IsNullOrEmpty(NameString))
+        {
+            Name = EXEnum.Parse<BuffNames>(NameString);
+        }
+
+        if (!string.IsNullOrEmpty(IgnoreNameString))
+        {
+            IgnoreBuffName = EXEnum.Parse<BuffNames>(IgnoreNameString);
+        }
+
+        if (!string.IsNullOrEmpty(StatString))
+        {
+            StatName = EXEnum.Parse<StatNames>(StatString);
+        }
+    }
 
     public void Activate()
     {
@@ -68,9 +89,11 @@ public class Buff : MonoBehaviour
 
         OnTrigger();
 
-        yield return new WaitForSeconds(AliveTime);
-
-        Deactivate();
+        if (AliveTime > 0)
+        {
+            yield return new WaitForSeconds(AliveTime);
+            Deactivate();
+        }
     }
 
     public void OnTrigger()

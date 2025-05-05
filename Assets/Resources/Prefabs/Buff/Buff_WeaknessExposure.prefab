@@ -45,11 +45,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: 1
+  NameString: WeaknessExposure
   Type: 3
   Conditions: 2
   EndConditions: 3
+  IgnoreBuffName: 0
+  IgnoreNameString: 
   Owner: {fileID: 0}
   StatName: 3
+  StatString: CriticalChance
   Value: 0
   AliveTime: 0
+  CoolDown: 0
   Icon: {fileID: 0}

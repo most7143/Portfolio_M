@@ -45,11 +45,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: 4
+  NameString: Durability
   Type: 3
   Conditions: 4
   EndConditions: 1
+  IgnoreBuffName: 0
+  IgnoreNameString: 
   Owner: {fileID: 0}
   StatName: 9
+  StatString: Armor
   Value: 0
   AliveTime: 5
   CoolDown: 0

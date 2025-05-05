@@ -9,11 +9,19 @@ public class ClassData : ScriptableObject
     public string NameText;
     public string DescritpionText;
     public string StatDescriptionText;
+    public string ProjectileDescritonText;
+    public string BuffDescritonText;
     public List<StatNames> Stats;
     public List<string> StatStirng;
     public List<float> Values;
+
     public List<ProjectileNames> Projectiles;
     public List<string> ProjectileString;
+
+    public List<BuffNames> BuffNames;
+    public List<string> BuffString;
+    public List<float> BuffAliveTimes;
+    public List<float> BuffValues;
 
 #if UNITY_EDITOR
 
@@ -39,6 +47,14 @@ public class ClassData : ScriptableObject
             for (int i = 0; i < StatStirng.Count; i++)
             {
                 Stats[i] = EXEnum.Parse<StatNames>(StatStirng[i]);
+            }
+        }
+
+        if (BuffString.Count > 0)
+        {
+            for (int i = 0; i < BuffString.Count; i++)
+            {
+                BuffNames[i] = EXEnum.Parse<BuffNames>(BuffString[i]);
             }
         }
     }

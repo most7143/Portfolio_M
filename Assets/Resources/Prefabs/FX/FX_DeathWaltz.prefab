@@ -129,6 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: 7
+  NameString: DeathWaltz
   SpawnType: 1
   Renderer: {fileID: 4966181810756221684}
   isRandomFlip: 0

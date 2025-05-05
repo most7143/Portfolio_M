@@ -37,7 +37,7 @@ public class Projectile : MonoBehaviour
 
     public void Shoot()
     {
-        Monster monster = InGameManager.Instance.Player.TargetMonster;
+        Monster monster = InGameManager.Instance.Player.Target.GetComponent<Monster>();
 
         if (monster != null)
         {

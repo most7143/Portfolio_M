@@ -4,6 +4,7 @@ using UnityEngine;
 public class FX : MonoBehaviour
 {
     public FXNames Name;
+    public string NameString;
     public FXSpawnTypes SpawnType;
     public SpriteRenderer Renderer;
 
@@ -12,6 +13,14 @@ public class FX : MonoBehaviour
     public Animator Anim;
 
     public float AliveTime;
+
+    private void OnValidate()
+    {
+        if (!string.IsNullOrEmpty(NameString))
+        {
+            Name = EXEnum.Parse<FXNames>(NameString);
+        }
+    }
 
     public void Activate()
     {

@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 1
   NameString: "\uC804\uC0AC"
-  Attack: 20
-  AttackByLevel: 10
+  Attack: 10
+  AttackByLevel: 5
   AttackSpeed: 0.3
-  Health: 200
+  Health: 100
   HealthByLevel: 50
-  Armor: 10
-  ArmorByLevel: 5
+  Armor: 4
+  ArmorByLevel: 2
   CriticalRate: 0.05
   CriticalDamage: 1
   DodgeRate: 0

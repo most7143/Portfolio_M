@@ -4,7 +4,6 @@ public class Player : Character
 {
     public Animator Animator;
     public WeaponController WeaponController;
-    public Monster TargetMonster;
     public Transform AttackPoint;
 
     public AccessorySystem AccessorySystem;
@@ -89,7 +88,17 @@ public class Player : Character
     public override void OnAttack()
     {
         base.OnAttack();
-        Animator.SetTrigger("Attack");
+
+        int rand = Random.Range(0, 2);
+
+        if (rand == 0)
+        {
+            Animator.SetTrigger("Attack1");
+        }
+        else
+        {
+            Animator.SetTrigger("Attack2");
+        }
     }
 
     public override bool Hit(ref DamageInfo info)
@@ -120,34 +129,21 @@ public class Player : Character
 
     public void SkillAttack(ref DamageInfo info)
     {
-        TargetMonster.Hit(ref info);
-
-        Vector3 position = new Vector3(TargetMonster.transform.position.x + Random.Range(0, 0.5f), TargetMonster.transform.position.y + Random.Range(0, 0.5f));
-
-        InGameManager.Instance.ObjectPool.SpawnFloaty(position, FloatyTypes.SkillDamage, info.Value.ToString());
+        Target.Hit(ref info);
     }
 
     public void AnimationAttack()
     {
-        if (TargetMonster == null)
+        if (Target == null)
         {
-            TargetMonster = InGameManager.Instance.Monster;
+            Target = InGameManager.Instance.Monster;
         }
 
-        if (TargetMonster != null)
+        if (Target != null)
         {
             DamageInfo info = CalculateDamage();
 
-            TargetMonster.Hit(ref info);
-
-            if (info.IsCritical)
-            {
-                InGameManager.Instance.ObjectPool.SpawnFloaty(TargetMonster.transform.position, FloatyTypes.CritialDamage, info.Value.ToString());
-            }
-            else
-            {
-                InGameManager.Instance.ObjectPool.SpawnFloaty(TargetMonster.transform.position, FloatyTypes.Damage, info.Value.ToString());
-            }
+            Target.Hit(ref info);
 
             EventManager<EventTypes>.Send(EventTypes.PlayerAttackExecuted, WeaponController.Name);
         }

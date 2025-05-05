@@ -57,11 +57,11 @@ public class FXManager : MonoBehaviour
 
         if (spawnType == FXSpawnTypes.Target)
         {
-            return player.TargetMonster.transform.position;
+            return player.Target.transform.position;
         }
         else if (spawnType == FXSpawnTypes.TargetRandomRange)
         {
-            return player.TargetMonster.transform.position + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(0, 0.5f));
+            return player.Target.transform.position + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(0, 0.5f));
         }
         else if (spawnType == FXSpawnTypes.Owner)
         {

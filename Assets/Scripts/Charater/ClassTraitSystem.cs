@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class ClassTraitSystem : MonoBehaviour
 {
-    public ClassNames Class;
+    public ClassNames Name;
+    public ClassNames PrevClass = ClassNames.None;
 
     public int ClassTier = 0;
 
@@ -50,12 +51,15 @@ public class ClassTraitSystem : MonoBehaviour
 
     public void OpenPopup(int level)
     {
+        if (ClassTier == 2)
+            return;
+
         UIPopupManager.Instance.Spawn(UIPopupNames.ClassTrait);
     }
 
     public void ChangeClass(ClassNames name)
     {
-        if (Class == name)
+        if (Name == name)
             return;
 
         Player player = InGameManager.Instance.Player;
@@ -63,7 +67,8 @@ public class ClassTraitSystem : MonoBehaviour
 
         if (data != null)
         {
-            Class = name;
+            PrevClass = Name;
+            Name = name;
             ClassTier++;
             if (data.Stats.Count > 0)
             {
@@ -78,6 +83,14 @@ public class ClassTraitSystem : MonoBehaviour
                 for (int i = 0; i < data.Projectiles.Count; i++)
                 {
                     player.ProjectileSystem.Register(data.Projectiles[i]);
+                }
+            }
+
+            if (data.BuffNames.Count > 0)
+            {
+                for (int i = 0; i < data.BuffNames.Count; i++)
+                {
+                    player.BuffSystem.Register(data.BuffNames[i], data.BuffAliveTimes[i], data.BuffValues[i]);
                 }
             }
 

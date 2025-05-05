@@ -17,6 +17,8 @@ public class Character : MonoBehaviour
 
     public BuffSystem BuffSystem;
 
+    public Character Target;
+
     public float CurrentHp { get; private set; }
 
     public float AttackSpeed
@@ -72,12 +74,14 @@ public class Character : MonoBehaviour
 
         StartCoroutine(ProcessHitEffect());
 
-        info.Value = CalculateHitDamage(info.Value);
+        info.Value = CalculateHitDamage(info);
 
         if (info.Owner.Name == CharacterNames.Swordman)
         {
             OnHitPlayer(info);
         }
+
+        Reflection(info);
 
         RefreshHP(-(int)info.Value);
 
@@ -88,7 +92,47 @@ public class Character : MonoBehaviour
             Dead();
         }
 
+        SpawnFloaty(info);
+
         return true;
+    }
+
+    private void Reflection(DamageInfo info)
+    {
+        float DamageReflection = StatSystem.GetStat(StatNames.DamageReflection);
+
+        if (DamageReflection > 0)
+        {
+            float reflectionValue = info.Value * DamageReflection;
+            DamageInfo reflection = new DamageInfo();
+
+            reflection.Value = reflectionValue;
+            reflection.Type = DamageTypes.Attack;
+            reflection.Owner = this;
+
+            info.Owner.Hit(ref reflection);
+        }
+    }
+
+    private void SpawnFloaty(DamageInfo info)
+    {
+        if (info.Type == DamageTypes.Attack)
+        {
+            if (info.IsCritical)
+            {
+                InGameManager.Instance.ObjectPool.SpawnFloaty(transform.position, FloatyTypes.CritialDamage, info.Value.ToString());
+            }
+            else
+            {
+                InGameManager.Instance.ObjectPool.SpawnFloaty(transform.position, FloatyTypes.Damage, info.Value.ToString());
+            }
+        }
+        else if (info.Type == DamageTypes.WeaponSkill)
+        {
+            Vector3 position = new Vector3(Target.transform.position.x + Random.Range(0, 0.5f), Target.transform.position.y + Random.Range(0, 0.5f));
+
+            InGameManager.Instance.ObjectPool.SpawnFloaty(position, FloatyTypes.SkillDamage, info.Value.ToString());
+        }
     }
 
     private void OnHitPlayer(DamageInfo info)
@@ -116,12 +160,6 @@ public class Character : MonoBehaviour
 
     public IEnumerator ProcessAttack()
     {
-        //yield return new WaitUntil(() => InGameManager.Instance.IsBattle);
-        //yield return new WaitForSeconds(1f / AttackSpeed * InGameManager.Instance.GameSpeed);
-
-        //OnAttack();
-        //StartCoroutine(ProcessAttack());
-
         yield return new WaitUntil(() => InGameManager.Instance.IsBattle);
 
         float timer = 0f;
@@ -163,6 +201,7 @@ public class Character : MonoBehaviour
         DamageInfo info = new DamageInfo();
 
         info.Owner = this;
+        info.Type = DamageTypes.Attack;
 
         info.Value = RandomDamage(Attack);
 
@@ -210,16 +249,18 @@ public class Character : MonoBehaviour
         return info;
     }
 
-    public float CalculateHitDamage(float damage)
+    public float CalculateHitDamage(DamageInfo info)
     {
         float armor = StatSystem.GetStat(StatNames.Armor);
         float armorRate = StatSystem.GetStat(StatNames.ArmorRate);
         float reduece = StatSystem.GetStat(StatNames.DamageReduction);
         float armorByLevel = StatSystem.GetStat(StatNames.ArmorByLevel);
 
-        float armorValue = armor + (armorByLevel * (Level - 1));
+        float armorValue = (armor + (armorByLevel * (Level - 1))) * armorRate;
 
-        float result = (damage - armorValue * armorRate);
+        int IgnoreValue = Mathf.RoundToInt(armorValue * (1 - info.Owner.StatSystem.GetStat(StatNames.IgnoreArmor)));
+
+        float result = info.Value - IgnoreValue;
 
         float damageMultiplier = Mathf.Clamp(2 - reduece, 0f, 1f);
         result *= damageMultiplier;
@@ -251,7 +292,9 @@ public class Character : MonoBehaviour
 
     private float GetAttackStat()
     {
-        float attack = (StatSystem.GetStat(StatNames.Attack) + (StatSystem.GetStat(StatNames.AttackByLevel) * (Level - 1)))
+        float convert = (int)(GetArmorStat() * StatSystem.GetStat(StatNames.ArmorConvertToAttack));
+
+        float attack = (StatSystem.GetStat(StatNames.Attack) + (StatSystem.GetStat(StatNames.AttackByLevel) * (Level - 1)) + convert)
              * StatSystem.GetStat(StatNames.AttackRate);
 
         return Mathf.RoundToInt(attack);

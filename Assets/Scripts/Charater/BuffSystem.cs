@@ -26,7 +26,7 @@ public class BuffSystem : MonoBehaviour
         EventManager<EventTypes>.Unregister(EventTypes.PlayerDamaged, PlayerDamaged);
     }
 
-    public void Register(BuffNames buffNames, float aliveTime, float value)
+    public void Register(BuffNames buffNames, float aliveTime = 0, float value = 0)
     {
         if (false == Buffs.ContainsKey(buffNames))
         {
@@ -36,6 +36,7 @@ public class BuffSystem : MonoBehaviour
 
             Buff buff = ResourcesManager.Instance.Load(buffNames).GetComponent<Buff>();
             buff.transform.SetParent(transform);
+            buff.transform.localPosition = Vector2.zero;
             buff.Owner = Owner;
             buff.AliveTime = aliveTime;
             buff.Value = value;

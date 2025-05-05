@@ -45,12 +45,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: 2
+  NameString: Enforcer
   Type: 0
   Conditions: 1
   EndConditions: 0
   IgnoreBuffName: 3
+  IgnoreNameString: Enforcer2
   Owner: {fileID: 0}
   StatName: 22
+  StatString: DamageRate
   Value: 0
   AliveTime: 5
   CoolDown: 0

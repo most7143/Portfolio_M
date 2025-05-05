@@ -8,8 +8,12 @@ public class UICharacterInfo : MonoBehaviour
     public TextMeshProUGUI RankText;
     public TextMeshProUGUI ClassText;
     public TextMeshProUGUI DescText;
-    public TextMeshProUGUI StatText;
 
+    public TextMeshProUGUI Class1ValueText;
+    public Image Line1;
+
+    public TextMeshProUGUI Class2ValueText;
+    public Image Line2;
     public Sprite ClassIcon;
 
     public Button StatButton;
@@ -40,7 +44,8 @@ public class UICharacterInfo : MonoBehaviour
     {
         Player player = InGameManager.Instance.Player;
         RefreshRank(player.Level);
-        RefresClassText(player.ClassTraitSystem.Class);
+
+        RefreshClass(player.ClassTraitSystem.Name);
     }
 
     public void RefreshRank(int level)
@@ -51,28 +56,75 @@ public class UICharacterInfo : MonoBehaviour
     public void RefreshClass(ClassNames name)
     {
         ClassText.SetText(name.GetClassLanguage());
-        RefresClassText(name);
+
+        ClassData classData = ResourcesManager.Instance.LoadScriptable<ClassData>(name.ToString());
+
+        RefresClassText(classData);
+
+        Player player = InGameManager.Instance.Player;
+
+        if (player.ClassTraitSystem.ClassTier == 1)
+        {
+            Line1.gameObject.SetActive(true);
+            RefreshClassValueText(classData, Class1ValueText);
+        }
+        else if (player.ClassTraitSystem.ClassTier == 2)
+        {
+            Line2.gameObject.SetActive(true);
+            RefreshClassValueText(classData, Class2ValueText);
+            classData = ResourcesManager.Instance.LoadScriptable<ClassData>(player.ClassTraitSystem.PrevClass.ToString());
+            RefreshClassValueText(classData, Class1ValueText);
+        }
     }
 
-    private void RefresClassText(ClassNames className)
+    private void RefresClassText(ClassData classData)
     {
-        ClassData classData = ResourcesManager.Instance.LoadScriptable<ClassData>(className.ToString());
+        Player player = InGameManager.Instance.Player;
 
         if (classData != null)
         {
             ClassText.SetText(classData.NameText);
-            DescText.SetText(classData.DescritpionText);
 
-            if (classData.Stats.Count == 1)
-            {
-                StatText.SetText(classData.NameText + " 효과 : " + string.Format(classData.StatDescriptionText, EXText.GetStatPercent(classData.Stats[0], classData.Values[0])));
-            }
-            else if (classData.Stats.Count == 2)
-            {
-                StatText.SetText(classData.NameText + " 효과 : " + string.Format(classData.StatDescriptionText,
-                    EXText.GetStatPercent(classData.Stats[0], classData.Values[0]), EXText.GetStatPercent(classData.Stats[1], classData.Values[1])));
-            }
+            DescText.SetText(classData.DescritpionText);
         }
+    }
+
+    private void RefreshClassValueText(ClassData classData, TextMeshProUGUI text)
+    {
+        Player player = InGameManager.Instance.Player;
+
+        string value = "";
+
+        if (classData.Stats.Count == 1)
+        {
+            value += classData.NameText + " 효과 : " + string.Format(classData.StatDescriptionText, EXText.GetStatPercent(classData.Stats[0], classData.Values[0]));
+        }
+        else if (classData.Stats.Count == 2)
+        {
+            value += classData.NameText + " 효과 : " + string.Format(classData.StatDescriptionText,
+                EXText.GetStatPercent(classData.Stats[0], classData.Values[0]), EXText.GetStatPercent(classData.Stats[1], classData.Values[1]));
+        }
+
+        if (classData.Projectiles.Count == 1)
+        {
+            value += "\n" + classData.NameText + " 효과 : " + string.Format(classData.ProjectileDescritonText, player.ProjectileSystem.GetProjectile(classData.Projectiles[0]).Chance * 100f, player.ProjectileSystem.GetProjectile(classData.Projectiles[0]).DamgeRate * 100f);
+        }
+        else if (classData.Projectiles.Count == 2)
+        {
+            value += "\n" + classData.NameText + " 효과 : " + string.Format(classData.ProjectileDescritonText, player.ProjectileSystem.GetProjectile(classData.Projectiles[0]).Chance * 100f, player.ProjectileSystem.GetProjectile(classData.Projectiles[0]).DamgeRate * 100f,
+                player.ProjectileSystem.GetProjectile(classData.Projectiles[1]).Chance * 100f, player.ProjectileSystem.GetProjectile(classData.Projectiles[1]).DamgeRate * 100f);
+        }
+
+        if (classData.BuffNames.Count == 1)
+        {
+            value += "\n" + classData.NameText + " 효과 : " + string.Format(classData.BuffDescritonText, classData.BuffValues[0]);
+        }
+        else if (classData.BuffNames.Count == 2)
+        {
+            value += "\n" + classData.NameText + " 효과 : " + string.Format(classData.BuffDescritonText, classData.BuffValues[0] * 100f, classData.BuffValues[1]);
+        }
+
+        text.SetText(value);
     }
 
     public void StatButtonClick()

@@ -45,12 +45,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: 5
+  NameString: Gale
   Type: 1
   Conditions: 5
   EndConditions: 0
   IgnoreBuffName: 0
+  IgnoreNameString: 
   Owner: {fileID: 0}
   StatName: 20
+  StatString: DoubleAttackSpeed
   Value: 0
   AliveTime: 5
   CoolDown: 12
