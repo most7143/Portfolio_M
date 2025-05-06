@@ -4,19 +4,19 @@ using UnityEngine.UI;
 
 public class Buff : MonoBehaviour
 {
+    public Character Owner;
     public BuffNames Name;
     public string NameString;
     public BuffTypes Type;
+    public ApplyTypes ApplyType = ApplyTypes.Owner;
     public BuffConditions Conditions;
     public BuffConditions EndConditions;
-
     public BuffNames IgnoreBuffName;
     public string IgnoreNameString;
-
-    public Character Owner;
-
     public StatNames StatName;
     public string StatString;
+    public ProjectileNames ProjectileName;
+    public string ProjectileNameString;
 
     [HideInInspector] public float Value;
 
@@ -43,6 +43,11 @@ public class Buff : MonoBehaviour
         if (!string.IsNullOrEmpty(StatString))
         {
             StatName = EXEnum.Parse<StatNames>(StatString);
+        }
+
+        if (!string.IsNullOrEmpty(ProjectileNameString))
+        {
+            ProjectileName = EXEnum.Parse<ProjectileNames>(ProjectileNameString);
         }
     }
 
@@ -85,6 +90,17 @@ public class Buff : MonoBehaviour
         else if (Type == BuffTypes.Stack)
         {
             Owner.StatSystem.AddStat(StatTID.BuffStack, StatName, Value);
+        }
+
+        if (ProjectileName != ProjectileNames.None)
+        {
+            Player player = Owner as Player;
+
+            if (player != null)
+            {
+                player.ProjectileSystem.Register(ProjectileName);
+                player.ProjectileSystem.Shot(ProjectileName);
+            }
         }
 
         OnTrigger();

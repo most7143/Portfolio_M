@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour
     public ProjectileNames Name;
     public string NameString;
     public ProjectileMoveTypes MoveType;
+    public FloatyPoints FloatyPoint = FloatyPoints.Owner;
     public float CurvedAngle = 45f;
     public Animator Animator;
     public bool IsLookDirection;
@@ -30,7 +31,15 @@ public class Projectile : MonoBehaviour
 
     public void Init()
     {
-        Rigid.bodyType = RigidbodyType2D.Dynamic;
+        if (MoveType == ProjectileMoveTypes.Stop)
+        {
+            Rigid.bodyType = RigidbodyType2D.Kinematic;
+        }
+        else
+        {
+            Rigid.bodyType = RigidbodyType2D.Dynamic;
+        }
+
         Collider.enabled = true;
         Shoot();
     }
@@ -96,12 +105,20 @@ public class Projectile : MonoBehaviour
     private IEnumerator ProcessHit()
     {
         yield return new WaitForSeconds(Random.Range(0f, hitDelay));
-        yield return new WaitUntil(() => InGameManager.Instance.Monster != null);
+        yield return new WaitUntil(() => Owner.Target != null);
         DamageInfo damageInfo = new();
         damageInfo.Owner = Owner;
         damageInfo.Value = Owner.Attack * DamageRate;
         InGameManager.Instance.Monster.Hit(ref damageInfo);
-        InGameManager.Instance.ObjectPool.SpawnFloaty(transform.position + new Vector3(-0.3f, -1.5f), FloatyTypes.Damage, damageInfo.Value.ToString());
+
+        if (FloatyPoint == FloatyPoints.Owner)
+        {
+            InGameManager.Instance.ObjectPool.SpawnFloaty(transform.position + new Vector3(-0.3f, -1.5f), FloatyTypes.Damage, damageInfo.Value.ToString());
+        }
+        else if (FloatyPoint == FloatyPoints.Target)
+        {
+            InGameManager.Instance.ObjectPool.SpawnFloaty(Owner.Target.transform.position + new Vector3(-0.3f, -0.5f), FloatyTypes.Damage, damageInfo.Value.ToString());
+        }
         HitAnim();
     }
 

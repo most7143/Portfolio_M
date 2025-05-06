@@ -6,7 +6,6 @@ public class ProjectileSkill : MonoBehaviour
     public ProjectileNames Name;
     public string NameString;
     public SkillConditions SkillConditions;
-
     public Vector3 SpawnOffsetPosition;
     public bool IsRandomSpawnPoint;
     public float Chance;

@@ -20,6 +20,9 @@ public class ProjectileSystem : MonoBehaviour
 
     public void Register(ProjectileNames name)
     {
+        if (_skills.ContainsKey(name))
+            return;
+
         for (int i = 0; i < Skills.Count; i++)
         {
             if (Skills[i].Name == name)
@@ -43,6 +46,14 @@ public class ProjectileSystem : MonoBehaviour
             {
                 skills[i].Shot();
             }
+        }
+    }
+
+    public void Shot(ProjectileNames name)
+    {
+        if (_skills.ContainsKey(name))
+        {
+            _skills[name].Shot();
         }
     }
 

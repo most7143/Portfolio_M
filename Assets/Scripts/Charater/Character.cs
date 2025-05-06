@@ -131,7 +131,15 @@ public class Character : MonoBehaviour
         {
             Vector3 position = new Vector3(Target.transform.position.x + Random.Range(0, 0.5f), Target.transform.position.y + Random.Range(0, 0.5f));
 
-            InGameManager.Instance.ObjectPool.SpawnFloaty(position, FloatyTypes.SkillDamage, info.Value.ToString());
+            if (info.IsCritical)
+            {
+                InGameManager.Instance.ObjectPool.SpawnFloaty(transform.position, FloatyTypes.CritialDamage, info.Value.ToString());
+                InGameManager.Instance.ObjectPool.SpawnFloaty(position, FloatyTypes.CritialSkillDamage, info.Value.ToString());
+            }
+            else
+            {
+                InGameManager.Instance.ObjectPool.SpawnFloaty(position, FloatyTypes.SkillDamage, info.Value.ToString());
+            }
         }
     }
 

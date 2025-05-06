@@ -1,5 +1,9 @@
-﻿public static class EXText
+﻿using UnityEngine;
+
+public static class EXText
 {
+    public static readonly Color lightCyan = new Color(0.5f, 1f, 1f, 1f);
+
     public static string GetGradeColor(GradeNames type, string text)
     {
         return string.Format("<style={0}>{1}</style>", type.ToString(), text);

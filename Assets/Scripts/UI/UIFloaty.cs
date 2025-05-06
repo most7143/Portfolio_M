@@ -9,12 +9,20 @@ public enum FloatyTypes
     Damage,
     CritialDamage,
     SkillDamage,
+    CritialSkillDamage,
     Success,
     Fail,
     Gold,
     Gem,
     Dodge,
     Heal,
+}
+
+public enum FloatyPoints
+{
+    None,
+    Owner,
+    Target,
 }
 
 public class UIFloaty : MonoBehaviour
@@ -50,7 +58,7 @@ public class UIFloaty : MonoBehaviour
         StartCoroutine(ProcessAlive());
         RefreshSize(type);
 
-        if (type == FloatyTypes.Damage || type == FloatyTypes.CritialDamage || type == FloatyTypes.SkillDamage || type == FloatyTypes.Dodge || type == FloatyTypes.Heal)
+        if (type == FloatyTypes.Damage || type == FloatyTypes.CritialDamage || type == FloatyTypes.CritialSkillDamage || type == FloatyTypes.SkillDamage || type == FloatyTypes.Dodge || type == FloatyTypes.Heal)
         {
             Rect.anchoredPosition = GetWorldPosition(position);
         }
@@ -91,6 +99,10 @@ public class UIFloaty : MonoBehaviour
             Text.color = Color.red;
         }
         else if (type == FloatyTypes.SkillDamage)
+        {
+            Text.color = EXText.lightCyan;
+        }
+        else if (type == FloatyTypes.CritialSkillDamage)
         {
             Text.color = Color.cyan;
         }

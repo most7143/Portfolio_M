@@ -190,6 +190,8 @@ public enum FXNames
     CrimsonThunder,
     CrimsonDoom,
     FireCut,
+
+    Paladin,
 }
 
 public enum WeaponSkillNames
@@ -327,6 +329,8 @@ public enum BuffNames
     //Class
 
     LordKnight,
+    Paladin,
+    Paladin2,
 }
 
 public enum BuffTypes
@@ -335,6 +339,14 @@ public enum BuffTypes
     Stat,
     Trigger,
     Stack,
+}
+
+public enum ApplyTypes
+{
+    None,
+    Owner,
+    Target,
+    All,
 }
 
 public enum SkillConditions
@@ -398,6 +410,7 @@ public enum ProjectileNames
     None,
     SwordMaster,
     StormTrooper,
+    Paladin,
 }
 
 public enum ProjectileMoveTypes
@@ -405,6 +418,7 @@ public enum ProjectileMoveTypes
     None,
     Linear,
     Curved,
+    Stop,
 }
 
 public enum LogTypes
