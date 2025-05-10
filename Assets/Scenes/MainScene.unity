@@ -698,6 +698,8 @@ MonoBehaviour:
   - {fileID: 411948543}
   - {fileID: 207448114}
   - {fileID: 965074578}
+  - {fileID: 1593286498}
+  - {fileID: 329685091}
 --- !u!4 &140121391
 Transform:
   m_ObjectHideFlags: 0
@@ -714,6 +716,8 @@ Transform:
   - {fileID: 411948544}
   - {fileID: 207448113}
   - {fileID: 965074579}
+  - {fileID: 1593286497}
+  - {fileID: 329685090}
   m_Father: {fileID: 322252493}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &143251086
@@ -1139,7 +1143,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4278114175041722595, guid: 88170615ac90fcf41bfa18d019c431a1, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4278114175041722595, guid: 88170615ac90fcf41bfa18d019c431a1, type: 3}
       propertyPath: m_AnchorMin.x
@@ -1147,7 +1151,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4278114175041722595, guid: 88170615ac90fcf41bfa18d019c431a1, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4278114175041722595, guid: 88170615ac90fcf41bfa18d019c431a1, type: 3}
       propertyPath: m_SizeDelta.x
@@ -1187,11 +1191,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4278114175041722595, guid: 88170615ac90fcf41bfa18d019c431a1, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 360
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4278114175041722595, guid: 88170615ac90fcf41bfa18d019c431a1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4278114175041722595, guid: 88170615ac90fcf41bfa18d019c431a1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2411,6 +2415,59 @@ RectTransform:
   m_AnchoredPosition: {x: 360, y: -654.65}
   m_SizeDelta: {x: -720, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &329685089
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 329685090}
+  - component: {fileID: 329685091}
+  m_Layer: 0
+  m_Name: RevengerAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &329685090
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329685089}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 140121391}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &329685091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329685089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a37a5b44281cf94abd5f8feb6b9c8eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Owenr: {fileID: 322252494}
+  Name: 4
+  NameString: RevengerAttack
+  SkillConditions: 1
+  SpawnOffsetPosition: {x: 2, y: 0.8, z: 0}
+  IsRandomSpawnPoint: 0
+  Chance: 0.1
+  DamgeRate: 1
+  Speed: 0
 --- !u!1 &346518167
 GameObject:
   m_ObjectHideFlags: 0
@@ -5779,7 +5836,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4278114175041722595, guid: 88170615ac90fcf41bfa18d019c431a1, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4278114175041722595, guid: 88170615ac90fcf41bfa18d019c431a1, type: 3}
       propertyPath: m_AnchorMin.x
@@ -5787,7 +5844,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4278114175041722595, guid: 88170615ac90fcf41bfa18d019c431a1, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4278114175041722595, guid: 88170615ac90fcf41bfa18d019c431a1, type: 3}
       propertyPath: m_SizeDelta.x
@@ -5827,11 +5884,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4278114175041722595, guid: 88170615ac90fcf41bfa18d019c431a1, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 360
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4278114175041722595, guid: 88170615ac90fcf41bfa18d019c431a1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -480
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4278114175041722595, guid: 88170615ac90fcf41bfa18d019c431a1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7690,8 +7747,8 @@ MonoBehaviour:
   SpeedButton: {fileID: 1495816832}
   CheatButton: {fileID: 1286972724}
   TextButton: {fileID: 626268076}
-  ClassName: 17
-  ClassName2: 15
+  ClassName: 18
+  ClassName2: 18
 --- !u!1 &1286972722
 GameObject:
   m_ObjectHideFlags: 0
@@ -7985,7 +8042,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4278114175041722595, guid: 88170615ac90fcf41bfa18d019c431a1, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4278114175041722595, guid: 88170615ac90fcf41bfa18d019c431a1, type: 3}
       propertyPath: m_AnchorMin.x
@@ -7993,7 +8050,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4278114175041722595, guid: 88170615ac90fcf41bfa18d019c431a1, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4278114175041722595, guid: 88170615ac90fcf41bfa18d019c431a1, type: 3}
       propertyPath: m_SizeDelta.x
@@ -8033,11 +8090,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4278114175041722595, guid: 88170615ac90fcf41bfa18d019c431a1, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 360
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4278114175041722595, guid: 88170615ac90fcf41bfa18d019c431a1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -290
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4278114175041722595, guid: 88170615ac90fcf41bfa18d019c431a1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -10128,6 +10185,59 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -180}
   m_SizeDelta: {x: 0, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1593286496
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1593286497}
+  - component: {fileID: 1593286498}
+  m_Layer: 0
+  m_Name: RevengerHit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1593286497
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593286496}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 140121391}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1593286498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593286496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a37a5b44281cf94abd5f8feb6b9c8eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Owenr: {fileID: 322252494}
+  Name: 5
+  NameString: RevengerHit
+  SkillConditions: 2
+  SpawnOffsetPosition: {x: 0.5, y: 0.8, z: 0}
+  IsRandomSpawnPoint: 0
+  Chance: 0.3
+  DamgeRate: 1
+  Speed: 0
 --- !u!1 &1687897840
 GameObject:
   m_ObjectHideFlags: 0

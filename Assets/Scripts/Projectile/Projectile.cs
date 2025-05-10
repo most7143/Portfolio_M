@@ -13,12 +13,13 @@ public class Projectile : MonoBehaviour
     public float CurvedAngle = 45f;
     public Animator Animator;
     public bool IsLookDirection;
+    public float HitDelay = 0.1f;
     [HideInInspector] public float DamageRate = 1;
     [HideInInspector] public float Speed = 3;
 
-    private float hitDelay = 0.1f;
-
     private Vector3 launchDirection = Vector3.right + Vector3.up;
+
+    private Coroutine _hitCoroutine;
 
     private void OnValidate()
     {
@@ -40,7 +41,6 @@ public class Projectile : MonoBehaviour
             Rigid.bodyType = RigidbodyType2D.Dynamic;
         }
 
-        Collider.enabled = true;
         Shoot();
     }
 
@@ -98,14 +98,16 @@ public class Projectile : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            StartCoroutine(ProcessHit());
+            if (_hitCoroutine == null)
+            {
+                _hitCoroutine = StartCoroutine(ProcessHit());
+            }
         }
     }
 
     private IEnumerator ProcessHit()
     {
-        yield return new WaitForSeconds(Random.Range(0f, hitDelay));
-        yield return new WaitUntil(() => Owner.Target != null);
+        yield return new WaitForSeconds(Random.Range(0f, HitDelay));
         DamageInfo damageInfo = new();
         damageInfo.Owner = Owner;
         damageInfo.Value = Owner.Attack * DamageRate;
@@ -133,5 +135,6 @@ public class Projectile : MonoBehaviour
     public void Despawn()
     {
         InGameManager.Instance.ObjectPool.ReturnProjectile(Name, this);
+        _hitCoroutine = null;
     }
 }

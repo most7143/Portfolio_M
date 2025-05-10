@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 937310280893001330}
   - component: {fileID: 3509210676611915642}
   m_Layer: 0
-  m_Name: Projectile_Paladin
+  m_Name: Projectile_RevengerAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.738, y: 1.292, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,12 +77,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
-  m_Sprite: {fileID: 2048306449, guid: a4ddf30120f432b4a8156ae340feb473, type: 3}
+  m_Sprite: {fileID: -1141262918, guid: 37becf1b7143df346939fd3d750dd317, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.56, y: 2.56}
+  m_Size: {x: 4.1, y: 1.84}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -103,14 +103,14 @@ MonoBehaviour:
   Owner: {fileID: 0}
   Rigid: {fileID: 5336589429139161377}
   Collider: {fileID: 3509210676611915642}
-  Name: 3
-  NameString: Paladin
+  Name: 4
+  NameString: RevengerAttack
   MoveType: 3
   FloatyPoint: 2
   CurvedAngle: 45
   Animator: {fileID: 937310280893001330}
   IsLookDirection: 0
-  HitDelay: 0.1
+  HitDelay: 0
   DamageRate: 1
   Speed: 10
 --- !u!50 &5336589429139161377
@@ -150,7 +150,7 @@ Animator:
   m_GameObject: {fileID: 5725895076043744743}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d669e08220a6dd94f8316517f4fbe255, type: 2}
+  m_Controller: {fileID: 9100000, guid: e0f34d6d9565a134e9f200aa4784ce1e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -168,7 +168,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5725895076043744743}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -197,8 +197,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.56, y: 2.56}
-    newSize: {x: 2.56, y: 2.56}
+    oldSize: {x: 4.1, y: 1.84}
+    newSize: {x: 4.1, y: 1.84}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

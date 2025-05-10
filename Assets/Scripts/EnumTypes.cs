@@ -411,6 +411,8 @@ public enum ProjectileNames
     SwordMaster,
     StormTrooper,
     Paladin,
+    RevengerAttack,
+    RevengerHit,
 }
 
 public enum ProjectileMoveTypes
