@@ -15,6 +15,8 @@ public class Monster : Character
         Level = data.Level;
         MaxLevel = data.MaxLevel;
 
+        StatSystem.Clear();
+
         StatSystem.AddStat(StatTID.Base, StatNames.Attack, data.Attack);
         StatSystem.AddStat(StatTID.Base, StatNames.AttackRate, 1);
         StatSystem.AddStat(StatTID.Base, StatNames.AttackByLevel, data.AttackByLevel);
@@ -72,14 +74,12 @@ public class Monster : Character
 
         if (Level > MaxLevel)
         {
-            InGameManager.Instance.MonsterSpanwer.Respawn(Level);
+            InGameManager.Instance.MonsterSpanwer.ChangeMonsterSkin(Level);
         }
-        else
-        {
-            Spanwer.RefreshLevelByData(Level);
 
-            UIManager.Instance.MonsterInfo.Refresh(this);
-        }
+        Spanwer.RefreshLevelByData(Level);
+
+        UIManager.Instance.MonsterInfo.Refresh(this);
 
         DropCurrency();
 

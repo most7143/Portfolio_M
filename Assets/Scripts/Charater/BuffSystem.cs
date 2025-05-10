@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.WSA;
 
 public class BuffSystem : MonoBehaviour
 {
@@ -31,7 +30,7 @@ public class BuffSystem : MonoBehaviour
         if (false == Buffs.ContainsKey(buffNames))
         {
 #if UNITY_EDITOR
-            LogManager.LogInfo(LogTypes.Buff, string.Format("[{0}] 가 등록됩니다.", buffNames.ToString()));
+            LogManager.LogInfo(LogTypes.Buff, string.Format("{0} , [{1}] 가 등록됩니다.", Owner.Name, buffNames.ToString()));
 #endif
 
             Buff buff = ResourcesManager.Instance.Load(buffNames).GetComponent<Buff>();
@@ -50,6 +49,10 @@ public class BuffSystem : MonoBehaviour
             {
                 buff.Activate();
             }
+        }
+        else
+        {
+            Buffs[buffNames].Activate();
         }
     }
 

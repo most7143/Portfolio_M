@@ -24,10 +24,14 @@ MonoBehaviour:
   Values: []
   Projectiles: 
   ProjectileString: []
-  BuffNames: 08000000
+  BuffNames: 0800000009000000
   BuffString:
   - Paladin
+  - Paladin2
+  Targets: 0100000002000000
   BuffAliveTimes:
+  - 0
   - 0
   BuffValues:
   - 1
+  - -0.3

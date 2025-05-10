@@ -31,6 +31,7 @@ MonoBehaviour:
   BuffNames: 07000000
   BuffString:
   - LordKnight
+  Targets: 01000000
   BuffAliveTimes:
   - 0
   BuffValues:

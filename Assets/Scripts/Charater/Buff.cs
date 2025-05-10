@@ -8,7 +8,6 @@ public class Buff : MonoBehaviour
     public BuffNames Name;
     public string NameString;
     public BuffTypes Type;
-    public ApplyTypes ApplyType = ApplyTypes.Owner;
     public BuffConditions Conditions;
     public BuffConditions EndConditions;
     public BuffNames IgnoreBuffName;

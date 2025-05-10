@@ -27,6 +27,11 @@ public class StatSystem : MonoBehaviour
         }
     }
 
+    public void Clear()
+    {
+        _stats.Clear();
+    }
+
     public float GetStat(StatNames name)
     {
         if (_stats.ContainsKey(name))

@@ -50,46 +50,27 @@ public class MonsterSpanwer : MonoBehaviour
 
     public void Spawn(CharacterNames chareacterName)
     {
-        GameObject monster = ResourcesManager.Instance.Load(chareacterName);
+        SpawnMonster.Target = InGameManager.Instance.Player;
 
-        if (monster != null)
-        {
-            SpawnMonster = monster.GetComponent<Monster>();
+        SpawnMonster.Name = chareacterName;
+        SpawnMonster.Renderer.sprite = ResourcesManager.Instance.LoadSprite(chareacterName.ToString() + "_Idle");
 
-            SpawnMonster.Spanwer = this;
+        InGameManager.Instance.Player.Target = SpawnMonster;
 
-            SpawnMonster.Target = InGameManager.Instance.Player;
+        SpawnMonster.SetData(GetData(chareacterName));
 
-            InGameManager.Instance.Player.Target = SpawnMonster;
+        SpawnMonster.IsAlive = true;
 
-            SpawnMonster.SetData(GetData(chareacterName));
+        UIManager.Instance.MonsterInfo.Refresh(SpawnMonster);
 
-            SpawnMonster.transform.SetParent(SpawnPoint);
-            SpawnMonster.transform.localPosition = Vector3.zero;
+        SpawnMonster.StartAttack();
 
-            SpawnMonster.IsAlive = true;
-
-            UIManager.Instance.MonsterInfo.Refresh(SpawnMonster);
-
-            SpawnMonster.StartAttack();
-
-            EventManager<EventTypes>.Send(EventTypes.MonsterSpawnd);
-        }
+        EventManager<EventTypes>.Send(EventTypes.MonsterSpawnd);
     }
 
-    public void Respawn(int level)
+    public void ChangeMonsterSkin(int level)
     {
-        Deswpawn();
-
         Spawn(GetNextMonster(level));
-    }
-
-    public void Deswpawn()
-    {
-        if (SpawnMonster != null)
-        {
-            Destroy(SpawnMonster.gameObject);
-        }
     }
 
     private void InitDatas()

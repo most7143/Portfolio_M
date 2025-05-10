@@ -90,7 +90,17 @@ public class ClassTraitSystem : MonoBehaviour
             {
                 for (int i = 0; i < data.BuffNames.Count; i++)
                 {
-                    player.BuffSystem.Register(data.BuffNames[i], data.BuffAliveTimes[i], data.BuffValues[i]);
+                    if (data.Targets[i] == CharacterTypes.Player)
+                    {
+                        player.BuffSystem.Register(data.BuffNames[i], data.BuffAliveTimes[i], data.BuffValues[i]);
+                    }
+                    else if (data.Targets[i] == CharacterTypes.Monster)
+                    {
+                        if (player.Target != null)
+                        {
+                            player.Target.BuffSystem.Register(data.BuffNames[i], data.BuffAliveTimes[i], data.BuffValues[i]);
+                        }
+                    }
                 }
             }
 

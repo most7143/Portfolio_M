@@ -20,6 +20,7 @@ public class ClassData : ScriptableObject
 
     public List<BuffNames> BuffNames;
     public List<string> BuffString;
+    public List<CharacterTypes> Targets;
     public List<float> BuffAliveTimes;
     public List<float> BuffValues;
 
