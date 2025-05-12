@@ -326,6 +326,8 @@ public class Character : MonoBehaviour
     public void Heal(int value)
     {
         InGameManager.Instance.ObjectPool.SpawnFloaty(transform.position, FloatyTypes.Heal, RefreshHP(value).ToString());
+
+        EventManager<EventTypes>.Send(EventTypes.UsingHeal);
     }
 
     public float GetCurrentMaxHP()

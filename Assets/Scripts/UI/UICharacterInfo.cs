@@ -93,35 +93,35 @@ public class UICharacterInfo : MonoBehaviour
     {
         Player player = InGameManager.Instance.Player;
 
-        string value = "";
+        string value = "[" + classData.NameText + "]" + "\n";
 
         if (classData.Stats.Count == 1)
         {
-            value += classData.NameText + " 효과 : " + string.Format(classData.StatDescriptionText, EXText.GetStatPercent(classData.Stats[0], classData.Values[0]));
+            value += string.Format(classData.StatDescriptionText, EXText.GetStatPercent(classData.Stats[0], classData.Values[0])) + "\n";
         }
         else if (classData.Stats.Count == 2)
         {
-            value += classData.NameText + " 효과 : " + string.Format(classData.StatDescriptionText,
-                EXText.GetStatPercent(classData.Stats[0], classData.Values[0]), EXText.GetStatPercent(classData.Stats[1], classData.Values[1]));
+            value += string.Format(classData.StatDescriptionText,
+                EXText.GetStatPercent(classData.Stats[0], classData.Values[0]), EXText.GetStatPercent(classData.Stats[1], classData.Values[1])) + "\n";
         }
 
         if (classData.Projectiles.Count == 1)
         {
-            value += "\n" + classData.NameText + " 효과 : " + string.Format(classData.ProjectileDescritonText, player.ProjectileSystem.GetProjectile(classData.Projectiles[0]).Chance * 100f, player.ProjectileSystem.GetProjectile(classData.Projectiles[0]).DamgeRate * 100f);
+            value += string.Format(classData.ProjectileDescritonText, player.ProjectileSystem.GetProjectile(classData.Projectiles[0]).Chance * 100f, player.ProjectileSystem.GetProjectile(classData.Projectiles[0]).DamgeRate * 100f) + "\n";
         }
         else if (classData.Projectiles.Count == 2)
         {
-            value += "\n" + classData.NameText + " 효과 : " + string.Format(classData.ProjectileDescritonText, player.ProjectileSystem.GetProjectile(classData.Projectiles[0]).Chance * 100f, player.ProjectileSystem.GetProjectile(classData.Projectiles[0]).DamgeRate * 100f,
-                player.ProjectileSystem.GetProjectile(classData.Projectiles[1]).Chance * 100f, player.ProjectileSystem.GetProjectile(classData.Projectiles[1]).DamgeRate * 100f);
+            value += string.Format(classData.ProjectileDescritonText, player.ProjectileSystem.GetProjectile(classData.Projectiles[0]).Chance * 100f, player.ProjectileSystem.GetProjectile(classData.Projectiles[0]).DamgeRate * 100f,
+                player.ProjectileSystem.GetProjectile(classData.Projectiles[1]).Chance * 100f, player.ProjectileSystem.GetProjectile(classData.Projectiles[1]).DamgeRate * 100f) + "\n";
         }
 
         if (classData.BuffNames.Count == 1)
         {
-            value += "\n" + classData.NameText + " 효과 : " + string.Format(classData.BuffDescritonText, classData.BuffValues[0]);
+            value += string.Format(classData.BuffDescritonText, classData.BuffValues[0] * 100f);
         }
         else if (classData.BuffNames.Count == 2)
         {
-            value += "\n" + classData.NameText + " 효과 : " + string.Format(classData.BuffDescritonText, classData.BuffValues[0] * 100f, classData.BuffValues[1]);
+            value += string.Format(classData.BuffDescritonText, classData.BuffValues[0] * 100f, classData.BuffValues[1]);
         }
 
         text.SetText(value);

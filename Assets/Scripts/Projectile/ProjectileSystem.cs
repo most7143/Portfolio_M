@@ -12,12 +12,14 @@ public class ProjectileSystem : MonoBehaviour
     {
         EventManager<EventTypes>.Register<WeaponNames>(EventTypes.PlayerAttackExecuted, ActivateToAttack);
         EventManager<EventTypes>.Register(EventTypes.PlayerDamaged, ActivateToDamaged);
+        EventManager<EventTypes>.Register(EventTypes.UsingHeal, ActivateToHeal);
     }
 
     private void OnDisable()
     {
         EventManager<EventTypes>.Unregister<WeaponNames>(EventTypes.PlayerAttackExecuted, ActivateToAttack);
         EventManager<EventTypes>.Unregister(EventTypes.PlayerDamaged, ActivateToDamaged);
+        EventManager<EventTypes>.Unregister(EventTypes.UsingHeal, ActivateToHeal);
     }
 
     public void Register(ProjectileNames name)
@@ -61,6 +63,22 @@ public class ProjectileSystem : MonoBehaviour
         for (int i = 0; i < skills.Length; i++)
         {
             if (skills[i].SkillConditions == SkillConditions.Demaged)
+            {
+                skills[i].Shot();
+            }
+        }
+    }
+
+    public void ActivateToHeal()
+    {
+        if (_skills.Count == 0)
+            return;
+
+        ProjectileSkill[] skills = _skills.Values.ToArray();
+
+        for (int i = 0; i < skills.Length; i++)
+        {
+            if (skills[i].SkillConditions == SkillConditions.Heal)
             {
                 skills[i].Shot();
             }

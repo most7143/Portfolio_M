@@ -10,10 +10,13 @@ public class Projectile : MonoBehaviour
     public string NameString;
     public ProjectileMoveTypes MoveType;
     public FloatyPoints FloatyPoint = FloatyPoints.Owner;
-    public float CurvedAngle = 45f;
+    public Vector3 FloatyPointOffset = new Vector3(-0.3f, -1.5f);
+
+    [HideInInspector] public float CurvedAngle = 45f;
     public Animator Animator;
     public bool IsLookDirection;
     public float HitDelay = 0.1f;
+    public float MultipleHit = 0;
     [HideInInspector] public float DamageRate = 1;
     [HideInInspector] public float Speed = 3;
 
@@ -108,6 +111,25 @@ public class Projectile : MonoBehaviour
     private IEnumerator ProcessHit()
     {
         yield return new WaitForSeconds(Random.Range(0f, HitDelay));
+
+        if (MultipleHit > 0)
+        {
+            while (true)
+            {
+                Damaged();
+                yield return new WaitForSeconds(MultipleHit);
+            }
+        }
+        else
+        {
+            Damaged();
+        }
+
+        HitAnim();
+    }
+
+    private void Damaged()
+    {
         DamageInfo damageInfo = new();
         damageInfo.Owner = Owner;
         damageInfo.Value = Owner.Attack * DamageRate;
@@ -115,13 +137,12 @@ public class Projectile : MonoBehaviour
 
         if (FloatyPoint == FloatyPoints.Owner)
         {
-            InGameManager.Instance.ObjectPool.SpawnFloaty(transform.position + new Vector3(-0.3f, -1.5f), FloatyTypes.Damage, damageInfo.Value.ToString());
+            InGameManager.Instance.ObjectPool.SpawnFloaty(transform.position + FloatyPointOffset, FloatyTypes.Damage, damageInfo.Value.ToString());
         }
         else if (FloatyPoint == FloatyPoints.Target)
         {
-            InGameManager.Instance.ObjectPool.SpawnFloaty(Owner.Target.transform.position + new Vector3(-0.3f, -0.5f), FloatyTypes.Damage, damageInfo.Value.ToString());
+            InGameManager.Instance.ObjectPool.SpawnFloaty(Owner.Target.transform.position + FloatyPointOffset, FloatyTypes.Damage, damageInfo.Value.ToString());
         }
-        HitAnim();
     }
 
     private void HitAnim()
@@ -135,6 +156,7 @@ public class Projectile : MonoBehaviour
     public void Despawn()
     {
         InGameManager.Instance.ObjectPool.ReturnProjectile(Name, this);
+        StopAllCoroutines();
         _hitCoroutine = null;
     }
 }

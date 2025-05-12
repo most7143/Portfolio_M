@@ -92,13 +92,11 @@ public class InGameManager : MonoBehaviour
 
     public void ContinueBattle()
     {
-        GameSpeed = _originGameSpeed;
+        Time.timeScale = 1;
     }
 
     public void PauseBattle()
     {
-        _originGameSpeed = GameSpeed;
-
-        GameSpeed = 0;
+        Time.timeScale = 0;
     }
 }

@@ -331,6 +331,7 @@ public enum BuffNames
     LordKnight,
     Paladin,
     Paladin2,
+    ArchDruid,
 }
 
 public enum BuffTypes
@@ -339,6 +340,7 @@ public enum BuffTypes
     Stat,
     Trigger,
     Stack,
+    Heal,
 }
 
 public enum ApplyTypes
@@ -357,6 +359,7 @@ public enum SkillConditions
     Killed,
     Dead,
     AddedGold,
+    Heal,
 }
 
 public enum BuffConditions
@@ -378,6 +381,7 @@ public enum EventTypes
     PlayerDamaged, // 플레이어 피해입음
     EquipedWeapon, // 장비 장착
     AttackSkill, // 무기 스킬 발동
+    UsingHeal, // 힐 발동
     LevelUp, // 플레이어 레벨업
     RefreshPlayerHP, // 플레이어 HP 변화
     RefreshPlayerStst, // 플레이어 스텟 변화
@@ -413,6 +417,7 @@ public enum ProjectileNames
     Paladin,
     RevengerAttack,
     RevengerHit,
+    ArchDruid,
 }
 
 public enum ProjectileMoveTypes

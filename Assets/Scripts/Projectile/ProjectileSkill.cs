@@ -6,11 +6,14 @@ public class ProjectileSkill : MonoBehaviour
     public ProjectileNames Name;
     public string NameString;
     public SkillConditions SkillConditions;
+    public int CondisionCount = 1;
     public Vector3 SpawnOffsetPosition;
     public bool IsRandomSpawnPoint;
     public float Chance;
     public float DamgeRate;
     public float Speed;
+
+    private int currnetCount = 0;
 
     private void OnValidate()
     {
@@ -23,6 +26,17 @@ public class ProjectileSkill : MonoBehaviour
 
     public void Shot()
     {
+        currnetCount++;
+
+        if (currnetCount != CondisionCount)
+        {
+            return;
+        }
+        else
+        {
+            currnetCount = 0;
+        }
+
         float rand = Random.Range(0, 1f);
 
         if (rand <= Chance)

@@ -700,6 +700,7 @@ MonoBehaviour:
   - {fileID: 965074578}
   - {fileID: 1593286498}
   - {fileID: 329685091}
+  - {fileID: 1032841197}
 --- !u!4 &140121391
 Transform:
   m_ObjectHideFlags: 0
@@ -718,6 +719,7 @@ Transform:
   - {fileID: 965074579}
   - {fileID: 1593286497}
   - {fileID: 329685090}
+  - {fileID: 1032841198}
   m_Father: {fileID: 322252493}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &143251086
@@ -1633,6 +1635,7 @@ MonoBehaviour:
   Name: 1
   NameString: SwordMaster
   SkillConditions: 1
+  CondisionCount: 1
   SpawnOffsetPosition: {x: 0, y: 2, z: 0}
   IsRandomSpawnPoint: 1
   Chance: 0.5
@@ -2463,6 +2466,7 @@ MonoBehaviour:
   Name: 4
   NameString: RevengerAttack
   SkillConditions: 1
+  CondisionCount: 1
   SpawnOffsetPosition: {x: 2, y: 0.8, z: 0}
   IsRandomSpawnPoint: 0
   Chance: 0.1
@@ -3164,6 +3168,7 @@ MonoBehaviour:
   Name: 2
   NameString: StormTrooper
   SkillConditions: 1
+  CondisionCount: 1
   SpawnOffsetPosition: {x: 0, y: 1, z: 0}
   IsRandomSpawnPoint: 0
   Chance: 0.5
@@ -5948,6 +5953,7 @@ MonoBehaviour:
   Name: 3
   NameString: Paladin
   SkillConditions: 0
+  CondisionCount: 1
   SpawnOffsetPosition: {x: 0, y: 0.5, z: 0}
   IsRandomSpawnPoint: 0
   Chance: 1
@@ -6155,6 +6161,60 @@ MonoBehaviour:
   Condition: 1
   Chance: 0.4
   ValueMultiply: 2
+--- !u!1 &1032841196
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1032841198}
+  - component: {fileID: 1032841197}
+  m_Layer: 0
+  m_Name: ArchDruid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1032841197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032841196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a37a5b44281cf94abd5f8feb6b9c8eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Owenr: {fileID: 322252494}
+  Name: 6
+  NameString: ArchDruid
+  SkillConditions: 6
+  CondisionCount: 3
+  SpawnOffsetPosition: {x: 2.6, y: 0.6, z: 0}
+  IsRandomSpawnPoint: 0
+  Chance: 1
+  DamgeRate: 3
+  Speed: 0
+--- !u!4 &1032841198
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032841196}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 140121391}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1083997502
 GameObject:
   m_ObjectHideFlags: 0
@@ -7747,8 +7807,8 @@ MonoBehaviour:
   SpeedButton: {fileID: 1495816832}
   CheatButton: {fileID: 1286972724}
   TextButton: {fileID: 626268076}
-  ClassName: 18
-  ClassName2: 18
+  ClassName: 19
+  ClassName2: 10
 --- !u!1 &1286972722
 GameObject:
   m_ObjectHideFlags: 0
@@ -9178,7 +9238,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -10233,6 +10293,7 @@ MonoBehaviour:
   Name: 5
   NameString: RevengerHit
   SkillConditions: 2
+  CondisionCount: 1
   SpawnOffsetPosition: {x: 0.5, y: 0.8, z: 0}
   IsRandomSpawnPoint: 0
   Chance: 0.3

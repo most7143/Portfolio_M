@@ -16,6 +16,7 @@ public class Buff : MonoBehaviour
     public string StatString;
     public ProjectileNames ProjectileName;
     public string ProjectileNameString;
+    public Animator Anim;
 
     [HideInInspector] public float Value;
 
@@ -89,6 +90,10 @@ public class Buff : MonoBehaviour
         else if (Type == BuffTypes.Stack)
         {
             Owner.StatSystem.AddStat(StatTID.BuffStack, StatName, Value);
+        }
+        else if (Type == BuffTypes.Heal)
+        {
+            Owner.Heal(Mathf.RoundToInt(Owner.MaxHP * Value));
         }
 
         if (ProjectileName != ProjectileNames.None)
