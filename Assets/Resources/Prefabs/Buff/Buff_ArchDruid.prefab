@@ -49,7 +49,9 @@ MonoBehaviour:
   Name: 10
   NameString: ArchDruid
   Type: 4
-  Conditions: 5
+  MaxStack: 1
+  Conditions: 0
+  ConditionValue: 0
   EndConditions: 0
   IgnoreBuffName: 0
   IgnoreNameString: 
@@ -58,9 +60,12 @@ MonoBehaviour:
   ProjectileName: 0
   ProjectileNameString: 
   Anim: {fileID: 0}
+  CoolDown: 3
+  CooldownToBuff: 10
+  CooldownToBuffNameString: ArchDruid
+  IsCooldown: 0
   Value: 0
   AliveTime: 5
-  CoolDown: 3
   Icon: {fileID: 0}
 --- !u!1 &3966560192833015971
 GameObject:

@@ -44,17 +44,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f184bda1928914f9d4217841cb7679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Owner: {fileID: 0}
   Name: 5
   NameString: Gale
   Type: 1
-  Conditions: 5
+  MaxStack: 1
+  Conditions: 0
+  ConditionValue: 0
   EndConditions: 0
   IgnoreBuffName: 0
   IgnoreNameString: 
-  Owner: {fileID: 0}
   StatName: 20
   StatString: DoubleAttackSpeed
+  ProjectileName: 0
+  ProjectileNameString: 
+  Anim: {fileID: 0}
+  CoolDown: 12
+  CooldownToBuff: 5
+  CooldownToBuffNameString: Gale
+  IsCooldown: 0
   Value: 0
   AliveTime: 5
-  CoolDown: 12
   Icon: {fileID: 0}

@@ -137,9 +137,9 @@ public class ObjectPooling : MonoBehaviour
     public void ReturnProjectile(ProjectileNames name, Projectile proj)
     {
         if (Projectiles.ContainsKey(name))
-            Projectiles[name] = new Queue<Projectile>();
-
-        proj.gameObject.SetActive(false);
-        Projectiles[name].Enqueue(proj);
+        {
+            Projectiles[name].Enqueue(proj);
+            proj.gameObject.SetActive(false);
+        }
     }
 }

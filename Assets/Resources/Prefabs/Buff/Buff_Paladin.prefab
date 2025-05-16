@@ -133,7 +133,9 @@ MonoBehaviour:
   Name: 8
   NameString: Paladin
   Type: 0
-  Conditions: 5
+  MaxStack: 1
+  Conditions: 0
+  ConditionValue: 0
   EndConditions: 0
   IgnoreBuffName: 0
   IgnoreNameString: 
@@ -141,7 +143,11 @@ MonoBehaviour:
   StatString: 
   ProjectileName: 3
   ProjectileNameString: Paladin
+  Anim: {fileID: 0}
+  CoolDown: 3
+  CooldownToBuff: 8
+  CooldownToBuffNameString: Paladin
+  IsCooldown: 0
   Value: 0
   AliveTime: 5
-  CoolDown: 3
   Icon: {fileID: 0}

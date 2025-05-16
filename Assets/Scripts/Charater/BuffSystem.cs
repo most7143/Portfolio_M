@@ -7,7 +7,6 @@ public class BuffSystem : MonoBehaviour
 {
     public Character Owner;
     public Dictionary<BuffNames, Buff> Buffs = new();
-    public Dictionary<BuffNames, Coroutine> CooldownSkills = new();
 
     private void OnEnable()
     {
@@ -41,18 +40,18 @@ public class BuffSystem : MonoBehaviour
             buff.Value = value;
             Buffs.Add(buffNames, buff);
 
-            if (buff.Conditions == BuffConditions.CoolDown)
+            if (buff.Conditions == BuffConditions.DecreaseHealth)
             {
-                RegisterCoolDownSkills(buffNames);
+                Deactivate(buffNames);
             }
-            else if (buff.Conditions == BuffConditions.None)
+            else
             {
-                buff.Activate();
+                Activate(buffNames);
             }
         }
         else
         {
-            Buffs[buffNames].Activate();
+            Activate(buffNames);
         }
     }
 
@@ -76,15 +75,14 @@ public class BuffSystem : MonoBehaviour
         {
             for (int i = 0; i < buffs.Length; i++)
             {
-                if (buffs[i].Conditions == BuffConditions.MonsterSpawnd)
-                {
-                    buffs[i].gameObject.SetActive(true);
-                    buffs[i].Activate();
-                }
-
                 if (buffs[i].EndConditions == BuffConditions.MonsterSpawnd)
                 {
                     Deactivate(buffs[i].Name);
+                }
+
+                if (buffs[i].Conditions == BuffConditions.MonsterSpawnd)
+                {
+                    Activate(buffs[i].Name);
                 }
             }
         }
@@ -101,15 +99,14 @@ public class BuffSystem : MonoBehaviour
                 if (false == Buffs.ContainsKey(buffs[i].Name))
                     continue;
 
-                if (buffs[i].Conditions == BuffConditions.PlayerAttackToNoCritical)
-                {
-                    buffs[i].gameObject.SetActive(true);
-                    buffs[i].Activate();
-                }
-
                 if (buffs[i].EndConditions == BuffConditions.PlayerAttackToNoCritical)
                 {
                     Deactivate(buffs[i].Name);
+                }
+
+                if (buffs[i].Conditions == BuffConditions.PlayerAttackToNoCritical)
+                {
+                    Activate(buffs[i].Name);
                 }
             }
         }
@@ -123,15 +120,14 @@ public class BuffSystem : MonoBehaviour
         {
             for (int i = 0; i < buffs.Length; i++)
             {
-                if (buffs[i].Conditions == BuffConditions.PlayerAttackToCritical)
-                {
-                    buffs[i].gameObject.SetActive(true);
-                    buffs[i].Activate();
-                }
-
                 if (buffs[i].EndConditions == BuffConditions.PlayerAttackToCritical)
                 {
                     Deactivate(buffs[i].Name);
+                }
+
+                if (buffs[i].Conditions == BuffConditions.PlayerAttackToCritical)
+                {
+                    Activate(buffs[i].Name);
                 }
             }
         }
@@ -145,34 +141,53 @@ public class BuffSystem : MonoBehaviour
         {
             for (int i = 0; i < buffs.Length; i++)
             {
-                if (buffs[i].Conditions == BuffConditions.PlayerDamaged)
-                {
-                    buffs[i].gameObject.SetActive(true);
-                    buffs[i].Activate();
-                }
-
                 if (buffs[i].EndConditions == BuffConditions.PlayerDamaged)
                 {
                     Deactivate(buffs[i].Name);
+                }
+
+                if (buffs[i].Conditions == BuffConditions.PlayerDamaged)
+                {
+                    Activate(buffs[i].Name);
+                }
+                else if (buffs[i].Conditions == BuffConditions.DecreaseHealth)
+                {
+                    if (Owner.CurrentHp / Owner.MaxHP <= buffs[i].ConditionValue)
+                    {
+                        Activate(buffs[i].Name);
+                    }
                 }
             }
         }
     }
 
-    public void Deactivate(BuffNames buffNames)
+    public void Activate(BuffNames buffName)
     {
-        if (Buffs[buffNames].Type == BuffTypes.Stat)
+        if (Buffs[buffName].IsCooldown)
+            return;
+
+        if (Buffs[buffName].IgnoreBuffName != BuffNames.None)
         {
-            Owner.StatSystem.RemoveStat(StatTID.Buff, Buffs[buffNames].StatName);
-        }
-        else if (Buffs[buffNames].Type == BuffTypes.Stack)
-        {
-            Owner.StatSystem.RemoveStat(StatTID.BuffStack, Buffs[buffNames].StatName);
+            Buff ignoreBuff = GetBuff(buffName);
+
+            if (ignoreBuff != null)
+                return;
         }
 
-        Buffs[buffNames].OffTrigger();
+        if (Buffs[buffName].TryMaxStack())
+        {
+            return;
+        }
 
-        Buffs[buffNames].gameObject.SetActive(false);
+        Buffs[buffName].gameObject.SetActive(true);
+
+        Buffs[buffName].Activate();
+    }
+
+    public void Deactivate(BuffNames buffName)
+    {
+        Buffs[buffName].gameObject.SetActive(false);
+        Buffs[buffName].Deactivate();
     }
 
     public void RegisterCoolDownSkills(BuffNames buffNames)
@@ -180,18 +195,18 @@ public class BuffSystem : MonoBehaviour
         if (Buffs.ContainsKey(buffNames))
         {
             Coroutine coroutine = StartCoroutine(ProcessCoolodwn(buffNames, Buffs[buffNames].CoolDown));
-
-            CooldownSkills.Add(buffNames, coroutine);
         }
     }
 
     private IEnumerator ProcessCoolodwn(BuffNames buffNames, float Cooldown)
     {
-        while (true)
+        Buffs[buffNames].IsCooldown = true;
+        yield return new WaitForSeconds(Cooldown);
+        Buffs[buffNames].IsCooldown = false;
+
+        if (Buffs[buffNames].CooldownToBuff != BuffNames.None)
         {
-            Buffs[buffNames].gameObject.SetActive(true);
-            Buffs[buffNames].Activate();
-            yield return new WaitForSeconds(Cooldown);
+            Activate(buffNames);
         }
     }
 }

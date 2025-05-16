@@ -14,12 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 21
   NameString: StormTrooper
-  NameText: "\uC2A4\uD1B0\uD22C\uB974\uD37C"
-  DescritpionText: "\uC2A4\uD1B0\uD22C\uB974\uD37C"
-  StatDescriptionText: "\u3141\u3141\u3141\u3141\u3141\u3141"
+  NameText: "\uC2A4\uD1B0\uD2B8\uB8E8\uD37C"
+  DescritpionText: "\uD3ED\uD48D\uCC98\uB7FC \uBAB0\uC544\uCE58\uB294 \uD3EC\uACA9
+    \uC804\uBB38\uAC00"
+  StatDescriptionText: 
+  ProjectileDescritonText: "\uACF5\uACA9\uC2DC {0}% \uD655\uB960\uB85C {1}% \uD53C\uD574\uB97C
+    \uC8FC\uB294 \uD3EC\uD0C4 \uBC1C\uC0AC <br>\uACF5\uACA9\uC2DC {2}% \uD655\uB960\uB85C
+    {3}% \uD53C\uD574\uB97C \uC8FC\uB294 \uB300\uD3EC\uD0C4 \uBC1C\uC0AC "
+  BuffDescritonText: 
   Stats: 
   StatStirng: []
   Values: []
-  Projectiles: 02000000
+  Projectiles: 0200000003000000
   ProjectileString:
   - StormTrooper
+  - StormTrooperBig
+  BuffNames: 
+  BuffString: []
+  Targets: 
+  BuffAliveTimes: []
+  BuffValues: []

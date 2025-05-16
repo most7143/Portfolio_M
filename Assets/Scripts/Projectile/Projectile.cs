@@ -44,6 +44,7 @@ public class Projectile : MonoBehaviour
             Rigid.bodyType = RigidbodyType2D.Dynamic;
         }
 
+        Collider.enabled = true;
         Shoot();
     }
 

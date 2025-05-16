@@ -44,17 +44,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f184bda1928914f9d4217841cb7679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Owner: {fileID: 0}
   Name: 6
   NameString: CursedTome
   Type: 1
-  Conditions: 0
+  MaxStack: 1
+  Conditions: 1
+  ConditionValue: 0
   EndConditions: 0
+  EndConditionToBuff: 0
+  EndConditionToBuffNameString: 
   IgnoreBuffName: 0
   IgnoreNameString: 
-  Owner: {fileID: 0}
   StatName: 19
   StatString: LimitHealth
+  ProjectileName: 0
+  ProjectileNameString: 
+  Anim: {fileID: 0}
   Value: 0
   AliveTime: 0
   CoolDown: 0
+  IsCooldown: 0
   Icon: {fileID: 0}

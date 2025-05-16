@@ -251,6 +251,8 @@ public enum StatNames
     DamageReflection,
     ArmorConvertToAttack,
     IgnoreArmor,
+
+    Invincibility,
 }
 
 public enum PassiveSkillNames
@@ -332,6 +334,8 @@ public enum BuffNames
     Paladin,
     Paladin2,
     ArchDruid,
+    TimeTravelerBuff,
+    TimeTravelerDebuff,
 }
 
 public enum BuffTypes
@@ -369,7 +373,7 @@ public enum BuffConditions
     PlayerAttackToNoCritical,
     PlayerAttackToCritical,
     PlayerDamaged,
-    CoolDown,
+    DecreaseHealth,
 }
 
 public enum EventTypes
@@ -414,6 +418,7 @@ public enum ProjectileNames
     None,
     SwordMaster,
     StormTrooper,
+    StormTrooperBig,
     Paladin,
     RevengerAttack,
     RevengerHit,

@@ -14,6 +14,7 @@ public class UIPlayerInfo : MonoBehaviour
     public UIPassiveSkillInfo UIPassiveSkillInfo;
 
     public Image HPbar;
+    public Image ReduceHPBar;
     public TextMeshProUGUI HPText;
 
     public Image ExpBar;
@@ -43,11 +44,13 @@ public class UIPlayerInfo : MonoBehaviour
     private void OnEnable()
     {
         EventManager<EventTypes>.Register(EventTypes.RefreshPlayerHP, RefreshHp);
+        EventManager<EventTypes>.Register<StatNames>(EventTypes.RefreshPlayerStst, RefreshStat);
     }
 
     private void OnDisable()
     {
         EventManager<EventTypes>.Unregister(EventTypes.RefreshPlayerHP, RefreshHp);
+        EventManager<EventTypes>.Unregister<StatNames>(EventTypes.RefreshPlayerStst, RefreshStat);
     }
 
     public void RefreshHp()
@@ -55,6 +58,24 @@ public class UIPlayerInfo : MonoBehaviour
         Player player = InGameManager.Instance.Player;
 
         UIHandler.UpdateGauge(HPbar, player.MaxHP, player.CurrentHp, HPText);
+        UIHandler.UpdateGauge(ReduceHPBar, player.MaxHP, player.CurrentHp, HPText);
+    }
+
+    public void RefreshStat(StatNames name)
+    {
+        if (name == StatNames.Invincibility)
+        {
+            Player player = InGameManager.Instance.Player;
+
+            if (player.StatSystem.GetStat(StatNames.Invincibility) == 1)
+            {
+                ReduceHPBar.gameObject.SetActive(true);
+            }
+            else
+            {
+                ReduceHPBar.gameObject.SetActive(false);
+            }
+        }
     }
 
     public void RefreshExp()

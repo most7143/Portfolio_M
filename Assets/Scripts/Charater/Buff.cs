@@ -8,8 +8,11 @@ public class Buff : MonoBehaviour
     public BuffNames Name;
     public string NameString;
     public BuffTypes Type;
+    public int MaxStack = 1;
     public BuffConditions Conditions;
+    public float ConditionValue;
     public BuffConditions EndConditions;
+
     public BuffNames IgnoreBuffName;
     public string IgnoreNameString;
     public StatNames StatName;
@@ -18,15 +21,20 @@ public class Buff : MonoBehaviour
     public string ProjectileNameString;
     public Animator Anim;
 
+    public float CoolDown;
+    public BuffNames CooldownToBuff;
+    public string CooldownToBuffNameString;
+
+    public bool IsCooldown;
+
     [HideInInspector] public float Value;
 
     [HideInInspector] public float AliveTime;
 
-    public float CoolDown;
-
     public Image Icon;
 
     private Coroutine _coroutine;
+    private int _currentStack;
 
     private void OnValidate()
     {
@@ -49,16 +57,23 @@ public class Buff : MonoBehaviour
         {
             ProjectileName = EXEnum.Parse<ProjectileNames>(ProjectileNameString);
         }
+
+        if (!string.IsNullOrEmpty(CooldownToBuffNameString))
+        {
+            CooldownToBuff = EXEnum.Parse<BuffNames>(CooldownToBuffNameString);
+        }
     }
 
     public void Activate()
     {
-        Buff ignoreBuff = Owner.BuffSystem.GetBuff(IgnoreBuffName);
-
-        if (ignoreBuff != null)
+        if (CoolDown > 0)
         {
-            Owner.BuffSystem.Deactivate(Name);
-            return;
+            Owner.BuffSystem.RegisterCoolDownSkills(Name);
+        }
+
+        if (Type == BuffTypes.Stack)
+        {
+            _currentStack++;
         }
 
         if (_coroutine != null)
@@ -69,11 +84,27 @@ public class Buff : MonoBehaviour
         _coroutine = StartCoroutine(ProcessActivate());
     }
 
+    public bool TryMaxStack()
+    {
+        return _currentStack >= MaxStack;
+    }
+
     public void Deactivate()
     {
+        _currentStack = 0;
+
         if (Owner != null)
         {
-            Owner.BuffSystem.Deactivate(Name);
+            if (Type == BuffTypes.Stat)
+            {
+                Owner.StatSystem.RemoveStat(StatTID.Buff, StatName);
+            }
+            else if (Type == BuffTypes.Stack)
+            {
+                Owner.StatSystem.RemoveStat(StatTID.BuffStack, StatName);
+            }
+
+            OffTrigger();
         }
     }
 
@@ -112,7 +143,7 @@ public class Buff : MonoBehaviour
         if (AliveTime > 0)
         {
             yield return new WaitForSeconds(AliveTime);
-            Deactivate();
+            Owner.BuffSystem.Deactivate(Name);
         }
     }
 
@@ -120,7 +151,7 @@ public class Buff : MonoBehaviour
     {
         if (Name == BuffNames.Enforcer || Name == BuffNames.Enforcer2)
         {
-            Owner.StatSystem.IsInvincibility = true;
+            Owner.StatSystem.AddStat(StatTID.PassiveSkill, StatNames.Invincibility, 1);
         }
     }
 
@@ -128,7 +159,7 @@ public class Buff : MonoBehaviour
     {
         if (Name == BuffNames.Enforcer || Name == BuffNames.Enforcer2)
         {
-            Owner.StatSystem.IsInvincibility = false;
+            Owner.StatSystem.RemoveStat(StatTID.PassiveSkill, StatNames.Invincibility);
         }
     }
 }

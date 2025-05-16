@@ -17,10 +17,10 @@ MonoBehaviour:
   NameText: "\uCD08\uB85D \uC2AC\uB77C\uC784"
   Level: 1
   MaxLevel: 10
-  Attack: 10
-  AttackByLevel: 5
+  Attack: 5
+  AttackByLevel: 3
   Health: 50
   HealthByLevel: 20
   Armor: 2
   ArmorByLevel: 1
-  AttackSpeed: 0.5
+  AttackSpeed: 1

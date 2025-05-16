@@ -52,7 +52,7 @@ public class Character : MonoBehaviour
 
     public virtual bool Hit(ref DamageInfo info)
     {
-        if (StatSystem.IsInvincibility)
+        if (StatSystem.GetStat(StatNames.Invincibility) == 1)
         {
             return false;
         }
