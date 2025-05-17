@@ -63,9 +63,12 @@ public class Character : MonoBehaviour
 
             if (Name == CharacterNames.Swordman)
             {
-                if (UIManager.Instance.PlayerInfo.UIPassiveSkillInfo.IsMaxSkillLevel(PassiveSkillNames.OmniDirectionalMobility))
+                if (info.Type == DamageTypes.Attack || info.Type == DamageTypes.WeaponSkill)
                 {
-                    InGameManager.Instance.Controller.AddCurrency(CurrencyTypes.Gold, InGameManager.Instance.MonsterSpanwer.Gold);
+                    if (UIManager.Instance.PlayerInfo.UIPassiveSkillInfo.IsMaxSkillLevel(PassiveSkillNames.OmniDirectionalMobility))
+                    {
+                        InGameManager.Instance.Controller.AddCurrency(CurrencyTypes.Gold, InGameManager.Instance.MonsterSpanwer.Gold);
+                    }
                 }
             }
 
@@ -79,6 +82,13 @@ public class Character : MonoBehaviour
         if (info.Owner.Name == CharacterNames.Swordman)
         {
             OnHitPlayer(info);
+
+            float rand = Random.Range(0, 1f);
+
+            if (rand <= info.Owner.StatSystem.GetStat(StatNames.AttackToAddGoldChance))
+            {
+                InGameManager.Instance.Controller.AddCurrency(CurrencyTypes.Gold, InGameManager.Instance.MonsterSpanwer.Gold);
+            }
         }
 
         Reflection(info);

@@ -175,8 +175,8 @@ public static class EXText
             case ClassNames.Phantom:
                 return "팬텀";
 
-            case ClassNames.TradeMaster:
-                return "상단주";
+            case ClassNames.GoldMaker:
+                return "골드메이커";
 
             case ClassNames.MasterCraftsman:
                 return "명장";

@@ -106,15 +106,17 @@ MonoBehaviour:
   Name: 2
   NameString: StormTrooper
   MoveType: 2
+  CurveDuration: 0.8
+  IsRandFlipCurve: 0
   FloatyPoint: 1
   FloatyPointOffset: {x: -0.3, y: -1.5, z: 0}
-  CurvedAngle: 45
   Animator: {fileID: 769194433993917791}
   IsLookDirection: 0
   HitDelay: 0.2
   MultipleHit: 0
   DamageRate: 1
   Speed: 10
+  arcHeight: 1
 --- !u!50 &1638616742567578450
 Rigidbody2D:
   serializedVersion: 4

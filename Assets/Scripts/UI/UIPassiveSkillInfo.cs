@@ -13,7 +13,7 @@ public class UIPassiveSkillInfo : MonoBehaviour
     {
         EventManager<EventTypes>.Register(EventTypes.SkillLevelUp, Refresh);
         EventManager<EventTypes>.Register(EventTypes.MonsterDead, MonsterDead);
-        EventManager<EventTypes>.Register(EventTypes.AddCurrency, AddCurrecy);
+        EventManager<EventTypes>.Register<CurrencyTypes>(EventTypes.AddCurrency, AddCurrecy);
         EventManager<EventTypes>.Register(EventTypes.MonsterSpawnd, MonsterSpawnd);
     }
 
@@ -21,7 +21,7 @@ public class UIPassiveSkillInfo : MonoBehaviour
     {
         EventManager<EventTypes>.Unregister(EventTypes.SkillLevelUp, Refresh);
         EventManager<EventTypes>.Unregister(EventTypes.MonsterDead, MonsterDead);
-        EventManager<EventTypes>.Unregister(EventTypes.AddCurrency, AddCurrecy);
+        EventManager<EventTypes>.Unregister<CurrencyTypes>(EventTypes.AddCurrency, AddCurrecy);
         EventManager<EventTypes>.Unregister(EventTypes.MonsterSpawnd, MonsterSpawnd);
     }
 
@@ -106,7 +106,7 @@ public class UIPassiveSkillInfo : MonoBehaviour
         }
     }
 
-    public void AddCurrecy()
+    public void AddCurrecy(CurrencyTypes type = CurrencyTypes.None)
     {
         if (IsMaxSkillLevel(PassiveSkillNames.TreasureHunter))
         {

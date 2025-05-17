@@ -10,13 +10,13 @@ public class UIShopInfo : MonoBehaviour
 
     private void OnEnable()
     {
-        EventManager<EventTypes>.Register(EventTypes.AddCurrency, Refresh);
+        EventManager<EventTypes>.Register<CurrencyTypes>(EventTypes.AddCurrency, Refresh);
         EventManager<EventTypes>.Register(EventTypes.RefreshAccessory, RefreshAcc);
     }
 
     private void OnDisable()
     {
-        EventManager<EventTypes>.Unregister(EventTypes.AddCurrency, Refresh);
+        EventManager<EventTypes>.Unregister<CurrencyTypes>(EventTypes.AddCurrency, Refresh);
         EventManager<EventTypes>.Unregister(EventTypes.RefreshAccessory, RefreshAcc);
     }
 
@@ -49,7 +49,7 @@ public class UIShopInfo : MonoBehaviour
         RefreshAcc();
     }
 
-    public void Refresh()
+    public void Refresh(CurrencyTypes type = CurrencyTypes.None)
     {
         for (int i = 0; i < Pockets.Count; i++)
         {

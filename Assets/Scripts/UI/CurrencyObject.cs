@@ -80,7 +80,7 @@ public class CurrencyObject : MonoBehaviour
             UIManager.Instance.PlayerInfo.RefreshCurrency(CurrencyTypes.Gem, InGameManager.Instance.Controller.Data.Gem);
         }
 
-        EventManager<EventTypes>.Send(EventTypes.AddCurrency);
+        EventManager<EventTypes>.Send(EventTypes.AddCurrency, Type);
 
         gameObject.SetActive(false);
     }

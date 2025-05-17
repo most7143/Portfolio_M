@@ -13,6 +13,7 @@ public class ProjectileSystem : MonoBehaviour
         EventManager<EventTypes>.Register<WeaponNames>(EventTypes.PlayerAttackExecuted, ActivateToAttack);
         EventManager<EventTypes>.Register(EventTypes.PlayerDamaged, ActivateToDamaged);
         EventManager<EventTypes>.Register(EventTypes.UsingHeal, ActivateToHeal);
+        EventManager<EventTypes>.Register<CurrencyTypes>(EventTypes.AddCurrency, ActivateToAddedGold);
     }
 
     private void OnDisable()
@@ -20,6 +21,7 @@ public class ProjectileSystem : MonoBehaviour
         EventManager<EventTypes>.Unregister<WeaponNames>(EventTypes.PlayerAttackExecuted, ActivateToAttack);
         EventManager<EventTypes>.Unregister(EventTypes.PlayerDamaged, ActivateToDamaged);
         EventManager<EventTypes>.Unregister(EventTypes.UsingHeal, ActivateToHeal);
+        EventManager<EventTypes>.Unregister<CurrencyTypes>(EventTypes.AddCurrency, ActivateToAddedGold);
     }
 
     public void Register(ProjectileNames name)
@@ -81,6 +83,25 @@ public class ProjectileSystem : MonoBehaviour
             if (skills[i].SkillConditions == SkillConditions.Heal)
             {
                 skills[i].Shot();
+            }
+        }
+    }
+
+    public void ActivateToAddedGold(CurrencyTypes type)
+    {
+        if (type == CurrencyTypes.Gold)
+        {
+            if (_skills.Count == 0)
+                return;
+
+            ProjectileSkill[] skills = _skills.Values.ToArray();
+
+            for (int i = 0; i < skills.Length; i++)
+            {
+                if (skills[i].SkillConditions == SkillConditions.AddedGold)
+                {
+                    skills[i].Shot();
+                }
             }
         }
     }

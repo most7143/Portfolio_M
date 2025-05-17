@@ -9,16 +9,21 @@ public class Projectile : MonoBehaviour
     public ProjectileNames Name;
     public string NameString;
     public ProjectileMoveTypes MoveType;
+    public float CurveDuration = 1f;
+    public bool IsRandFlipCurve;
+
     public FloatyPoints FloatyPoint = FloatyPoints.Owner;
     public Vector3 FloatyPointOffset = new Vector3(-0.3f, -1.5f);
-
-    [HideInInspector] public float CurvedAngle = 45f;
     public Animator Animator;
     public bool IsLookDirection;
     public float HitDelay = 0.1f;
     public float MultipleHit = 0;
     [HideInInspector] public float DamageRate = 1;
     [HideInInspector] public float Speed = 3;
+
+    [SerializeField] private float arcHeight = 1.0f;
+
+    private bool _isHit;
 
     private Vector3 launchDirection = Vector3.right + Vector3.up;
 
@@ -45,6 +50,7 @@ public class Projectile : MonoBehaviour
         }
 
         Collider.enabled = true;
+        _isHit = false;
         Shoot();
     }
 
@@ -56,14 +62,7 @@ public class Projectile : MonoBehaviour
         {
             if (MoveType == ProjectileMoveTypes.Curved)
             {
-                Vector3 velocity = CalculateLaunchVelocity(transform.position, monster.transform.position, Random.Range(CurvedAngle - 2, CurvedAngle + 2));
-                Rigid.velocity = velocity;
-                Rigid.gravityScale = 1;
-
-                if (IsLookDirection)
-                {
-                    transform.right = velocity.normalized;
-                }
+                StartCoroutine(ParabolaSlerpMovement(transform.position, monster.transform.position, CurveDuration));
             }
             else if (MoveType == ProjectileMoveTypes.Linear)
             {
@@ -79,23 +78,39 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    private Vector3 CalculateLaunchVelocity(Vector3 start, Vector3 end, float angle)
+    private IEnumerator ParabolaSlerpMovement(Vector3 start, Vector3 end, float time)
     {
-        float gravity = Physics.gravity.y * -1;
-        float radAngle = angle * Mathf.Deg2Rad;
+        float timer = 0f;
+        float distance = Vector2.Distance(start, end);
+        float arc = distance * 0.2f; // 거리의 20%만큼만 높이로 사용
 
-        Vector3 horizontal = new Vector3(end.x - start.x, 0, end.z - start.z);
-        float distance = horizontal.magnitude;
-        float heightDifference = end.y - start.y;
+        float direction = 1f;
+        if (IsRandFlipCurve)
+        {
+            int rand = Random.Range(0, 2);
 
-        float v2 = (gravity * distance * distance) / (2 * (heightDifference - Mathf.Tan(radAngle) * distance) * Mathf.Pow(Mathf.Cos(radAngle), 2));
-        float speed = Mathf.Sqrt(Mathf.Abs(v2));  // 속도 크기
+            if (rand > 0)
+            {
+                direction *= -1;
+            }
+        }
 
-        Vector3 direction = horizontal.normalized;
-        Vector3 velocity = direction * speed * Mathf.Cos(radAngle);
-        velocity.y = speed * Mathf.Sin(radAngle);
+        while (timer < time)
+        {
+            if (_isHit)
+                break;
 
-        return velocity;
+            float t = timer / time;
+            Vector2 flat = Vector2.Lerp(start, end, t);
+            float height = 4 * arc * t * (1 - t) * direction;
+            flat.y += height;
+
+            transform.position = new Vector3(flat.x, flat.y, transform.position.z);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.position = new Vector3(end.x, end.y, transform.position.z);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -131,6 +146,8 @@ public class Projectile : MonoBehaviour
 
     private void Damaged()
     {
+        _isHit = true;
+
         DamageInfo damageInfo = new();
         damageInfo.Owner = Owner;
         damageInfo.Value = Owner.Attack * DamageRate;

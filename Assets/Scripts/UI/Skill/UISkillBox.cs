@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -36,12 +37,14 @@ public class UISkillBox : MonoBehaviour
     private void OnEnable()
     {
         EventManager<EventTypes>.Register(EventTypes.SkillLevelUp, Refresh);
+        EventManager<EventTypes>.Register<ClassNames>(EventTypes.ChangeClass, RefreshChangeClass);
         EventManager<EventTypes>.Register<int>(EventTypes.LevelUp, Unlock);
     }
 
     private void OnDisable()
     {
         EventManager<EventTypes>.Unregister(EventTypes.SkillLevelUp, Refresh);
+        EventManager<EventTypes>.Unregister<ClassNames>(EventTypes.ChangeClass, RefreshChangeClass);
         EventManager<EventTypes>.Unregister<int>(EventTypes.LevelUp, Unlock);
     }
 
@@ -106,6 +109,11 @@ public class UISkillBox : MonoBehaviour
         }
     }
 
+    public void RefreshChangeClass(ClassNames name)
+    {
+        Refresh();
+    }
+
     public void Refresh()
     {
         LevelText.SetText(Level + "/" + Data.MaxLevel);
@@ -150,7 +158,17 @@ public class UISkillBox : MonoBehaviour
         }
         else
         {
-            _chance = Data.LearnChance - (Level * Data.LearnChanceByLevel);
+            float addChance = 1 + InGameManager.Instance.Player.StatSystem.GetStat(StatNames.PassiveSkillLearnChance);
+
+            _chance = (Data.LearnChance - (Level * Data.LearnChanceByLevel)) * addChance;
+
+            _chance = (float)Math.Round(_chance, 2, MidpointRounding.AwayFromZero);
+
+            if (_chance >= 1f)
+            {
+                _chance = 1;
+            }
+
             ChanceText.SetText(_chance * 100f + "%");
         }
     }
@@ -162,7 +180,7 @@ public class UISkillBox : MonoBehaviour
 
         if (InGameManager.Instance.Controller.TryUsingCurrency(CurrencyTypes.Gold, (int)Data.Cost))
         {
-            float rand = Random.Range(0, 1f);
+            float rand = UnityEngine.Random.Range(0, 1f);
 
             if (_chance >= rand)
             {

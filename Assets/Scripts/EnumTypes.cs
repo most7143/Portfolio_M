@@ -76,13 +76,13 @@ public enum ClassNames
     Revenger, // 리벤저(분노)
     ArchDruid, // 아크드루이드(야성)
 
-    TimeTraveler, // 타임 트래블러(신속)
-    StormTrooper, // 스톰 트루퍼(정밀)
+    TimeTraveler, // 타임트래블러(신속)
+    StormTrooper, // 스톰트루퍼(정밀)
     ShadowDancer, // 섀도우댄서(암살)
     Necromancer, // 네크로맨서(어둠)
 
     Phantom, // 팬텀(행운)
-    TradeMaster,// 상단주(감각)
+    GoldMaker,// 골드메이커(감각)
     MasterCraftsman, // 명장(장인)
     Arcana,// 아르카나(운)
 }
@@ -252,6 +252,11 @@ public enum StatNames
     ArmorConvertToAttack,
     IgnoreArmor,
 
+    AttackToAddGoldChance,
+    PassiveSkillLearnChance,
+    AccOptionRerollFreeGem,
+    DoubleWaeponStat,
+    FailToWeaponChance,
     Invincibility,
 }
 
@@ -423,6 +428,7 @@ public enum ProjectileNames
     RevengerAttack,
     RevengerHit,
     ArchDruid,
+    GoldMaker,
 }
 
 public enum ProjectileMoveTypes

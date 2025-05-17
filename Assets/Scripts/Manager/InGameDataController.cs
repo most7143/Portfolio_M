@@ -41,7 +41,7 @@ public class InGameDataController : MonoBehaviour
             InGameManager.Instance.ObjectPool.SpawnFloaty(GoldPoint.position, FloatyTypes.Gem, "+" + value);
         }
 
-        EventManager<EventTypes>.Send(EventTypes.AddCurrency);
+        EventManager<EventTypes>.Send(EventTypes.AddCurrency, type);
     }
 
     public void UseCurrency(CurrencyTypes type, int value)
@@ -56,7 +56,7 @@ public class InGameDataController : MonoBehaviour
             Data.Gem -= value;
             UIManager.Instance.PlayerInfo.RefreshCurrency(CurrencyTypes.Gem, Data.Gem);
         }
-        EventManager<EventTypes>.Send(EventTypes.UseCurrency);
+        EventManager<EventTypes>.Send(EventTypes.UseCurrency, type);
     }
 
     public bool TryUsingCurrency(CurrencyTypes type, int value)
