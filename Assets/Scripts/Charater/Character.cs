@@ -303,7 +303,7 @@ public class Character : MonoBehaviour
     private float GetMaxHealthStat()
     {
         float maxHp = (StatSystem.GetStat(StatNames.Health) + (StatSystem.GetStat(StatNames.HealthByLevel) * (Level - 1)))
-            * StatSystem.GetStat(StatNames.HealthRate);
+            * (StatSystem.GetStat(StatNames.HealthRate) + StatSystem.GetStat(StatNames.AllStats));
 
         return Mathf.RoundToInt(maxHp);
     }
@@ -313,7 +313,7 @@ public class Character : MonoBehaviour
         float convert = (int)(GetArmorStat() * StatSystem.GetStat(StatNames.ArmorConvertToAttack));
 
         float attack = (StatSystem.GetStat(StatNames.Attack) + (StatSystem.GetStat(StatNames.AttackByLevel) * (Level - 1)) + convert)
-             * StatSystem.GetStat(StatNames.AttackRate);
+             * (StatSystem.GetStat(StatNames.AttackRate) + StatSystem.GetStat(StatNames.AllStats));
 
         return Mathf.RoundToInt(attack);
     }
@@ -321,7 +321,7 @@ public class Character : MonoBehaviour
     private float GetArmorStat()
     {
         float armor = (StatSystem.GetStat(StatNames.Armor) + (StatSystem.GetStat(StatNames.ArmorByLevel) * (Level - 1)))
-             * StatSystem.GetStat(StatNames.ArmorRate);
+             * (StatSystem.GetStat(StatNames.ArmorRate) + StatSystem.GetStat(StatNames.AllStats));
 
         return Mathf.RoundToInt(armor);
     }

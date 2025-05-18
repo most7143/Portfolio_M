@@ -92,7 +92,7 @@ public class InGameManager : MonoBehaviour
 
     public void ContinueBattle()
     {
-        Time.timeScale = 1;
+        Time.timeScale = GameSpeed;
     }
 
     public void PauseBattle()

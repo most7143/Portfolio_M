@@ -55,7 +55,7 @@ MonoBehaviour:
   EndConditions: 0
   IgnoreBuffName: 0
   IgnoreNameString: 
-  StatName: 29
+  StatName: 34
   StatString: Invincibility
   ProjectileName: 0
   ProjectileNameString: 
@@ -64,6 +64,7 @@ MonoBehaviour:
   CooldownToBuff: 0
   CooldownToBuffNameString: 
   IsCooldown: 0
+  IgnoreRegisterActivate: 1
   Value: 0
   AliveTime: 5
   Icon: {fileID: 0}

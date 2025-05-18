@@ -1497,7 +1497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8a66d15a324d6c4f8a991cfa455c977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 0
+  Name: 1
   PrevClass: 0
   ClassTier: 0
   MaxLevel: 30
@@ -4207,6 +4207,17 @@ MonoBehaviour:
   UpgradeGoldText: {fileID: 2073389183}
   IconImage: {fileID: 447522164}
   UIPoint: {fileID: 152094434}
+  _percentChances:
+  - 0.95
+  - 0.9
+  - 0.85
+  - 0.8
+  - 0.7
+  - 0.6
+  - 0.5
+  - 0.4
+  - 0.3
+  - 0.15
 --- !u!225 &619528782
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -7866,7 +7877,7 @@ MonoBehaviour:
   SpeedButton: {fileID: 1495816832}
   CheatButton: {fileID: 1286972724}
   TextButton: {fileID: 626268076}
-  ClassName: 24
+  ClassName: 23
   ClassName2: 10
 --- !u!1 &1286972722
 GameObject:
@@ -9960,7 +9971,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 8
   m_TargetDisplay: 0
 --- !u!224 &1528899056
 RectTransform:

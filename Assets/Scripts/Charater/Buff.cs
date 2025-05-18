@@ -25,7 +25,8 @@ public class Buff : MonoBehaviour
     public BuffNames CooldownToBuff;
     public string CooldownToBuffNameString;
 
-    public bool IsCooldown;
+    [Header("Boolean")] public bool IsCooldown;
+    public bool IgnoreRegisterActivate;
 
     [HideInInspector] public float Value;
 
@@ -35,6 +36,8 @@ public class Buff : MonoBehaviour
 
     private Coroutine _coroutine;
     private int _currentStack;
+
+    private int _currentConditionsValue = 0;
 
     private void OnValidate()
     {
@@ -66,6 +69,8 @@ public class Buff : MonoBehaviour
 
     public void Activate()
     {
+        _currentConditionsValue = 0;
+
         if (CoolDown > 0)
         {
             Owner.BuffSystem.RegisterCoolDownSkills(Name);
@@ -82,6 +87,16 @@ public class Buff : MonoBehaviour
         }
 
         _coroutine = StartCoroutine(ProcessActivate());
+    }
+
+    public bool TryConditionValue()
+    {
+        if (ConditionValue <= 1)
+            return true;
+
+        _currentConditionsValue++;
+
+        return _currentConditionsValue >= ConditionValue;
     }
 
     public bool TryMaxStack()

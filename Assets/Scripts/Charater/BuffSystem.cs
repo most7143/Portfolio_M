@@ -40,7 +40,7 @@ public class BuffSystem : MonoBehaviour
             buff.Value = value;
             Buffs.Add(buffNames, buff);
 
-            if (buff.Conditions == BuffConditions.DecreaseHealth)
+            if (buff.IgnoreRegisterActivate)
             {
                 Deactivate(buffNames);
             }
@@ -175,6 +175,11 @@ public class BuffSystem : MonoBehaviour
         }
 
         if (Buffs[buffName].TryMaxStack())
+        {
+            return;
+        }
+
+        if (false == Buffs[buffName].TryConditionValue())
         {
             return;
         }

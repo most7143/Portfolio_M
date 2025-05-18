@@ -17,20 +17,20 @@ public class GameSpeedButton : MonoBehaviour
     {
         switch (InGameManager.Instance.GameSpeed)
         {
-            case 1:
+            case 1f:
                 {
-                    InGameManager.Instance.GameSpeed = 2f;
+                    InGameManager.Instance.GameSpeed = 1.5f;
                 }
                 break;
 
-            case 2:
+            case 1.5f:
                 {
                     InGameManager.Instance.GameSpeed = 1f;
                 }
                 break;
         }
 
-        EventManager<EventTypes>.Send(EventTypes.RefreshAttackSpeed);
+        Time.timeScale = InGameManager.Instance.GameSpeed;
 
         Text.SetText("X" + InGameManager.Instance.GameSpeed);
     }

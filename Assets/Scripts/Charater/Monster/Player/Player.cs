@@ -67,7 +67,7 @@ public class Player : Character
 
     private void ResfreshAttackStat()
     {
-        Animator.SetFloat("AttackSpeed", AttackSpeed * InGameManager.Instance.GameSpeed);
+        Animator.SetFloat("AttackSpeed", AttackSpeed);
     }
 
     public void RefreshWeaponInfo()
@@ -82,7 +82,7 @@ public class Player : Character
         StatSystem.AddStat(StatTID.Weapon, StatNames.Attack, WeaponController.Info.Damage);
         StatSystem.AddStat(StatTID.Weapon, StatNames.AttackSpeed, WeaponController.Info.Speed);
 
-        Animator.SetFloat("AttackSpeed", AttackSpeed * 2 * InGameManager.Instance.GameSpeed);
+        Animator.SetFloat("AttackSpeed", AttackSpeed * 2);
     }
 
     public override void OnAttack()

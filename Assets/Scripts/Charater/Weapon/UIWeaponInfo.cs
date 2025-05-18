@@ -18,8 +18,9 @@ public class UIWeaponInfo : MonoBehaviour
 
     public RectTransform UIPoint;
 
-    private int currentSucPercent;
-    private int baseSucPercent = 95;
+    private float currentSucPercent = 0.95f;
+
+    public float[] _percentChances = { 0.95f, 0.90f, 0.85f, 0.8f, 0.7f, 0.6f, 0.5f, 0.4f, 0.3f, 0.15f };
 
     public Player Player
     {
@@ -33,7 +34,6 @@ public class UIWeaponInfo : MonoBehaviour
 
     public void Activate()
     {
-        currentSucPercent = baseSucPercent;
         RefreshPercentText();
         RefreshCostColor();
         RefreshUpgradeCostText(1);
@@ -119,7 +119,7 @@ public class UIWeaponInfo : MonoBehaviour
 
     private bool TryUpgrade(WeaponInfo weaponInfoupgradeCost)
     {
-        int range = Random.Range(0, 100);
+        float range = Random.Range(0, 1f);
 
         return range < currentSucPercent;
     }
@@ -131,20 +131,17 @@ public class UIWeaponInfo : MonoBehaviour
 
     private void SetPecent(int level)
     {
-        int percent = baseSucPercent - (4 * (level / 5));
+        int onesDigit = level % 10;
 
-        if (percent < 4)
-        {
-            percent = 4;
-        }
+        if (level <= 0)
+            onesDigit = 0;
 
-        currentSucPercent = percent;
+        currentSucPercent = _percentChances[onesDigit];
     }
 
     private void RefreshPercentText()
     {
-        PercentText.SetText("¼º°ø È®·ü : " + currentSucPercent.ToString() + "% \n"
-            + "½ÇÆÐ È®·ü : " + (100 - currentSucPercent).ToString() + "%");
+        PercentText.SetText("¼º°ø È®·ü : " + currentSucPercent * 100f + "%");
     }
 
     public void RefreshCostColor()

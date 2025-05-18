@@ -258,6 +258,7 @@ public enum StatNames
     DoubleWaeponStat,
     FailToWeaponChance,
     Invincibility,
+    AllStats,
 }
 
 public enum PassiveSkillNames
@@ -341,6 +342,7 @@ public enum BuffNames
     ArchDruid,
     TimeTravelerBuff,
     TimeTravelerDebuff,
+    Necromancer,
 }
 
 public enum BuffTypes

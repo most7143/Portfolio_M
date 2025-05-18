@@ -11,7 +11,6 @@ public class UIPopup : MonoBehaviour
         if (IsStopBattle)
         {
             InGameManager.Instance.PauseBattle();
-            EventManager<EventTypes>.Send(EventTypes.RefreshAttackSpeed);
         }
     }
 
@@ -20,7 +19,6 @@ public class UIPopup : MonoBehaviour
         if (IsStopBattle)
         {
             InGameManager.Instance.ContinueBattle();
-            EventManager<EventTypes>.Send(EventTypes.RefreshAttackSpeed);
         }
     }
 }
