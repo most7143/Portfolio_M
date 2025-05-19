@@ -2172,7 +2172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ea4c648b584824d9bbcba972db067b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 1
 --- !u!1 &326375040
 GameObject:
   m_ObjectHideFlags: 0
@@ -7877,7 +7876,7 @@ MonoBehaviour:
   SpeedButton: {fileID: 1495816832}
   CheatButton: {fileID: 1286972724}
   TextButton: {fileID: 626268076}
-  ClassName: 23
+  ClassName: 26
   ClassName2: 10
 --- !u!1 &1286972722
 GameObject:

@@ -28,7 +28,7 @@ public class WeaponData : ScriptableObject
             Name = EXEnum.Parse<WeaponNames>(NameString);
         }
 
-        // AssetUtility.RenameAsset(this, Name.ToString());
+        AssetUtility.RenameAsset(this, Name.ToString());
 
         if (SkillNameString.Count > 0)
         {

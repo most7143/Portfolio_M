@@ -255,7 +255,7 @@ public enum StatNames
     AttackToAddGoldChance,
     PassiveSkillLearnChance,
     AccOptionRerollFreeGem,
-    DoubleWaeponStat,
+    AddedWaeponStat,
     FailToWeaponChance,
     Invincibility,
     AllStats,

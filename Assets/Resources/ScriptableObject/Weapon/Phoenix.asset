@@ -27,6 +27,6 @@ MonoBehaviour:
   LevelByBonus: 12
   Speed: 2.6
   Damage: 1
-  CriticalRate: 0.65
-  CriticalDamage: 2.5
+  CriticalRate: 0.22
+  CriticalDamage: 3.3
   Icon: {fileID: 1008709038, guid: 6eb16e372762d6b4cb708c44ebfab931, type: 3}

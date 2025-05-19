@@ -10,7 +10,6 @@ public struct WeaponInfo
     public string DescText;
     public int Tier;
     public int Level;
-    public int LevelByBonus;
     public float Speed;
     public float Damage;
     public float CriticalRate;
@@ -20,7 +19,9 @@ public struct WeaponInfo
 
 public class WeaponController : MonoBehaviour
 {
-    public WeaponNames Name = WeaponNames.WoodenSword;
+    public WeaponNames Name
+    { get { return Info.Name; } }
+
     public WeaponInfo Info;
 
     private WeaponData currentData;
@@ -52,25 +53,30 @@ public class WeaponController : MonoBehaviour
             }
         }
 
-        if (currentData != null)
-        {
-            Info.Tier = currentData.Tier;
-            Info.Name = currentData.Name;
-            Info.SkillNames = currentData.SkillNames.ToArray();
-            Info.NameText = currentData.NameText;
-            Info.DescText = currentData.DescText;
-            Info.Level = currentData.Level;
-            Info.LevelByBonus = currentData.LevelByBonus;
-            Info.Speed = currentData.Speed;
-            Info.Damage = currentData.Damage;
-            Info.CriticalRate = currentData.CriticalRate;
-            Info.CriticalDamage = currentData.CriticalDamage;
-            Info.Icon = currentData.Icon;
-        }
+        WeaponInfo info = new();
 
-        Name = Info.Name;
+        info.Name = name;
+        info.Level = currentData.Level;
+        info.Tier = currentData.Tier;
+        info.NameText = currentData.NameText;
+        info.DescText = currentData.DescText;
+        info.Icon = currentData.Icon;
+
+        Info = info;
+
+        RefreahWeaponStat();
 
         EventManager<EventTypes>.Send(EventTypes.EquipedWeapon, Name);
+    }
+
+    public void RefreahWeaponStat()
+    {
+        float addStat = 1 + InGameManager.Instance.Player.StatSystem.GetStat(StatNames.AddedWaeponStat);
+
+        Info.Damage = currentData.Damage * (Info.Level * currentData.LevelByBonus) * addStat;
+        Info.Speed = currentData.Speed;
+        Info.CriticalRate = currentData.CriticalRate * addStat;
+        Info.CriticalDamage = currentData.CriticalDamage * addStat;
     }
 
     public WeaponNames NextTier(int tier)

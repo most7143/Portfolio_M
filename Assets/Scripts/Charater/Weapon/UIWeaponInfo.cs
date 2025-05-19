@@ -27,6 +27,16 @@ public class UIWeaponInfo : MonoBehaviour
         get { return InGameManager.Instance.Player; }
     }
 
+    public void OnEnable()
+    {
+        EventManager<EventTypes>.Register<ClassNames>(EventTypes.ChangeClass, ChangeClass);
+    }
+
+    public void OnDisable()
+    {
+        EventManager<EventTypes>.Unregister<ClassNames>(EventTypes.ChangeClass, ChangeClass);
+    }
+
     private void Start()
     {
         UpgradeButton.OnExecute = Upgrade;
@@ -37,7 +47,7 @@ public class UIWeaponInfo : MonoBehaviour
         RefreshPercentText();
         RefreshCostColor();
         RefreshUpgradeCostText(1);
-        RefreshWeaponInfo(InGameManager.Instance.Player.WeaponController.Info);
+        RefreshWeaponInfoText(InGameManager.Instance.Player.WeaponController.Info);
     }
 
     public void Upgrade()
@@ -60,15 +70,14 @@ public class UIWeaponInfo : MonoBehaviour
             {
                 WeaponNames weapon = Player.WeaponController.NextTier(Player.WeaponController.Info.Tier);
                 Player.WeaponController.SetWeaponData(weapon);
-
                 SpawnDetails(weapon);
             }
 
-            Player.WeaponController.Info.Damage = GetAddDamage(Player.WeaponController.Info);
+            Player.WeaponController.RefreahWeaponStat();
 
             Player.RefreshWeaponInfo();
 
-            RefreshWeaponInfo(Player.WeaponController.Info);
+            RefreshWeaponInfoText(Player.WeaponController.Info);
 
             SetPecent(Player.WeaponController.Info.Level);
 
@@ -82,10 +91,26 @@ public class UIWeaponInfo : MonoBehaviour
         }
         else
         {
+            if (InGameManager.Instance.Player.StatSystem.GetStat(StatNames.FailToWeaponChance) > 0)
+            {
+                currentSucPercent += InGameManager.Instance.Player.StatSystem.GetStat(StatNames.FailToWeaponChance);
+                RefreshPercentText();
+            }
+
             InGameManager.Instance.ObjectPool.SpawnFloaty(UIPoint.position, FloatyTypes.Fail, "실패");
         }
 
         InGameManager.Instance.Controller.UseCurrency(CurrencyTypes.Gold, upgradeCost);
+    }
+
+    public void ChangeClass(ClassNames name)
+    {
+        if (name == ClassNames.MasterCraftsman)
+        {
+            Player.WeaponController.RefreahWeaponStat();
+
+            Player.RefreshWeaponInfo();
+        }
     }
 
     private void SpawnDetails(WeaponNames name)
@@ -122,11 +147,6 @@ public class UIWeaponInfo : MonoBehaviour
         float range = Random.Range(0, 1f);
 
         return range < currentSucPercent;
-    }
-
-    public int GetAddDamage(WeaponInfo weaponInfo)
-    {
-        return weaponInfo.Level * weaponInfo.LevelByBonus;
     }
 
     private void SetPecent(int level)
@@ -170,7 +190,7 @@ public class UIWeaponInfo : MonoBehaviour
         IconImage.sprite = icon;
     }
 
-    public void RefreshWeaponInfo(WeaponInfo weaponInfo)
+    public void RefreshWeaponInfoText(WeaponInfo weaponInfo)
     {
         WeaponText.SetText("Lv." + weaponInfo.Level + " " + weaponInfo.NameText);
         WeaponDamageText.SetText("공격력 : " + RefreshColorByDamage(weaponInfo.Damage));
