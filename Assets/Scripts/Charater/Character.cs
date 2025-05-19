@@ -283,6 +283,8 @@ public class Character : MonoBehaviour
         float damageMultiplier = Mathf.Clamp(2 - reduece, 0f, 1f);
         result *= damageMultiplier;
 
+        result = Mathf.RoundToInt(result);
+
 #if UNITY_EDITOR
 
         LogManager.LogInfo(LogTypes.Damage,

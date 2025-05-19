@@ -344,6 +344,10 @@ public enum BuffNames
     TimeTravelerBuff,
     TimeTravelerDebuff,
     Necromancer,
+
+    Arcana1, //악마
+    Arcana2, //달빛
+    Arcana3, //운명
 }
 
 public enum BuffTypes

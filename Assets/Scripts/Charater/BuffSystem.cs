@@ -163,6 +163,9 @@ public class BuffSystem : MonoBehaviour
 
     public void Activate(BuffNames buffName)
     {
+        if (false == Buffs.ContainsKey(buffName))
+            return;
+
         if (Buffs[buffName].IsCooldown)
             return;
 

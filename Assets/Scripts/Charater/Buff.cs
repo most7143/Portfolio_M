@@ -17,6 +17,8 @@ public class Buff : MonoBehaviour
     public string IgnoreNameString;
     public StatNames StatName;
     public string StatString;
+    public StatNames StatName2;
+    public string StatString2;
     public ProjectileNames ProjectileName;
     public string ProjectileNameString;
     public Animator Anim;
@@ -24,6 +26,9 @@ public class Buff : MonoBehaviour
     public float CoolDown;
     public BuffNames CooldownToBuff;
     public string CooldownToBuffNameString;
+
+    public BuffNames DeactivateToBuff;
+    public string DeactivateToBuffNameString;
 
     [Header("Boolean")] public bool IsCooldown;
     public bool IgnoreRegisterActivate;
@@ -56,6 +61,11 @@ public class Buff : MonoBehaviour
             StatName = EXEnum.Parse<StatNames>(StatString);
         }
 
+        if (!string.IsNullOrEmpty(StatString2))
+        {
+            StatName2 = EXEnum.Parse<StatNames>(StatString2);
+        }
+
         if (!string.IsNullOrEmpty(ProjectileNameString))
         {
             ProjectileName = EXEnum.Parse<ProjectileNames>(ProjectileNameString);
@@ -64,6 +74,11 @@ public class Buff : MonoBehaviour
         if (!string.IsNullOrEmpty(CooldownToBuffNameString))
         {
             CooldownToBuff = EXEnum.Parse<BuffNames>(CooldownToBuffNameString);
+        }
+
+        if (!string.IsNullOrEmpty(DeactivateToBuffNameString))
+        {
+            DeactivateToBuff = EXEnum.Parse<BuffNames>(DeactivateToBuffNameString);
         }
     }
 
@@ -112,14 +127,35 @@ public class Buff : MonoBehaviour
         {
             if (Type == BuffTypes.Stat)
             {
-                Owner.StatSystem.RemoveStat(StatTID.Buff, StatName);
+                if (StatName != StatNames.None)
+                {
+                    Owner.StatSystem.RemoveStat(StatTID.Buff, StatName);
+                }
+
+                if (StatName2 != StatNames.None)
+                {
+                    Owner.StatSystem.RemoveStat(StatTID.Buff, StatName2);
+                }
             }
             else if (Type == BuffTypes.Stack)
             {
-                Owner.StatSystem.RemoveStat(StatTID.BuffStack, StatName);
+                if (StatName != StatNames.None)
+                {
+                    Owner.StatSystem.RemoveStat(StatTID.BuffStack, StatName);
+                }
+
+                if (StatName2 != StatNames.None)
+                {
+                    Owner.StatSystem.RemoveStat(StatTID.BuffStack, StatName2);
+                }
             }
 
             OffTrigger();
+
+            if (DeactivateToBuff != BuffNames.None)
+            {
+                Owner.BuffSystem.Activate(DeactivateToBuff);
+            }
         }
     }
 
@@ -131,11 +167,27 @@ public class Buff : MonoBehaviour
 
         if (Type == BuffTypes.Stat)
         {
-            Owner.StatSystem.AddStat(StatTID.Buff, StatName, Value);
+            if (StatName != StatNames.None)
+            {
+                Owner.StatSystem.AddStat(StatTID.Buff, StatName, Value);
+            }
+
+            if (StatName2 != StatNames.None)
+            {
+                Owner.StatSystem.AddStat(StatTID.Buff, StatName2, Value);
+            }
         }
         else if (Type == BuffTypes.Stack)
         {
-            Owner.StatSystem.AddStat(StatTID.BuffStack, StatName, Value);
+            if (StatName != StatNames.None)
+            {
+                Owner.StatSystem.AddStat(StatTID.BuffStack, StatName, Value);
+            }
+
+            if (StatName2 != StatNames.None)
+            {
+                Owner.StatSystem.AddStat(StatTID.BuffStack, StatName2, Value);
+            }
         }
         else if (Type == BuffTypes.Heal)
         {
