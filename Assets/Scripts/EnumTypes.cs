@@ -250,6 +250,7 @@ public enum StatNames
 
     DamageReflection,
     ArmorConvertToAttack,
+    CriticalDamageConvertToAttackRate,
     IgnoreArmor,
 
     AttackToAddGoldChance,
@@ -371,6 +372,7 @@ public enum SkillConditions
     Dead,
     AddedGold,
     Heal,
+    CriticalAttack,
 }
 
 public enum BuffConditions
@@ -431,6 +433,7 @@ public enum ProjectileNames
     RevengerHit,
     ArchDruid,
     GoldMaker,
+    ShadowDancer,
 }
 
 public enum ProjectileMoveTypes

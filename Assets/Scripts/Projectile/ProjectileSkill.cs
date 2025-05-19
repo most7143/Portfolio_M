@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class ProjectileSkill : MonoBehaviour
 {
@@ -12,7 +13,9 @@ public class ProjectileSkill : MonoBehaviour
     public float Chance;
     public float DamgeRate;
     public float Speed;
+    public float Cooldown;
 
+    public bool IsCooldown { get; private set; }
     private int currnetCount = 0;
 
     private void OnValidate()
@@ -37,6 +40,11 @@ public class ProjectileSkill : MonoBehaviour
             currnetCount = 0;
         }
 
+        if (Cooldown > 0)
+        {
+            StartCoroutine(ProcessCooldown());
+        }
+
         float rand = Random.Range(0, 1f);
 
         if (rand <= Chance)
@@ -58,5 +66,12 @@ public class ProjectileSkill : MonoBehaviour
                 projectile.Init();
             }
         }
+    }
+
+    private IEnumerator ProcessCooldown()
+    {
+        IsCooldown = true;
+        yield return new WaitForSeconds(Cooldown);
+        IsCooldown = false;
     }
 }

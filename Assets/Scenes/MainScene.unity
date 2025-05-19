@@ -703,6 +703,7 @@ MonoBehaviour:
   - {fileID: 1032841197}
   - {fileID: 1745054575}
   - {fileID: 1271906537}
+  - {fileID: 755816889}
 --- !u!4 &140121391
 Transform:
   m_ObjectHideFlags: 0
@@ -724,6 +725,7 @@ Transform:
   - {fileID: 329685090}
   - {fileID: 1032841198}
   - {fileID: 1271906538}
+  - {fileID: 755816890}
   m_Father: {fileID: 322252493}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &143251086
@@ -1645,6 +1647,7 @@ MonoBehaviour:
   Chance: 0.5
   DamgeRate: 1
   Speed: 10
+  Cooldown: 0
 --- !u!1 &215576891
 GameObject:
   m_ObjectHideFlags: 0
@@ -2475,6 +2478,7 @@ MonoBehaviour:
   Chance: 0.1
   DamgeRate: 1
   Speed: 0
+  Cooldown: 0
 --- !u!1 &346518167
 GameObject:
   m_ObjectHideFlags: 0
@@ -3178,6 +3182,7 @@ MonoBehaviour:
   Chance: 0.5
   DamgeRate: 1
   Speed: 3
+  Cooldown: 0
 --- !u!4 &411948544
 Transform:
   m_ObjectHideFlags: 0
@@ -4800,6 +4805,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 747960927}
   m_CullTransparentMesh: 1
+--- !u!1 &755816888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 755816890}
+  - component: {fileID: 755816889}
+  m_Layer: 0
+  m_Name: ShadowDancer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &755816889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755816888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a37a5b44281cf94abd5f8feb6b9c8eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Owenr: {fileID: 322252494}
+  Name: 9
+  NameString: ShadowDancer
+  SkillConditions: 7
+  CondisionCount: 1
+  SpawnOffsetPosition: {x: 0, y: 1, z: 0}
+  IsRandomSpawnPoint: 0
+  Chance: 1
+  DamgeRate: 3
+  Speed: 0
+  Cooldown: 5
+--- !u!4 &755816890
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755816888}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 140121391}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &785210365
 GameObject:
   m_ObjectHideFlags: 0
@@ -5974,6 +6034,7 @@ MonoBehaviour:
   Chance: 1
   DamgeRate: 1
   Speed: 0
+  Cooldown: 0
 --- !u!4 &965074579
 Transform:
   m_ObjectHideFlags: 0
@@ -6215,6 +6276,7 @@ MonoBehaviour:
   Chance: 1
   DamgeRate: 3
   Speed: 0
+  Cooldown: 0
 --- !u!4 &1032841198
 Transform:
   m_ObjectHideFlags: 0
@@ -7805,6 +7867,7 @@ MonoBehaviour:
   Chance: 1
   DamgeRate: 1
   Speed: 0
+  Cooldown: 0
 --- !u!4 &1271906538
 Transform:
   m_ObjectHideFlags: 0
@@ -7876,7 +7939,7 @@ MonoBehaviour:
   SpeedButton: {fileID: 1495816832}
   CheatButton: {fileID: 1286972724}
   TextButton: {fileID: 626268076}
-  ClassName: 26
+  ClassName: 22
   ClassName2: 10
 --- !u!1 &1286972722
 GameObject:
@@ -10443,6 +10506,7 @@ MonoBehaviour:
   Chance: 0.3
   DamgeRate: 1
   Speed: 0
+  Cooldown: 0
 --- !u!1 &1687897840
 GameObject:
   m_ObjectHideFlags: 0
@@ -10670,6 +10734,7 @@ MonoBehaviour:
   Chance: 0.1
   DamgeRate: 5
   Speed: 3
+  Cooldown: 0
 --- !u!1 &1765704373
 GameObject:
   m_ObjectHideFlags: 0

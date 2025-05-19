@@ -11,6 +11,8 @@ public class ProjectileSystem : MonoBehaviour
     private void OnEnable()
     {
         EventManager<EventTypes>.Register<WeaponNames>(EventTypes.PlayerAttackExecuted, ActivateToAttack);
+        EventManager<EventTypes>.Register(EventTypes.PlayerAttackToCritical, ActivateToCriticalAttack);
+
         EventManager<EventTypes>.Register(EventTypes.PlayerDamaged, ActivateToDamaged);
         EventManager<EventTypes>.Register(EventTypes.UsingHeal, ActivateToHeal);
         EventManager<EventTypes>.Register<CurrencyTypes>(EventTypes.AddCurrency, ActivateToAddedGold);
@@ -19,6 +21,8 @@ public class ProjectileSystem : MonoBehaviour
     private void OnDisable()
     {
         EventManager<EventTypes>.Unregister<WeaponNames>(EventTypes.PlayerAttackExecuted, ActivateToAttack);
+        EventManager<EventTypes>.Unregister(EventTypes.PlayerAttackToCritical, ActivateToCriticalAttack);
+
         EventManager<EventTypes>.Unregister(EventTypes.PlayerDamaged, ActivateToDamaged);
         EventManager<EventTypes>.Unregister(EventTypes.UsingHeal, ActivateToHeal);
         EventManager<EventTypes>.Unregister<CurrencyTypes>(EventTypes.AddCurrency, ActivateToAddedGold);
@@ -41,64 +45,44 @@ public class ProjectileSystem : MonoBehaviour
 
     public void ActivateToAttack(WeaponNames weapon)
     {
-        if (_skills.Count == 0)
-            return;
+        ShotToConditons(SkillConditions.Attack);
+    }
 
-        ProjectileSkill[] skills = _skills.Values.ToArray();
-
-        for (int i = 0; i < skills.Length; i++)
-        {
-            if (skills[i].SkillConditions == SkillConditions.Attack)
-            {
-                skills[i].Shot();
-            }
-        }
+    public void ActivateToCriticalAttack()
+    {
+        ShotToConditons(SkillConditions.CriticalAttack);
     }
 
     public void ActivateToDamaged()
     {
-        if (_skills.Count == 0)
-            return;
-
-        ProjectileSkill[] skills = _skills.Values.ToArray();
-
-        for (int i = 0; i < skills.Length; i++)
-        {
-            if (skills[i].SkillConditions == SkillConditions.Demaged)
-            {
-                skills[i].Shot();
-            }
-        }
+        ShotToConditons(SkillConditions.Demaged);
     }
 
     public void ActivateToHeal()
     {
-        if (_skills.Count == 0)
-            return;
-
-        ProjectileSkill[] skills = _skills.Values.ToArray();
-
-        for (int i = 0; i < skills.Length; i++)
-        {
-            if (skills[i].SkillConditions == SkillConditions.Heal)
-            {
-                skills[i].Shot();
-            }
-        }
+        ShotToConditons(SkillConditions.Heal);
     }
 
     public void ActivateToAddedGold(CurrencyTypes type)
     {
         if (type == CurrencyTypes.Gold)
         {
-            if (_skills.Count == 0)
-                return;
+            ShotToConditons(SkillConditions.AddedGold);
+        }
+    }
 
-            ProjectileSkill[] skills = _skills.Values.ToArray();
+    private void ShotToConditons(SkillConditions condition)
+    {
+        if (_skills.Count == 0)
+            return;
 
-            for (int i = 0; i < skills.Length; i++)
+        ProjectileSkill[] skills = _skills.Values.ToArray();
+
+        for (int i = 0; i < skills.Length; i++)
+        {
+            if (skills[i].SkillConditions == condition)
             {
-                if (skills[i].SkillConditions == SkillConditions.AddedGold)
+                if (false == skills[i].IsCooldown)
                 {
                     skills[i].Shot();
                 }

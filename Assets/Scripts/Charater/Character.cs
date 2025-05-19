@@ -310,10 +310,11 @@ public class Character : MonoBehaviour
 
     private float GetAttackStat()
     {
-        float convert = (int)(GetArmorStat() * StatSystem.GetStat(StatNames.ArmorConvertToAttack));
+        float armorToAttack = (int)(GetArmorStat() * StatSystem.GetStat(StatNames.ArmorConvertToAttack));
+        float ciriticalDamageToAttackRate = StatSystem.GetStat(StatNames.CriticalDamage) * StatSystem.GetStat(StatNames.CriticalDamageConvertToAttackRate);
 
-        float attack = (StatSystem.GetStat(StatNames.Attack) + (StatSystem.GetStat(StatNames.AttackByLevel) * (Level - 1)) + convert)
-             * (StatSystem.GetStat(StatNames.AttackRate) + StatSystem.GetStat(StatNames.AllStats));
+        float attack = (StatSystem.GetStat(StatNames.Attack) + (StatSystem.GetStat(StatNames.AttackByLevel) * (Level - 1)) + armorToAttack)
+             * (StatSystem.GetStat(StatNames.AttackRate) + StatSystem.GetStat(StatNames.AllStats) + ciriticalDamageToAttackRate);
 
         return Mathf.RoundToInt(attack);
     }
