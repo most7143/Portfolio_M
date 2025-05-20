@@ -3758,6 +3758,8 @@ MonoBehaviour:
   SpawnMonster: {fileID: 3534711403255267380}
   SpawnPoint: {fileID: 1472118342}
   Level: 1
+  MinEliteLevel: 5
+  EliteChance: 0.1
   EXPRateByLevel: 1.03
   GoldRateByLevel: 1.03
 --- !u!1 &584289150
@@ -5461,7 +5463,7 @@ MonoBehaviour:
   EliteIcons:
   - {fileID: 725682924}
   - {fileID: 143556612}
-  EliteDescText: {fileID: 0}
+  EliteDescText: {fileID: 2130069551}
 --- !u!1001 &947384176
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10637,8 +10639,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294901947
-  m_fontColor: {r: 0.7331376, g: 0, b: 1, a: 1}
+    rgba: 4294938849
+  m_fontColor: {r: 0.8834382, g: 0.56289303, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -10655,8 +10657,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22
-  m_fontSizeBase: 22
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
