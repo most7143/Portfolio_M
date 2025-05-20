@@ -1,11 +1,20 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AccessorySystem : MonoBehaviour
 {
     private Dictionary<AccessoryTypes, AccessoryItem> items = new();
 
     private void Start()
+    {
+        if (SceneManager.GetActiveScene().name == "MainScene")
+        {
+            InitData();
+        }
+    }
+
+    private void InitData()
     {
         AccessoryTypes[] types = (AccessoryTypes[])System.Enum.GetValues(typeof(AccessoryTypes));
 

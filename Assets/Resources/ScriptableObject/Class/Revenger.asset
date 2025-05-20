@@ -17,12 +17,15 @@ MonoBehaviour:
   NameText: "\uB9AC\uBCA4\uC800"
   DescritpionText: "\uBCF5\uC218\uC640 \uC9D1\uB150\uC758 \uAE30\uC0AC"
   StatDescriptionText: 
-  ProjectileDescritonText: 
+  ProjectileDescritonText: "\uACF5\uACA9 \uC2DC {0}% \uD655\uB960\uB85C {1}% \uD53C\uD574\uB97C
+    \uC8FC\uB294 <color=green>\uC545\uC758 \uAC00\uC2DC<color> \uBC1C\uB3D9 <br>\uD53C\uACA9
+    \uC2DC {2}% \uD655\uB960\uB85C {3}% \uD53C\uD574\uB97C \uC8FC\uB294 <color=green>\uBCF5\uC218\uC758
+    \uAC00\uC2DC</color> \uBC1C\uB3D9"
   BuffDescritonText: 
   Stats: 
   StatStirng: []
   Values: []
-  Projectiles: 0400000005000000
+  Projectiles: 0500000006000000
   ProjectileString:
   - RevengerAttack
   - RevengerHit

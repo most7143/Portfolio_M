@@ -121,7 +121,11 @@ public class UICharacterInfo : MonoBehaviour
         }
         else if (classData.BuffNames.Count == 2)
         {
-            value += string.Format(classData.BuffDescritonText, classData.BuffValues[0] * 100f, classData.BuffValues[1]);
+            value += string.Format(classData.BuffDescritonText, classData.BuffValues[0] * 100f, classData.BuffValues[1] * 100f);
+        }
+        else if (classData.BuffNames.Count == 3)
+        {
+            value += string.Format(classData.BuffDescritonText, classData.BuffValues[0] * 100f, classData.BuffValues[1] * 100f, classData.BuffValues[2] * 100f);
         }
 
         text.SetText(value);

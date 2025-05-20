@@ -62,7 +62,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 7
   m_TargetDisplay: 0
 --- !u!114 &3605695825742415013
 MonoBehaviour:
@@ -117,6 +117,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Group: {fileID: 2029962977702326348}
+  FadeDelay: 0
+  FadeDuration: 1
 --- !u!225 &2029962977702326348
 CanvasGroup:
   m_ObjectHideFlags: 0

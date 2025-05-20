@@ -15,10 +15,15 @@ MonoBehaviour:
   Name: 27
   NameString: Arcana
   NameText: "\uC544\uB974\uCE74\uB098"
-  DescritpionText: 
+  DescritpionText: "\uC6B4\uBA85\uC758 \uC870\uC728\uC790"
   StatDescriptionText: 
   ProjectileDescritonText: 
-  BuffDescritonText: 
+  BuffDescritonText: "<color=red>\uC545\uB9C8</color> \uCE74\uB4DC : 6\uCD08 \uB3D9\uC548
+    \uC8FC\uB294 \uD53C\uD574 \uD6A8\uACFC {1}%    <br><color=blue>\uB2EC\uBE5B</color>
+    \uCE74\uB4DC : 6\uCD08 \uB3D9\uC548 \uBC1B\uB294 \uD53C\uD574 \uAC10\uC18C \uD6A8\uACFC
+    {1}% <br><style=magic>\uC6B4\uBA85</style> \uCE74\uB4DC : 12\uCD08 \uB3D9\uC548
+    \uC8FC\uB294 \uD53C\uD574\uC640 \uBC1B\uB294 \uD53C\uD574 \uAC10\uC18C \uD6A8\uACFC
+    {2}%"
   Stats: 
   StatStirng: []
   Values: []

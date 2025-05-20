@@ -10,6 +10,10 @@ public class GameSpeedButton : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = InGameManager.Instance.GameSpeed;
+
+        Text.SetText("X" + InGameManager.Instance.GameSpeed);
+
         XButton.onClick.AddListener(() => OnClick());
     }
 

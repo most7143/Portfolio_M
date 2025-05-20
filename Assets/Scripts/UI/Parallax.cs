@@ -32,7 +32,6 @@ public class Parallax : MonoBehaviour
             Backgrounds[i].position += Vector3.right * parallax;
         }
 
-        Debug.Log(cameraMovement);
         // 카메라가 설정된 거리 이상 이동했으면 초기화
         if (Camera.main.transform.position.x >= ResetDistance)
         {

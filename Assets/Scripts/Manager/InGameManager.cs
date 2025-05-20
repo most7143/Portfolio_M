@@ -44,7 +44,20 @@ public class InGameManager : MonoBehaviour
 
     public UIGameOver GameOver;
 
-    public float GameSpeed = 1;
+    public float GameSpeed
+    {
+        get
+        {
+            if (PlayerPrefs.GetFloat("GameSpeed") < 1)
+            {
+                PlayerPrefs.SetFloat("GameSpeed", 1);
+            }
+
+            return PlayerPrefs.GetFloat("GameSpeed");
+        }
+
+        set { PlayerPrefs.SetFloat("GameSpeed", value); }
+    }
 
     [HideInInspector]
     public Monster Monster
@@ -75,6 +88,8 @@ public class InGameManager : MonoBehaviour
         Time.timeScale = 1f;
         UIHandler.FadeOut();
         StartCoroutine(GameOverProcess());
+        PlayerPrefs.SetInt("KillMonster", MonsterSpanwer.Level);
+        PlayerPrefs.Save();
     }
 
     private IEnumerator GameOverProcess()
