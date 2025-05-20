@@ -45,6 +45,16 @@
     End,
 }
 
+public enum EliteTypes
+{
+    None,
+    Powerful, //강력한
+    Armored, // 단단한
+    Resilient,//질긴
+    Agile, //날렵한
+    Deadly,//치명적인
+}
+
 public enum ClassNames
 {
     None,
@@ -463,6 +473,7 @@ public enum StatTID
 {
     None,
     Base,
+    Elite,
     Weapon,
     PassiveSkill,
     PassiveSkillMaxLevel,
@@ -497,6 +508,7 @@ public enum UIPopupNames
 {
     None,
     ClassTrait, //특성 선택 팝업
+    GameDescription, //특성 선택 팝업
 }
 
 public enum UIDetailsNames

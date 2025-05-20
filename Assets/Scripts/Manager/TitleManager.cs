@@ -1,17 +1,20 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class TitleManager : MonoBehaviour
 {
-    public Button StartButton;
+    public XButton StartButton;
+    public XButton StartDescriptionButton;
     public TextMeshProUGUI KillMonsterText;
+
+    private bool _descriptionPopup;
 
     private void Start()
     {
         Time.timeScale = 1f;
-        StartButton.onClick.AddListener(() => LoadScene("LoadingScene"));
+        StartButton.OnExecute = LoadScene;
+        StartDescriptionButton.OnExecute = ClickDescrioption;
 
         if (PlayerPrefs.GetInt("KillMonster") > 0)
         {
@@ -19,12 +22,24 @@ public class TitleManager : MonoBehaviour
         }
     }
 
-    public void LoadScene(string sceneName)
+    public void LoadScene()
     {
-        // 버튼 비활성화 (이제 버튼을 눌러도 씬 전환이 되지 않음)
         StartButton.interactable = false;
 
-        // 씬 전환
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene("LoadingScene");
+    }
+
+    public void ClickDescrioption()
+    {
+        if (false == _descriptionPopup)
+        {
+            UIPopupManager.Instance.Spawn(UIPopupNames.GameDescription);
+        }
+        else
+        {
+            UIPopupManager.Instance.Despawn();
+        }
+
+        _descriptionPopup = !_descriptionPopup;
     }
 }

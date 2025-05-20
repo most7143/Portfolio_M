@@ -17,9 +17,9 @@ public class MonsterSpanwer : MonoBehaviour
 
     public int Gem { get; private set; }
 
-    public float AttackByLevel = 2;
-    public float HealthByLevel = 20;
-    public float ArmorByLevel = 1;
+    public int MinEliteLevel = 1;
+
+    public float EliteChance = 0.1f;
 
     public float EXPRateByLevel = 1.03f;
     public float GoldRateByLevel = 1.03f;

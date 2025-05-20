@@ -2,6 +2,7 @@
 
 public class UIPopup : MonoBehaviour
 {
+    public CanvasGroup CanvasGroup;
     public RectTransform Rect;
     public bool IsStopBattle = true;
     public UIPopupNames Name;

@@ -99,6 +99,52 @@ public static class EXText
         return "";
     }
 
+    public static string GetEliteLanguage(this EliteTypes type)
+    {
+        switch (type)
+        {
+            case EliteTypes.Powerful:
+                return "강력한";
+
+            case EliteTypes.Armored:
+                return "단단한";
+
+            case EliteTypes.Resilient:
+                return "질긴";
+
+            case EliteTypes.Agile:
+                return "재빠른";
+
+            case EliteTypes.Deadly:
+                return "치명적인";
+        }
+
+        return "";
+    }
+
+    public static string GetEliteDescLanguage(this EliteTypes type)
+    {
+        switch (type)
+        {
+            case EliteTypes.Powerful:
+                return "공격력 증가";
+
+            case EliteTypes.Armored:
+                return "방어력 증가";
+
+            case EliteTypes.Resilient:
+                return "체력 증가";
+
+            case EliteTypes.Agile:
+                return "회피율 증가";
+
+            case EliteTypes.Deadly:
+                return "치명타 증가";
+        }
+
+        return "";
+    }
+
     public static string GetClassLanguage(this ClassNames name)
     {
         switch (name)

@@ -67,7 +67,7 @@ public class Player : Character
 
     private void ResfreshAttackStat()
     {
-        Animator.SetFloat("AttackSpeed", AttackSpeed);
+        Animator.SetFloat("AttackSpeed", AttackSpeed * 2);
     }
 
     public void RefreshWeaponInfo()

@@ -62,7 +62,10 @@ public class UIPopupManager : MonoBehaviour
 
     public void Despawn()
     {
-        Popup.Despawn();
-        Popup.gameObject.SetActive(false);
+        if (Popup != null)
+        {
+            Popup.Despawn();
+            Popup.gameObject.SetActive(false);
+        }
     }
 }

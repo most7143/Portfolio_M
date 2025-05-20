@@ -22,5 +22,5 @@ MonoBehaviour:
   Armor: 4
   ArmorByLevel: 2
   CriticalRate: 0.05
-  CriticalDamage: 1
-  DodgeRate: 0
+  CriticalDamage: 2
+  DodgeRate: 0.02
