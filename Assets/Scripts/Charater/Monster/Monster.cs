@@ -143,32 +143,32 @@ public class Monster : Character
         {
             case EliteTypes.Powerful:
                 {
-                    StatSystem.AddStat(StatTID.Elite, StatNames.AttackRate, 1f);
+                    StatSystem.AddStat(StatTID.Elite, StatNames.AttackRate, 2f);
                 }
                 break;
 
             case EliteTypes.Armored:
                 {
-                    StatSystem.AddStat(StatTID.Elite, StatNames.ArmorRate, 1f);
+                    StatSystem.AddStat(StatTID.Elite, StatNames.ArmorRate, 2f);
                 }
 
                 break;
 
             case EliteTypes.Resilient:
                 {
-                    StatSystem.AddStat(StatTID.Elite, StatNames.HealthRate, 1f);
+                    StatSystem.AddStat(StatTID.Elite, StatNames.HealthRate, 2f);
                 }
                 break;
 
             case EliteTypes.Agile:
                 {
-                    StatSystem.AddStat(StatTID.Elite, StatNames.DodgeRate, 0.4f);
+                    StatSystem.AddStat(StatTID.Elite, StatNames.DodgeRate, 0.5f);
                 }
                 break;
 
             case EliteTypes.Deadly:
                 {
-                    StatSystem.AddStat(StatTID.Elite, StatNames.CriticalChance, 0.5f);
+                    StatSystem.AddStat(StatTID.Elite, StatNames.CriticalChance, 0.6f);
                 }
                 break;
         }
@@ -225,7 +225,7 @@ public class Monster : Character
 
     private IEnumerator DropProcess()
     {
-        for (int i = 0; i < 7; i++)
+        for (int i = 0; i < 6; i++)
         {
             DropCurrency();
             yield return new WaitForSeconds(0.1f);

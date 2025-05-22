@@ -44,7 +44,7 @@ public class WeaponSkill : MonoBehaviour
 
             damageInfo.Owner = Owner;
             damageInfo.Type = DamageTypes.WeaponSkill;
-            damageInfo.Value = Mathf.RoundToInt(Owner.Attack * ValueMultiply);
+            damageInfo.Value = Mathf.RoundToInt(Owner.Attack * Owner.StatSystem.GetStat(StatNames.WeaponSkillDamageRate) * ValueMultiply);
 
             damageInfo.IsCritical = Random.Range(0f, 1f) <= Owner.StatSystem.GetStat(StatNames.CriticalChance);
 

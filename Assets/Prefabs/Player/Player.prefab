@@ -522,8 +522,8 @@ MonoBehaviour:
   NameString: PinkCut
   Type: 1
   Condition: 1
-  Chance: 0.4
-  ValueMultiply: 4
+  Chance: 0.1
+  ValueMultiply: 11.5
 --- !u!1 &3250945146559114711
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,7 +877,7 @@ MonoBehaviour:
   Type: 1
   Condition: 1
   Chance: 0.25
-  ValueMultiply: 5
+  ValueMultiply: 2.8
 --- !u!1 &5831790057808581606
 GameObject:
   m_ObjectHideFlags: 0
@@ -1015,8 +1015,8 @@ MonoBehaviour:
   NameString: CrimsonThunder
   Type: 1
   Condition: 1
-  Chance: 0.1
-  ValueMultiply: 20
+  Chance: 0.05
+  ValueMultiply: 40
 --- !u!1 &6342393329199811200
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,8 +1237,8 @@ MonoBehaviour:
   NameString: Slaughter
   Type: 1
   Condition: 1
-  Chance: 0.25
-  ValueMultiply: 5
+  Chance: 0.1
+  ValueMultiply: 10
 --- !u!1 &6847340830857653436
 GameObject:
   m_ObjectHideFlags: 0
@@ -1290,8 +1290,8 @@ MonoBehaviour:
   NameString: CrimsonDoom
   Type: 1
   Condition: 1
-  Chance: 0.2
-  ValueMultiply: 10
+  Chance: 0.15
+  ValueMultiply: 13.3
 --- !u!1 &6870644814782652459
 GameObject:
   m_ObjectHideFlags: 0
@@ -1398,8 +1398,8 @@ MonoBehaviour:
   NameString: DeathWaltz
   Type: 1
   Condition: 1
-  Chance: 0.2
-  ValueMultiply: 10
+  Chance: 0.3
+  ValueMultiply: 6.7
 --- !u!1 &7166793533835038766
 GameObject:
   m_ObjectHideFlags: 0
@@ -1451,8 +1451,8 @@ MonoBehaviour:
   NameString: DeathSlash
   Type: 1
   Condition: 1
-  Chance: 0.4
-  ValueMultiply: 5
+  Chance: 0.2
+  ValueMultiply: 6.5
 --- !u!1 &7403749769909221605
 GameObject:
   m_ObjectHideFlags: 0
@@ -1504,8 +1504,8 @@ MonoBehaviour:
   NameString: FireBomb
   Type: 1
   Condition: 1
-  Chance: 0.4
-  ValueMultiply: 2
+  Chance: 0.3
+  ValueMultiply: 5.7
 --- !u!1 &7511891483295966345
 GameObject:
   m_ObjectHideFlags: 0
@@ -1558,7 +1558,7 @@ MonoBehaviour:
   Type: 1
   Condition: 1
   Chance: 0.25
-  ValueMultiply: 5
+  ValueMultiply: 3.4
 --- !u!1 &8141406530069583135
 GameObject:
   m_ObjectHideFlags: 0
@@ -1610,8 +1610,8 @@ MonoBehaviour:
   NameString: FireCut
   Type: 1
   Condition: 1
-  Chance: 0.1
-  ValueMultiply: 10
+  Chance: 0.15
+  ValueMultiply: 11.3
 --- !u!1 &8430793856071781194
 GameObject:
   m_ObjectHideFlags: 0
@@ -1708,5 +1708,5 @@ MonoBehaviour:
   NameString: FireBombExplosion
   Type: 1
   Condition: 1
-  Chance: 0.25
-  ValueMultiply: 5
+  Chance: 0.05
+  ValueMultiply: 34

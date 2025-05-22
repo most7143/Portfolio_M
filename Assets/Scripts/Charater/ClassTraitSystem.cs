@@ -12,7 +12,7 @@ public class ClassTraitSystem : MonoBehaviour
 
     public Dictionary<ClassTraitNames, int> Traits = new();
 
-    public int MaxLevel = 30;
+    public int MaxLevel = 25;
 
     private void OnEnable()
     {
@@ -105,7 +105,6 @@ public class ClassTraitSystem : MonoBehaviour
             }
 
             EventManager<EventTypes>.Send(EventTypes.ChangeClass, name);
-            MaxLevel *= 2;
 
             Clear();
         }

@@ -148,6 +148,21 @@ public class ResourcesManager : MonoBehaviour
         return null;
     }
 
+    public WeaponData LoadWeaponScriptable(WeaponNames name)
+    {
+        WeaponData[] objects = Resources.LoadAll<WeaponData>("ScriptableObject/Weapon");
+
+        foreach (WeaponData obj in objects)
+        {
+            if (obj.Name == name)
+            {
+                return obj;
+            }
+        }
+
+        return null;
+    }
+
     public Sprite LoadSprite(string name)
     {
         Sprite[] objects = Resources.LoadAll<Sprite>("Sprite");

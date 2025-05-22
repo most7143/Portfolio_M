@@ -9,7 +9,7 @@ public class UIWeaponDetails : UIDetails
 
     public void Refresh(WeaponNames weaponName)
     {
-        WeaponData weaponData = ResourcesManager.Instance.LoadScriptable<WeaponData>(weaponName.ToString());
+        WeaponData weaponData = ResourcesManager.Instance.LoadWeaponScriptable(weaponName);
 
         if (weaponData != null)
         {

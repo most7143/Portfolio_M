@@ -15,12 +15,12 @@ MonoBehaviour:
   Name: 1
   NameString: "\uC804\uC0AC"
   Attack: 10
-  AttackByLevel: 5
+  AttackByLevel: 10
   AttackSpeed: 0.3
-  Health: 100
-  HealthByLevel: 50
-  Armor: 4
-  ArmorByLevel: 2
+  Health: 200
+  HealthByLevel: 100
+  Armor: 5
+  ArmorByLevel: 5
   CriticalRate: 0.05
   CriticalDamage: 2
   DodgeRate: 0.02

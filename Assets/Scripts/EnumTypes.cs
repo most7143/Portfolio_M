@@ -253,6 +253,7 @@ public enum StatNames
     DoubleAttackSpeed,
     RandomWeaponSkill,
     DamageRate,
+    WeaponSkillDamageRate,
 
     IncreaseHighGradeRate,
     DecreaseWeaponUpgradeCost,

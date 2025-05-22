@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d5029a326616a4a88e9da5fb9fca57, type: 3}
+  m_Name: 11.Phoenix
+  m_EditorClassIdentifier: 
+  Name: 11
+  NameString: Phoenix
+  SkillNames: 010000000c00000003000000
+  SkillNameString:
+  - FireBomb
+  - FireCut
+  - FireBombExplosion
+  NameText: "\uD53C\uB2C9\uC2A4"
+  DescText: "\uB05D\uC5C6\uC774 \uD0C0\uC624\uB974\uB294 \uBD88\uC0AC\uC870\uC758
+    \uD798\uC774 \uB290\uAEF4\uC9C4\uB2E4"
+  Tier: 11
+  Level: 100
+  Speed: 2.6
+  WeaponSkillDamageRate: 1
+  DamageByLevel: 40
+  CriticalRate: 0.22
+  CriticalDamage: 3.3
+  Icon: {fileID: 1008709038, guid: 6eb16e372762d6b4cb708c44ebfab931, type: 3}

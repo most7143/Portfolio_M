@@ -12,7 +12,7 @@ public class UITraitSlot : MonoBehaviour
     public TextMeshProUGUI CountText;
 
     public XButton Button;
-    public ImageLoop LoopImage;
+    public Image LoopImage;
 
     private bool _isChange;
 
@@ -56,13 +56,11 @@ public class UITraitSlot : MonoBehaviour
         {
             LoopImage.transform.position = Background.transform.position;
             LoopImage.enabled = true;
-            LoopImage.Group.alpha = 1;
             _isChange = true;
         }
         else
         {
             LoopImage.enabled = false;
-            LoopImage.Group.alpha = 0;
             _isChange = false;
         }
     }

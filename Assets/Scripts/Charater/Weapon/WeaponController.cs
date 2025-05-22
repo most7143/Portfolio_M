@@ -33,7 +33,7 @@ public class WeaponController : MonoBehaviour
         WeaponNames[] weaponNames = (WeaponNames[])Enum.GetValues(typeof(WeaponNames));
         for (int i = 1; i < weaponNames.Length; i++)
         {
-            WeaponData weaponData = ResourcesManager.Instance.LoadScriptable<WeaponData>(weaponNames[i].ToString());
+            WeaponData weaponData = ResourcesManager.Instance.LoadWeaponScriptable(weaponNames[i]);
 
             if (weaponData != null)
             {
@@ -73,7 +73,7 @@ public class WeaponController : MonoBehaviour
     {
         float addStat = 1 + InGameManager.Instance.Player.StatSystem.GetStat(StatNames.AddedWaeponStat);
 
-        Info.Damage = currentData.Damage * (Info.Level * currentData.LevelByBonus) * addStat;
+        Info.Damage = Info.Level * currentData.DamageByLevel * addStat;
         Info.Speed = currentData.Speed;
         Info.CriticalRate = currentData.CriticalRate * addStat;
         Info.CriticalDamage = currentData.CriticalDamage * addStat;

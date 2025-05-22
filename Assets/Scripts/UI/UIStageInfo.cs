@@ -11,6 +11,8 @@ public class UIStageInfo : MonoBehaviour
 
     public XButton TextButton;
 
+    public XButton TestButton2;
+
     public ClassNames ClassName;
     public ClassNames ClassName2;
     private int test;
@@ -19,6 +21,7 @@ public class UIStageInfo : MonoBehaviour
     {
         CheatButton.OnExecute = Cheat;
         TextButton.OnExecute = Test;
+        TestButton2.OnExecute = Test2;
     }
 
     public void Refresh(StageData stageData)
@@ -44,5 +47,10 @@ public class UIStageInfo : MonoBehaviour
         {
             InGameManager.Instance.Player.ClassTraitSystem.ChangeClass(ClassName2);
         }
+    }
+
+    public void Test2()
+    {
+        InGameManager.Instance.Player.StatSystem.AddStat(StatTID.Elite, StatNames.Invincibility, 1);
     }
 }

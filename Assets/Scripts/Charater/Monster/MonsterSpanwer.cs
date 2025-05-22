@@ -22,14 +22,16 @@ public class MonsterSpanwer : MonoBehaviour
     public float EliteChance = 0.1f;
 
     public float EXPRateByLevel = 1.03f;
+    public float BaseEXP = 10;
+    public float BaseGold = 100;
     public float GoldRateByLevel = 1.03f;
 
     public Dictionary<int, MonsterData> _datas = new();
 
     private void Start()
     {
-        EXP = 20;
-        Gold = 100;
+        EXP = GetExp(Level);
+        Gold = GetGold(Level);
         Gem = 1;
 
         InitDatas();
@@ -41,11 +43,21 @@ public class MonsterSpanwer : MonoBehaviour
         {
             Level++;
             EXP *= EXPRateByLevel;
-            Gold = (int)(Gold * GoldRateByLevel);
+            Gold = GetGold(level);
             Gem = 1 + level / 3;
         }
 
         EventManager<EventTypes>.Send(EventTypes.ChangeMonsterLevel);
+    }
+
+    private int GetGold(int level)
+    {
+        return Mathf.CeilToInt(BaseGold * (level * GoldRateByLevel));
+    }
+
+    private float GetExp(int level)
+    {
+        return Mathf.CeilToInt(BaseEXP * (level * EXPRateByLevel));
     }
 
     public void Spawn(CharacterNames chareacterName)

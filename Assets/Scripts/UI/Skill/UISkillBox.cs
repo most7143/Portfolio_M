@@ -22,6 +22,9 @@ public class UISkillBox : MonoBehaviour
     public Transform LockTrans;
     public TextMeshProUGUI LockText;
 
+    private int _addCost;
+    private int _currentCost;
+
     private float _chance;
 
     private Vector2 _origin;
@@ -56,6 +59,8 @@ public class UISkillBox : MonoBehaviour
         if (Data != null)
         {
             MaxLevel = Data.MaxLevel;
+            _currentCost = (int)Data.Cost;
+            _addCost = (int)(Data.Cost * 0.5f);
         }
 
         Icon.sprite = ResourcesManager.Instance.LoadSprite("Icon_" + name.ToString());
@@ -69,9 +74,6 @@ public class UISkillBox : MonoBehaviour
     private float GetValue()
     {
         int level = Level;
-
-        if (Level < 1)
-            level = 1;
 
         if (Data.Value != 0)
         {
@@ -128,7 +130,7 @@ public class UISkillBox : MonoBehaviour
             NameText.SetText(Data.NameText);
             DescText.SetText(string.Format(Data.DescriptionText, value));
             BunousDescText.gameObject.SetActive(false);
-            CostText.SetText(Data.Cost + "<sprite=0>");
+            CostText.SetText(_currentCost + "<sprite=0>");
         }
         else
         {
@@ -178,14 +180,14 @@ public class UISkillBox : MonoBehaviour
         if (Data.MaxLevel == Level)
             return;
 
-        if (InGameManager.Instance.Controller.TryUsingCurrency(CurrencyTypes.Gold, (int)Data.Cost))
+        if (InGameManager.Instance.Controller.TryUsingCurrency(CurrencyTypes.Gold, _currentCost))
         {
             float rand = UnityEngine.Random.Range(0, 1f);
 
             if (_chance >= rand)
             {
                 LevelUpSkill();
-                InGameManager.Instance.Controller.UseCurrency(CurrencyTypes.Gold, (int)Data.Cost);
+                InGameManager.Instance.Controller.UseCurrency(CurrencyTypes.Gold, _currentCost);
                 InGameManager.Instance.ObjectPool.SpawnFloaty(LearnButton.transform.position, FloatyTypes.Success, "성공");
                 EventManager<EventTypes>.Send(EventTypes.SkillLevelUp);
             }
@@ -201,6 +203,8 @@ public class UISkillBox : MonoBehaviour
         Level++;
 
         float value = GetValue();
+
+        _currentCost += _addCost;
 
         Player player = InGameManager.Instance.Player;
 

@@ -26,7 +26,7 @@ public class SkillSystem : MonoBehaviour
 
     public void RefreshSkill(WeaponNames name)
     {
-        WeaponData weaponData = ResourcesManager.Instance.LoadScriptable<WeaponData>(name.ToString());
+        WeaponData weaponData = ResourcesManager.Instance.LoadWeaponScriptable(name);
         _weaponData = weaponData;
 
         if (weaponData.SkillNames.Count > 0)
@@ -41,6 +41,9 @@ public class SkillSystem : MonoBehaviour
                         {
                             _skills.Add(Skills[j].Name, Skills[j]);
                             Skills[j].Alive = true;
+
+                            Player.StatSystem.RemoveStat(StatTID.Weapon, StatNames.WeaponSkillDamageRate);
+                            Player.StatSystem.AddStat(StatTID.Weapon, StatNames.WeaponSkillDamageRate, weaponData.WeaponSkillDamageRate);
                         }
                     }
                 }

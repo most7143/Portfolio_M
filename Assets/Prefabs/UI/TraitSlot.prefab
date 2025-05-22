@@ -134,10 +134,10 @@ GameObject:
   - component: {fileID: 6000595561622486042}
   - component: {fileID: 3077899615447129435}
   - component: {fileID: 4873136849601910438}
-  - component: {fileID: 2001876780477243767}
   - component: {fileID: 7015955056174730223}
+  - component: {fileID: 7751949953306418068}
   m_Layer: 5
-  m_Name: Loop Imgae
+  m_Name: Loop Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -200,29 +200,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2001876780477243767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4161045059548539264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cafd1edbc5e603f40be77c7745edda47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Group: {fileID: 7015955056174730223}
-  TargetImage: {fileID: 4873136849601910438}
-  Sprites:
-  - {fileID: 609451112, guid: e5ca2da3e2fdb0b438f30ff801f2b4e1, type: 3}
-  - {fileID: 2032282127, guid: e5ca2da3e2fdb0b438f30ff801f2b4e1, type: 3}
-  - {fileID: 1357559661, guid: e5ca2da3e2fdb0b438f30ff801f2b4e1, type: 3}
-  - {fileID: 1866310083, guid: e5ca2da3e2fdb0b438f30ff801f2b4e1, type: 3}
-  - {fileID: -483833595, guid: e5ca2da3e2fdb0b438f30ff801f2b4e1, type: 3}
-  - {fileID: -1110443969, guid: e5ca2da3e2fdb0b438f30ff801f2b4e1, type: 3}
-  - {fileID: 1847947259, guid: e5ca2da3e2fdb0b438f30ff801f2b4e1, type: 3}
-  Speed: 8
 --- !u!225 &7015955056174730223
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -231,10 +208,31 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4161045059548539264}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!95 &7751949953306418068
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4161045059548539264}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d30b745047929464f964bc6a1108f945, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5113398821014601059
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,8 +382,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4291875024
+  m_fontColor: {r: 0.81761, g: 0.81761, b: 0.81761, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -402,8 +400,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -499,7 +497,6 @@ MonoBehaviour:
   IsSet: 0
   Background: {fileID: 3686351157969319155}
   IconImage: {fileID: 7504230929569970811}
-  NameText: {fileID: 5587189508790393288}
   CountText: {fileID: 5587189508790393288}
   Button: {fileID: 8741956992130871542}
-  LoopImage: {fileID: 2001876780477243767}
+  LoopImage: {fileID: 4873136849601910438}

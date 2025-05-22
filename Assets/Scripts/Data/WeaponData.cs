@@ -12,9 +12,9 @@ public class WeaponData : ScriptableObject
     public string DescText;
     public int Tier;
     public int Level;
-    public int LevelByBonus;
     public float Speed;
-    public float Damage;
+    public float WeaponSkillDamageRate = 1f;
+    public float DamageByLevel;
     public float CriticalRate;
     public float CriticalDamage;
     public Sprite Icon;
@@ -28,7 +28,7 @@ public class WeaponData : ScriptableObject
             Name = EXEnum.Parse<WeaponNames>(NameString);
         }
 
-        AssetUtility.RenameAsset(this, Name.ToString());
+        AssetUtility.RenameAsset(this, Tier + "." + Name.ToString());
 
         if (SkillNameString.Count > 0)
         {
