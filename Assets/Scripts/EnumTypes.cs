@@ -247,6 +247,7 @@ public enum StatNames
 
     WeaponTriggerChance,
     CurrencyGainRate,
+    ExpGainRate,
     IncreaseHealingOnHitChance,
 
     LimitHealth,
@@ -474,6 +475,7 @@ public enum StatTID
 {
     None,
     Base,
+    Memory,
     Elite,
     Weapon,
     PassiveSkill,
@@ -510,6 +512,7 @@ public enum UIPopupNames
     None,
     ClassTrait, //특성 선택 팝업
     GameDescription, //특성 선택 팝업
+    Momory, // 기억 저장소 팝업
 }
 
 public enum UIDetailsNames

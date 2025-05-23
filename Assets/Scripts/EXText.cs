@@ -60,6 +60,9 @@ public static class EXText
             case StatNames.CurrencyGainRate:
                 return "재화 획득량";
 
+            case StatNames.ExpGainRate:
+                return "경험치 획득량";
+
             case StatNames.DamageReduction:
                 return "피해 감소";
 
@@ -68,6 +71,9 @@ public static class EXText
 
             case StatNames.DodgeRate:
                 return "회피율";
+
+            case StatNames.AllStats:
+                return "올스텟";
         }
 
         return "";

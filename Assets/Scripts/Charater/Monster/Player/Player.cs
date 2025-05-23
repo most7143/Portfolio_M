@@ -62,6 +62,7 @@ public class Player : Character
         StatSystem.AddStat(StatTID.Base, StatNames.DamageReduction, 1);
         StatSystem.AddStat(StatTID.Base, StatNames.WeaponTriggerChance, 1);
         StatSystem.AddStat(StatTID.Base, StatNames.CurrencyGainRate, 1);
+        StatSystem.AddStat(StatTID.Base, StatNames.ExpGainRate, 1);
         StatSystem.AddStat(StatTID.Base, StatNames.DamageRate, 1);
         StatSystem.AddStat(StatTID.Base, StatNames.WeaponSkillDamageRate, 1);
     }

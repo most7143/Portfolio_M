@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -7,9 +9,13 @@ public class SceneLoder : MonoBehaviour
 {
     public Slider ProgressBar;
 
+    public TextMeshProUGUI TipText;
+
     private void Start()
     {
         StartCoroutine(LoadMainSceneAsync());
+
+        SetText();
     }
 
     private IEnumerator LoadMainSceneAsync()
@@ -41,5 +47,20 @@ public class SceneLoder : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    private void SetText()
+    {
+        List<string> tips = new();
+
+        string str1 = "몬스터 처치 시 체력을 조금 회복합니다.";
+        string str2 = "엘리트 몬스터 처치 시 대량의 재화를 획득합니다.";
+        string str3 = "사망 시 처치했던 몬스터에 비례해 기억석을 획득합니다.";
+
+        tips.Add(str1);
+        tips.Add(str2);
+        tips.Add(str3);
+
+        TipText.SetText(tips[Random.Range(0, tips.Count)]);
     }
 }

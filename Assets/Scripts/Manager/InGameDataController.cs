@@ -75,7 +75,7 @@ public class InGameDataController : MonoBehaviour
 
     public void AddExp(float exp)
     {
-        float currentEXP = Mathf.FloorToInt(exp);
+        int currentEXP = Mathf.CeilToInt(exp * InGameManager.Instance.Player.StatSystem.GetStat(StatNames.ExpGainRate));
 
         Data.Experience += currentEXP;
 
@@ -84,7 +84,7 @@ public class InGameDataController : MonoBehaviour
             Data.Experience -= Data.NextEXP;
 
             InGameManager.Instance.Player.LevelUp();
-            Data.NextEXP *= 1.1f;
+            Data.NextEXP *= Mathf.CeilToInt(50 * (InGameManager.Instance.Player.Level * 1.03f));
         }
 
         UIManager.Instance.PlayerInfo.RefreshExp();
