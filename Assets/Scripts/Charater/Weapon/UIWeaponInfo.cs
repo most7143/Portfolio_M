@@ -46,7 +46,7 @@ public class UIWeaponInfo : MonoBehaviour
     {
         RefreshPercentText();
         RefreshCostColor();
-        RefreshUpgradeCostText(1);
+        RefreshUpgradeCostText(Player.WeaponController.Info.Level);
         RefreshWeaponInfoText(InGameManager.Instance.Player.WeaponController.Info);
     }
 

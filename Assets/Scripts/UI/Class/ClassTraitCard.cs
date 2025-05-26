@@ -32,7 +32,7 @@ public class ClassTraitCard : MonoBehaviour
 
         int tier = InGameManager.Instance.Player.ClassTraitSystem.ClassTier;
 
-        Grade = EXValue.GetChanceByGrade();
+        Grade = EXValue.GetChanceByGrade(2f);
 
         if (data != null)
         {

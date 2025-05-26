@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "Buff")]
+[CreateAssetMenu(menuName = "Buff")]
 public class BuffData : ScriptableObject
 {
     [Header("Base")] public BuffNames Name;

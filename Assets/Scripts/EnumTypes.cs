@@ -426,7 +426,7 @@ public enum EventTypes
 
     RefreshAttackSpeed, // 스텟 혹은 배속에 따른 공격속도 변화
     AddTrait, // 특성 획득
-
+    RefreshMemory,//기억 저장소 변화
     ChangeClass,// 클래스 전직
 }
 
@@ -512,7 +512,7 @@ public enum UIPopupNames
     None,
     ClassTrait, //특성 선택 팝업
     GameDescription, //특성 선택 팝업
-    Momory, // 기억 저장소 팝업
+    Memory, // 기억 저장소 팝업
 }
 
 public enum UIDetailsNames

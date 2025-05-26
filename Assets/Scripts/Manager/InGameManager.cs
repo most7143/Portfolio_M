@@ -88,15 +88,15 @@ public class InGameManager : MonoBehaviour
         Time.timeScale = 1f;
         UIHandler.FadeOut();
         StartCoroutine(GameOverProcess());
-        PlayerPrefs.SetInt("KillMonster", MonsterSpanwer.Level);
-        OutGameData.Instance.SetMaxMemory(MonsterSpanwer.Level);
+        PlayerPrefs.SetInt("KillMonster", MonsterSpanwer.Level - 1);
+        OutGameManager.Instance.SetMaxMemory(MonsterSpanwer.Level - 1);
         PlayerPrefs.Save();
     }
 
     private IEnumerator GameOverProcess()
     {
         yield return new WaitForSeconds(1f);
-        GameOver.MaxKillMonsterLevel.SetText("최대 처치 몬스터 레벨 : {0} ", MonsterSpanwer.Level);
+        GameOver.MaxKillMonsterLevel.SetText("처치 몬스터 레벨 : {0} ", MonsterSpanwer.Level - 1);
 
         GameOver.Show();
     }

@@ -32,6 +32,7 @@ public class Player : Character
     public void Init()
     {
         InitPlayerData();
+        InitOutGameData();
         WeaponController.InitWeaponDatas();
         WeaponController.SetWeaponData(WeaponNames.WoodenSword);
         RefreshWeaponInfo();
@@ -65,6 +66,26 @@ public class Player : Character
         StatSystem.AddStat(StatTID.Base, StatNames.ExpGainRate, 1);
         StatSystem.AddStat(StatTID.Base, StatNames.DamageRate, 1);
         StatSystem.AddStat(StatTID.Base, StatNames.WeaponSkillDamageRate, 1);
+    }
+
+    private void InitOutGameData()
+    {
+        StatNames[] stats = { StatNames.Attack, StatNames.Armor, StatNames.Health, StatNames.AttackSpeed,StatNames.CriticalChance,
+        StatNames.CriticalDamage,StatNames.AllStats,StatNames.CurrencyGainRate,StatNames.ExpGainRate};
+
+        for (int i = 0; i < stats.Length; i++)
+        {
+            int memoryPoint = PlayerPrefs.GetInt("Memory" + stats[i].ToString());
+
+            if (memoryPoint > 0)
+            {
+                MemoryData data = ResourcesManager.Instance.LoadScriptable<MemoryData>("Memory_" + stats[i].ToString());
+                if (data != null)
+                {
+                    StatSystem.AddStat(StatTID.Memory, stats[i], data.Values[memoryPoint - 1]);
+                }
+            }
+        }
     }
 
     private void ResfreshAttackStat()

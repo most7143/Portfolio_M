@@ -31,8 +31,7 @@ public class UIStageInfo : MonoBehaviour
 
     public void Cheat()
     {
-        InGameManager.Instance.Controller.AddCurrency(CurrencyTypes.Gold, 100000);
-        InGameManager.Instance.Controller.AddCurrency(CurrencyTypes.Gem, 100000);
+        InGameManager.Instance.StageFail();
     }
 
     public void Test()
@@ -51,6 +50,7 @@ public class UIStageInfo : MonoBehaviour
 
     public void Test2()
     {
+        PlayerPrefs.DeleteAll();
         InGameManager.Instance.Player.StatSystem.AddStat(StatTID.Elite, StatNames.Invincibility, 1);
     }
 }

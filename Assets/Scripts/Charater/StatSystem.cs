@@ -106,7 +106,7 @@ public class StatSystem : MonoBehaviour
 
 #if UNITY_EDITOR
 
-        LogManager.LogInfo(LogTypes.Stat, string.Format("{0} / {1} = {2} 이 추가됩니다. ({3}) ", Owenr.Name.ToString(), name, value, tid.ToString()));
+        LogManager.LogInfo(LogTypes.Stat, string.Format("[<color=green>{0}</color>] {1} / {2} = {3} 이 추가됩니다. ({4}) ", tid.ToString(), Owenr.Name.ToString(), name, value, tid.ToString()));
 #endif
     }
 

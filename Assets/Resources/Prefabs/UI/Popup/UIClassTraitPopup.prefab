@@ -337,7 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 444c6eb3cdf8d4d46bed26f56c9c7729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanvasGroup: {fileID: 0}
+  CanvasGroup: {fileID: 734245566843407297}
   Rect: {fileID: 1460781860131673842}
   IsStopBattle: 1
   Name: 1

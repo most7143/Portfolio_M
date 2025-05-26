@@ -55,7 +55,7 @@ public class SceneLoder : MonoBehaviour
 
         string str1 = "몬스터 처치 시 체력을 조금 회복합니다.";
         string str2 = "엘리트 몬스터 처치 시 대량의 재화를 획득합니다.";
-        string str3 = "사망 시 처치했던 몬스터에 비례해 기억석을 획득합니다.";
+        string str3 = "사망 시 처치했던 몬스터에 비례해 기억 포인트를 획득합니다.";
 
         tips.Add(str1);
         tips.Add(str2);

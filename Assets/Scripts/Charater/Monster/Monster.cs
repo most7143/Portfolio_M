@@ -111,6 +111,8 @@ public class Monster : Character
         UIManager.Instance.MonsterInfo.Refresh(this);
 
         EventManager<EventTypes>.Send(EventTypes.MonsterDead);
+
+        InGameManager.Instance.Player.HealRate(0.2f);
     }
 
     private bool TryElite()

@@ -24,7 +24,7 @@ MonoBehaviour:
   Stats: 
   StatStirng: []
   Values: []
-  Projectiles: 06000000
+  Projectiles: 07000000
   ProjectileString:
   - ArchDruid
   BuffNames: 0a000000
@@ -34,4 +34,4 @@ MonoBehaviour:
   BuffAliveTimes:
   - 1
   BuffValues:
-  - 0.05
+  - 0.1

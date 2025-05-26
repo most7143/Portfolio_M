@@ -21,11 +21,6 @@ public class MonsterSpanwer : MonoBehaviour
 
     public float EliteChance = 0.1f;
 
-    public float EXPRateByLevel = 1.03f;
-    public float BaseEXP = 10;
-    public float BaseGold = 100;
-    public float GoldRateByLevel = 1.03f;
-
     public Dictionary<int, MonsterData> _datas = new();
 
     private void Start()
@@ -42,9 +37,9 @@ public class MonsterSpanwer : MonoBehaviour
         if (Level < level)
         {
             Level++;
-            EXP *= EXPRateByLevel;
-            Gold = GetGold(level);
-            Gem = 1 + level / 3;
+            EXP = GetExp(Level);
+            Gold = GetGold(Level);
+            Gem = GetGem(Level);
         }
 
         EventManager<EventTypes>.Send(EventTypes.ChangeMonsterLevel);
@@ -52,12 +47,40 @@ public class MonsterSpanwer : MonoBehaviour
 
     private int GetGold(int level)
     {
-        return Mathf.CeilToInt(BaseGold * (level * GoldRateByLevel));
+        double baseGold = 10;
+
+        double percentIncrease = 1 + 0.1 * (level - 1);
+
+        int bonusSteps = (level - 1) / 10;
+        double bonusMultiplier = 1 + 0.50 * bonusSteps;
+
+        double finalGold = baseGold * percentIncrease * bonusMultiplier;
+
+        return (int)Math.Round(finalGold);
     }
 
     private float GetExp(int level)
     {
-        return Mathf.CeilToInt(BaseEXP * (level * EXPRateByLevel));
+        double baseExp = 15;
+
+        double percentIncrease = 1 + 0.2 * (level - 1);
+
+        int bonusSteps = (level - 1) / 10;
+        double bonusMultiplier = 1 + 0.5 * bonusSteps;
+
+        double finalExp = baseExp * percentIncrease * bonusMultiplier;
+
+        return (int)Math.Round(finalExp);
+    }
+
+    private int GetGem(int level)
+    {
+        int step = level / 10;
+
+        int minDrop = 1 + step;
+        int maxDrop = 3 + step;
+
+        return UnityEngine.Random.Range(minDrop, maxDrop + 1);
     }
 
     public void Spawn(CharacterNames chareacterName)

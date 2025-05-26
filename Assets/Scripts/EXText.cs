@@ -17,6 +17,7 @@ public static class EXText
             case StatNames.Armor:
             case StatNames.Health:
             case StatNames.AttackSpeed:
+            case StatNames.AddRerollTrait:
                 {
                     return value.ToString();
                 }

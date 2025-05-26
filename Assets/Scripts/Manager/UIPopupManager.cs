@@ -5,6 +5,19 @@ public class UIPopupManager : MonoBehaviour
 {
     private static UIPopupManager instance = null;
 
+    public UIPopupNames Name
+    {
+        get
+        {
+            if (Popup != null)
+            {
+                return Popup.Name;
+            }
+
+            return UIPopupNames.None;
+        }
+    }
+
     public UIPopup Popup;
 
     private Dictionary<UIPopupNames, UIPopup> popups = new();
@@ -35,8 +48,11 @@ public class UIPopupManager : MonoBehaviour
         }
     }
 
-    public void Spawn(UIPopupNames popupName)
+    public void Spawn(UIPopupNames popupName, bool spawnData = false)
     {
+        if (Popup != null)
+            Despawn();
+
         UIPopup popup;
 
         if (popups.ContainsKey(popupName))
@@ -51,6 +67,11 @@ public class UIPopupManager : MonoBehaviour
             {
                 popup = obj.GetComponent<UIPopup>();
                 popups.Add(popupName, popup);
+
+                if (spawnData)
+                {
+                    popup.CanvasGroup.alpha = 0f;
+                }
             }
         }
 
@@ -65,7 +86,9 @@ public class UIPopupManager : MonoBehaviour
         if (Popup != null)
         {
             Popup.Despawn();
+            Popup.CanvasGroup.alpha = 1f;
             Popup.gameObject.SetActive(false);
+            Popup = null;
         }
     }
 }

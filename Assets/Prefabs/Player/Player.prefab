@@ -350,7 +350,7 @@ MonoBehaviour:
   SpawnOffsetPosition: {x: 0.5, y: 0.8, z: 0}
   IsRandomSpawnPoint: 0
   Chance: 0.3
-  DamgeRate: 1
+  DamgeRate: 5
   Speed: 0
   Cooldown: 0
 --- !u!1 &2167597632595652165
@@ -405,7 +405,7 @@ MonoBehaviour:
   SpawnOffsetPosition: {x: 0, y: 1, z: 0}
   IsRandomSpawnPoint: 0
   Chance: 1
-  DamgeRate: 3
+  DamgeRate: 8
   Speed: 0
   Cooldown: 5
 --- !u!1 &2793588581769015670
@@ -576,7 +576,7 @@ MonoBehaviour:
   SpawnOffsetPosition: {x: 0, y: 1, z: 0}
   IsRandomSpawnPoint: 0
   Chance: 0.1
-  DamgeRate: 5
+  DamgeRate: 10
   Speed: 3
   Cooldown: 0
 --- !u!1 &3773136245571494045
@@ -631,7 +631,7 @@ MonoBehaviour:
   SpawnOffsetPosition: {x: 0, y: 2, z: 0}
   IsRandomSpawnPoint: 1
   Chance: 0.5
-  DamgeRate: 1
+  DamgeRate: 2
   Speed: 10
   Cooldown: 0
 --- !u!1 &4451877749717121528
@@ -930,7 +930,7 @@ MonoBehaviour:
   SpawnOffsetPosition: {x: 0, y: 1, z: 0}
   IsRandomSpawnPoint: 0
   Chance: 0.5
-  DamgeRate: 1
+  DamgeRate: 2
   Speed: 3
   Cooldown: 0
 --- !u!1 &5834595069540347275
@@ -1139,7 +1139,7 @@ MonoBehaviour:
   SpawnOffsetPosition: {x: 2, y: 0.8, z: 0}
   IsRandomSpawnPoint: 0
   Chance: 0.1
-  DamgeRate: 1
+  DamgeRate: 5
   Speed: 0
   Cooldown: 0
 --- !u!1 &6400473355051587062
@@ -1344,7 +1344,7 @@ MonoBehaviour:
   SpawnOffsetPosition: {x: 0, y: 1, z: 0}
   IsRandomSpawnPoint: 0
   Chance: 1
-  DamgeRate: 1
+  DamgeRate: 2
   Speed: 0
   Cooldown: 0
 --- !u!1 &6910822053935000749

@@ -1,8 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
-public class OutGameData : MonoBehaviour
+public class OutGameManager : MonoBehaviour
 {
-    private static OutGameData instance = null;
+    private static OutGameManager instance = null;
+
+    private Dictionary<StatNames, float> MemoryStats = new();
 
     private void Awake()
     {
@@ -18,7 +21,7 @@ public class OutGameData : MonoBehaviour
         }
     }
 
-    public static OutGameData Instance
+    public static OutGameManager Instance
     {
         get
         {
@@ -29,8 +32,6 @@ public class OutGameData : MonoBehaviour
             return instance;
         }
     }
-
-    public int CurrentMemoryPoint;
 
     public int MaxMemoryPoint;
 
@@ -43,7 +44,10 @@ public class OutGameData : MonoBehaviour
             MaxMemoryPoint = point;
         }
 
-        PlayerPrefs.SetInt("MaxMemoryPoint", MaxMemoryPoint);
+        if (MaxMemoryPoint > 20)
+            MaxMemoryPoint = 20;
+
+        PlayerPrefs.SetInt("MemoryMaxPoint", MaxMemoryPoint);
     }
 
     public void AddOutGameData(string key, int amount)

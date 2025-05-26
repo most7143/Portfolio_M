@@ -32,4 +32,4 @@ MonoBehaviour:
   BuffAliveTimes:
   - 0
   BuffValues:
-  - 0.01
+  - 0.02

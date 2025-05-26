@@ -17,10 +17,17 @@ MonoBehaviour:
   NameText: "\uB098\uC774\uD2B8"
   DescritpionText: "\uC815\uC758\uB97C \uC9C0\uD0A4\uB294 \uAE30\uC0AC"
   StatDescriptionText: "\uBC29\uC5B4\uB825 {0} \uC99D\uAC00"
+  ProjectileDescritonText: 
+  BuffDescritonText: 
   Stats: 0a000000
   StatStirng:
   - ArmorRate
   Values:
-  - 0.3
+  - 0.5
   Projectiles: 
   ProjectileString: []
+  BuffNames: 
+  BuffString: []
+  Targets: 
+  BuffAliveTimes: []
+  BuffValues: []

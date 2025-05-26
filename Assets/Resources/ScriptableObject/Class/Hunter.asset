@@ -17,10 +17,17 @@ MonoBehaviour:
   NameText: "\uD5CC\uD130"
   DescritpionText: "\uC801\uC744 \uB193\uCE58\uC9C0 \uC54A\uB294 \uCD94\uACA9\uC790"
   StatDescriptionText: "\uCE58\uBA85\uD0C0 \uD655\uB960 {0} \uC99D\uAC00"
+  ProjectileDescritonText: 
+  BuffDescritonText: 
   Stats: 03000000
   StatStirng:
   - CriticalChance
   Values:
-  - 0.15
+  - 0.3
   Projectiles: 
   ProjectileString: []
+  BuffNames: 
+  BuffString: []
+  Targets: 
+  BuffAliveTimes: []
+  BuffValues: []

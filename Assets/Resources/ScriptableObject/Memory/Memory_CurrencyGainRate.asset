@@ -9,13 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ad7481a2d4b96f4fb623b681aae002e, type: 3}
-  m_Name: Craftsmanship
+  m_Script: {fileID: 11500000, guid: c70ac5f55c1425b44a630f3b76d85f70, type: 3}
+  m_Name: Memory_CurrencyGainRate
   m_EditorClassIdentifier: 
-  Name: 12
-  NameString: Craftsmanship
-  NameText: "\uC7A5\uC778"
-  ClassNames: 0d0000001a000000
-  ClassNamesString:
-  - Blacksmith
-  - MasterCraftsman
+  Name: 17
+  NameString: CurrencyGainRate
+  Values:
+  - 0.3
+  - 0.6
+  - 0.9

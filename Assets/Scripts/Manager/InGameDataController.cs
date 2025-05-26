@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class InGameDataController : MonoBehaviour
@@ -84,9 +85,34 @@ public class InGameDataController : MonoBehaviour
             Data.Experience -= Data.NextEXP;
 
             InGameManager.Instance.Player.LevelUp();
-            Data.NextEXP *= Mathf.CeilToInt(50 * (InGameManager.Instance.Player.Level * 1.03f));
+            Data.NextEXP = GetNextEXP(InGameManager.Instance.Player.Level);
         }
 
         UIManager.Instance.PlayerInfo.RefreshExp();
+    }
+
+    private int GetNextEXP(int level)
+    {
+        double baseExp = 50;
+        double currentExp = baseExp;
+
+        for (int i = 2; i <= level; i++)
+        {
+            // 10레벨 단위마다 증가율 감소
+            int decayStep = (i - 1) / 10;
+            double growthRate = 0.50 - 0.05 * decayStep;
+            growthRate = Math.Max(growthRate, 0.05); // 최소 증가율 2%
+
+            if (i % 5 == 0)
+            {
+                currentExp *= 2.0;  // 10레벨마다 100% 증가
+            }
+            else
+            {
+                currentExp *= (1 + growthRate);  // 일반적인 증가
+            }
+        }
+
+        return (int)Math.Round(currentExp);
     }
 }

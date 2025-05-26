@@ -349,6 +349,15 @@ public class Character : MonoBehaviour
         EventManager<EventTypes>.Send(EventTypes.UsingHeal);
     }
 
+    public void HealRate(float valueRate)
+    {
+        int value = (int)(MaxHP * valueRate);
+
+        InGameManager.Instance.ObjectPool.SpawnFloaty(transform.position, FloatyTypes.Heal, RefreshHP(value).ToString());
+
+        EventManager<EventTypes>.Send(EventTypes.UsingHeal);
+    }
+
     public float GetCurrentMaxHP()
     {
         int isLimit = (int)(StatSystem.GetStat(StatNames.LimitHealth));

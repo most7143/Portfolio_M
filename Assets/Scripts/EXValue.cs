@@ -2,7 +2,7 @@
 
 public static class EXValue
 {
-    public static GradeNames GetChanceByGrade()
+    public static GradeNames GetChanceByGrade(float addchance = 1f)
     {
         float rand = Random.Range(0, 1f);
         GradeNames[] gradeNames = (GradeNames[])System.Enum.GetValues(typeof(GradeNames));
@@ -10,7 +10,7 @@ public static class EXValue
         float chance = 0;
         for (int i = 1; i < gradeNames.Length; i++)
         {
-            chance += GradeByChance(gradeNames[i]);
+            chance += GradeByChance(gradeNames[i]) * addchance;
 
             if (rand <= chance)
             {

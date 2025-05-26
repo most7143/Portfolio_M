@@ -7,15 +7,16 @@ public class UIMemorySlot : MonoBehaviour
 {
     public StatNames Name;
     public string NameString;
-    public int Count;
+    public int UsePoint = 1;
     public Image Icon;
     public List<Image> PointImages;
-    public List<float> Values;
 
     public TextMeshProUGUI NameText;
     public TextMeshProUGUI ValueText;
 
     public XButton Button;
+
+    private MemoryData memoryData;
 
     private void OnValidate()
     {
@@ -28,35 +29,38 @@ public class UIMemorySlot : MonoBehaviour
     private void Start()
     {
         Button.OnExecute = Click;
-        Refresh();
     }
 
-    public void Refresh()
+    public void Spawn()
     {
         NameText.SetText(EXText.GetStatLanguage(Name));
         Icon.sprite = ResourcesManager.Instance.LoadSprite("Icon_Memory_" + Name.ToString());
+
+        int point = PlayerPrefs.GetInt("Memory" + Name.ToString());
+
+        OutGameManager.Instance.AddOutGameData("MemoryPoint", -point);
         RefreshPoint();
     }
 
     public void Click()
     {
-        if (Count < 4)
-        {
-            Count++;
+        if (PlayerPrefs.GetInt("MemoryPoint") < UsePoint)
+            return;
 
-            OutGameData.Instance.AddOutGameData("Momory" + Name.ToString(), 1);
+        OutGameManager.Instance.AddOutGameData("Memory" + Name.ToString(), UsePoint);
+        OutGameManager.Instance.AddOutGameData("MemoryPoint", -UsePoint);
+        RefreshPoint();
 
-            RefreshPoint();
-        }
+        EventManager<EventTypes>.Send(EventTypes.RefreshMemory);
     }
 
     public void RefreshPoint()
     {
-        Count = PlayerPrefs.GetInt("Momory" + Name.ToString());
+        int point = PlayerPrefs.GetInt("Memory" + Name.ToString()) / UsePoint;
 
         for (int i = 0; i < PointImages.Count; i++)
         {
-            if (Count > i)
+            if (point > i)
             {
                 PointImages[i].sprite = ResourcesManager.Instance.LoadSprite("UI_Memory_Activate");
             }
@@ -66,9 +70,14 @@ public class UIMemorySlot : MonoBehaviour
             }
         }
 
-        if (Count > 0)
+        if (point > 0)
         {
-            ValueText.SetText(EXText.GetStatPercent(Name, Values[Count - 1]));
+            if (memoryData == null)
+            {
+                memoryData = ResourcesManager.Instance.LoadScriptable<MemoryData>("Memory_" + Name.ToString());
+            }
+
+            ValueText.SetText(EXText.GetStatPercent(Name, memoryData.Values[point - 1]));
         }
         else
         {
