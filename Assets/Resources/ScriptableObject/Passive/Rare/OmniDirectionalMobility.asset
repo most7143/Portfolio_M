@@ -22,7 +22,7 @@ MonoBehaviour:
     \uD68C\uD53C \uC131\uACF5\uC2DC \uACE8\uB4DC\uB97C \uD68D\uB4DD"
   BunousDescriptionText: "\uB208\uC5D0 \uBCF4\uC774\uB294 \uAC83\uC774 \uC804\uBD80\uAC00
     \uC544\uB2C8\uB2E4"
-  RequireRank: 1
+  RequireRank: 10
   MaxLevel: 7
   StatName: 12
   StatString: DodgeRate

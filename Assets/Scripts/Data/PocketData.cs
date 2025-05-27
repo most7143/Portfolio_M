@@ -10,7 +10,7 @@ public class PocketData : ScriptableObject
     public List<GradeNames> Grades;
     public AccessoryTypes AccessoryType;
     public List<float> Values;
-    public int UnlockRank;
+    public int UnlockKillMonster;
     public int Cost;
 
 #if UNITY_EDITOR

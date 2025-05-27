@@ -52,5 +52,6 @@ public class UIStageInfo : MonoBehaviour
     {
         PlayerPrefs.DeleteAll();
         InGameManager.Instance.Player.StatSystem.AddStat(StatTID.Elite, StatNames.Invincibility, 1);
+        InGameManager.Instance.Controller.AddCurrency(CurrencyTypes.Gold, 100000);
     }
 }

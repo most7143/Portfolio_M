@@ -26,19 +26,19 @@ public class UIPocketBox : MonoBehaviour
 
     private void OnEnable()
     {
-        EventManager<EventTypes>.Register<int>(EventTypes.LevelUp, UnLock);
+        EventManager<EventTypes>.Register(EventTypes.MonsterSpawnd, UnLock);
     }
 
     private void OnDisable()
     {
-        EventManager<EventTypes>.Unregister<int>(EventTypes.LevelUp, UnLock);
+        EventManager<EventTypes>.Unregister(EventTypes.MonsterSpawnd, UnLock);
     }
 
-    public void UnLock(int level)
+    public void UnLock()
     {
         if (data != null)
         {
-            if (data.UnlockRank <= level)
+            if (InGameManager.Instance.MonsterSpanwer.Level >= data.UnlockKillMonster)
             {
                 LockImage.gameObject.SetActive(false);
             }
@@ -57,7 +57,7 @@ public class UIPocketBox : MonoBehaviour
         {
             NameText.SetText(data.NameString);
             DescText.SetText(data.DescriptionString);
-            LockText.SetText(data.UnlockRank + " 랭크 달성 시 해금");
+            LockText.SetText(string.Format("몬스터 {0}회 처치 시 개방", data.UnlockKillMonster));
         }
     }
 
@@ -77,7 +77,7 @@ public class UIPocketBox : MonoBehaviour
             CostText.color = Color.red;
         }
 
-        UnLock(InGameManager.Instance.Player.Level);
+        UnLock();
     }
 
     public void Click()

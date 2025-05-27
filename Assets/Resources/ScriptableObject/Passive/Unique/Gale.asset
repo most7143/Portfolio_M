@@ -22,7 +22,7 @@ MonoBehaviour:
     \uACF5\uACA9\uC18D\uB3C4\uAC00 {1}\uBC30\uB85C \uC99D\uAC00 (6\uCD08 \uCFE8)"
   BunousDescriptionText: "\uBAB8\uC774 \uAE43\uD138\uCC98\uB7FC \uAC00\uBCCD\uAC8C
     \uB290\uAEF4\uC9C4\uB2E4."
-  RequireRank: 1
+  RequireRank: 15
   MaxLevel: 5
   StatName: 5
   StatString: AttackSpeed

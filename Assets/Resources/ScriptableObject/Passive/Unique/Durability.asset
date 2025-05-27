@@ -23,7 +23,7 @@ MonoBehaviour:
     {1} \uC99D\uAC00"
   BunousDescriptionText: "\uACE0\uD1B5\uC740 \uACAC\uB51C\uC218\uB85D \uB2E8\uB2E8\uD574\uC9C0\uAE30
     \uB9C8\uB828"
-  RequireRank: 1
+  RequireRank: 15
   MaxLevel: 5
   StatName: 11
   StatString: DamageReduction

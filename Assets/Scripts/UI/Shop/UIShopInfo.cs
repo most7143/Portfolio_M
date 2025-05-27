@@ -29,7 +29,7 @@ public class UIShopInfo : MonoBehaviour
     {
         PocketTypes[] types = (PocketTypes[])Enum.GetValues(typeof(PocketTypes));
 
-        for (int i = 1; i < types.Length; i++)
+        for (int i = types.Length - 1; i > 0; i--)
         {
             UIPocketBox box = ResourcesManager.Instance.Load<UIPocketBox>("UIPocketBox");
 
@@ -37,6 +37,7 @@ public class UIShopInfo : MonoBehaviour
             {
                 box.Init(types[i]);
                 box.transform.SetParent(Content);
+                box.transform.SetAsFirstSibling();
                 Pockets.Add(box);
             }
         }

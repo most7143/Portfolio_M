@@ -37,7 +37,7 @@ public class OutGameManager : MonoBehaviour
 
     public void SetMaxMemory(int level)
     {
-        int point = level / 5;
+        int point = level / 10;
 
         if (MaxMemoryPoint < point)
         {

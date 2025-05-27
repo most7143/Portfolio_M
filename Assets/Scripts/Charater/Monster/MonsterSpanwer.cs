@@ -75,7 +75,7 @@ public class MonsterSpanwer : MonoBehaviour
 
     private int GetGem(int level)
     {
-        int step = level / 10;
+        int step = level / 20;
 
         int minDrop = 1 + step;
         int maxDrop = 3 + step;

@@ -21,7 +21,7 @@ MonoBehaviour:
   MaxLevelDescriptionText: "\uCD5C\uB300 HP\uAC00 {0} , {1}% \uC99D\uAC00\uD55C\uB2E4."
   BunousDescriptionText: "\uBA48\uCD94\uC9C0 \uC54A\uB294 \uC2EC\uC7A5 \uBC15\uB3D9\uC774
     \uB4E4\uB9B0\uB2E4"
-  RequireRank: 1
+  RequireRank: 5
   MaxLevel: 10
   StatName: 7
   StatString: Health

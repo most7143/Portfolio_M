@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 580e575c1e5b7684886f907a46567361
+guid: 1291e62047eb34648876922397bdd679
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,8 +69,8 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 256
-    resizeAlgorithm: 0
+    maxTextureSize: 512
+    resizeAlgorithm: 1
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -123,22 +123,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ButtonBackground_Normal_0
+      name: Background_Pannel_Slice_Mythic_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 96
-        height: 64
+        width: 340
+        height: 90
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 15, y: 23, z: 15, w: 24}
+      pivot: {x: 0, y: 0}
+      border: {x: 12, y: 10, z: 14, w: 8}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e66f829c3499b364fa8bdbb42b52db96
-      internalID: -920757932
+      spriteID: 32526ad90265d0c4c984651861baea93
+      internalID: 905132909
       vertices: []
       indices: 
       edges: []
@@ -154,7 +154,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ButtonBackground_Normal_0: -920757932
+      Background_Pannel_Slice_Mythic_0: 905132909
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

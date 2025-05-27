@@ -9,8 +9,10 @@ public class UISkillBox : MonoBehaviour
     public PassiveSkillNames Name;
     public int Level = 0;
     public int MaxLevel = 0;
+    public Image Pannel;
     public Image BackGround;
     public Image Icon;
+    public ImageLoop LoopImage;
     public TextMeshProUGUI NameText;
     public TextMeshProUGUI DescText;
     public TextMeshProUGUI BunousDescText;
@@ -131,12 +133,15 @@ public class UISkillBox : MonoBehaviour
             DescText.SetText(string.Format(Data.DescriptionText, value));
             BunousDescText.gameObject.SetActive(false);
             CostText.SetText(_currentCost + "<sprite=0>");
+
+            LoopImage.gameObject.SetActive(false);
         }
         else
         {
             Rect.sizeDelta = new Vector2(_origin.x, _origin.y + 20f);
             NameText.SetText(EXText.GetGradeColor(GradeNames.Mythic, Data.MaxLevelNameText));
             BackGround.color = Color.cyan;
+            LearnButton.gameObject.SetActive(false);
 
             float maxLevelValue = GetMaxLevelValue();
 
@@ -146,7 +151,9 @@ public class UISkillBox : MonoBehaviour
             DescText.SetText(string.Format(Data.MaxLevelDescriptionText, value, maxLevelValue));
             BunousDescText.gameObject.SetActive(true);
             BunousDescText.SetText(Data.BunousDescriptionText);
-            CostText.SetText("MAX");
+            LoopImage.gameObject.SetActive(true);
+
+            Pannel.sprite = ResourcesManager.Instance.LoadSprite("Background_Pannel_Slice_Mythic_0");
         }
 
         SetChance();
@@ -187,7 +194,7 @@ public class UISkillBox : MonoBehaviour
             if (_chance >= rand)
             {
                 LevelUpSkill();
-                InGameManager.Instance.Controller.UseCurrency(CurrencyTypes.Gold, _currentCost);
+
                 InGameManager.Instance.ObjectPool.SpawnFloaty(LearnButton.transform.position, FloatyTypes.Success, "성공");
                 EventManager<EventTypes>.Send(EventTypes.SkillLevelUp);
             }
@@ -195,6 +202,8 @@ public class UISkillBox : MonoBehaviour
             {
                 InGameManager.Instance.ObjectPool.SpawnFloaty(LearnButton.transform.position, FloatyTypes.Fail, "실패");
             }
+
+            InGameManager.Instance.Controller.UseCurrency(CurrencyTypes.Gold, _currentCost);
         }
     }
 
