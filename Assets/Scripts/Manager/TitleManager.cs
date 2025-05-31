@@ -7,6 +7,7 @@ public class TitleManager : MonoBehaviour
     public XButton StartButton;
     public XButton StartDescriptionButton;
     public XButton MemoryButton;
+    public XButton ChallengeButton;
     public TextMeshProUGUI KillMonsterText;
 
     private void OnEnable()
@@ -23,10 +24,15 @@ public class TitleManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         StartButton.OnExecute = LoadScene;
+
         StartDescriptionButton.OnExecute = ClickDescrioption;
         StartDescriptionButton.IsPressClick = false;
+
         MemoryButton.OnExecute = ClickMemory;
         MemoryButton.IsPressClick = false;
+
+        ChallengeButton.OnExecute = ClickChallenge;
+        ChallengeButton.IsPressClick = false;
 
         if (PlayerPrefs.GetInt("KillMonster") > 0)
         {
@@ -72,6 +78,18 @@ public class TitleManager : MonoBehaviour
         if (UIPopupManager.Instance.Name != UIPopupNames.Memory)
         {
             UIPopupManager.Instance.Spawn(UIPopupNames.Memory);
+        }
+        else
+        {
+            UIPopupManager.Instance.Despawn();
+        }
+    }
+
+    public void ClickChallenge()
+    {
+        if (UIPopupManager.Instance.Name != UIPopupNames.Challenge)
+        {
+            UIPopupManager.Instance.Spawn(UIPopupNames.Challenge);
         }
         else
         {

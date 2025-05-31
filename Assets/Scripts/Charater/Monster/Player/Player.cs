@@ -14,6 +14,8 @@ public class Player : Character
 
     public PlayerData Data;
 
+    private CharacterNames _currentTargetMonster;
+
     protected override void Awake()
     {
         base.Awake();
@@ -77,12 +79,14 @@ public class Player : Character
         {
             int memoryPoint = PlayerPrefs.GetInt("Memory" + stats[i].ToString());
 
-            if (memoryPoint > 0)
+            int point = memoryPoint == 0 ? 0 : (memoryPoint - 1) / 3 + 1;
+
+            if (point > 0)
             {
                 MemoryData data = ResourcesManager.Instance.LoadScriptable<MemoryData>("Memory_" + stats[i].ToString());
                 if (data != null)
                 {
-                    StatSystem.AddStat(StatTID.Memory, stats[i], data.Values[memoryPoint - 1]);
+                    StatSystem.AddStat(StatTID.Memory, stats[i], data.Values[point - 1]);
                 }
             }
         }
@@ -128,6 +132,8 @@ public class Player : Character
     {
         if (base.Hit(ref info))
         {
+            OutGameManager.Instance.DamageCount(info.Owner.Level);
+
             EventManager<EventTypes>.Send(EventTypes.PlayerDamaged);
         }
 

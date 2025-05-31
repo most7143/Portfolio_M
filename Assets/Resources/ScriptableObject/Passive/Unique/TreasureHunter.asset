@@ -17,14 +17,14 @@ MonoBehaviour:
   Grade: 3
   NameText: "\uBCF4\uBB3C \uC0AC\uB0E5\uAFBC"
   MaxLevelNameText: "\uD0D0\uC695\uC758 \uC545\uB9C8"
-  DescriptionText: "\uC7AC\uD654 \uD68D\uB4DD\uB7C9\uC774 {0}% \uC99D\uAC00\uD55C\uB2E4."
-  MaxLevelDescriptionText: "\uC7AC\uD654 \uD68D\uB4E4\uB7C9\uC774 {0}% \uC99D\uAC00
+  DescriptionText: "\uC7AC\uD654 \uD68D\uB4DD\uB7C9\uC774 {0} \uC99D\uAC00\uD55C\uB2E4."
+  MaxLevelDescriptionText: "\uC7AC\uD654 \uD68D\uB4E4\uB7C9\uC774 {0} \uC99D\uAC00
     , \uD68D\uB4DD\uD55C \uACE8\uB4DC 1000\uB2F9 \uACF5\uACA9\uB825\uC774 {1}\uC99D\uAC00"
   BunousDescriptionText: "\uB3C8\uC744 \uBB34\uCC99\uC774\uB098 \uC88B\uC544\uD558\uB294
     \uC545\uB9C8"
   RequireRank: 15
   MaxLevel: 5
-  StatName: 17
+  StatName: 18
   StatString: CurrencyGainRate
   MaxLevelStatName: 1
   MaxLevelStatString: Attack

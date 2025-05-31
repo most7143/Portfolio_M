@@ -20,7 +20,8 @@ MonoBehaviour:
   DescText: 
   Tier: 1
   Level: 1
-  Speed: 0.6
+  Speed: 0.5
+  WeaponSkillDamageRate: 1
   DamageByLevel: 5
   CriticalRate: 0.02
   CriticalDamage: 0.3

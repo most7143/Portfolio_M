@@ -110,9 +110,11 @@ public class Monster : Character
 
         UIManager.Instance.MonsterInfo.Refresh(this);
 
-        EventManager<EventTypes>.Send(EventTypes.MonsterDead);
-
         InGameManager.Instance.Player.HealRate(0.2f);
+
+        OutGameManager.Instance.TotalMonsterKillCount += 1;
+
+        EventManager<EventTypes>.Send(EventTypes.MonsterDead);
     }
 
     private bool TryElite()
@@ -145,20 +147,20 @@ public class Monster : Character
         {
             case EliteTypes.Powerful:
                 {
-                    StatSystem.AddStat(StatTID.Elite, StatNames.AttackRate, 2f);
+                    StatSystem.AddStat(StatTID.Elite, StatNames.AttackRate, 2.5f);
                 }
                 break;
 
             case EliteTypes.Armored:
                 {
-                    StatSystem.AddStat(StatTID.Elite, StatNames.ArmorRate, 2f);
+                    StatSystem.AddStat(StatTID.Elite, StatNames.ArmorRate, 2.5f);
                 }
 
                 break;
 
             case EliteTypes.Resilient:
                 {
-                    StatSystem.AddStat(StatTID.Elite, StatNames.HealthRate, 2f);
+                    StatSystem.AddStat(StatTID.Elite, StatNames.HealthRate, 2.5f);
                 }
                 break;
 
@@ -171,6 +173,7 @@ public class Monster : Character
             case EliteTypes.Deadly:
                 {
                     StatSystem.AddStat(StatTID.Elite, StatNames.CriticalChance, 0.6f);
+                    StatSystem.AddStat(StatTID.Elite, StatNames.CriticalDamage, 1f);
                 }
                 break;
         }
@@ -208,6 +211,7 @@ public class Monster : Character
             case EliteTypes.Deadly:
                 {
                     StatSystem.RemoveStat(StatTID.Elite, StatNames.CriticalChance);
+                    StatSystem.RemoveStat(StatTID.Elite, StatNames.CriticalDamage);
                 }
                 break;
         }
@@ -217,7 +221,7 @@ public class Monster : Character
     {
         float rand = Random.Range(0, 1f);
 
-        if (0.5f >= rand)
+        if (0.3f >= rand)
         {
             InGameManager.Instance.Controller.AddCurrencyAnim(CurrencyTypes.Gem, transform.position, Spanwer.Gem);
         }

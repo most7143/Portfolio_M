@@ -85,7 +85,7 @@ public class Character : MonoBehaviour
 
         StartCoroutine(ProcessHitEffect());
 
-        info.Value = CalculateHitDamage(info);
+        CalculateHitDamage(ref info);
 
         if (info.Owner.Name == CharacterNames.Swordman)
         {
@@ -134,6 +134,9 @@ public class Character : MonoBehaviour
 
     private void SpawnFloaty(DamageInfo info)
     {
+        if (info.Owner.Name != CharacterNames.Swordman)
+            return;
+
         if (info.Type == DamageTypes.Attack)
         {
             if (info.IsCritical)
@@ -231,39 +234,14 @@ public class Character : MonoBehaviour
 
         info.Value = RandomDamage(Attack);
 
-        float critical = Random.Range(0f, 1f);
-
-        info.IsCritical = critical <= StatSystem.GetStat(StatNames.CriticalChance);
-
-        if (info.IsCritical)
-        {
-            info.Value *= StatSystem.GetStat(StatNames.CriticalDamage);
-
 #if UNITY_EDITOR
-            LogManager.LogInfo(LogTypes.Attack, string.Format("공격자 :{0} , 피해량(랜덤) = {1} \n 기본 공격력({2}) + 무기 공격력({3}) + 패시브 공격력({4}) + 공격력 배율({5}%) \n" +
-  " 치명률({6}%) = 기본({7}%) + 무기({8}%) + 패시브 ({9}%) + 버프({10}%) \n"
-  + "치명타 피해({11}%) = 기본({12}%) + 무기({13}%) + 패시브({14}%) * 피해량 배율({15}%)",
-     name, info.Value, StatSystem.GetStat(StatTID.Base, StatNames.Attack), StatSystem.GetStat(StatTID.Weapon, StatNames.Attack), StatSystem.GetStat(StatTID.PassiveSkill, StatNames.Attack),
-     StatSystem.GetStat(StatNames.AttackRate) * 100f, StatSystem.GetStat(StatNames.CriticalChance) * 100f, StatSystem.GetStat(StatTID.Base, StatNames.CriticalChance) * 100f, StatSystem.GetStat(StatTID.Weapon, StatNames.CriticalChance) * 100f, StatSystem.GetStat(StatTID.PassiveSkill, StatNames.CriticalChance) * 100f,
-     StatSystem.GetStat(StatTID.Buff, StatNames.CriticalChance) * 100f + StatSystem.GetStat(StatTID.BuffStack, StatNames.CriticalChance) * 100f,
-     StatSystem.GetStat(StatNames.CriticalDamage) * 100f, StatSystem.GetStat(StatTID.Base, StatNames.CriticalDamage) * 100f, StatSystem.GetStat(StatTID.Weapon, StatNames.CriticalDamage) * 100f, StatSystem.GetStat(StatTID.PassiveSkill, StatNames.CriticalDamage) * 100f, StatSystem.GetStat(StatNames.DamageRate) * 100f));
+        LogManager.LogInfo(LogTypes.Attack, string.Format("[{0}] 피해 (랜덤) = {1} \n(기본 공격력({2}) + 무기 공격력({3}) + 패시브 공격력({4}) + 공격력 배율({5}%) ) * 피해량 배율({6}%) \n",
+      name, info.Value, StatSystem.GetStat(StatTID.Base, StatNames.Attack), StatSystem.GetStat(StatTID.Weapon, StatNames.Attack), StatSystem.GetStat(StatTID.PassiveSkill, StatNames.Attack),
+      StatSystem.GetStat(StatNames.AttackRate) * 100f, StatSystem.GetStat(StatNames.DamageRate) * 100f));
 #endif
-            if (Name == CharacterNames.Swordman)
-            {
-                EventManager<EventTypes>.Send(EventTypes.PlayerAttackToCritical);
-            }
-        }
-        else
+        if (Name == CharacterNames.Swordman)
         {
-#if UNITY_EDITOR
-            LogManager.LogInfo(LogTypes.Attack, string.Format("[{0}] 피해 (랜덤) = {1} \n(기본 공격력({2}) + 무기 공격력({3}) + 패시브 공격력({4}) + 공격력 배율({5}%) ) * 피해량 배율({6}%) \n",
-          name, info.Value, StatSystem.GetStat(StatTID.Base, StatNames.Attack), StatSystem.GetStat(StatTID.Weapon, StatNames.Attack), StatSystem.GetStat(StatTID.PassiveSkill, StatNames.Attack),
-          StatSystem.GetStat(StatNames.AttackRate) * 100f, StatSystem.GetStat(StatNames.DamageRate) * 100f));
-#endif
-            if (Name == CharacterNames.Swordman)
-            {
-                EventManager<EventTypes>.Send(EventTypes.PlayerAttackToNoCritical);
-            }
+            EventManager<EventTypes>.Send(EventTypes.PlayerAttackToNoCritical);
         }
 
         info.Value = Mathf.RoundToInt(info.Value * StatSystem.GetStat(StatNames.DamageRate) * 1f);
@@ -271,7 +249,7 @@ public class Character : MonoBehaviour
         return info;
     }
 
-    public float CalculateHitDamage(DamageInfo info)
+    public void CalculateHitDamage(ref DamageInfo info)
     {
         float armor = StatSystem.GetStat(StatNames.Armor);
         float armorRate = StatSystem.GetStat(StatNames.ArmorRate);
@@ -282,22 +260,45 @@ public class Character : MonoBehaviour
 
         int IgnoreValue = Mathf.RoundToInt(armorValue * (1 - info.Owner.StatSystem.GetStat(StatNames.IgnoreArmor)));
 
-        float result = info.Value - IgnoreValue;
+        float beforeValue = info.Value;
+
+        info.Value = info.Value - IgnoreValue;
 
         float damageMultiplier = Mathf.Clamp(2 - reduece, 0f, 1f);
-        result *= damageMultiplier;
+        info.Value *= damageMultiplier;
 
-        result = Mathf.RoundToInt(result);
+        float critical = Random.Range(0f, 1f);
 
-        result = result > 0 ? result : 1;
+        info.IsCritical = critical <= info.Owner.StatSystem.GetStat(StatNames.CriticalChance);
+
+        if (info.IsCritical)
+        {
+            info.Value *= info.Owner.StatSystem.GetStat(StatNames.CriticalDamage);
+
+#if UNITY_EDITOR
+            LogManager.LogInfo(LogTypes.Attack, string.Format("공격자 :{0} , 피해량 = {1} \n  치명률({2}%) = 기본({3}%) + 무기({4}%) + 패시브 ({5}%) + 버프({6}%) \n"
+  + "치명타 피해({7}%) = 기본({8}%) + 무기({9}%) + 패시브({10}%)",
+     Name, info.Value,
+     info.Owner.StatSystem.GetStat(StatNames.CriticalChance) * 100f, info.Owner.StatSystem.GetStat(StatTID.Base, StatNames.CriticalChance) * 100f, info.Owner.StatSystem.GetStat(StatTID.Weapon, StatNames.CriticalChance) * 100f, info.Owner.StatSystem.GetStat(StatTID.PassiveSkill, StatNames.CriticalChance) * 100f,
+     info.Owner.StatSystem.GetStat(StatTID.Buff, StatNames.CriticalChance) * 100f + info.Owner.StatSystem.GetStat(StatTID.BuffStack, StatNames.CriticalChance) * 100f,
+     info.Owner.StatSystem.GetStat(StatNames.CriticalDamage) * 100f, info.Owner.StatSystem.GetStat(StatTID.Base, StatNames.CriticalDamage) * 100f, info.Owner.StatSystem.GetStat(StatTID.Weapon, StatNames.CriticalDamage) * 100f, info.Owner.StatSystem.GetStat(StatTID.PassiveSkill, StatNames.CriticalDamage) * 100f));
+#endif
+            if (Name == CharacterNames.Swordman)
+            {
+                EventManager<EventTypes>.Send(EventTypes.PlayerAttackToCritical);
+            }
+        }
+
+        info.Value = Mathf.RoundToInt(info.Value);
+
+        info.Value = info.Value > 0 ? info.Value : 1;
 
 #if UNITY_EDITOR
 
         LogManager.LogInfo(LogTypes.Attack, string.Format("{0}가 받는 피해량,  공격 피해량({1}) - 방어력({2},{3}%) * 받는피해감소({4}%) = {5}",
-            Name.ToString(), info.Value, armor, armorRate * 100f, damageMultiplier * 100f, result));
+            Name.ToString(), beforeValue, armor, armorRate * 100f, damageMultiplier * 100f, info.Value));
 
 #endif
-        return result;
     }
 
     private float RandomDamage(float Damage)

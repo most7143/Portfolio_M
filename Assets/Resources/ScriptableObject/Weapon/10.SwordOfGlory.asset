@@ -24,7 +24,7 @@ MonoBehaviour:
     \uC808\uB300\uC801\uC778 \uAC80"
   Tier: 10
   Level: 90
-  Speed: 2.3
+  Speed: 1.5
   WeaponSkillDamageRate: 0.5
   DamageByLevel: 35
   CriticalRate: 0.2

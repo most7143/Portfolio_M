@@ -18,13 +18,13 @@ MonoBehaviour:
   NameText: "\uB9C9\uAE30\uD6C8\uB828"
   MaxLevelNameText: "\uC120\uBD09\uB300"
   DescriptionText: "\uBC29\uC5B4\uB825\uC774 {0} \uC99D\uAC00\uD55C\uB2E4"
-  MaxLevelDescriptionText: "\uBC29\uC5B4\uB825\uC774 {0}, {1}% \uC99D\uAC00\uD55C\uB2E4."
+  MaxLevelDescriptionText: "\uBC29\uC5B4\uB825\uC774 {0}, {1} \uC99D\uAC00\uD55C\uB2E4."
   BunousDescriptionText: "\uCD5C\uC804\uBC29\uC5D0 \uD2B9\uD654\uB41C \uC790"
   RequireRank: 5
   MaxLevel: 10
-  StatName: 9
+  StatName: 10
   StatString: Armor
-  MaxLevelStatName: 10
+  MaxLevelStatName: 11
   MaxLevelStatString: ArmorRate
   MaxLevelConditions: 0
   BooleanStatName: 0

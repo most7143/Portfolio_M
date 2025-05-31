@@ -124,13 +124,10 @@ public class UISkillBox : MonoBehaviour
 
         float value = GetValue();
 
-        if (Data.MultiplierValue > 0 && Data.StatName != StatNames.AttackSpeed)
-            value = Mathf.RoundToInt(value * 100f);
-
         if (Level != Data.MaxLevel)
         {
             NameText.SetText(Data.NameText);
-            DescText.SetText(string.Format(Data.DescriptionText, value));
+            DescText.SetText(string.Format(Data.DescriptionText, EXText.GetStatPercent(Data.StatName, value)));
             BunousDescText.gameObject.SetActive(false);
             CostText.SetText(_currentCost + "<sprite=0>");
 
@@ -145,10 +142,7 @@ public class UISkillBox : MonoBehaviour
 
             float maxLevelValue = GetMaxLevelValue();
 
-            if (Data.MultiplierMaxLevelValue > 0 && Data.StatName != StatNames.AttackSpeed)
-                maxLevelValue = Mathf.FloorToInt(maxLevelValue * 100f);
-
-            DescText.SetText(string.Format(Data.MaxLevelDescriptionText, value, maxLevelValue));
+            DescText.SetText(string.Format(Data.MaxLevelDescriptionText, EXText.GetStatPercent(Data.StatName, value), EXText.GetStatPercent(Data.MaxLevelStatName, maxLevelValue)));
             BunousDescText.gameObject.SetActive(true);
             BunousDescText.SetText(Data.BunousDescriptionText);
             LoopImage.gameObject.SetActive(true);
@@ -204,6 +198,8 @@ public class UISkillBox : MonoBehaviour
             }
 
             InGameManager.Instance.Controller.UseCurrency(CurrencyTypes.Gold, _currentCost);
+
+            OutGameManager.Instance.CheckWeaponOnlySpend = false;
         }
     }
 

@@ -50,8 +50,6 @@ public class UIStageInfo : MonoBehaviour
 
     public void Test2()
     {
-        PlayerPrefs.DeleteAll();
-        InGameManager.Instance.Player.StatSystem.AddStat(StatTID.Elite, StatNames.Invincibility, 1);
-        InGameManager.Instance.Controller.AddCurrency(CurrencyTypes.Gold, 100000);
+        OutGameManager.Instance.TotalMonsterKillCount += 100;
     }
 }

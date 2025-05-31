@@ -20,7 +20,8 @@ MonoBehaviour:
   DescText: "\uACAC\uC2B5 \uAE30\uC0AC\uB4E4\uC774 \uC37C\uB358 \uAC80"
   Tier: 3
   Level: 20
-  Speed: 0.8
+  Speed: 0.7
+  WeaponSkillDamageRate: 1
   DamageByLevel: 11
   CriticalRate: 0.06
   CriticalDamage: 0.9

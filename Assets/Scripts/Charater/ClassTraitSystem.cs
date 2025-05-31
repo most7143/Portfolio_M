@@ -104,6 +104,9 @@ public class ClassTraitSystem : MonoBehaviour
                 }
             }
 
+            OutGameManager.Instance.CheckNonClassChange = false;
+            OutGameManager.Instance.ClassChanges.Add(name);
+
             EventManager<EventTypes>.Send(EventTypes.ChangeClass, name);
 
             Clear();

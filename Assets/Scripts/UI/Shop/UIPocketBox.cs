@@ -118,6 +118,8 @@ public class UIPocketBox : MonoBehaviour
             }
 
             InGameManager.Instance.Controller.UseCurrency(CurrencyTypes.Gem, data.Cost);
+
+            OutGameManager.Instance.CheckWeaponOnlySpend = false;
         }
     }
 }

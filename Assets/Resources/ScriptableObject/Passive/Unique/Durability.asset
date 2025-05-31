@@ -17,15 +17,15 @@ MonoBehaviour:
   Grade: 3
   NameText: "\uAC15\uC778\uD568"
   MaxLevelNameText: "\uCCA0\uAC11"
-  DescriptionText: "\uBC1B\uB294 \uD53C\uD574\uAC00 {0}% \uAC10\uC18C\uD55C\uB2E4."
-  MaxLevelDescriptionText: "\uBC1B\uB294 \uD53C\uD574 {0}% \uAC10\uC18C \uBC0F  \uAC19\uC740
+  DescriptionText: "\uBC1B\uB294 \uD53C\uD574\uAC00 {0} \uAC10\uC18C\uD55C\uB2E4."
+  MaxLevelDescriptionText: "\uBC1B\uB294 \uD53C\uD574 {0} \uAC10\uC18C \uBC0F  \uAC19\uC740
     \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uBC1B\uC744 \uB54C\uB9C8\uB2E4 \uBC29\uC5B4\uB825
     {1} \uC99D\uAC00"
   BunousDescriptionText: "\uACE0\uD1B5\uC740 \uACAC\uB51C\uC218\uB85D \uB2E8\uB2E8\uD574\uC9C0\uAE30
     \uB9C8\uB828"
   RequireRank: 15
   MaxLevel: 5
-  StatName: 11
+  StatName: 12
   StatString: DamageReduction
   MaxLevelStatName: 0
   MaxLevelStatString: 

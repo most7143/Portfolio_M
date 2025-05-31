@@ -16,7 +16,7 @@ MonoBehaviour:
   NameString: "\uC804\uC0AC"
   Attack: 10
   AttackByLevel: 8
-  AttackSpeed: 0.3
+  AttackSpeed: 0.5
   Health: 200
   HealthByLevel: 100
   Armor: 5

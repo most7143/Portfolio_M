@@ -22,7 +22,7 @@ MonoBehaviour:
     \uC218 \uC788\uB2E4"
   Tier: 6
   Level: 50
-  Speed: 1.2
+  Speed: 1.1
   WeaponSkillDamageRate: 1
   DamageByLevel: 20
   CriticalRate: 0.12

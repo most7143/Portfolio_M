@@ -21,7 +21,8 @@ MonoBehaviour:
     \uAC80"
   Tier: 4
   Level: 30
-  Speed: 0.9
+  Speed: 0.8
+  WeaponSkillDamageRate: 1
   DamageByLevel: 14
   CriticalRate: 0.08
   CriticalDamage: 1.2

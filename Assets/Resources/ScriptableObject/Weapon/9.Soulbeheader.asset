@@ -21,7 +21,7 @@ MonoBehaviour:
   DescText: "\uC8FD\uC740 \uB9DD\uC790\uB4E4\uC758 \uC18C\uB9AC\uAC00 \uC6B8\uB9B0\uB2E4"
   Tier: 9
   Level: 80
-  Speed: 2
+  Speed: 1.4
   WeaponSkillDamageRate: 1
   DamageByLevel: 31
   CriticalRate: 0.18

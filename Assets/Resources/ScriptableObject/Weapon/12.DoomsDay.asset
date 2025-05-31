@@ -24,7 +24,7 @@ MonoBehaviour:
     \uC0AC\uC6A9\uD588\uB358 \uBB34\uAD6C"
   Tier: 12
   Level: 110
-  Speed: 3
+  Speed: 1.7
   WeaponSkillDamageRate: 1
   DamageByLevel: 50
   CriticalRate: 0.24

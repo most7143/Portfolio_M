@@ -122,6 +122,11 @@ public class StatSystem : MonoBehaviour
                 {
                     EventManager<EventTypes>.Send(EventTypes.RefreshPlayerStst, name);
                 }
+
+                if (name == StatNames.AttackSpeed || name == StatNames.DoubleAttackSpeed)
+                {
+                    EventManager<EventTypes>.Send(EventTypes.RefreshAttackSpeed);
+                }
             }
 
 #if UNITY_EDITOR

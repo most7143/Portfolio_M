@@ -90,6 +90,7 @@ public class InGameManager : MonoBehaviour
         StartCoroutine(GameOverProcess());
         PlayerPrefs.SetInt("KillMonster", MonsterSpanwer.Level - 1);
         OutGameManager.Instance.SetMaxMemory(MonsterSpanwer.Level - 1);
+        OutGameManager.Instance.SaveChallengeData();
         PlayerPrefs.Save();
     }
 

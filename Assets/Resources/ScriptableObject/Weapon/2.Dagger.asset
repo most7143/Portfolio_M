@@ -20,7 +20,7 @@ MonoBehaviour:
   DescText: "\uC544\uC9C1\uC740 \uB179\uC2AC\uC9C0 \uC54A\uC740 \uB2E8\uAC80"
   Tier: 2
   Level: 10
-  Speed: 0.7
+  Speed: 0.6
   WeaponSkillDamageRate: 1
   DamageByLevel: 8
   CriticalRate: 0.04

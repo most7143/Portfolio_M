@@ -230,6 +230,7 @@ public enum StatNames
     CriticalChance,
     CriticalDamage,
     AttackSpeed,
+    AttackSpeedRate,
     HealingOnHit,
 
     Health,
@@ -513,12 +514,23 @@ public enum UIPopupNames
     ClassTrait, //특성 선택 팝업
     GameDescription, //특성 선택 팝업
     Memory, // 기억 저장소 팝업
+    Challenge, // 도전과제 팝업
 }
 
 public enum UIDetailsNames
 {
     None,
     WeaponUpgrade,
+}
+
+public enum UIChallengeNames
+{
+    None,
+    DiligentWorker,
+    PocketStronghold,
+    Rookie,
+    WeaponEnthusiast,
+    NthReincarnation,
 }
 
 public enum LanguageTypes

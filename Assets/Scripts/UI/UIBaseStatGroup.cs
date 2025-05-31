@@ -27,12 +27,12 @@ public class UIBaseStatGroup : MonoBehaviour
 
     public void Refresh(StatNames name = StatNames.None)
     {
-        DamageText.SetText("공격력 : " + Player.Attack.ToString());
-        SpeedText.SetText("공격속도 : " + Player.AttackSpeed.ToString());
-        CriticalRateText.SetText("치명타 확률 : " + (Player.StatSystem.GetStat(StatNames.CriticalChance) * 100f).ToString() + "%");
-        CriticalDamageText.SetText("치명타 피해 : " + (Player.StatSystem.GetStat(StatNames.CriticalDamage) * 100f).ToString() + "%");
-        ArmorText.SetText("방어력 : " + Player.Armor.ToString());
-        ReduceText.SetText("피해 감소 : " + ((Player.StatSystem.GetStat(StatNames.DamageReduction) - 1) * 100f).ToString() + "%");
-        DodgeRateText.SetText("회피율 : " + (Player.StatSystem.GetStat(StatNames.DodgeRate) * 100f).ToString() + "%");
+        DamageText.SetText(EXText.GetStatLanguage(StatNames.Attack) + " : " + EXText.GetStatPercent(StatNames.Attack, Player.Attack));
+        SpeedText.SetText(EXText.GetStatLanguage(StatNames.AttackSpeed) + " : " + EXText.GetStatPercent(StatNames.AttackSpeed, Player.AttackSpeed));
+        CriticalRateText.SetText(EXText.GetStatLanguage(StatNames.CriticalChance) + " : " + EXText.GetStatPercent(StatNames.CriticalChance, Player.StatSystem.GetStat(StatNames.CriticalChance)));
+        CriticalDamageText.SetText(EXText.GetStatLanguage(StatNames.CriticalDamage) + " : " + EXText.GetStatPercent(StatNames.CriticalDamage, Player.StatSystem.GetStat(StatNames.CriticalDamage)));
+        ArmorText.SetText(EXText.GetStatLanguage(StatNames.Armor) + " : " + EXText.GetStatPercent(StatNames.Armor, Player.Armor));
+        ReduceText.SetText(EXText.GetStatLanguage(StatNames.DamageReduction) + " : " + EXText.GetStatPercent(StatNames.DamageReduction, Player.StatSystem.GetStat(StatNames.DamageReduction) - 1));
+        DodgeRateText.SetText(EXText.GetStatLanguage(StatNames.DodgeRate) + " : " + EXText.GetStatPercent(StatNames.DodgeRate, Player.StatSystem.GetStat(StatNames.DodgeRate)));
     }
 }
