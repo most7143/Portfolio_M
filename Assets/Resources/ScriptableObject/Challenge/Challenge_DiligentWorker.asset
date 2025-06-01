@@ -15,16 +15,20 @@ MonoBehaviour:
   Name: 1
   NameString: DiligentWorker
   NameText: "\uC131\uC2E4\uD55C \uC77C\uAFBC"
+  MaxRankNameText: "\uADF8 \uAE38\uC758 \uB05D\uC5D0\uC11C"
   DescText: "\uB610 \uD558\uB8E8\uAC00 \uAC00\uACE0, \uB610 \uD558\uB098\uB97C \uC4F0\uB7EC\uB728\uB838\uB2E4.
     \uC774 \uAE38\uC758 \uB05D\uC5D4 \uBB50\uAC00 \uC788\uC744\uAE4C."
+  MaxRankDescText: "\uBC18\uBCF5\uB41C \uC2F8\uC6C0 \uB05D\uC5D0 \uB098\uB294 \uC54C\uAC8C\uB418\uC5C8\uB2E4.
+    \uC9C4\uC9DC \uD798\uC740, \uACAC\uB38C\uB0B8 \uC790\uC5D0\uAC8C \uAE43\uB4E0\uB2E4\uB294
+    \uAC78."
   RequiredText: "\uBAAC\uC2A4\uD130 \uB204\uC801 \uCC98\uCE58"
   RequireValues:
-  - 100
-  - 400
-  - 999
-  StatName: 2
-  StatNameString: AttackRate
+  - 200
+  - 800
+  - 2000
+  StatName: 39
+  StatNameString: Allstats
   StatValues:
-  - 2
-  - 4
-  - 6
+  - 0.02
+  - 0.03
+  - 0.05

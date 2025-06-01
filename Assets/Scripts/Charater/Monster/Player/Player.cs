@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using UnityEngine;
 
 public class Player : Character
@@ -34,7 +36,8 @@ public class Player : Character
     public void Init()
     {
         InitPlayerData();
-        InitOutGameData();
+        InitMemoryData();
+        InitChallengeData();
         WeaponController.InitWeaponDatas();
         WeaponController.SetWeaponData(WeaponNames.WoodenSword);
         RefreshWeaponInfo();
@@ -70,7 +73,7 @@ public class Player : Character
         StatSystem.AddStat(StatTID.Base, StatNames.WeaponSkillDamageRate, 1);
     }
 
-    private void InitOutGameData()
+    private void InitMemoryData()
     {
         StatNames[] stats = { StatNames.Attack, StatNames.Armor, StatNames.Health, StatNames.AttackSpeed,StatNames.CriticalChance,
         StatNames.CriticalDamage,StatNames.AllStats,StatNames.CurrencyGainRate,StatNames.ExpGainRate};
@@ -88,6 +91,23 @@ public class Player : Character
                 {
                     StatSystem.AddStat(StatTID.Memory, stats[i], data.Values[point - 1]);
                 }
+            }
+        }
+    }
+
+    private void InitChallengeData()
+    {
+        UIChallengeNames[] names = Enum.GetValues(typeof(UIChallengeNames)).Cast<UIChallengeNames>().ToArray();
+
+        for (int i = 0; i < names.Length; i++)
+        {
+            StatNames statName = OutGameManager.Instance.GetChallengeStat(names[i]);
+
+            float value = OutGameManager.Instance.GetChallengeStatValue(names[i]);
+
+            if (value > 0)
+            {
+                StatSystem.AddStat(StatTID.Challenge, statName, value);
             }
         }
     }
@@ -116,7 +136,7 @@ public class Player : Character
     {
         base.OnAttack();
 
-        int rand = Random.Range(0, 2);
+        int rand = UnityEngine.Random.Range(0, 2);
 
         if (rand == 0)
         {

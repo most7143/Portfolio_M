@@ -15,18 +15,23 @@ MonoBehaviour:
   Name: 2
   NameString: PocketStronghold
   NameText: "\uC791\uC740 \uC694\uC0C8"
+  MaxRankNameText: "\uBD88\uBA78\uC758 \uBC29\uBCBD"
   DescText: "\uC791\uC9C0\uB9CC \uB2E8\uB2E8\uD558\uAC8C. \uC218\uB9CE\uC740 \uACF5\uACA9\uC5D0\uB3C4
     \uB05D\uB0B4 \uC4F0\uB7EC\uC9C0\uC9C0 \uC54A\uC740 \uB2F9\uC2E0\uC740, \uADF8
     \uC790\uCCB4\uB85C \uD558\uB098\uC758 \uC694\uC0C8\uC600\uB2E4."
+  MaxRankDescText: "\uBB34\uC218\uD55C \uD0C0\uACA9 \uC18D\uC5D0\uC11C\uB3C4 \uAEBE\uC774\uC9C0
+    \uC54A\uC558\uB2E4. \uADF8 \uC791\uB514\uC791\uC740 \uBAB8\uC740, \uC5B4\uB290\uC0C8
+    \uC804\uC7A5\uC758 \uC911\uC2EC\uC774\uC790 \uCD5C\uD6C4\uC758 \uBC29\uBCBD\uC774
+    \uB418\uC5C8\uB2E4."
   RequiredText: "\uD55C \uBAAC\uC2A4\uD130\uC5D0\uAC8C \uC785\uC740 \uD53C\uD574
     \uD69F\uC218"
   RequireValues:
-  - 50
+  - 80
   - 100
-  - 250
+  - 300
   StatName: 11
   StatNameString: ArmorRAte
   StatValues:
-  - 2
-  - 4
-  - 6
+  - 0.02
+  - 0.04
+  - 0.1

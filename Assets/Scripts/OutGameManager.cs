@@ -127,6 +127,39 @@ public class OutGameManager : MonoBehaviour
         return 0;
     }
 
+    public StatNames GetChallengeStat(UIChallengeNames name)
+    {
+        if (ChallengeDatas.ContainsKey(name))
+        {
+            return ChallengeDatas[name].StatName;
+        }
+
+        return StatNames.None;
+    }
+
+    public float GetChallengeStatValue(UIChallengeNames name)
+    {
+        if (ChallengeDatas.ContainsKey(name))
+        {
+            int rank = -1;
+
+            for (int i = 0; i <= 2; i++)
+            {
+                if (GetChallengeValue(name) >= ChallengeDatas[name].RequireValues[i])
+                {
+                    rank = i;
+                }
+            }
+
+            if (rank >= 0)
+            {
+                return ChallengeDatas[name].StatValues[rank];
+            }
+        }
+
+        return 0;
+    }
+
     public void DamageCount(int level)
     {
         if (targetMonsterLevel == level)
@@ -192,9 +225,9 @@ public class OutGameManager : MonoBehaviour
 
         if (CheckWeaponOnlySpend)
         {
-            if (PlayerPrefs.GetInt("WeaponOnlySpendLevel") < InGameManager.Instance.Player.Level)
+            if (PlayerPrefs.GetInt("WeaponOnlySpendLevel") < InGameManager.Instance.Monster.Level)
             {
-                PlayerPrefs.SetInt("WeaponOnlySpendLevel", InGameManager.Instance.Player.Level);
+                PlayerPrefs.SetInt("WeaponOnlySpendLevel", InGameManager.Instance.Monster.Level);
             }
         }
 

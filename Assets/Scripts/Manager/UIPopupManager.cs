@@ -48,6 +48,20 @@ public class UIPopupManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Popup != null)
+        {
+            if (Name != UIPopupNames.ClassTrait)
+            {
+                if (Input.GetKey(KeyCode.Escape))
+                {
+                    Despawn();
+                }
+            }
+        }
+    }
+
     public void Spawn(UIPopupNames popupName, bool spawnData = false)
     {
         if (Popup != null)

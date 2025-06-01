@@ -7,7 +7,9 @@ public class ChallengeData : ScriptableObject
     public UIChallengeNames Name;
     public string NameString;
     public string NameText;
+    public string MaxRankNameText;
     public string DescText;
+    public string MaxRankDescText;
     public string RequiredText;
     public List<float> RequireValues;
     public StatNames StatName;

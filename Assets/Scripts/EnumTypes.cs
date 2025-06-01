@@ -477,6 +477,7 @@ public enum StatTID
     None,
     Base,
     Memory,
+    Challenge,
     Elite,
     Weapon,
     PassiveSkill,
