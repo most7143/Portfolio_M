@@ -38,7 +38,6 @@ public class UIMemorySlot : MonoBehaviour
 
         int point = PlayerPrefs.GetInt("Memory" + Name.ToString());
 
-        OutGameManager.Instance.AddOutGameData("MemoryPoint", -point);
         RefreshPoint();
     }
 

@@ -26,9 +26,9 @@ MonoBehaviour:
   RequiredText: "\uD55C \uBAAC\uC2A4\uD130\uC5D0\uAC8C \uC785\uC740 \uD53C\uD574
     \uD69F\uC218"
   RequireValues:
-  - 80
-  - 100
-  - 300
+  - 50
+  - 150
+  - 400
   StatName: 11
   StatNameString: ArmorRAte
   StatValues:

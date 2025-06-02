@@ -5,6 +5,8 @@ public class UIClassTraitPopup : UIPopup
 {
     public List<ClassTraitCard> Cards;
 
+    public UICharacterInfoTrait Traits;
+
     public XButton RerollButton;
 
     private int rerollCount = 0;
@@ -29,6 +31,8 @@ public class UIClassTraitPopup : UIPopup
         {
             RerollButton.gameObject.SetActive(false);
         }
+
+        Traits.Refresh();
 
         Activate();
     }

@@ -24,7 +24,7 @@ MonoBehaviour:
   RequiredText: "\uC77C\uC815 \uBAAC\uC2A4\uD130 \uB808\uBCA8\uAE4C\uC9C0 \uBAA8\uB4E0
     \uC7AC\uD654\uB97C \uBB34\uAE30\uC5D0\uB9CC \uC0AC\uC6A9"
   RequireValues:
-  - 45
+  - 40
   - 100
   - 300
   StatName: 9

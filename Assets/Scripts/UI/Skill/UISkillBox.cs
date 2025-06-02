@@ -188,9 +188,9 @@ public class UISkillBox : MonoBehaviour
             if (_chance >= rand)
             {
                 LevelUpSkill();
-
                 InGameManager.Instance.ObjectPool.SpawnFloaty(LearnButton.transform.position, FloatyTypes.Success, "성공");
                 EventManager<EventTypes>.Send(EventTypes.SkillLevelUp);
+                SoundManager.Instance.Play(SoundNames.Success);
             }
             else
             {

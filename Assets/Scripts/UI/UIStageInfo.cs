@@ -51,5 +51,6 @@ public class UIStageInfo : MonoBehaviour
     public void Test2()
     {
         OutGameManager.Instance.TotalMonsterKillCount += 100;
+        InGameManager.Instance.Controller.AddCurrency(CurrencyTypes.Gold, 100000);
     }
 }

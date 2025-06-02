@@ -141,10 +141,12 @@ public class Player : Character
         if (rand == 0)
         {
             Animator.SetTrigger("Attack1");
+            SoundManager.Instance.Play(SoundNames.Slash1);
         }
         else
         {
             Animator.SetTrigger("Attack2");
+            SoundManager.Instance.Play(SoundNames.Slash2);
         }
     }
 
@@ -172,6 +174,8 @@ public class Player : Character
         Level += 1;
 
         RefreshHP((int)MaxHP);
+
+        SoundManager.Instance.Play(SoundNames.LevelUp);
 
         EventManager<EventTypes>.Send(EventTypes.LevelUp, Level);
     }

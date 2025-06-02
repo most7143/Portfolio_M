@@ -23,7 +23,7 @@ MonoBehaviour:
     \uAE30\uC5B5\uD55C\uB2E4."
   RequiredText: "\uC11C\uB85C \uB2E4\uB978 \uC804\uC9C1\uC744 \uD55C \uD69F\uC218"
   RequireValues:
-  - 12
+  - 10
   - 18
   - 25
   StatName: 3

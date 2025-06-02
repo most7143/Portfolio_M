@@ -15,6 +15,7 @@ public class XButton : Button
     {
         if (pressRoutine != null)
         {
+            CancelInvoke("Execute");
             StopCoroutine(pressRoutine);
             pressRoutine = null;
         }
@@ -64,6 +65,8 @@ public class XButton : Button
         {
             OnExecute.Invoke();
         }
+
+        SoundManager.Instance.Play(SoundNames.ButtonClick);
     }
 
     public void RefreshInteraction(bool isAlive)

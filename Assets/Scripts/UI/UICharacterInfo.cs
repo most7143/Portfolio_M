@@ -16,7 +16,7 @@ public class UICharacterInfo : MonoBehaviour
     public Image Line2;
     public Sprite ClassIcon;
 
-    public Button StatButton;
+    public XButton StatButton;
     public UIBaseStatGroup StatGroup;
     private bool _isStatInfo;
 
@@ -37,7 +37,8 @@ public class UICharacterInfo : MonoBehaviour
     private void Start()
     {
         originGroup = StatGroup.Rect.anchoredPosition3D;
-        StatButton.onClick.AddListener(() => StatButtonClick());
+        StatButton.OnExecute = StatButtonClick;
+        StatButton.IsPressClick = false;
     }
 
     public void Activate()

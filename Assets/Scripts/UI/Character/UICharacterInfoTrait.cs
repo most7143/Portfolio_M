@@ -5,33 +5,13 @@ public class UICharacterInfoTrait : MonoBehaviour
 {
     public List<UITraitSlot> Slots;
 
-    private void Start()
+    public void Refresh()
     {
         List<ClassTraitNames> names = InGameManager.Instance.Player.ClassTraitSystem.GetNames();
 
         for (int i = 0; i < names.Count; i++)
         {
-            if (false == Slots[i].IsSet)
-            {
-                Slots[i].Init(names[i]);
-            }
+            Slots[i].Refresh(names[i], InGameManager.Instance.Player.ClassTraitSystem.ClassTier);
         }
-    }
-
-    private void OnEnable()
-    {
-        int tier = InGameManager.Instance.Player.ClassTraitSystem.ClassTier;
-
-        for (int i = 0; i < Slots.Count; i++)
-        {
-            if (Slots[i].IsSet)
-            {
-                Slots[i].Refresh(tier);
-            }
-        }
-    }
-
-    private void OnDisable()
-    {
     }
 }

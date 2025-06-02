@@ -150,11 +150,10 @@ public class Character : MonoBehaviour
         }
         else if (info.Type == DamageTypes.WeaponSkill)
         {
-            Vector3 position = new Vector3(Target.transform.position.x + Random.Range(0, 0.5f), Target.transform.position.y + Random.Range(0, 0.5f));
+            Vector3 position = new Vector3(transform.position.x + Random.Range(0, 0.5f), transform.position.y + Random.Range(0, 0.5f));
 
             if (info.IsCritical)
             {
-                InGameManager.Instance.ObjectPool.SpawnFloaty(transform.position, FloatyTypes.CritialDamage, info.Value.ToString());
                 InGameManager.Instance.ObjectPool.SpawnFloaty(position, FloatyTypes.CritialSkillDamage, info.Value.ToString());
             }
             else

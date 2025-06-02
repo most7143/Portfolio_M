@@ -114,6 +114,8 @@ public class Monster : Character
 
         OutGameManager.Instance.TotalMonsterKillCount += 1;
 
+        SoundManager.Instance.Play(SoundNames.Dead);
+
         EventManager<EventTypes>.Send(EventTypes.MonsterDead);
     }
 

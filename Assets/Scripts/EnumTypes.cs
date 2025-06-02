@@ -540,3 +540,15 @@ public enum LanguageTypes
     Korea,
     English,
 }
+
+public enum SoundNames
+{
+    None,
+    ButtonClick,
+    Slash1,
+    Slash2,
+    Success,
+    WeaponUpgrade,
+    LevelUp,
+    Dead,
+}

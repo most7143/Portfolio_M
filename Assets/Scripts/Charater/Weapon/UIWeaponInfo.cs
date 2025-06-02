@@ -71,6 +71,7 @@ public class UIWeaponInfo : MonoBehaviour
                 WeaponNames weapon = Player.WeaponController.NextTier(Player.WeaponController.Info.Tier);
                 Player.WeaponController.SetWeaponData(weapon);
                 SpawnDetails(weapon);
+                SoundManager.Instance.Play(SoundNames.WeaponUpgrade);
             }
 
             Player.WeaponController.RefreahWeaponStat();
@@ -88,6 +89,7 @@ public class UIWeaponInfo : MonoBehaviour
             RefreshIcon(Player.WeaponController.Info.Icon);
 
             InGameManager.Instance.ObjectPool.SpawnFloaty(UIPoint.position, FloatyTypes.Success, "¼º°ø");
+            SoundManager.Instance.Play(SoundNames.Success);
         }
         else
         {

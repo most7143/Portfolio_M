@@ -36,5 +36,6 @@ public class UITab : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         Controller.Select(Index);
+        SoundManager.Instance.Play(SoundNames.ButtonClick);
     }
 }

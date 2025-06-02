@@ -110,6 +110,7 @@ public class UIPocketBox : MonoBehaviour
                 {
                     InGameManager.Instance.Player.AccessorySystem.Upgrade(data.AccessoryType, data.Grades[selectIndex]);
                     InGameManager.Instance.ObjectPool.SpawnFloaty(FloatyPoint.position, FloatyTypes.Success, "¼º°ø!");
+                    SoundManager.Instance.Play(SoundNames.Success);
                 }
                 else
                 {

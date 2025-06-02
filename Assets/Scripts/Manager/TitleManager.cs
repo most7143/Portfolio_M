@@ -39,17 +39,6 @@ public class TitleManager : MonoBehaviour
             KillMonsterText.SetText("최대 처치 몬스터 레벨 " + PlayerPrefs.GetInt("KillMonster").ToString());
         }
 
-        if (PlayerPrefs.GetInt("MemoryMaxPoint") > 0)
-        {
-            MemoryButton.interactable = true;
-            MemoryButton.image.color = new Color(255f, 255f, 255f, 1f);
-        }
-        else
-        {
-            MemoryButton.interactable = false;
-            MemoryButton.image.color = new Color(255f, 255f, 255f, 0.2f);
-        }
-
         RefreshMemoryData();
         RefreshMemoryButton();
     }

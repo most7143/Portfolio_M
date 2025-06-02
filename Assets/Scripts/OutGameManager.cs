@@ -7,8 +7,6 @@ public class OutGameManager : MonoBehaviour
 {
     private static OutGameManager instance = null;
 
-    private Dictionary<StatNames, float> MemoryStats = new();
-
     private Dictionary<UIChallengeNames, ChallengeData> ChallengeDatas = new();
 
     public int TotalMonsterKillCount;

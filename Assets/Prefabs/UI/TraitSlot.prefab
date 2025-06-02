@@ -494,7 +494,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 0
   ClassName: 0
-  IsSet: 0
   Background: {fileID: 3686351157969319155}
   IconImage: {fileID: 7504230929569970811}
   CountText: {fileID: 5587189508790393288}
