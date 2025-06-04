@@ -49,10 +49,10 @@ public class MonsterSpanwer : MonoBehaviour
     {
         double baseGold = 10;
 
-        double percentIncrease = 1 + 0.1 * (level - 1);
+        double percentIncrease = 1 + 0.04 * (level - 1);
 
         int bonusSteps = (level - 1) / 10;
-        double bonusMultiplier = 1 + 0.50 * bonusSteps;
+        double bonusMultiplier = 1 + 0.30 * bonusSteps;
 
         double finalGold = baseGold * percentIncrease * bonusMultiplier;
 

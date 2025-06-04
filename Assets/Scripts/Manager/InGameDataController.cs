@@ -101,11 +101,11 @@ public class InGameDataController : MonoBehaviour
             // 10레벨 단위마다 증가율 감소
             int decayStep = (i - 1) / 10;
             double growthRate = 0.50 - 0.05 * decayStep;
-            growthRate = Math.Max(growthRate, 0.05); // 최소 증가율 2%
+            growthRate = Math.Max(growthRate, 0.05); // 최소 증가율 5%
 
-            if (i % 5 == 0)
+            if (i % 10 == 0)
             {
-                currentExp *= 2.0;  // 10레벨마다 100% 증가
+                currentExp *= 1.5;  // 10레벨마다 50% 증가
             }
             else
             {

@@ -2,6 +2,6 @@
 {
     public Character Owner;
     public DamageTypes Type;
-    public float Value;
+    public long Value;
     public bool IsCritical;
 }

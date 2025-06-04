@@ -28,6 +28,8 @@ public class UIMemoryPopup : UIPopup
     {
         base.Spawn();
 
+        OutGameManager.Instance.SetMaxMemory(PlayerPrefs.GetInt("KillMonster"));
+
         PlayerPrefs.SetInt("MemoryPoint", PlayerPrefs.GetInt("MemoryMaxPoint"));
 
         MemoryPointText.SetText(string.Format("기억 포인트 {0} / {1}", PlayerPrefs.GetInt("MemoryPoint"), PlayerPrefs.GetInt("MemoryMaxPoint")));

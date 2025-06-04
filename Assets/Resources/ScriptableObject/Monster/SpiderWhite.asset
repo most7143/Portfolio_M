@@ -17,10 +17,7 @@ MonoBehaviour:
   NameText: "\uD770 \uAC70\uBBF8"
   Level: 121
   MaxLevel: 140
-  Attack: 5
-  AttackByLevel: 2
-  Health: 50
-  HealthByLevel: 25
-  Armor: 3
-  ArmorByLevel: 2
+  AttackByLevel: 4
+  HealthByLevel: 60
+  ArmorByLevel: 4
   AttackSpeed: 1

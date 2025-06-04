@@ -17,10 +17,7 @@ MonoBehaviour:
   NameText: "\uAC80\uC740 \uC804\uAC08"
   Level: 276
   MaxLevel: 300
-  Attack: 5
-  AttackByLevel: 2
-  Health: 50
-  HealthByLevel: 25
-  Armor: 3
-  ArmorByLevel: 2
+  AttackByLevel: 7
+  HealthByLevel: 100
+  ArmorByLevel: 6
   AttackSpeed: 1

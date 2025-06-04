@@ -7,6 +7,10 @@ public class OutGameManager : MonoBehaviour
 {
     private static OutGameManager instance = null;
 
+    public int MaxMemoryPoint;
+
+    public int MemoryPoint;
+
     private Dictionary<UIChallengeNames, ChallengeData> ChallengeDatas = new();
 
     public int TotalMonsterKillCount;
@@ -40,14 +44,18 @@ public class OutGameManager : MonoBehaviour
         SetChallenges();
 
         TotalMonsterKillCount = PlayerPrefs.GetInt("TotalMonsterKillCount");
+
+        SetResolution();
     }
 
-    private void Update()
+    public void SetResolution()
     {
-        if (Input.GetKeyUp(KeyCode.F1))
-        {
-            PlayerPrefs.DeleteAll();
-        }
+        int setWidth = 720; // 화면 너비
+        int setHeight = 1280; // 화면 높이
+
+        //해상도를 설정값에 따라 변경
+        //3번째 파라미터는 풀스크린 모드를 설정 > true : 풀스크린, false : 창모드
+        Screen.SetResolution(setWidth, setHeight, true);
     }
 
     public static OutGameManager Instance
@@ -61,8 +69,6 @@ public class OutGameManager : MonoBehaviour
             return instance;
         }
     }
-
-    public int MaxMemoryPoint;
 
     public void SetMaxMemory(int level)
     {

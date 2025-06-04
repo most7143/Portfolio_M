@@ -82,15 +82,15 @@ public class Player : Character
         {
             int memoryPoint = PlayerPrefs.GetInt("Memory" + stats[i].ToString());
 
-            int point = memoryPoint == 0 ? 0 : (memoryPoint - 1) / 3 + 1;
+            if (memoryPoint == 0)
+                continue;
 
-            if (point > 0)
+            int point = (memoryPoint - 1) % 3;
+
+            MemoryData data = ResourcesManager.Instance.LoadScriptable<MemoryData>("Memory_" + stats[i].ToString());
+            if (data != null)
             {
-                MemoryData data = ResourcesManager.Instance.LoadScriptable<MemoryData>("Memory_" + stats[i].ToString());
-                if (data != null)
-                {
-                    StatSystem.AddStat(StatTID.Memory, stats[i], data.Values[point - 1]);
-                }
+                StatSystem.AddStat(StatTID.Memory, stats[i], data.Values[point]);
             }
         }
     }

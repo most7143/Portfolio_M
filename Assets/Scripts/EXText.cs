@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public static class EXText
 {
@@ -239,5 +240,10 @@ public static class EXText
         }
 
         return "";
+    }
+
+    public static long GetValueByRound(long value)
+    {
+        return (long)Math.Round((double)value, 2);
     }
 }

@@ -19,7 +19,7 @@ public class Character : MonoBehaviour
 
     public Character Target;
 
-    public float CurrentHp { get; private set; }
+    public long CurrentHp { get; private set; }
 
     public float AttackSpeed
     { get { return GetAttackSpeed(); } }
@@ -30,7 +30,7 @@ public class Character : MonoBehaviour
     public float Armor
     { get { return GetArmorStat(); } }
 
-    public float MaxHP
+    public long MaxHP
     {
         get { return GetMaxHealthStat(); }
     }
@@ -117,11 +117,11 @@ public class Character : MonoBehaviour
 
     private void Reflection(DamageInfo info)
     {
-        float DamageReflection = StatSystem.GetStat(StatNames.DamageReflection);
+        long DamageReflection = StatSystem.GetStat(StatNames.DamageReflection);
 
         if (DamageReflection > 0)
         {
-            float reflectionValue = info.Value * DamageReflection;
+            long reflectionValue = info.Value * DamageReflection;
             DamageInfo reflection = new DamageInfo();
 
             reflection.Value = reflectionValue;
@@ -172,9 +172,8 @@ public class Character : MonoBehaviour
             return;
         }
 
-        float percent = 0.05f * (info.Owner.StatSystem.GetStat(StatNames.IncreaseHealingOnHitChance) == 0 ? 1 : info.Owner.StatSystem.GetStat(StatNames.IncreaseHealingOnHitChance));
+        float percent = 0.05f * (1 + info.Owner.StatSystem.GetStat(StatNames.IncreaseHealingOnHitChance));
 
-        Debug.Log(percent);
         if (percent >= Random.Range(0, 1f))
         {
             int healingValue = Mathf.CeilToInt(info.Value * onHit);
@@ -263,7 +262,7 @@ public class Character : MonoBehaviour
 
         info.Value = info.Value - IgnoreValue;
 
-        float damageMultiplier = Mathf.Clamp(2 - reduece, 0f, 1f);
+        long damageMultiplier = (long)Mathf.Clamp(2 - reduece, 0f, 1f);
         info.Value *= damageMultiplier;
 
         float critical = Random.Range(0f, 1f);
@@ -300,7 +299,7 @@ public class Character : MonoBehaviour
 #endif
     }
 
-    private float RandomDamage(float Damage)
+    private long RandomDamage(float Damage)
     {
         float min = Damage * 0.9f;
         float max = Damage;
@@ -308,7 +307,7 @@ public class Character : MonoBehaviour
         return Mathf.RoundToInt(Random.Range(min, max));
     }
 
-    private float GetMaxHealthStat()
+    private long GetMaxHealthStat()
     {
         float maxHp = (StatSystem.GetStat(StatNames.Health) + (StatSystem.GetStat(StatNames.HealthByLevel) * (Level - 1)))
             * (StatSystem.GetStat(StatNames.HealthRate) + StatSystem.GetStat(StatNames.AllStats));
@@ -342,41 +341,52 @@ public class Character : MonoBehaviour
         return attackSpeed;
     }
 
-    public void Heal(int value)
+    public void Heal(int value, bool isFloaty = true)
     {
-        InGameManager.Instance.ObjectPool.SpawnFloaty(transform.position, FloatyTypes.Heal, RefreshHP(value).ToString());
+        if (isFloaty)
+        {
+            InGameManager.Instance.ObjectPool.SpawnFloaty(transform.position, FloatyTypes.Heal, RefreshHP(value).ToString());
+        }
 
         EventManager<EventTypes>.Send(EventTypes.UsingHeal);
     }
 
-    public void HealRate(float valueRate)
+    public void HealRate(float valueRate, bool isFloaty = true)
     {
         int value = (int)(MaxHP * valueRate);
 
-        InGameManager.Instance.ObjectPool.SpawnFloaty(transform.position, FloatyTypes.Heal, RefreshHP(value).ToString());
+        if (isFloaty)
+        {
+            InGameManager.Instance.ObjectPool.SpawnFloaty(transform.position, FloatyTypes.Heal, RefreshHP(value).ToString());
+        }
 
         EventManager<EventTypes>.Send(EventTypes.UsingHeal);
     }
 
-    public float GetCurrentMaxHP()
+    public long GetCurrentMaxHP()
     {
         int isLimit = (int)(StatSystem.GetStat(StatNames.LimitHealth));
 
-        if (isLimit == 1)
+        if (isLimit >= 1)
         {
-            return MaxHP * 0.7f;
+            if (Name == CharacterNames.Swordman)
+            {
+                return Mathf.RoundToInt(MaxHP * 0.7f);
+            }
+            else
+            {
+                return Mathf.RoundToInt(MaxHP * 0.5f);
+            }
         }
-        else
-        {
-            return MaxHP;
-        }
+
+        return MaxHP;
     }
 
-    public float RefreshHP(int value)
+    public long RefreshHP(int value)
     {
         int resultValue = value;
 
-        float maxHP = GetCurrentMaxHP();
+        long maxHP = GetCurrentMaxHP();
 
         if (CurrentHp + value >= maxHP)
         {

@@ -79,11 +79,11 @@ public class UISkillBox : MonoBehaviour
 
         if (Data.Value != 0)
         {
-            return Data.Value + ((level - 1) * Data.ValueByLevel);
+            return EXText.GetValueByRound(Data.Value + ((level - 1) * Data.ValueByLevel));
         }
         else if (Data.MultiplierValue != 0)
         {
-            return Data.MultiplierValue + ((level - 1) * Data.MultiplierValueByLevel);
+            return EXText.GetValueByRound((long)(Data.MultiplierValue + ((level - 1) * Data.MultiplierValueByLevel)));
         }
 
         return 0;
@@ -183,6 +183,8 @@ public class UISkillBox : MonoBehaviour
 
         if (InGameManager.Instance.Controller.TryUsingCurrency(CurrencyTypes.Gold, _currentCost))
         {
+            InGameManager.Instance.Controller.UseCurrency(CurrencyTypes.Gold, _currentCost);
+
             float rand = UnityEngine.Random.Range(0, 1f);
 
             if (_chance >= rand)
@@ -196,8 +198,6 @@ public class UISkillBox : MonoBehaviour
             {
                 InGameManager.Instance.ObjectPool.SpawnFloaty(LearnButton.transform.position, FloatyTypes.Fail, "실패");
             }
-
-            InGameManager.Instance.Controller.UseCurrency(CurrencyTypes.Gold, _currentCost);
 
             OutGameManager.Instance.CheckWeaponOnlySpend = false;
         }

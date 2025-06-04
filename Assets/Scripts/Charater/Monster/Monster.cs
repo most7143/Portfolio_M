@@ -20,7 +20,7 @@ public class Monster : Character
 
         StatSystem.Clear();
 
-        StatSystem.AddStat(StatTID.Base, StatNames.Attack, data.Attack);
+        StatSystem.AddStat(StatTID.Base, StatNames.Attack, data.AttackByLevel);
         StatSystem.AddStat(StatTID.Base, StatNames.AttackRate, 1);
         StatSystem.AddStat(StatTID.Base, StatNames.AttackByLevel, data.AttackByLevel);
 
@@ -29,11 +29,11 @@ public class Monster : Character
         StatSystem.AddStat(StatTID.Base, StatNames.CriticalChance, 0.05f);
         StatSystem.AddStat(StatTID.Base, StatNames.CriticalDamage, 2f);
 
-        StatSystem.AddStat(StatTID.Base, StatNames.Health, data.Health);
+        StatSystem.AddStat(StatTID.Base, StatNames.Health, data.HealthByLevel);
         StatSystem.AddStat(StatTID.Base, StatNames.HealthRate, 1);
         StatSystem.AddStat(StatTID.Base, StatNames.HealthByLevel, data.HealthByLevel);
 
-        StatSystem.AddStat(StatTID.Base, StatNames.Armor, data.Armor);
+        StatSystem.AddStat(StatTID.Base, StatNames.Armor, data.ArmorByLevel);
         StatSystem.AddStat(StatTID.Base, StatNames.ArmorRate, 1);
         StatSystem.AddStat(StatTID.Base, StatNames.ArmorByLevel, data.ArmorByLevel);
 
@@ -110,7 +110,7 @@ public class Monster : Character
 
         UIManager.Instance.MonsterInfo.Refresh(this);
 
-        InGameManager.Instance.Player.HealRate(0.2f);
+        InGameManager.Instance.Player.HealRate(0.2f, false);
 
         OutGameManager.Instance.TotalMonsterKillCount += 1;
 

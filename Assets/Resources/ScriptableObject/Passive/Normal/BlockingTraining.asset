@@ -20,7 +20,7 @@ MonoBehaviour:
   DescriptionText: "\uBC29\uC5B4\uB825\uC774 {0} \uC99D\uAC00\uD55C\uB2E4"
   MaxLevelDescriptionText: "\uBC29\uC5B4\uB825\uC774 {0}, {1} \uC99D\uAC00\uD55C\uB2E4."
   BunousDescriptionText: "\uCD5C\uC804\uBC29\uC5D0 \uD2B9\uD654\uB41C \uC790"
-  RequireRank: 5
+  RequireRank: 1
   MaxLevel: 10
   StatName: 10
   StatString: Armor
@@ -37,8 +37,8 @@ MonoBehaviour:
   AliveTime: 0
   AliveTimeByLevel: 0
   MaxLevelAliveTime: 0
-  Value: 20
-  ValueByLevel: 20
+  Value: 15
+  ValueByLevel: 15
   MaxLevelValue: 0
   MultiplierValue: 0
   MultiplierValueByLevel: 0

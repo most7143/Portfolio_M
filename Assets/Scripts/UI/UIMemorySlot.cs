@@ -37,13 +37,14 @@ public class UIMemorySlot : MonoBehaviour
         Icon.sprite = ResourcesManager.Instance.LoadSprite("Icon_Memory_" + Name.ToString());
 
         int point = PlayerPrefs.GetInt("Memory" + Name.ToString());
+        OutGameManager.Instance.AddOutGameData("MemoryPoint", -point);
 
         RefreshPoint();
     }
 
     public void Click()
     {
-        if (PlayerPrefs.GetInt("MemoryPoint") < UsePoint)
+        if (PlayerPrefs.GetInt("MemoryPoint") < UsePoint || PlayerPrefs.GetInt("Memory" + Name.ToString()) == UsePoint * 3f)
             return;
 
         OutGameManager.Instance.AddOutGameData("Memory" + Name.ToString(), UsePoint);
@@ -69,7 +70,7 @@ public class UIMemorySlot : MonoBehaviour
             }
         }
 
-        if (point > 0)
+        if (point > 0 && point <= 3)
         {
             if (memoryData == null)
             {

@@ -88,8 +88,12 @@ public class InGameManager : MonoBehaviour
         Time.timeScale = 1f;
         UIHandler.FadeOut();
         StartCoroutine(GameOverProcess());
-        PlayerPrefs.SetInt("KillMonster", MonsterSpanwer.Level - 1);
-        OutGameManager.Instance.SetMaxMemory(MonsterSpanwer.Level - 1);
+
+        if (PlayerPrefs.GetInt("KillMonster") < MonsterSpanwer.Level - 1)
+        {
+            PlayerPrefs.SetInt("KillMonster", MonsterSpanwer.Level - 1);
+        }
+
         OutGameManager.Instance.SaveChallengeData();
         PlayerPrefs.Save();
     }
