@@ -242,8 +242,8 @@ public static class EXText
         return "";
     }
 
-    public static long GetValueByRound(long value)
+    public static float GetValueByRound(float value)
     {
-        return (long)Math.Round((double)value, 2);
+        return (float)Math.Round(value, 2);
     }
 }

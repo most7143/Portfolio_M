@@ -295,7 +295,7 @@ MonoBehaviour:
   SpawnOffsetPosition: {x: 0, y: 0.5, z: 0}
   IsRandomSpawnPoint: 0
   Chance: 1
-  DamgeRate: 1
+  DamgeRate: 3
   Speed: 0
   Cooldown: 0
 --- !u!1 &1520271344915185943

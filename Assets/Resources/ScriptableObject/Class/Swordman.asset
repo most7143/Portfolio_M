@@ -15,10 +15,17 @@ MonoBehaviour:
   Name: 1
   NameString: Swordman
   NameText: "\uAC80\uC0AC"
-  DescritpionText: "\uBB34\uC77C\uD47C \uC5EC\uD589\uC790"
+  DescritpionText: "\uB5A0\uB3CC\uC774"
   StatDescriptionText: 
+  ProjectileDescritonText: 
+  BuffDescritonText: 
   Stats: 
   StatStirng: []
   Values: []
   Projectiles: 
   ProjectileString: []
+  BuffNames: 
+  BuffString: []
+  Targets: 
+  BuffAliveTimes: []
+  BuffValues: []

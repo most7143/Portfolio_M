@@ -106,6 +106,12 @@ public class MonsterSpanwer : MonoBehaviour
     public void ChangeMonsterSkin(int level)
     {
         Spawn(GetNextMonster(level));
+
+        SpawnMonster.StatSystem.AddStat(StatTID.Spawner, StatNames.AttackRate, 0.03f);
+        SpawnMonster.StatSystem.AddStat(StatTID.Spawner, StatNames.ArmorRate, 0.03f);
+        SpawnMonster.StatSystem.AddStat(StatTID.Spawner, StatNames.HealthRate, 0.03f);
+
+        UIManager.Instance.MonsterInfo.RefreshHPBar();
     }
 
     private void InitDatas()

@@ -17,7 +17,7 @@ MonoBehaviour:
   NameText: "\uBCF4\uB77C \uD574\uACE8"
   Level: 701
   MaxLevel: 800
-  AttackByLevel: 11
+  AttackByLevel: 2
   HealthByLevel: 150
   ArmorByLevel: 10
   AttackSpeed: 1

@@ -117,14 +117,14 @@ public class Character : MonoBehaviour
 
     private void Reflection(DamageInfo info)
     {
-        long DamageReflection = StatSystem.GetStat(StatNames.DamageReflection);
+        float DamageReflection = StatSystem.GetStat(StatNames.DamageReflection);
 
         if (DamageReflection > 0)
         {
-            long reflectionValue = info.Value * DamageReflection;
+            float reflectionValue = info.Value * DamageReflection;
             DamageInfo reflection = new DamageInfo();
 
-            reflection.Value = reflectionValue;
+            reflection.Value = (long)reflectionValue;
             reflection.Type = DamageTypes.Attack;
             reflection.Owner = this;
 
@@ -271,7 +271,7 @@ public class Character : MonoBehaviour
 
         if (info.IsCritical)
         {
-            info.Value *= info.Owner.StatSystem.GetStat(StatNames.CriticalDamage);
+            info.Value *= (long)info.Owner.StatSystem.GetStat(StatNames.CriticalDamage);
 
 #if UNITY_EDITOR
             LogManager.LogInfo(LogTypes.Attack, string.Format("공격자 :{0} , 피해량 = {1} \n  치명률({2}%) = 기본({3}%) + 무기({4}%) + 패시브 ({5}%) + 버프({6}%) \n"

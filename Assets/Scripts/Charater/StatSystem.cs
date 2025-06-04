@@ -32,7 +32,7 @@ public class StatSystem : MonoBehaviour
         _stats.Clear();
     }
 
-    public long GetStat(StatNames name)
+    public float GetStat(StatNames name)
     {
         if (_stats.ContainsKey(name))
         {
@@ -45,7 +45,7 @@ public class StatSystem : MonoBehaviour
                 result += values[j];
             }
 
-            return EXText.GetValueByRound((long)result);
+            return EXText.GetValueByRound(result);
         }
 
         return 0;

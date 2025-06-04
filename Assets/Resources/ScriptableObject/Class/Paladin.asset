@@ -18,7 +18,7 @@ MonoBehaviour:
   DescritpionText: "\uC131\uC2A4\uB7EC\uC6B4 \uBE5B\uC758 \uAE30\uC0AC"
   StatDescriptionText: 
   ProjectileDescritonText: 
-  BuffDescritonText: "\uB9E4 \uCD08\uB9C8\uB2E4 {0}% \uD53C\uD574\uB97C \uC8FC\uB294
+  BuffDescritonText: "2\uCD08 \uB9C8\uB2E4  {0}% \uD53C\uD574\uB97C \uC8FC\uB294
     <color=green>\uBE5B\uC758 \uAD74\uC808</color> \uBC1C\uB3D9<br>\uBAAC\uC2A4\uD130\uC758
     \uACF5\uACA9\uB825\uC744 {1}% \uAC10\uC18C"
   Stats: 
@@ -35,5 +35,5 @@ MonoBehaviour:
   - 0
   - 0
   BuffValues:
-  - 1.5
+  - 3
   - -0.3
