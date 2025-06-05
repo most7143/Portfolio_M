@@ -8,6 +8,7 @@ public static class EXValue
         GradeNames[] gradeNames = (GradeNames[])System.Enum.GetValues(typeof(GradeNames));
 
         float chance = 0;
+
         for (int i = 1; i < gradeNames.Length; i++)
         {
             chance += GradeByChance(gradeNames[i]) * addchance;

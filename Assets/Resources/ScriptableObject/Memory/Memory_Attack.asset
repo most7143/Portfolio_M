@@ -15,6 +15,6 @@ MonoBehaviour:
   Name: 1
   NameString: Attack
   Values:
-  - 20
-  - 40
-  - 60
+  - 25
+  - 50
+  - 100

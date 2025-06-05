@@ -25,7 +25,7 @@ public class UIAccessoryBox : MonoBehaviour
     private void Start()
     {
         LockImage.gameObject.SetActive(true);
-        LockText.SetText("장신구 " + Index + " 획득 시 해금");
+        LockText.SetText(string.Format("장신구 <style=Legenday>{0}</style> 획득 시 구매 가능", Index));
         RerollButton.IsPressClick = false;
         RerollButton.RefreshInteraction(false);
         RerollButton.OnExecute = ClickButton;

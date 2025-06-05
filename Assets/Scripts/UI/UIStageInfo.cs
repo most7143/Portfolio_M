@@ -7,50 +7,8 @@ public class UIStageInfo : MonoBehaviour
 
     public GameSpeedButton SpeedButton;
 
-    public XButton CheatButton;
-
-    public XButton TextButton;
-
-    public XButton TestButton2;
-
-    public ClassNames ClassName;
-    public ClassNames ClassName2;
-    private int test;
-
-    private void Start()
-    {
-        CheatButton.OnExecute = Cheat;
-        TextButton.OnExecute = Test;
-        TestButton2.OnExecute = Test2;
-    }
-
     public void Refresh(StageData stageData)
     {
         NameText.SetText(stageData.NameString);
-    }
-
-    public void Cheat()
-    {
-        InGameManager.Instance.StageFail();
-    }
-
-    public void Test()
-    {
-        test++;
-
-        if (test == 1)
-        {
-            InGameManager.Instance.Player.ClassTraitSystem.ChangeClass(ClassName);
-        }
-        else
-        {
-            InGameManager.Instance.Player.ClassTraitSystem.ChangeClass(ClassName2);
-        }
-    }
-
-    public void Test2()
-    {
-        OutGameManager.Instance.TotalMonsterKillCount += 100;
-        InGameManager.Instance.Controller.AddCurrency(CurrencyTypes.Gold, 100000);
     }
 }

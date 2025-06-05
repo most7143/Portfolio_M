@@ -80,7 +80,7 @@ public enum ClassNames
 
     //Tier 1
 
-    SwordMaster, // 소드마스터(무력)
+    SwordMaster = 100, // 소드마스터(무력)
     LordKnight, // 로드나이트(규율)
     Paladin, // 팔라딘(신성)
     Revenger, // 리벤저(분노)
@@ -552,4 +552,7 @@ public enum SoundNames
     WeaponUpgrade,
     LevelUp,
     Dead,
+
+    //BGM
+    TitleBGM,
 }

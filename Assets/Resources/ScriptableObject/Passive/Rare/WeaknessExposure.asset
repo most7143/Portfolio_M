@@ -23,7 +23,7 @@ MonoBehaviour:
     {1} \uC99D\uAC00\uD55C\uB2E4"
   BunousDescriptionText: "\uBE44\uAEF4\uAC04 \uACF5\uACA9\uC870\uCC28\uB3C4 \uAE09\uC18C\uB97C
     \uACA8\uB204\uAC8C \uD55C\uB2E4"
-  RequireRank: 10
+  RequireRank: 13
   MaxLevel: 7
   StatName: 3
   StatString: CriticalChance

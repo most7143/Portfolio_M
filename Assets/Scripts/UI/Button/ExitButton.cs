@@ -6,7 +6,8 @@ public class ExitButton : MonoBehaviour
 
     private void Start()
     {
-        Button.onClick.AddListener(() => Click());
+        Button.OnExecute = Click;
+        Button.IsPressClick = false;
     }
 
     public void Click()

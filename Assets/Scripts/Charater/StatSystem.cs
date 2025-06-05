@@ -67,7 +67,7 @@ public class StatSystem : MonoBehaviour
                 }
             }
 
-            return EXText.GetValueByRound((long)result);
+            return EXText.GetValueByRound(result);
         }
 
         return 0;

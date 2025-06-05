@@ -184,7 +184,7 @@ public class UIWeaponInfo : MonoBehaviour
 
     private void RefreshUpgradeCostText(int weaponLevel)
     {
-        UpgradeGoldText.SetText(GetUpgradeCost(weaponLevel).ToString());
+        UpgradeGoldText.SetText(GetUpgradeCost(weaponLevel).ToString() + "<sprite=0>");
     }
 
     private void RefreshIcon(Sprite icon)

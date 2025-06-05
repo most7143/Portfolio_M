@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c70ac5f55c1425b44a630f3b76d85f70, type: 3}
   m_Name: Memory_AllStats
   m_EditorClassIdentifier: 
-  Name: 38
+  Name: 39
   NameString: AllStats
   Values:
-  - 0.05
   - 0.1
-  - 0.15
+  - 0.2
+  - 0.4

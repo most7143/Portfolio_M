@@ -111,7 +111,6 @@ public class UIPassiveSkillInfo : MonoBehaviour
         if (IsMaxSkillLevel(PassiveSkillNames.TreasureHunter))
         {
             int stack = Mathf.FloorToInt((InGameManager.Instance.Controller.Data.AccumulatedGold) / 2000);
-            Debug.Log(stack);
             InGameManager.Instance.Player.StatSystem.RemoveStat(StatTID.PassiveSkillMaxLevel, _skills[PassiveSkillNames.TreasureHunter].Data.MaxLevelStatName);
             InGameManager.Instance.Player.StatSystem.AddStat(StatTID.PassiveSkillMaxLevel, _skills[PassiveSkillNames.TreasureHunter].Data.MaxLevelStatName,
                 _skills[PassiveSkillNames.TreasureHunter].Data.MaxLevelValue * stack);

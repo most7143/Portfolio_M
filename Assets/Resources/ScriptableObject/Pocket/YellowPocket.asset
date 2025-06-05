@@ -15,14 +15,8 @@ MonoBehaviour:
   Type: 1
   NameString: "\uB178\uB780 \uC8FC\uBA38\uB2C8"
   DescriptionString: "\uACE8\uB4DC\uB97C 3~100\uBC30 \uAE4C\uC9C0 \uD68D\uB4DD \uD560
-    \uC218 \uC788\uB2E4."
-  Chance:
-  - 0.004
-  - 0.021
-  - 0.057
-  - 0.123
-  - 0.246
-  - 0.55
+    \uC218 \uC788\uB2E4.<br>10\uD68C \uAD6C\uB9E4\uB9C8\uB2E4 \uAC00\uACA9\uC774
+    \uC0C1\uC2B9\uD55C\uB2E4."
   Grades: 
   AccessoryType: 0
   Values:
@@ -32,4 +26,5 @@ MonoBehaviour:
   - 12
   - 7
   - 3
+  UnlockKillMonster: 0
   Cost: 3

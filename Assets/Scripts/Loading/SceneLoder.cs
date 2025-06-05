@@ -15,7 +15,7 @@ public class SceneLoder : MonoBehaviour
     {
         StartCoroutine(LoadMainSceneAsync());
 
-        SetText();
+        //SetText();
     }
 
     private IEnumerator LoadMainSceneAsync()

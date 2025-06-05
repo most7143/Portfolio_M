@@ -23,7 +23,7 @@ MonoBehaviour:
     {1} \uC99D\uAC00"
   BunousDescriptionText: "\uBA39\uC774\uC0AC\uC2AC \uCD5C\uC0C1\uC704\uC5D0 \uAD70\uB9BC\uD55C
     \uC790"
-  RequireRank: 10
+  RequireRank: 15
   MaxLevel: 7
   StatName: 4
   StatString: CriticalDamage

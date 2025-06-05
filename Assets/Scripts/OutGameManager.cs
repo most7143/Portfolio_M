@@ -41,6 +41,17 @@ public class OutGameManager : MonoBehaviour
 
     private void Start()
     {
+        string currentVersion = Application.version;
+        string savedVersion = PlayerPrefs.GetString("AppVersion", "");
+
+        if (currentVersion != savedVersion)
+        {
+            // 버전이 다르면, 즉 새로운 빌드일 경우
+            PlayerPrefs.DeleteAll();
+            PlayerPrefs.SetString("AppVersion", currentVersion);
+            PlayerPrefs.Save();
+        }
+
         SetChallenges();
 
         TotalMonsterKillCount = PlayerPrefs.GetInt("TotalMonsterKillCount");

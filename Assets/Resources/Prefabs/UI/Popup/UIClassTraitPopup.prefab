@@ -533,9 +533,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uAC19\uC740 \uD2B9\uC131\uC744 \uC77C\uC815 \uC774\uC0C1 \uBAA8\uC73C\uBA74
-    \uD574\uB2F9 \uD2B9\uC131\uC5D0 \uB9DE\uB294 \n\uC9C1\uC5C5\uC73C\uB85C \uC804\uC9C1\uC774
-    \uAC00\uB2A5\uD569\uB2C8\uB2E4.\n\n"
+  m_text: "\uD2B9\uC131\uC744 \uBAA8\uC544 \uC804\uC9C1\uC774 \uAC00\uB2A5\uD558\uBA70,
+    \n\uC804\uC9C1\uC2DC \uC9C1\uC5C5 \uD6A8\uACFC\uB97C \uD68D\uB4DD\uD569\uB2C8\uB2E4.\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ddcdd0f79e3ab9f4b97a98e7073b26f1, type: 2}
   m_sharedMaterial: {fileID: 1387074037589206152, guid: ddcdd0f79e3ab9f4b97a98e7073b26f1, type: 2}
@@ -574,7 +573,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 10
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0

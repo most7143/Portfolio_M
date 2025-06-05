@@ -58,6 +58,11 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    public void Stop(SoundNames name)
+    {
+        sounds[name].Stop();
+    }
+
     private void StopBySound(SoundNames name)
     {
         if (name == SoundNames.WeaponUpgrade)
@@ -87,7 +92,7 @@ public class SoundManager : MonoBehaviour
     private float GetStartTime(SoundNames name)
     {
         if (name == SoundNames.ButtonClick)
-            return 0.25f;
+            return 0.28f;
         else if (name == SoundNames.Slash1 || name == SoundNames.Slash2 || name == SoundNames.Success
             || name == SoundNames.Dead)
             return 0.1f;

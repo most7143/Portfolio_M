@@ -20,7 +20,7 @@ MonoBehaviour:
   DescriptionText: "\uBC29\uC5B4\uB825\uC774 {0} \uC99D\uAC00\uD55C\uB2E4"
   MaxLevelDescriptionText: "\uBC29\uC5B4\uB825\uC774 {0}, {1} \uC99D\uAC00\uD55C\uB2E4."
   BunousDescriptionText: "\uCD5C\uC804\uBC29\uC5D0 \uD2B9\uD654\uB41C \uC790"
-  RequireRank: 1
+  RequireRank: 5
   MaxLevel: 10
   StatName: 10
   StatString: Armor

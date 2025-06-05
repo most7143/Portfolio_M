@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c70ac5f55c1425b44a630f3b76d85f70, type: 3}
   m_Name: Memory_Health
   m_EditorClassIdentifier: 
-  Name: 7
+  Name: 8
   NameString: Health
   Values:
-  - 50
-  - 100
+  - 75
   - 150
+  - 300

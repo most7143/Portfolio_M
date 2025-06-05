@@ -1,4 +1,5 @@
 ﻿using System;
+using TMPro;
 using UnityEngine;
 
 public static class EXText
@@ -245,5 +246,47 @@ public static class EXText
     public static float GetValueByRound(float value)
     {
         return (float)Math.Round(value, 2);
+    }
+
+    public static void RefreshClassValueText(ClassData classData, TextMeshProUGUI text)
+    {
+        Player player = InGameManager.Instance.Player;
+
+        string value = "[" + classData.NameText + "]" + "\n";
+
+        if (classData.Stats.Count == 1)
+        {
+            value += string.Format(classData.StatDescriptionText, EXText.GetStatPercent(classData.Stats[0], classData.Values[0])) + "\n";
+        }
+        else if (classData.Stats.Count == 2)
+        {
+            value += string.Format(classData.StatDescriptionText,
+                EXText.GetStatPercent(classData.Stats[0], classData.Values[0]), EXText.GetStatPercent(classData.Stats[1], classData.Values[1])) + "\n";
+        }
+
+        if (classData.Projectiles.Count == 1)
+        {
+            value += string.Format(classData.ProjectileDescritonText, player.ProjectileSystem.GetProjectile(classData.Projectiles[0]).Chance * 100f, player.ProjectileSystem.GetProjectile(classData.Projectiles[0]).DamgeRate * 100f) + "\n";
+        }
+        else if (classData.Projectiles.Count == 2)
+        {
+            value += string.Format(classData.ProjectileDescritonText, player.ProjectileSystem.GetProjectile(classData.Projectiles[0]).Chance * 100f, player.ProjectileSystem.GetProjectile(classData.Projectiles[0]).DamgeRate * 100f,
+                player.ProjectileSystem.GetProjectile(classData.Projectiles[1]).Chance * 100f, player.ProjectileSystem.GetProjectile(classData.Projectiles[1]).DamgeRate * 100f) + "\n";
+        }
+
+        if (classData.BuffNames.Count == 1)
+        {
+            value += string.Format(classData.BuffDescritonText, classData.BuffValues[0] * 100f);
+        }
+        else if (classData.BuffNames.Count == 2)
+        {
+            value += string.Format(classData.BuffDescritonText, classData.BuffValues[0] * 100f, classData.BuffValues[1] * 100f);
+        }
+        else if (classData.BuffNames.Count == 3)
+        {
+            value += string.Format(classData.BuffDescritonText, classData.BuffValues[0] * 100f, classData.BuffValues[1] * 100f, classData.BuffValues[2] * 100f);
+        }
+
+        text.SetText(value);
     }
 }

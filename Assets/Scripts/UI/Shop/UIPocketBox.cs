@@ -18,6 +18,10 @@ public class UIPocketBox : MonoBehaviour
     public Image LockImage;
     public TextMeshProUGUI LockText;
 
+    private int _currentCost;
+
+    private int _useCount;
+
     private void Start()
     {
         LockImage.gameObject.SetActive(true);
@@ -57,7 +61,7 @@ public class UIPocketBox : MonoBehaviour
         {
             NameText.SetText(data.NameString);
             DescText.SetText(data.DescriptionString);
-            LockText.SetText(string.Format("몬스터 {0}회 처치 시 개방", data.UnlockKillMonster));
+            LockText.SetText(string.Format("몬스터 <style=Legendary>{0}회</style> 처치 시 구매 가능", data.UnlockKillMonster));
         }
     }
 
@@ -66,7 +70,16 @@ public class UIPocketBox : MonoBehaviour
         if (data == null)
             return;
 
-        CostText.SetText(string.Format("{0}{1}", data.Cost.ToString(), "<sprite=1>"));
+        if (Type == PocketTypes.Yellow)
+        {
+            _currentCost = data.Cost + (_useCount / 10);
+        }
+        else
+        {
+            _currentCost = data.Cost;
+        }
+
+        CostText.SetText(string.Format("{0}{1}", _currentCost, "<sprite=1>"));
 
         if (InGameManager.Instance.Controller.TryUsingCurrency(CurrencyTypes.Gem, data.Cost))
         {
@@ -82,8 +95,10 @@ public class UIPocketBox : MonoBehaviour
 
     public void Click()
     {
-        if (InGameManager.Instance.Controller.TryUsingCurrency(CurrencyTypes.Gem, data.Cost))
+        if (InGameManager.Instance.Controller.TryUsingCurrency(CurrencyTypes.Gem, _currentCost))
         {
+            _useCount++;
+
             float rand = Random.Range(0, 1f);
 
             int selectIndex = (int)EXValue.GetChanceByGrade() - 1;
@@ -118,7 +133,7 @@ public class UIPocketBox : MonoBehaviour
                 }
             }
 
-            InGameManager.Instance.Controller.UseCurrency(CurrencyTypes.Gem, data.Cost);
+            InGameManager.Instance.Controller.UseCurrency(CurrencyTypes.Gem, _currentCost);
 
             OutGameManager.Instance.CheckWeaponOnlySpend = false;
         }

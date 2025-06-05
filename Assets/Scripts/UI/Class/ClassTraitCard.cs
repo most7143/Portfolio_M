@@ -8,8 +8,7 @@ public class ClassTraitCard : MonoBehaviour
     public GradeNames Grade;
 
     public TextMeshProUGUI NameText;
-    public TextMeshProUGUI GradeText;
-    public TextMeshProUGUI DescriptionText;
+    public TextMeshProUGUI StatText;
     public TextMeshProUGUI CountText;
 
     public Image BackGround;
@@ -41,9 +40,21 @@ public class ClassTraitCard : MonoBehaviour
             NameText.SetText(data.NameText);
             IconImage.sprite = ResourcesManager.Instance.LoadSprite("Icon_Trait_" + Name.ToString());
             BackGround.sprite = ResourcesManager.Instance.LoadSprite("BackgroundCard_" + Grade.ToString());
-            DescriptionText.SetText("직업 : " + data.ClassNames[tier].GetClassLanguage());
-            CountText.SetText(data.NameText + " +" + count);
-            GradeText.SetText(EXText.GetGradeColor(Grade, Grade.GetGradeLanguage()));
+            CountText.SetText("특성 +" + count);
+            StatText.SetText(EXText.GetGradeColor(Grade, Grade.GetGradeLanguage()));
+
+            ClassNames className = data.ClassNames[tier];
+
+            ClassData classData = ResourcesManager.Instance.LoadScriptable<ClassData>(className.ToString());
+
+            if (tier < 1)
+            {
+                EXText.RefreshClassValueText(classData, StatText);
+            }
+            else
+            {
+                StatText.SetText(string.Format("[{0}] <br>???", EXText.GetClassLanguage(className)));
+            }
         }
     }
 

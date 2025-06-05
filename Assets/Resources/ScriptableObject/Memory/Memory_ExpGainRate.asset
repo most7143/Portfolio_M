@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c70ac5f55c1425b44a630f3b76d85f70, type: 3}
   m_Name: Memory_ExpGainRate
   m_EditorClassIdentifier: 
-  Name: 18
+  Name: 19
   NameString: ExpGainRate
   Values:
   - 0.3
   - 0.6
-  - 0.9
+  - 1

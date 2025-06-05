@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c70ac5f55c1425b44a630f3b76d85f70, type: 3}
   m_Name: Memory_Armor
   m_EditorClassIdentifier: 
-  Name: 9
+  Name: 10
   NameString: Armor
   Values:
-  - 10
-  - 20
+  - 15
   - 30
+  - 60

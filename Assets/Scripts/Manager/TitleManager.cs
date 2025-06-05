@@ -8,10 +8,13 @@ public class TitleManager : MonoBehaviour
     public XButton StartDescriptionButton;
     public XButton MemoryButton;
     public XButton ChallengeButton;
+    public XButton ExitButton;
     public TextMeshProUGUI KillMonsterText;
 
     private void OnEnable()
     {
+        SoundManager.Instance.Play(SoundNames.TitleBGM);
+
         EventManager<EventTypes>.Register(EventTypes.RefreshMemory, RefreshMemoryButton);
     }
 
@@ -34,6 +37,9 @@ public class TitleManager : MonoBehaviour
         ChallengeButton.OnExecute = ClickChallenge;
         ChallengeButton.IsPressClick = false;
 
+        ExitButton.OnExecute = ClickExit;
+        ExitButton.IsPressClick = false;
+
         if (PlayerPrefs.GetInt("KillMonster") > 0)
         {
             KillMonsterText.SetText("최대 처치 몬스터 레벨 " + PlayerPrefs.GetInt("KillMonster").ToString());
@@ -45,6 +51,8 @@ public class TitleManager : MonoBehaviour
 
     public void LoadScene()
     {
+        SoundManager.Instance.Stop(SoundNames.TitleBGM);
+
         StartButton.interactable = false;
 
         SceneManager.LoadScene("LoadingScene");
@@ -84,6 +92,12 @@ public class TitleManager : MonoBehaviour
         {
             UIPopupManager.Instance.Despawn();
         }
+    }
+
+    public void ClickExit()
+    {
+        PlayerPrefs.Save();
+        Application.Quit();
     }
 
     private void RefreshMemoryButton()

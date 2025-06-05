@@ -76,7 +76,9 @@ public class UIChallengeBox : MonoBehaviour
     {
         for (int i = 0; i <= 2; i++)
         {
-            if (OutGameManager.Instance.GetChallengeValue(Name) >= _data.RequireValues[i])
+            int value = OutGameManager.Instance.GetChallengeValue(Name);
+
+            if (value >= _data.RequireValues[i])
             {
                 rank = i;
             }

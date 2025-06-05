@@ -42,6 +42,8 @@ public class UISkillBox : MonoBehaviour
     private void OnEnable()
     {
         EventManager<EventTypes>.Register(EventTypes.SkillLevelUp, Refresh);
+        EventManager<EventTypes>.Register<CurrencyTypes>(EventTypes.AddCurrency, RefreshCost);
+        EventManager<EventTypes>.Register<CurrencyTypes>(EventTypes.UseCurrency, RefreshCost);
         EventManager<EventTypes>.Register<ClassNames>(EventTypes.ChangeClass, RefreshChangeClass);
         EventManager<EventTypes>.Register<int>(EventTypes.LevelUp, Unlock);
     }
@@ -49,6 +51,8 @@ public class UISkillBox : MonoBehaviour
     private void OnDisable()
     {
         EventManager<EventTypes>.Unregister(EventTypes.SkillLevelUp, Refresh);
+        EventManager<EventTypes>.Unregister<CurrencyTypes>(EventTypes.AddCurrency, RefreshCost);
+        EventManager<EventTypes>.Unregister<CurrencyTypes>(EventTypes.UseCurrency, RefreshCost);
         EventManager<EventTypes>.Unregister<ClassNames>(EventTypes.ChangeClass, RefreshChangeClass);
         EventManager<EventTypes>.Unregister<int>(EventTypes.LevelUp, Unlock);
     }
@@ -67,15 +71,21 @@ public class UISkillBox : MonoBehaviour
 
         Icon.sprite = ResourcesManager.Instance.LoadSprite("Icon_" + name.ToString());
 
+        LockText.SetText(string.Format("랭크 <style=Legendary>{0}</style> 도달 시 개방", Data.RequireRank));
+
+        CostText.SetText(_currentCost + "<sprite=0>");
+
         Unlock(InGameManager.Instance.Player.Level);
-        LockText.SetText(Data.RequireRank + " 랭크 도달 시 개방");
-        CostText.SetText(Data.Cost + "<sprite=0>");
+
         Refresh();
     }
 
     private float GetValue()
     {
         int level = Level;
+
+        if (level == 0)
+            level = 1;
 
         if (Data.Value != 0)
         {
@@ -109,7 +119,11 @@ public class UISkillBox : MonoBehaviour
     {
         if (Data.RequireRank <= level)
         {
-            LockTrans.gameObject.SetActive(false);
+            if (LockTrans.gameObject.activeSelf)
+            {
+                LockTrans.gameObject.SetActive(false);
+                LevelUpSkill();
+            }
         }
     }
 
@@ -150,7 +164,21 @@ public class UISkillBox : MonoBehaviour
             Pannel.sprite = ResourcesManager.Instance.LoadSprite("Background_Pannel_Slice_Mythic_0");
         }
 
+        RefreshCost(CurrencyTypes.Gold);
+
         SetChance();
+    }
+
+    private void RefreshCost(CurrencyTypes type)
+    {
+        if (InGameManager.Instance.Controller.TryUsingCurrency(CurrencyTypes.Gold, _currentCost))
+        {
+            CostText.color = Color.white;
+        }
+        else
+        {
+            CostText.color = Color.red;
+        }
     }
 
     private void SetChance()
@@ -191,7 +219,6 @@ public class UISkillBox : MonoBehaviour
             {
                 LevelUpSkill();
                 InGameManager.Instance.ObjectPool.SpawnFloaty(LearnButton.transform.position, FloatyTypes.Success, "성공");
-                EventManager<EventTypes>.Send(EventTypes.SkillLevelUp);
                 SoundManager.Instance.Play(SoundNames.Success);
             }
             else
@@ -237,6 +264,8 @@ public class UISkillBox : MonoBehaviour
         }
 
         LevelUpBuff();
+
+        EventManager<EventTypes>.Send(EventTypes.SkillLevelUp);
     }
 
     private void MaxLevelupSkill()
