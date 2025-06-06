@@ -50,20 +50,26 @@ MonoBehaviour:
   NameString: TimeTravelerDebuff
   Type: 3
   MaxStack: 5
-  Conditions: 0
+  Conditions: 1
   ConditionValue: 0
-  EndConditions: 1
+  EndConditions: 0
   IgnoreBuffName: 0
   IgnoreNameString: 
   StatName: 5
   StatString: AttackSpeed
+  StatName2: 0
+  StatString2: 
   ProjectileName: 0
   ProjectileNameString: 
   Anim: {fileID: 2725948471930330897}
-  CoolDown: 1
-  CooldownToBuff: 12
-  CooldownToBuffNameString: TimeTravelerDebuff
+  RefreshTime: 1
+  CoolDown: 0
+  CooldownToBuff: 0
+  CooldownToBuffNameString: 
+  DeactivateToBuff: 0
+  DeactivateToBuffNameString: 
   IsCooldown: 0
+  IgnoreRegisterActivate: 0
   Value: 0
   AliveTime: 5
   Icon: {fileID: 0}

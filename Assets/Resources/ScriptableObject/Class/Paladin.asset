@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19e9b6f842545f4da1b14e127fe45a8, type: 3}
   m_Name: Paladin
   m_EditorClassIdentifier: 
-  Name: 17
+  Name: 102
   NameString: Paladin
   NameText: "\uD314\uB77C\uB518"
   DescritpionText: "\uC131\uC2A4\uB7EC\uC6B4 \uBE5B\uC758 \uAE30\uC0AC"
   StatDescriptionText: 
   ProjectileDescritonText: 
-  BuffDescritonText: "2\uCD08 \uB9C8\uB2E4  {0}% \uD53C\uD574\uB97C \uC8FC\uB294
-    <color=green>\uBE5B\uC758 \uAD74\uC808</color> \uBC1C\uB3D9<br>\uBAAC\uC2A4\uD130\uC758
-    \uACF5\uACA9\uB825\uC744 {1}% \uAC10\uC18C"
+  BuffDescritonText: "<size=15>' </size>2\uCD08 \uB9C8\uB2E4 {0}% \uD53C\uD574\uB97C
+    \uC8FC\uB294 <color=green>\uBE5B\uC758 \uAD74\uC808</color> \uBC1C\uB3D9<br><size=15>'
+    </size>\uBAAC\uC2A4\uD130\uC758 \uACF5\uACA9\uB825\uC744 {1}% \uAC10\uC18C"
   Stats: 
   StatStirng: []
   Values: []

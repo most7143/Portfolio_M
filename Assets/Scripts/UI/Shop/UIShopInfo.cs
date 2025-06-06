@@ -11,12 +11,14 @@ public class UIShopInfo : MonoBehaviour
     private void OnEnable()
     {
         EventManager<EventTypes>.Register<CurrencyTypes>(EventTypes.AddCurrency, Refresh);
+        EventManager<EventTypes>.Register<CurrencyTypes>(EventTypes.UseCurrency, Refresh);
         EventManager<EventTypes>.Register(EventTypes.RefreshAccessory, RefreshAcc);
     }
 
     private void OnDisable()
     {
         EventManager<EventTypes>.Unregister<CurrencyTypes>(EventTypes.AddCurrency, Refresh);
+        EventManager<EventTypes>.Unregister<CurrencyTypes>(EventTypes.UseCurrency, Refresh);
         EventManager<EventTypes>.Unregister(EventTypes.RefreshAccessory, RefreshAcc);
     }
 

@@ -64,12 +64,13 @@ public class UICharacterInfo : MonoBehaviour
 
         Player player = InGameManager.Instance.Player;
 
-        if (player.ClassTraitSystem.ClassTier == 1)
+        if ((int)player.ClassTraitSystem.Name >= 10)
         {
             Line1.gameObject.SetActive(true);
             EXText.RefreshClassValueText(classData, Class1ValueText);
         }
-        else if (player.ClassTraitSystem.ClassTier == 2)
+
+        if ((int)player.ClassTraitSystem.Name >= 100)
         {
             Line2.gameObject.SetActive(true);
             EXText.RefreshClassValueText(classData, Class2ValueText);

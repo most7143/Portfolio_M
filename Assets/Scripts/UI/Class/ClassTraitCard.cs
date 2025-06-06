@@ -29,7 +29,16 @@ public class ClassTraitCard : MonoBehaviour
     {
         data = ResourcesManager.Instance.LoadScriptable<ClassTraitData>(name.ToString());
 
-        int tier = InGameManager.Instance.Player.ClassTraitSystem.ClassTier;
+        int tier = 0;
+
+        if (InGameManager.Instance.Player.ClassTraitSystem.Name == ClassNames.Swordman)
+        {
+            tier = 0;
+        }
+        else
+        {
+            tier = 1;
+        }
 
         Grade = EXValue.GetChanceByGrade(2f);
 

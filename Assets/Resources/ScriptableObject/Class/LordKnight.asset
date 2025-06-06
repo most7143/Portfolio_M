@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19e9b6f842545f4da1b14e127fe45a8, type: 3}
   m_Name: LordKnight
   m_EditorClassIdentifier: 
-  Name: 16
+  Name: 101
   NameString: LordKnight
   NameText: "\uB85C\uB4DC \uB098\uC774\uD2B8"
   DescritpionText: "\uC655\uC744 \uC218\uD638\uD558\uB294 \uBA85\uC608\uAE30\uC0AC"
-  StatDescriptionText: "\uBC29\uC5B4\uB825\uC758 {0} \uB9CC\uD07C \uACF5\uACA9\uB825\uC73C\uB85C
-    \uC804\uD658"
+  StatDescriptionText: "<size=15>' </size>\uBC29\uC5B4\uB825\uC758 {0} \uB9CC\uD07C
+    \uACF5\uACA9\uB825\uC73C\uB85C \uC804\uD658"
   ProjectileDescritonText: 
-  BuffDescritonText: "\uBC1B\uC740 \uD53C\uD574\uC758 {0}% \uB97C \uBC18\uC0AC\uD558\uB294
-    \uBC30\uB9AC\uC5B4 \uC0DD\uC131"
-  Stats: 1b000000
+  BuffDescritonText: "<size=15>' </size>\uBC1B\uC740 \uD53C\uD574\uC758 {0}% \uB97C
+    \uBC18\uC0AC\uD558\uB294 \uBC30\uB9AC\uC5B4 \uC0DD\uC131"
+  Stats: 1e000000
   StatStirng:
   - ArmorConvertToAttack
   Values:

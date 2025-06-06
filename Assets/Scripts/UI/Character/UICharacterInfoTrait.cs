@@ -9,9 +9,20 @@ public class UICharacterInfoTrait : MonoBehaviour
     {
         List<ClassTraitNames> names = InGameManager.Instance.Player.ClassTraitSystem.GetNames();
 
+        int count = 0;
+
+        if (InGameManager.Instance.Player.ClassTraitSystem.Name == ClassNames.Swordman)
+        {
+            count = 0;
+        }
+        else
+        {
+            count = 1;
+        }
+
         for (int i = 0; i < names.Count; i++)
         {
-            Slots[i].Refresh(names[i], InGameManager.Instance.Player.ClassTraitSystem.ClassTier);
+            Slots[i].Refresh(names[i], count);
         }
     }
 }

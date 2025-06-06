@@ -350,7 +350,7 @@ MonoBehaviour:
   SpawnOffsetPosition: {x: 0.5, y: 0.8, z: 0}
   IsRandomSpawnPoint: 0
   Chance: 0.3
-  DamgeRate: 5
+  DamgeRate: 3
   Speed: 0
   Cooldown: 0
 --- !u!1 &2167597632595652165
@@ -404,10 +404,10 @@ MonoBehaviour:
   CondisionCount: 1
   SpawnOffsetPosition: {x: 0, y: 1, z: 0}
   IsRandomSpawnPoint: 0
-  Chance: 1
+  Chance: 0.5
   DamgeRate: 8
   Speed: 0
-  Cooldown: 5
+  Cooldown: 0
 --- !u!1 &2793588581769015670
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,7 +680,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 1
   PrevClass: 0
-  ClassTier: 0
   MaxLevel: 30
 --- !u!1 &4706272836037236761
 GameObject:

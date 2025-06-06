@@ -18,7 +18,7 @@ MonoBehaviour:
   AttackByLevel: 8
   AttackSpeed: 0.5
   Health: 200
-  HealthByLevel: 50
+  HealthByLevel: 70
   Armor: 5
   ArmorByLevel: 3
   CriticalRate: 0.05

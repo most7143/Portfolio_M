@@ -11,6 +11,8 @@ public class TitleManager : MonoBehaviour
     public XButton ExitButton;
     public TextMeshProUGUI KillMonsterText;
 
+    public UIFade Fade;
+
     private void OnEnable()
     {
         SoundManager.Instance.Play(SoundNames.TitleBGM);
@@ -47,6 +49,8 @@ public class TitleManager : MonoBehaviour
 
         RefreshMemoryData();
         RefreshMemoryButton();
+
+        Fade.FadeOut();
     }
 
     public void LoadScene()

@@ -25,6 +25,8 @@ public class OutGameManager : MonoBehaviour
 
     private int targetMonsterLevel;
 
+    private FullScreenMode prevMode;
+
     private void Awake()
     {
         if (null == instance)
@@ -52,21 +54,41 @@ public class OutGameManager : MonoBehaviour
             PlayerPrefs.Save();
         }
 
+        SetFrame();
+
         SetChallenges();
 
         TotalMonsterKillCount = PlayerPrefs.GetInt("TotalMonsterKillCount");
 
-        SetResolution();
+        prevMode = Screen.fullScreenMode;
+
+        SetResolution(prevMode);
     }
 
-    public void SetResolution()
+    private void Update()
+    {
+        if (Screen.fullScreenMode != prevMode)
+        {
+            prevMode = Screen.fullScreenMode;
+
+            SetResolution(prevMode);
+        }
+    }
+
+    public void SetResolution(FullScreenMode newMode)
     {
         int setWidth = 720; // 화면 너비
         int setHeight = 1280; // 화면 높이
 
-        //해상도를 설정값에 따라 변경
-        //3번째 파라미터는 풀스크린 모드를 설정 > true : 풀스크린, false : 창모드
-        Screen.SetResolution(setWidth, setHeight, true);
+        bool isFullscreen = newMode != FullScreenMode.Windowed;
+        Screen.SetResolution(setWidth, setHeight, isFullscreen);
+    }
+
+    private void SetFrame()
+    {
+#if UNITY_ANDROID
+        Application.targetFrameRate = 60;
+#endif
     }
 
     public static OutGameManager Instance

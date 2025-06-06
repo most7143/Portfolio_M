@@ -12,22 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19e9b6f842545f4da1b14e127fe45a8, type: 3}
   m_Name: Phantom
   m_EditorClassIdentifier: 
-  Name: 24
+  Name: 109
   NameString: Phantom
   NameText: "\uD32C\uD140"
   DescritpionText: "\uD589\uC6B4\uC758 \uC720\uB839"
-  StatDescriptionText: "\uD328\uC2DC\uBE0C \uC2A4\uD0AC \uBC30\uC6B0\uB294 \uD655\uB960\uC774
-    {0} \uC99D\uAC00 <br>\uC7A5\uC2E0\uAD6C \uC635\uC158 \uB9AC\uB864\uC2DC {1} \uD655\uB960\uB85C
-    \uC82C\uC774 \uC18C\uBAA8\uB418\uC9C0 \uC54A\uC74C"
+  StatDescriptionText: "<size=15>' </size>\uD328\uC2DC\uBE0C \uC2A4\uD0AC \uBC30\uC6B0\uB294
+    \uD655\uB960\uC774 {0} \uC99D\uAC00 <br><size=15>' </size>\uC7A5\uC2E0\uAD6C
+    \uC635\uC158 \uB9AC\uB864\uC2DC {1} \uD655\uB960\uB85C \uC82C\uC774 \uC18C\uBAA8\uB418\uC9C0
+    \uC54A\uC74C"
   ProjectileDescritonText: 
   BuffDescritonText: 
-  Stats: 1e0000001f000000
+  Stats: 2200000023000000
   StatStirng:
   - PassiveSkillLearnChance
   - AccOptionRerollFreeGem
   Values:
-  - 0.4
-  - 0.4
+  - 0.5
+  - 0.5
   Projectiles: 
   ProjectileString: []
   BuffNames: 

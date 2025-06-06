@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -96,6 +97,7 @@ public class UIWeaponInfo : MonoBehaviour
             if (InGameManager.Instance.Player.StatSystem.GetStat(StatNames.FailToWeaponChance) > 0)
             {
                 currentSucPercent += InGameManager.Instance.Player.StatSystem.GetStat(StatNames.FailToWeaponChance);
+                currentSucPercent = (float)Math.Round(currentSucPercent, 2);
                 RefreshPercentText();
             }
 
@@ -146,7 +148,7 @@ public class UIWeaponInfo : MonoBehaviour
 
     private bool TryUpgrade(WeaponInfo weaponInfoupgradeCost)
     {
-        float range = Random.Range(0, 1f);
+        float range = UnityEngine.Random.Range(0, 1f);
 
         return range < currentSucPercent;
     }

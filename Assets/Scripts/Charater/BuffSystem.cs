@@ -152,7 +152,9 @@ public class BuffSystem : MonoBehaviour
                 }
                 else if (buffs[i].Conditions == BuffConditions.DecreaseHealth)
                 {
-                    if (Owner.CurrentHp / Owner.MaxHP <= buffs[i].ConditionValue)
+                    float hpRate = (float)Owner.CurrentHp / (float)Owner.MaxHP;
+
+                    if (hpRate <= buffs[i].ConditionValue)
                     {
                         Activate(buffs[i].Name);
                     }

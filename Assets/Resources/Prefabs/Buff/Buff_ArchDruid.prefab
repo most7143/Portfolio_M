@@ -57,13 +57,18 @@ MonoBehaviour:
   IgnoreNameString: 
   StatName: 0
   StatString: 
+  StatName2: 0
+  StatString2: 
   ProjectileName: 0
   ProjectileNameString: 
   Anim: {fileID: 0}
   CoolDown: 3
   CooldownToBuff: 10
   CooldownToBuffNameString: ArchDruid
+  DeactivateToBuff: 0
+  DeactivateToBuffNameString: 
   IsCooldown: 0
+  IgnoreRegisterActivate: 0
   Value: 0
   AliveTime: 5
   Icon: {fileID: 0}

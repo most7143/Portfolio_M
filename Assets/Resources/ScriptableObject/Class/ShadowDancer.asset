@@ -12,16 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19e9b6f842545f4da1b14e127fe45a8, type: 3}
   m_Name: ShadowDancer
   m_EditorClassIdentifier: 
-  Name: 22
+  Name: 107
   NameString: ShadowDancer
   NameText: "\uC100\uB3C4\uC6B0\uB304\uC11C"
   DescritpionText: "\uC554\uC0B4\uB2E8\uC6D0\uC758 \uC218\uC7A5"
-  StatDescriptionText: "\uCE58\uBA85\uD0C0 \uD53C\uD574\uC758 {0} \uB9CC\uD07C \uACF5\uACA9\uB825%
-    \uC99D\uAC00"
-  ProjectileDescritonText: "\uCE58\uBA85\uD0C0 \uACF5\uACA9\uC2DC {0} \uD655\uB960\uB85C
-    {1} \uD53C\uD574\uB97C \uC8FC\uB294 <color=green>\uC554\uC0B4</color> \uBC1C\uB3D9"
+  StatDescriptionText: "<size=15>' </size>\uCE58\uBA85\uD0C0 \uD53C\uD574\uC758 {0}
+    \uAC00 \uACF5\uACA9\uB825 %\uB85C \uBCC0\uD658"
+  ProjectileDescritonText: "<size=15>' </size>\uCE58\uBA85\uD0C0 \uACF5\uACA9\uC2DC
+    {0}% \uD655\uB960\uB85C {1}% \uD53C\uD574\uB97C \uC8FC\uB294 <color=green>\uC554\uC0B4</color>
+    \uBC1C\uB3D9"
   BuffDescritonText: 
-  Stats: 1c000000
+  Stats: 1f000000
   StatStirng:
   - CriticalDamageConvertToAttackRate
   Values:

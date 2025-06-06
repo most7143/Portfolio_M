@@ -18,11 +18,13 @@ public class UIBaseStatGroup : MonoBehaviour
     private void OnEnable()
     {
         EventManager<EventTypes>.Register<StatNames>(EventTypes.RefreshPlayerStst, Refresh);
+        EventManager<EventTypes>.Register<int>(EventTypes.LevelUp, RefrashByLevelup);
     }
 
     private void OnDisable()
     {
         EventManager<EventTypes>.Unregister<StatNames>(EventTypes.RefreshPlayerStst, Refresh);
+        EventManager<EventTypes>.Unregister<int>(EventTypes.LevelUp, RefrashByLevelup);
     }
 
     public void Refresh(StatNames name = StatNames.None)
@@ -34,5 +36,10 @@ public class UIBaseStatGroup : MonoBehaviour
         ArmorText.SetText(EXText.GetStatLanguage(StatNames.Armor) + " : " + EXText.GetStatPercent(StatNames.Armor, Player.Armor));
         ReduceText.SetText(EXText.GetStatLanguage(StatNames.DamageReduction) + " : " + EXText.GetStatPercent(StatNames.DamageReduction, Player.StatSystem.GetStat(StatNames.DamageReduction) - 1));
         DodgeRateText.SetText(EXText.GetStatLanguage(StatNames.DodgeRate) + " : " + EXText.GetStatPercent(StatNames.DodgeRate, Player.StatSystem.GetStat(StatNames.DodgeRate)));
+    }
+
+    public void RefrashByLevelup(int level)
+    {
+        Refresh();
     }
 }

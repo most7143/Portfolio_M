@@ -12,15 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19e9b6f842545f4da1b14e127fe45a8, type: 3}
   m_Name: SwordMaster
   m_EditorClassIdentifier: 
-  Name: 15
+  Name: 100
   NameString: SwordMaster
   NameText: "\uC18C\uB4DC\uB9C8\uC2A4\uD130"
   DescritpionText: "\uAC80\uC220\uC758 \uB2EC\uC778"
-  StatDescriptionText: "\uC801\uC758 \uBC29\uC5B4\uB825\uC744 {0} \uBB34\uC2DC"
-  ProjectileDescritonText: "\uACF5\uACA9\uC2DC {0}% \uD655\uB960\uB85C \uACF5\uACA9\uB825\uC758
-    {1}% \uD53C\uD574\uB97C \uC8FC\uB294 \uAC80 \uC0DD\uC131"
+  StatDescriptionText: "<size=15>' </size>\uC801\uC758 \uBC29\uC5B4\uB825\uC744 {0}
+    \uBB34\uC2DC"
+  ProjectileDescritonText: "<size=15>' </size>\uACF5\uACA9\uC2DC {0}% \uD655\uB960\uB85C
+    \uACF5\uACA9\uB825\uC758 {1}% \uD53C\uD574\uB97C \uC8FC\uB294 <color=green>\uAC80\uC758
+    \uB178\uB798<color> \uBC1C\uB3D9"
   BuffDescritonText: 
-  Stats: 1d000000
+  Stats: 20000000
   StatStirng:
   - IgnoreArmor
   Values:

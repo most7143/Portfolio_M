@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19e9b6f842545f4da1b14e127fe45a8, type: 3}
   m_Name: Necromancer
   m_EditorClassIdentifier: 
-  Name: 23
+  Name: 108
   NameString: Necromancer
   NameText: "\uB124\uD06C\uB85C\uB9E8\uC11C"
   DescritpionText: "\uB9DD\uC790\uC758 \uC6B0\uB450\uBA38\uB9AC\uC5D0 \uC120 \uC790"
   StatDescriptionText: 
   ProjectileDescritonText: 
-  BuffDescritonText: "2\uB9C8\uB9AC \uCC98\uCE58\uB9C8\uB2E4  \uACF5\uACA9\uB825,
+  BuffDescritonText: "<size=15>' </size>2\uB9C8\uB9AC \uCC98\uCE58\uB9C8\uB2E4  \uACF5\uACA9\uB825,
     \uBC29\uC5B4\uB825, \uCCB4\uB825 {0}% \uD68D\uB4DD"
   Stats: 
   StatStirng: []
@@ -32,4 +32,4 @@ MonoBehaviour:
   BuffAliveTimes:
   - 0
   BuffValues:
-  - 0.02
+  - 0.01

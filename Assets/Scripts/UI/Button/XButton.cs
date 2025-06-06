@@ -25,19 +25,16 @@ public class XButton : Button
     {
         base.OnPointerDown(eventData);
 
-        if (interactable)
+        if (interactable && IsPressClick)
         {
             Execute();
 
-            if (IsPressClick)
-            {
-                if (pressRoutine != null)
-                    StopCoroutine(pressRoutine);
+            if (pressRoutine != null)
+                StopCoroutine(pressRoutine);
 
-                if (gameObject.activeInHierarchy)
-                {
-                    pressRoutine = StartCoroutine(PressProcess());
-                }
+            if (gameObject.activeInHierarchy)
+            {
+                pressRoutine = StartCoroutine(PressProcess());
             }
         }
     }
@@ -50,6 +47,10 @@ public class XButton : Button
         {
             StopAllCoroutines();
             CancelInvoke("Execute");
+        }
+        else
+        {
+            Execute();
         }
     }
 

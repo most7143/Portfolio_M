@@ -23,6 +23,8 @@ public class Buff : MonoBehaviour
     public string ProjectileNameString;
     public Animator Anim;
 
+    public float RefreshTime;
+
     public float CoolDown;
     public BuffNames CooldownToBuff;
     public string CooldownToBuffNameString;
@@ -86,22 +88,30 @@ public class Buff : MonoBehaviour
     {
         _currentConditionsValue = 0;
 
-        if (CoolDown > 0)
+        if (RefreshTime > 0)
         {
-            Owner.BuffSystem.RegisterCoolDownSkills(Name);
+            Deactivate();
+            StartCoroutine(ProcessRefresh());
         }
-
-        if (Type == BuffTypes.Stack)
+        else
         {
-            _currentStack++;
-        }
+            if (CoolDown > 0)
+            {
+                Owner.BuffSystem.RegisterCoolDownSkills(Name);
+            }
 
-        if (_coroutine != null)
-        {
-            StopCoroutine(_coroutine);
-        }
+            if (Type == BuffTypes.Stack)
+            {
+                _currentStack++;
+            }
 
-        _coroutine = StartCoroutine(ProcessActivate());
+            if (_coroutine != null)
+            {
+                StopCoroutine(_coroutine);
+            }
+
+            _coroutine = StartCoroutine(ProcessActivate());
+        }
     }
 
     public bool TryConditionValue()
@@ -116,6 +126,11 @@ public class Buff : MonoBehaviour
 
     public bool TryMaxStack()
     {
+        if (RefreshTime > 0)
+        {
+            return false;
+        }
+
         return _currentStack >= MaxStack;
     }
 
@@ -227,6 +242,16 @@ public class Buff : MonoBehaviour
         if (Name == BuffNames.Enforcer || Name == BuffNames.Enforcer2)
         {
             Owner.StatSystem.RemoveStat(StatTID.PassiveSkill, StatNames.Invincibility);
+        }
+    }
+
+    public IEnumerator ProcessRefresh()
+    {
+        while (_currentStack <= MaxStack)
+        {
+            _currentStack++;
+            _coroutine = StartCoroutine(ProcessActivate());
+            yield return new WaitForSeconds(RefreshTime);
         }
     }
 }

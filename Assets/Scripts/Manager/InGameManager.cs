@@ -44,6 +44,8 @@ public class InGameManager : MonoBehaviour
 
     public UIGameOver GameOver;
 
+    public UIFade Fade;
+
     public float GameSpeed
     {
         get
@@ -68,6 +70,8 @@ public class InGameManager : MonoBehaviour
     private void Start()
     {
         BattleStart();
+
+        Fade.FadeOut();
     }
 
     private void BattleStart()
@@ -88,7 +92,11 @@ public class InGameManager : MonoBehaviour
         Time.timeScale = 1f;
         UIHandler.FadeOut();
         StartCoroutine(GameOverProcess());
+        SaveData();
+    }
 
+    public void SaveData()
+    {
         if (PlayerPrefs.GetInt("KillMonster") < MonsterSpanwer.Level - 1)
         {
             PlayerPrefs.SetInt("KillMonster", MonsterSpanwer.Level - 1);

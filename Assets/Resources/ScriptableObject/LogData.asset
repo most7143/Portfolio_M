@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data:
   - Type: 1
-    IsUse: 1
+    IsUse: 0
   - Type: 2
     IsUse: 0
   - Type: 3
@@ -24,4 +24,4 @@ MonoBehaviour:
   - Type: 5
     IsUse: 0
   - Type: 6
-    IsUse: 0
+    IsUse: 1

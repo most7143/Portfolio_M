@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIPopupManager : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class UIPopupManager : MonoBehaviour
     }
 
     public UIPopup Popup;
+
+    public UIPopup PausePopup;
 
     private Dictionary<UIPopupNames, UIPopup> popups = new();
 
@@ -50,16 +53,42 @@ public class UIPopupManager : MonoBehaviour
 
     private void Update()
     {
-        if (Popup != null)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (Name != UIPopupNames.ClassTrait)
+            if (SceneManager.GetActiveScene().name == "TitleScene")
             {
-                if (Input.GetKey(KeyCode.Escape))
+                if (Popup != null)
                 {
                     Despawn();
                 }
             }
+            else if (SceneManager.GetActiveScene().name == "MainScene")
+            {
+                if (IsPausePopup())
+                {
+                    DespawnPausePopup();
+                }
+                else
+                {
+                    SpawnPausePopup();
+                }
+            }
         }
+    }
+
+    private bool IsPausePopup()
+    {
+        if (PausePopup == null)
+        {
+            return false;
+        }
+
+        if (false == PausePopup.gameObject.activeInHierarchy)
+        {
+            return false;
+        }
+
+        return true;
     }
 
     public void Spawn(UIPopupNames popupName, bool spawnData = false)
@@ -93,6 +122,29 @@ public class UIPopupManager : MonoBehaviour
         Popup = popups[popupName];
         popups[popupName].gameObject.SetActive(true);
         popups[popupName].Spawn();
+    }
+
+    public void SpawnPausePopup()
+    {
+        if (PausePopup == null)
+        {
+            GameObject obj = ResourcesManager.Instance.Load(UIPopupNames.GamePause);
+
+            if (obj != null)
+            {
+                PausePopup = obj.GetComponent<UIPopup>();
+                PausePopup.gameObject.transform.SetParent(transform, false);
+            }
+        }
+        PausePopup.transform.SetAsLastSibling();
+        PausePopup.gameObject.SetActive(true);
+        PausePopup.Spawn();
+    }
+
+    public void DespawnPausePopup()
+    {
+        PausePopup.Despawn();
+        PausePopup.gameObject.SetActive(false);
     }
 
     public void Despawn()

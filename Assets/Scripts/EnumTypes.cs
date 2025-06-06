@@ -62,7 +62,8 @@ public enum ClassNames
     // Tier 0
 
     Swordman, //검사
-    Gladiator, // 검투사
+
+    Gladiator = 10, // 검투사
     Knight, // 나이트
     Crusader,//크루세이더
     Berserker, //버서커
@@ -437,6 +438,7 @@ public enum DamageTypes
     Attack,
     WeaponSkill,
     Proejctile,
+    Reflect,
 }
 
 public enum ProjectileNames
@@ -517,6 +519,7 @@ public enum UIPopupNames
     GameDescription, //특성 선택 팝업
     Memory, // 기억 저장소 팝업
     Challenge, // 도전과제 팝업
+    GamePause, // 게임정지팝업
 }
 
 public enum UIDetailsNames

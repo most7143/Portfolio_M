@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19e9b6f842545f4da1b14e127fe45a8, type: 3}
   m_Name: Revenger
   m_EditorClassIdentifier: 
-  Name: 18
+  Name: 103
   NameString: Revenger
   NameText: "\uB9AC\uBCA4\uC800"
   DescritpionText: "\uBCF5\uC218\uC640 \uC9D1\uB150\uC758 \uAE30\uC0AC"
   StatDescriptionText: 
-  ProjectileDescritonText: "\uACF5\uACA9 \uC2DC {0}% \uD655\uB960\uB85C {1}% \uD53C\uD574\uB97C
-    \uC8FC\uB294 <color=green>\uC545\uC758 \uAC00\uC2DC<color> \uBC1C\uB3D9 <br>\uD53C\uACA9
-    \uC2DC {2}% \uD655\uB960\uB85C {3}% \uD53C\uD574\uB97C \uC8FC\uB294 <color=green>\uBCF5\uC218\uC758
-    \uAC00\uC2DC</color> \uBC1C\uB3D9"
+  ProjectileDescritonText: "<size=15>' </size>\uACF5\uACA9 \uC2DC {0}% \uD655\uB960\uB85C
+    {1}% \uD53C\uD574\uB97C \uC8FC\uB294 <color=green>\uBD84\uB178\uC758 \uAC00\uC2DC</color>\uB97C
+    \uBC1C\uB3D9 <br><size=15>' </size>\uD53C\uACA9 \uC2DC {2}% \uD655\uB960\uB85C
+    {3}% \uD53C\uD574\uB97C \uC8FC\uB294 <color=green>\uBCF5\uC218\uC758 \uAC00\uC2DC</color>\uB97C
+    \uBC1C\uB3D9"
   BuffDescritonText: 
   Stats: 
   StatStirng: []

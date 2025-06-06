@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19e9b6f842545f4da1b14e127fe45a8, type: 3}
   m_Name: StormTrooper
   m_EditorClassIdentifier: 
-  Name: 21
+  Name: 106
   NameString: StormTrooper
   NameText: "\uC2A4\uD1B0\uD2B8\uB8E8\uD37C"
   DescritpionText: "\uD3ED\uD48D\uCC98\uB7FC \uBAB0\uC544\uCE58\uB294 \uD3EC\uACA9
     \uC804\uBB38\uAC00"
   StatDescriptionText: 
-  ProjectileDescritonText: "\uACF5\uACA9\uC2DC {0}% \uD655\uB960\uB85C {1}% \uD53C\uD574\uB97C
-    \uC8FC\uB294 \uD3EC\uD0C4 \uBC1C\uC0AC <br>\uACF5\uACA9\uC2DC {2}% \uD655\uB960\uB85C
-    {3}% \uD53C\uD574\uB97C \uC8FC\uB294 \uB300\uD3EC\uD0C4 \uBC1C\uC0AC "
+  ProjectileDescritonText: "<size=15>' </size>\uACF5\uACA9\uC2DC {0}% \uD655\uB960\uB85C
+    {1}% \uD53C\uD574\uB97C \uC8FC\uB294 <color=green>\uD3EC\uD0C4</color> \uBC1C\uC0AC
+    <br><size=15>' </size>\uACF5\uACA9\uC2DC {2}% \uD655\uB960\uB85C {3}% \uD53C\uD574\uB97C
+    \uC8FC\uB294 <color=green>\uD669\uAE08\uD3EC\uD0C4</color> \uBC1C\uC0AC "
   BuffDescritonText: 
   Stats: 
   StatStirng: []

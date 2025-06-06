@@ -12,16 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19e9b6f842545f4da1b14e127fe45a8, type: 3}
   m_Name: TimeTraveler
   m_EditorClassIdentifier: 
-  Name: 20
+  Name: 105
   NameString: TimeTraveler
   NameText: "\uD0C0\uC784 \uD2B8\uB798\uBE14\uB7EC"
   DescritpionText: "\uC2DC\uAC04\uC744 \uC790\uC720\uB86D\uAC8C \uB118\uB098\uB4DC\uB294
     \uC5EC\uD589\uC790"
   StatDescriptionText: 
   ProjectileDescritonText: 
-  BuffDescritonText: "\uC801\uC758 \uACF5\uC18D\uC744 \uB9E4 \uCD08 {0}% \uAC10\uC18C
-    (\uCD5C\uB300 50%) <br>\uCCB4\uB825\uC774 50% \uBBF8\uB9CC\uC77C \uB54C 10\uCD08\uAC04
-    <color=green>\uD0C0\uC784 \uD640\uB529</color> \uBC1C\uB3D9 (\uCFE8 60\uCD08)"
+  BuffDescritonText: "<size=15>' </size>\uC801\uC758 \uACF5\uC18D\uC744 \uB9E4 \uCD08
+    {0}% \uAC10\uC18C (\uCD5C\uB300 50%) <br><size=15>' </size>\uCCB4\uB825\uC774
+    50% \uBBF8\uB9CC\uC77C \uB54C 10\uCD08\uAC04 <color=green>\uD0C0\uC784 \uD640\uB529</color>
+    \uBC1C\uB3D9 (\uCFE8 60\uCD08)"
   Stats: 
   StatStirng: []
   Values: []

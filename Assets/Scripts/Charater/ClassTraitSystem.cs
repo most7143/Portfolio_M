@@ -8,8 +8,6 @@ public class ClassTraitSystem : MonoBehaviour
     public ClassNames Name;
     public ClassNames PrevClass = ClassNames.None;
 
-    public int ClassTier = 0;
-
     public Dictionary<ClassTraitNames, int> Traits = new();
 
     public int MaxLevel = 25;
@@ -51,7 +49,7 @@ public class ClassTraitSystem : MonoBehaviour
 
     public void OpenPopup(int level)
     {
-        if (ClassTier == 2)
+        if ((int)Name >= 100)
             return;
 
         UIPopupManager.Instance.Spawn(UIPopupNames.ClassTrait);
@@ -69,7 +67,6 @@ public class ClassTraitSystem : MonoBehaviour
         {
             PrevClass = Name;
             Name = name;
-            ClassTier++;
             if (data.Stats.Count > 0)
             {
                 for (int i = 0; i < data.Stats.Count; i++)

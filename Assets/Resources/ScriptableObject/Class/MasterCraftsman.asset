@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19e9b6f842545f4da1b14e127fe45a8, type: 3}
   m_Name: MasterCraftsman
   m_EditorClassIdentifier: 
-  Name: 26
+  Name: 111
   NameString: MasterCraftsman
   NameText: "\uBA85\uC7A5"
   DescritpionText: "\uC7A5\uC778\uC911\uC758 \uC7A5\uC778"
-  StatDescriptionText: "\uBB34\uAE30 \uAC15\uD654 \uC2E4\uD328\uB9C8\uB2E4 \uD655\uB960\uC774
-    {0} \uC99D\uAC00 <br>\uBB34\uAE30 \uC2A4\uD15F \uD6A8\uC728\uC774 {1} \uC99D\uAC00"
+  StatDescriptionText: "<size=15>' </size>\uBB34\uAE30 \uAC15\uD654 \uC2E4\uD328\uB9C8\uB2E4
+    \uD655\uB960\uC774 {0} \uC99D\uAC00 <br><size=15>' </size>\uBB34\uAE30 \uC2A4\uD15F
+    \uD6A8\uC728\uC774 {1} \uC99D\uAC00"
   ProjectileDescritonText: 
   BuffDescritonText: 
-  Stats: 2100000020000000
+  Stats: 2500000024000000
   StatStirng:
   - FailToWeaponChance
   - AddedWaeponStat

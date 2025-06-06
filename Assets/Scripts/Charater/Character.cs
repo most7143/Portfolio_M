@@ -85,7 +85,10 @@ public class Character : MonoBehaviour
 
         StartCoroutine(ProcessHitEffect());
 
-        CalculateHitDamage(ref info);
+        if (info.Type != DamageTypes.Reflect)
+        {
+            CalculateHitDamage(ref info);
+        }
 
         if (info.Owner.Name == CharacterNames.Swordman)
         {
@@ -110,7 +113,10 @@ public class Character : MonoBehaviour
             Dead();
         }
 
-        SpawnFloaty(info);
+        if (info.Value != 0)
+        {
+            SpawnFloaty(info);
+        }
 
         return true;
     }
@@ -125,7 +131,7 @@ public class Character : MonoBehaviour
             DamageInfo reflection = new DamageInfo();
 
             reflection.Value = (long)reflectionValue;
-            reflection.Type = DamageTypes.Attack;
+            reflection.Type = DamageTypes.Reflect;
             reflection.Owner = this;
 
             info.Owner.Hit(ref reflection);
@@ -159,6 +165,19 @@ public class Character : MonoBehaviour
             else
             {
                 InGameManager.Instance.ObjectPool.SpawnFloaty(position, FloatyTypes.SkillDamage, info.Value.ToString());
+            }
+        }
+        else if (info.Type == DamageTypes.Reflect)
+        {
+            Vector3 position = new Vector3(transform.position.x - 0.5f, transform.position.y + Random.Range(0, 0.5f));
+
+            if (info.IsCritical)
+            {
+                InGameManager.Instance.ObjectPool.SpawnFloaty(position, FloatyTypes.Dodge, info.Value.ToString());
+            }
+            else
+            {
+                InGameManager.Instance.ObjectPool.SpawnFloaty(position, FloatyTypes.Dodge, info.Value.ToString());
             }
         }
     }
@@ -359,8 +378,6 @@ public class Character : MonoBehaviour
         {
             InGameManager.Instance.ObjectPool.SpawnFloaty(transform.position, FloatyTypes.Heal, RefreshHP(value).ToString());
         }
-
-        EventManager<EventTypes>.Send(EventTypes.UsingHeal);
     }
 
     public long GetCurrentMaxHP()

@@ -25,6 +25,11 @@ public class UIPassiveSkillInfo : MonoBehaviour
         EventManager<EventTypes>.Unregister(EventTypes.MonsterSpawnd, MonsterSpawnd);
     }
 
+    private void Start()
+    {
+        Init();
+    }
+
     public void Activate()
     {
         if (_skills.Count == 0)
