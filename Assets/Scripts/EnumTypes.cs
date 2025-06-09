@@ -536,6 +536,12 @@ public enum UIChallengeNames
     Rookie,
     WeaponEnthusiast,
     NthReincarnation,
+
+    //Title
+
+    TraceOfTheFirstMark = 100, //처음새긴흔적
+    FootprintsLeftBehind,//남겨진 발자국
+    RemnantsOfWillpower,//의지의 잔흔
 }
 
 public enum LanguageTypes

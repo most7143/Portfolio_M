@@ -78,6 +78,8 @@ public class UISkillBox : MonoBehaviour
         Unlock(InGameManager.Instance.Player.Level);
 
         Refresh();
+
+        Rect.localScale = Vector2.one;
     }
 
     private float GetValue()

@@ -1,4 +1,6 @@
-﻿public class UIGameDescriptionPopup : UIPopup
+﻿using UnityEngine;
+
+public class UIGameDescriptionPopup : UIPopup
 {
     public override void Spawn()
     {

@@ -69,6 +69,8 @@ public class InGameManager : MonoBehaviour
 
     private void Start()
     {
+        OutGameManager.Instance.SetResolution();
+
         BattleStart();
 
         Fade.FadeOut();

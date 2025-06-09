@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class UIAccessoryBox : MonoBehaviour
 {
+    public RectTransform Rect;
     public int Index;
     public ImageLoop BackgroundAnim;
     public AccessoryTypes Type;
@@ -31,6 +32,8 @@ public class UIAccessoryBox : MonoBehaviour
         RerollButton.OnExecute = ClickButton;
 
         BackgroundAnim.gameObject.SetActive(false);
+
+        Rect.localScale = Vector3.one;
     }
 
     public void Refresh()

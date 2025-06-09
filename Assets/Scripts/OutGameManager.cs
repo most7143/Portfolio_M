@@ -11,7 +11,9 @@ public class OutGameManager : MonoBehaviour
 
     public int MemoryPoint;
 
-    private Dictionary<UIChallengeNames, ChallengeData> ChallengeDatas = new();
+    public Dictionary<UIChallengeNames, ChallengeData> ChallengeDatas = new();
+
+    public UIChallengeNames ChallengeTitleName;
 
     public int TotalMonsterKillCount;
 
@@ -59,29 +61,51 @@ public class OutGameManager : MonoBehaviour
         SetChallenges();
 
         TotalMonsterKillCount = PlayerPrefs.GetInt("TotalMonsterKillCount");
-
-        prevMode = Screen.fullScreenMode;
-
-        SetResolution(prevMode);
     }
 
-    private void Update()
+    public void SetResolution()
     {
-        if (Screen.fullScreenMode != prevMode)
+        float targetAspect = 9f / 16f;
+        float windowAspect = (float)Screen.width / (float)Screen.height;
+        float scaleHeight = windowAspect / targetAspect;
+
+        Camera camera = Camera.main;
+#if UNITY_STANDALONE || UNITY_EDITOR
+
+        if (scaleHeight < 1.0f)
         {
-            prevMode = Screen.fullScreenMode;
-
-            SetResolution(prevMode);
+            Rect rect = new Rect();
+            rect.width = 1.0f;
+            rect.height = scaleHeight;
+            rect.x = 0;
+            rect.y = (1.0f - scaleHeight) / 2.0f;
+            camera.rect = rect;
         }
-    }
+        else
+        {
+            float scaleWidth = 1.0f / scaleHeight;
 
-    public void SetResolution(FullScreenMode newMode)
-    {
-        int setWidth = 720; // 화면 너비
-        int setHeight = 1280; // 화면 높이
+            Rect rect = new Rect();
+            rect.width = scaleWidth;
+            rect.height = 1.0f;
+            rect.x = (1.0f - scaleWidth) / 2.0f;
+            rect.y = 0;
+            camera.rect = rect;
+        }
 
-        bool isFullscreen = newMode != FullScreenMode.Windowed;
-        Screen.SetResolution(setWidth, setHeight, isFullscreen);
+#else
+    if (scaleHeight < 1.0f)
+        {
+            // 화면이 더 좁은 경우 (letterbox)
+            camera.rect = new Rect(0, (1.0f - scaleHeight) / 2.0f, 1.0f, scaleHeight);
+        }
+        else
+        {
+            // 화면이 더 넓은 경우 (pillarbox)
+            float scaleWidth = 1.0f / scaleHeight;
+            camera.rect = new Rect((1.0f - scaleWidth) / 2.0f, 0, scaleWidth, 1.0f);
+        }
+#endif
     }
 
     private void SetFrame()
@@ -219,6 +243,9 @@ public class OutGameManager : MonoBehaviour
 
         for (int i = 1; i < names.Length; i++)
         {
+            if ((int)names[i] >= 100)
+                return;
+
             ChallengeData data = ResourcesManager.Instance.LoadScriptable<ChallengeData>("Challenge_" + names[i]);
 
             if (data != null)
@@ -235,12 +262,51 @@ public class OutGameManager : MonoBehaviour
         }
     }
 
+    public ChallengeData[] GetChallengeDatas()
+    {
+        if (ChallengeDatas.Count > 0)
+        {
+            return ChallengeDatas.Values.ToArray();
+        }
+
+        return null;
+    }
+
     public ChallengeData GetChallengeData(UIChallengeNames name)
     {
         if (ChallengeDatas.ContainsKey(name))
             return ChallengeDatas[name];
 
         return null;
+    }
+
+    public void SetChallengeDataValue(UIChallengeNames name, int value)
+    {
+        if (name == UIChallengeNames.DiligentWorker)
+        {
+            TotalMonsterKillCount = value;
+        }
+        else if (name == UIChallengeNames.PocketStronghold)
+        {
+            PlayerPrefs.SetInt("HitOneMonterCount", value);
+        }
+        else if (name == UIChallengeNames.Rookie)
+        {
+            PlayerPrefs.SetInt("NonClassChangeLevel", value);
+        }
+        else if (name == UIChallengeNames.WeaponEnthusiast)
+        {
+            PlayerPrefs.SetInt("WeaponOnlySpendLevel", value);
+        }
+        else if (name == UIChallengeNames.NthReincarnation)
+        {
+            ClassNames[] names = Enum.GetValues(typeof(ClassNames)).Cast<ClassNames>().ToArray();
+
+            for (int i = 1; i < names.Length; i++)
+            {
+                PlayerPrefs.SetInt(names[i].ToString(), 1);
+            }
+        }
     }
 
     public void SaveChallengeData()
@@ -275,5 +341,41 @@ public class OutGameManager : MonoBehaviour
                 PlayerPrefs.SetInt(ClassChanges[i].ToString(), 1);
             }
         }
+
+        ChallengeTitleName = GetAllClearByTitle();
+    }
+
+    public UIChallengeNames GetAllClearByTitle()
+    {
+        UIChallengeNames resultName = UIChallengeNames.None;
+
+        bool isSet = false;
+
+        for (int i = 2; i >= 0; i--)
+        {
+            UIChallengeNames[] names = { UIChallengeNames.TraceOfTheFirstMark, UIChallengeNames.FootprintsLeftBehind, UIChallengeNames.RemnantsOfWillpower };
+            UIChallengeNames[] challenges = ChallengeDatas.Keys.ToArray();
+
+            for (int j = 0; j < ChallengeDatas.Count; j++)
+            {
+                ChallengeData data = GetChallengeData(challenges[i]);
+                if (GetChallengeValue(challenges[i]) < data.RequireValues[i])
+                {
+                    resultName = UIChallengeNames.None;
+                    break;
+                }
+
+                if (j == ChallengeDatas.Count - 1)
+                {
+                    resultName = names[i];
+                    isSet = true;
+                }
+            }
+
+            if (isSet)
+                break;
+        }
+
+        return resultName;
     }
 }

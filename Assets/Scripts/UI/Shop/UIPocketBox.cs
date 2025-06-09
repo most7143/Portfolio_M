@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class UIPocketBox : MonoBehaviour
 {
+    public RectTransform Rect;
     public PocketTypes Type;
     public Image Icon;
 
@@ -61,8 +62,10 @@ public class UIPocketBox : MonoBehaviour
         {
             NameText.SetText(data.NameString);
             DescText.SetText(data.DescriptionString);
-            LockText.SetText(string.Format("몬스터 <style=Legendary>{0}회</style> 처치 시 구매 가능", data.UnlockKillMonster));
+            LockText.SetText(string.Format("몬스터 <style=Legendary>{0}</style>마리 처치 시 구매 가능", data.UnlockKillMonster));
         }
+
+        Rect.localScale = Vector3.one;
     }
 
     public void Actiavte()

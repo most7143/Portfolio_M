@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using UnityEngine;
 
@@ -97,7 +96,7 @@ public class Player : Character
 
     private void InitChallengeData()
     {
-        UIChallengeNames[] names = Enum.GetValues(typeof(UIChallengeNames)).Cast<UIChallengeNames>().ToArray();
+        UIChallengeNames[] names = OutGameManager.Instance.ChallengeDatas.Keys.ToArray();
 
         for (int i = 0; i < names.Length; i++)
         {
@@ -108,6 +107,15 @@ public class Player : Character
             if (value > 0)
             {
                 StatSystem.AddStat(StatTID.Challenge, statName, value);
+            }
+        }
+
+        if (OutGameManager.Instance.ChallengeTitleName != UIChallengeNames.None)
+        {
+            ChallengeData data = ResourcesManager.Instance.LoadScriptable<ChallengeData>("Challenge_" + OutGameManager.Instance.ChallengeTitleName);
+            if (data != null)
+            {
+                StatSystem.AddStat(StatTID.Challenge, data.StatName, data.StatValues[0]);
             }
         }
     }

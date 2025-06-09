@@ -26,9 +26,9 @@ MonoBehaviour:
   - 200
   - 800
   - 2000
-  StatName: 39
-  StatNameString: Allstats
+  StatName: 2
+  StatNameString: AttackRate
   StatValues:
   - 0.02
-  - 0.03
-  - 0.05
+  - 0.04
+  - 0.1

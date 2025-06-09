@@ -8,6 +8,8 @@ public class CheatController : MonoBehaviour
     public XButton DataReset;
     public XButton Addgold;
     public XButton ChangeClass;
+    public XButton AllChallenge;
+    public int AllChallengeCount = 0;
 
     private void Start()
     {
@@ -15,6 +17,7 @@ public class CheatController : MonoBehaviour
         DataReset.OnExecute = ResetData;
         ChangeClass.OnExecute = Change;
         Addgold.OnExecute = AddGold;
+        AllChallenge.OnExecute = AllChallenges;
     }
 
     public void Fail()
@@ -37,5 +40,18 @@ public class CheatController : MonoBehaviour
     {
         InGameManager.Instance.Controller.AddCurrency(CurrencyTypes.Gold, 100000);
         InGameManager.Instance.Controller.AddCurrency(CurrencyTypes.Gem, 100000);
+    }
+
+    public void AllChallenges()
+    {
+        ChallengeData[] datas = OutGameManager.Instance.GetChallengeDatas();
+
+        if (datas.Length > 0)
+        {
+            for (int i = 0; i < datas.Length; i++)
+            {
+                OutGameManager.Instance.SetChallengeDataValue(datas[i].Name, (int)datas[i].RequireValues[AllChallengeCount]);
+            }
+        }
     }
 }

@@ -13,6 +13,8 @@ public class SceneLoder : MonoBehaviour
 
     private void Start()
     {
+        OutGameManager.Instance.SetResolution();
+
         StartCoroutine(LoadMainSceneAsync());
 
         //SetText();

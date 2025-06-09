@@ -99,7 +99,7 @@ public class UICharacterInfo : MonoBehaviour
         float targetX = _isStatInfo ? originGroup.x : originGroup.x - 150;
         float alpha = _isStatInfo ? 0 : 1;
 
-        StatGroup.Rect.DOAnchorPosX(targetX, duration).SetEase(Ease.OutQuad);
+        // StatGroup.Rect.DOAnchorPosX(targetX, duration).SetEase(Ease.OutQuad);
         StatGroup.CanvasGroup.DOFade(alpha, duration);
         _isStatInfo = !_isStatInfo;
     }

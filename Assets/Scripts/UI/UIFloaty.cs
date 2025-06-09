@@ -39,6 +39,8 @@ public class UIFloaty : MonoBehaviour
 
     public Vector3 Offset;
 
+    private int _widthSize;
+
     private float _fontSize;
 
     public void Init()
@@ -119,6 +121,16 @@ public class UIFloaty : MonoBehaviour
     private void RefreshSize(FloatyTypes type)
     {
         Text.fontSize = _fontSize;
+
+        if (_widthSize == 0)
+        {
+            _widthSize = Display.main.systemWidth;
+        }
+
+        if (_widthSize > 1080)
+        {
+            Text.fontSize *= 0.8f;
+        }
 
         if (type is FloatyTypes.Gold or FloatyTypes.Gem)
         {

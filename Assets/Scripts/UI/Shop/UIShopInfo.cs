@@ -37,9 +37,9 @@ public class UIShopInfo : MonoBehaviour
 
             if (box != null)
             {
-                box.Init(types[i]);
                 box.transform.SetParent(Content);
                 box.transform.SetAsFirstSibling();
+                box.Init(types[i]);
                 Pockets.Add(box);
             }
         }

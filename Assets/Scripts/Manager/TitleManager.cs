@@ -48,9 +48,13 @@ public class TitleManager : MonoBehaviour
         }
 
         RefreshMemoryData();
+        RefreshChallengeData();
         RefreshMemoryButton();
+        RefreshHelpButton();
 
         Fade.FadeOut();
+
+        OutGameManager.Instance.SetResolution();
     }
 
     public void LoadScene()
@@ -67,6 +71,12 @@ public class TitleManager : MonoBehaviour
         if (UIPopupManager.Instance.Name != UIPopupNames.GameDescription)
         {
             UIPopupManager.Instance.Spawn(UIPopupNames.GameDescription);
+
+            if (PlayerPrefs.GetInt("OpenHelpPopup") == 0)
+            {
+                PlayerPrefs.SetInt("OpenHelpPopup", 1);
+                RefreshHelpButton();
+            }
         }
         else
         {
@@ -116,9 +126,27 @@ public class TitleManager : MonoBehaviour
         }
     }
 
+    private void RefreshHelpButton()
+    {
+        if (PlayerPrefs.GetInt("OpenHelpPopup") == 0)
+        {
+            StartDescriptionButton.image.sprite = ResourcesManager.Instance.LoadSprite("TitleHelpButtonBackground_Activate");
+        }
+        else
+        {
+            StartDescriptionButton.image.sprite = ResourcesManager.Instance.LoadSprite("TitleHelpButtonBackground_Normal");
+        }
+    }
+
     private void RefreshMemoryData()
     {
         UIPopupManager.Instance.Spawn(UIPopupNames.Memory, true);
+        UIPopupManager.Instance.Despawn();
+    }
+
+    private void RefreshChallengeData()
+    {
+        UIPopupManager.Instance.Spawn(UIPopupNames.Challenge, true);
         UIPopupManager.Instance.Despawn();
     }
 }
