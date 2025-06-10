@@ -111,8 +111,16 @@ public class UIAccessoryBox : MonoBehaviour
         if (InGameManager.Instance.Controller.TryUsingCurrency(CurrencyTypes.Gem, 1))
         {
             float rand = Random.Range(0, 1f);
+            float chance = InGameManager.Instance.Player.StatSystem.GetStat(StatNames.AccOptionRerollFreeGem);
 
-            if (rand < InGameManager.Instance.Player.StatSystem.GetStat(StatNames.AccOptionRerollFreeGem))
+            if (chance > 0)
+            {
+                if (rand < chance)
+                {
+                    InGameManager.Instance.Controller.UseCurrency(CurrencyTypes.Gem, 1);
+                }
+            }
+            else
             {
                 InGameManager.Instance.Controller.UseCurrency(CurrencyTypes.Gem, 1);
             }

@@ -28,6 +28,8 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public Canvas HUDCanvas;
+
     public UIStageInfo StageInfo;
     public UIMonsterInfo MonsterInfo;
     public UIPlayerInfo PlayerInfo;

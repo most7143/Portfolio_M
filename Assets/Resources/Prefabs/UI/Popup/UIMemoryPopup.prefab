@@ -637,6 +637,7 @@ GameObject:
   - component: {fileID: 7710132162814253620}
   - component: {fileID: 7515323346462268575}
   - component: {fileID: 1395470691554596694}
+  - component: {fileID: 7059913841655578682}
   m_Layer: 5
   m_Name: UIMemoryPopup
   m_TagString: Untagged
@@ -683,6 +684,7 @@ MonoBehaviour:
   Rect: {fileID: 7710132162814253620}
   IsStopBattle: 0
   Name: 3
+  Fade: {fileID: 7059913841655578682}
   Slots:
   - {fileID: 4086108386390051330}
   - {fileID: 4472696307815512836}
@@ -707,6 +709,21 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &7059913841655578682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4685657036320109417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21ba46d4d4b032548b09d84e6c09b74c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Group: {fileID: 1395470691554596694}
+  FadeDelay: 0
+  FadeDuration: 0.1
 --- !u!1 &6369919269095052770
 GameObject:
   m_ObjectHideFlags: 0

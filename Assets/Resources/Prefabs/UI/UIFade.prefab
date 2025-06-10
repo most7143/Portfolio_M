@@ -50,7 +50,7 @@ Canvas:
   m_GameObject: {fileID: 6415641382229669562}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -116,6 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21ba46d4d4b032548b09d84e6c09b74c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Canvas: {fileID: 166695107750535943}
   Group: {fileID: 2029962977702326348}
   FadeDelay: 0
   FadeDuration: 1

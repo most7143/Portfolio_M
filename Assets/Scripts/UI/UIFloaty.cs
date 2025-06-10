@@ -46,6 +46,7 @@ public class UIFloaty : MonoBehaviour
     public void Init()
     {
         Text.gameObject.SetActive(false);
+        Canvas.worldCamera = Camera.main;
         _fontSize = Text.fontSize;
     }
 
@@ -140,15 +141,24 @@ public class UIFloaty : MonoBehaviour
 
     private Vector3 GetWorldPosition(Vector2 position)
     {
-        Vector3 screenPos = Camera.main.WorldToScreenPoint(position);
-        screenPos = new Vector3(screenPos.x - CanvasRect.localPosition.x, screenPos.y - CanvasRect.localPosition.y);
+        // 1. 월드 좌표 → 화면 좌표
+        Vector2 screenPos = Camera.main.WorldToScreenPoint(position);
 
-        return screenPos + Offset;
+        // 2. 화면 좌표 → Canvas 로컬 좌표
+        RectTransform canvasRect = Canvas.GetComponent<RectTransform>();
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, screenPos, Canvas.worldCamera, out Vector2 localPos);
+
+        return localPos + (Vector2)Offset;
+
+        //Vector3 screenPos = Camera.main.WorldToScreenPoint(position);
+        //screenPos = new Vector3(screenPos.x - CanvasRect.localPosition.x, screenPos.y - CanvasRect.localPosition.y);
+
+        //return screenPos + Offset;
     }
 
     private void Move()
     {
-        Text.gameObject.transform.DOMoveY(Text.gameObject.transform.position.y + 100f, AliveTime);
+        Text.gameObject.transform.DOMoveY(Text.gameObject.transform.position.y + 0.5f, AliveTime);
     }
 
     public void Despawn()

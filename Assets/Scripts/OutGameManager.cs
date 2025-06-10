@@ -70,7 +70,6 @@ public class OutGameManager : MonoBehaviour
         float scaleHeight = windowAspect / targetAspect;
 
         Camera camera = Camera.main;
-#if UNITY_STANDALONE || UNITY_EDITOR
 
         if (scaleHeight < 1.0f)
         {
@@ -92,20 +91,6 @@ public class OutGameManager : MonoBehaviour
             rect.y = 0;
             camera.rect = rect;
         }
-
-#else
-    if (scaleHeight < 1.0f)
-        {
-            // 화면이 더 좁은 경우 (letterbox)
-            camera.rect = new Rect(0, (1.0f - scaleHeight) / 2.0f, 1.0f, scaleHeight);
-        }
-        else
-        {
-            // 화면이 더 넓은 경우 (pillarbox)
-            float scaleWidth = 1.0f / scaleHeight;
-            camera.rect = new Rect((1.0f - scaleWidth) / 2.0f, 0, scaleWidth, 1.0f);
-        }
-#endif
     }
 
     private void SetFrame()

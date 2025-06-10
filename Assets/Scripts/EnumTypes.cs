@@ -117,7 +117,7 @@ public enum ClassTraitNames
 
     Fortune, // 행운 – 겜블러 (Gambler)
     Insight, // 감각 – 상인 (Merchant)
-    MasterCraftsman, // 명장 – 대장장이 (Blacksmith)
+    Expertise, // 숙련 – 대장장이 (Blacksmith)
     Fate, // 운명 – 점술사 (Diviner)
 }
 

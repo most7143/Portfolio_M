@@ -378,6 +378,10 @@ public class Character : MonoBehaviour
         {
             InGameManager.Instance.ObjectPool.SpawnFloaty(transform.position, FloatyTypes.Heal, RefreshHP(value).ToString());
         }
+        else
+        {
+            RefreshHP(value);
+        }
     }
 
     public long GetCurrentMaxHP()

@@ -2154,8 +2154,8 @@ Canvas:
   m_GameObject: {fileID: 327137936}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -2205,6 +2205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c852fee55920ae4692708b892a3258c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HUDCanvas: {fileID: 327137939}
   StageInfo: {fileID: 1274660137}
   MonsterInfo: {fileID: 938115568}
   PlayerInfo: {fileID: 354708597}
@@ -2755,7 +2756,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 39.199997, y: -41.7}
+  m_AnchoredPosition: {x: 39.200012, y: -41.700012}
   m_SizeDelta: {x: -126.399994, y: 37.4}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &416198440
@@ -3037,7 +3038,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -105.2, y: 30.3}
+  m_AnchoredPosition: {x: -65, y: 30.3}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &508411929
@@ -3923,7 +3924,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -54.1, y: -322.1}
+  m_AnchoredPosition: {x: -54.100006, y: -322.1}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &626268076
@@ -4039,6 +4040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21ba46d4d4b032548b09d84e6c09b74c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Canvas: {fileID: 0}
   Group: {fileID: 664903986}
   FadeDelay: 0
   FadeDuration: 0.5
@@ -5078,7 +5080,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -53.6, y: -455}
+  m_AnchoredPosition: {x: -53.600006, y: -455}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &806169538
@@ -5304,7 +5306,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -53.6, y: -388.9}
+  m_AnchoredPosition: {x: -53.600006, y: -388.9}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &871965242
@@ -7601,7 +7603,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -54.5, y: -251.8}
+  m_AnchoredPosition: {x: -54.5, y: -251.79999}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1286972724
@@ -8184,7 +8186,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -53.6, y: -525.1}
+  m_AnchoredPosition: {x: -53.600006, y: -525.1}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1364003720
@@ -9270,8 +9272,8 @@ Canvas:
   m_GameObject: {fileID: 1487602370}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -9340,7 +9342,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -51.9, y: -128}
+  m_AnchoredPosition: {x: -51.899994, y: -128}
   m_SizeDelta: {x: 75, y: 62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1495816832
@@ -9730,8 +9732,8 @@ Canvas:
   m_GameObject: {fileID: 1528899051}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -10359,7 +10361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ef21aad86681a146bd51bcdc1f3343f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChangeClassName: 13
+  ChangeClassName: 109
   StageFail: {fileID: 1286972724}
   DataReset: {fileID: 626268076}
   Addgold: {fileID: 871965242}
@@ -10435,7 +10437,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -105.2, y: 29.3}
+  m_AnchoredPosition: {x: -65, y: 29.3}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1872499546

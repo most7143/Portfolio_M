@@ -149,20 +149,20 @@ public class Monster : Character
         {
             case EliteTypes.Powerful:
                 {
-                    StatSystem.AddStat(StatTID.Elite, StatNames.AttackRate, 2.5f);
+                    StatSystem.AddStat(StatTID.Elite, StatNames.AttackRate, 1.5f);
                 }
                 break;
 
             case EliteTypes.Armored:
                 {
-                    StatSystem.AddStat(StatTID.Elite, StatNames.ArmorRate, 2.5f);
+                    StatSystem.AddStat(StatTID.Elite, StatNames.ArmorRate, 2f);
                 }
 
                 break;
 
             case EliteTypes.Resilient:
                 {
-                    StatSystem.AddStat(StatTID.Elite, StatNames.HealthRate, 2.5f);
+                    StatSystem.AddStat(StatTID.Elite, StatNames.HealthRate, 2f);
                 }
                 break;
 

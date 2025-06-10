@@ -21,6 +21,8 @@ public class UIClassTraitPopup : UIPopup
     {
         base.Spawn();
 
+        SpawnToWaitInteract(0.5f);
+
         rerollCount = (int)InGameManager.Instance.Player.StatSystem.GetStat(StatNames.AddRerollTrait);
 
         if (rerollCount > 0)

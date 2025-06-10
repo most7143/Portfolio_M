@@ -1,17 +1,14 @@
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CurrencyObject : MonoBehaviour
 {
     public bool IsAlive;
-    public RectTransform CanvasRect;
-    public RectTransform coinRect;
     public RectTransform targetUI; // 돈 텍스트 위치
     public float moveDuration = 0.8f;
     public float arcHeight = 100f;
 
-    public Image Icon;
+    public SpriteRenderer Icon;
 
     public CurrencyTypes Type = CurrencyTypes.Gold;
 
@@ -34,24 +31,25 @@ public class CurrencyObject : MonoBehaviour
         targetUI = target;
         Value = value;
 
-        Vector3 screenPos = Camera.main.WorldToScreenPoint(worldPosition);
-        screenPos = new Vector3(screenPos.x - CanvasRect.localPosition.x, screenPos.y - CanvasRect.localPosition.y);
+        // 1. 시작 위치는 그대로 사용
+        Vector3 startWorld = worldPosition;
+        transform.position = startWorld;
 
-        coinRect.anchoredPosition = screenPos;
-        Vector2 start = screenPos;
+        // 2. targetUI의 화면 좌표 가져오기
+        Vector3 targetScreenPos = RectTransformUtility.WorldToScreenPoint(UIManager.Instance.HUDCanvas.worldCamera, targetUI.position + (Vector3)Offset);
 
-        Vector2 end = RectTransformUtility.WorldToScreenPoint(null, targetUI.position + Offset);
-        end = new Vector3(end.x - CanvasRect.localPosition.x, end.y - CanvasRect.localPosition.y);
+        // 3. 그 화면 좌표를 월드 좌표로 변환 (메인 카메라 기준)
+        Vector3 endWorld = Camera.main.ScreenToWorldPoint(new Vector3(targetScreenPos.x, targetScreenPos.y, Camera.main.nearClipPlane + 1f));
+        endWorld.z = 0f; // 평면 위에서 움직이게 하기 위해 Z 고정
 
+        // 4. 무빙 로직
         float randomArcHeight = arcHeight * Random.Range(0.8f, 1.2f);
 
         DOTween.To(() => 0f, t =>
         {
-            Vector2 pos = Vector2.Lerp(start, end, t);
-
+            Vector3 pos = Vector3.Lerp(startWorld, endWorld, t);
             pos.y += Mathf.Sin(t * Mathf.PI) * randomArcHeight;
-
-            coinRect.anchoredPosition = pos;
+            transform.position = pos;
         }, 1f, moveDuration).SetEase(Ease.Linear).OnComplete(() => OnArrive());
     }
 

@@ -233,6 +233,7 @@ GameObject:
   - component: {fileID: 6855763264343837306}
   - component: {fileID: 2839485947212510351}
   - component: {fileID: 3910287548871788378}
+  - component: {fileID: 8379782460487421186}
   m_Layer: 5
   m_Name: UIGameDescriptionPopup
   m_TagString: Untagged
@@ -274,9 +275,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CanvasGroup: {fileID: 3910287548871788378}
-  Rect: {fileID: 0}
+  Rect: {fileID: 6855763264343837306}
   IsStopBattle: 0
   Name: 2
+  Fade: {fileID: 0}
 --- !u!225 &3910287548871788378
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -289,6 +291,21 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &8379782460487421186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7122438267758861819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21ba46d4d4b032548b09d84e6c09b74c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Group: {fileID: 3910287548871788378}
+  FadeDelay: 0
+  FadeDuration: 0.1
 --- !u!1 &7860285051477880746
 GameObject:
   m_ObjectHideFlags: 0
