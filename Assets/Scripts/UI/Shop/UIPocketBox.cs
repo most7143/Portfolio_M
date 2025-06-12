@@ -84,7 +84,7 @@ public class UIPocketBox : MonoBehaviour
 
         CostText.SetText(string.Format("{0}{1}", _currentCost, "<sprite=1>"));
 
-        if (InGameManager.Instance.Controller.TryUsingCurrency(CurrencyTypes.Gem, data.Cost))
+        if (InGameManager.Instance.Controller.TryUsingCurrency(CurrencyTypes.Gem, _currentCost))
         {
             CostText.color = Color.white;
         }
@@ -100,6 +100,8 @@ public class UIPocketBox : MonoBehaviour
     {
         if (InGameManager.Instance.Controller.TryUsingCurrency(CurrencyTypes.Gem, _currentCost))
         {
+            InGameManager.Instance.Controller.UseCurrency(CurrencyTypes.Gem, _currentCost);
+
             _useCount++;
 
             float rand = Random.Range(0, 1f);
@@ -136,8 +138,6 @@ public class UIPocketBox : MonoBehaviour
                     InGameManager.Instance.ObjectPool.SpawnFloaty(FloatyPoint.position, FloatyTypes.Fail, "½ÇÆÐ");
                 }
             }
-
-            InGameManager.Instance.Controller.UseCurrency(CurrencyTypes.Gem, _currentCost);
 
             OutGameManager.Instance.CheckWeaponOnlySpend = false;
         }

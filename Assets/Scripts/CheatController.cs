@@ -39,7 +39,7 @@ public class CheatController : MonoBehaviour
     public void AddGold()
     {
         InGameManager.Instance.Controller.AddCurrency(CurrencyTypes.Gold, 100000);
-        InGameManager.Instance.Controller.AddCurrency(CurrencyTypes.Gem, 100000);
+        InGameManager.Instance.Controller.AddCurrency(CurrencyTypes.Gem, 15);
     }
 
     public void AllChallenges()
