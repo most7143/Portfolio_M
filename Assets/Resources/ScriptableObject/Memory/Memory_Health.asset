@@ -15,6 +15,6 @@ MonoBehaviour:
   Name: 8
   NameString: Health
   Values:
-  - 75
-  - 150
-  - 300
+  - 100
+  - 200
+  - 400

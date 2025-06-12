@@ -19,9 +19,9 @@ public class UIPocketBox : MonoBehaviour
     public Image LockImage;
     public TextMeshProUGUI LockText;
 
-    private int _currentCost;
+    private int _currentCost = 0;
 
-    private int _useCount;
+    private int _useCount = 0;
 
     private void Start()
     {
@@ -75,7 +75,7 @@ public class UIPocketBox : MonoBehaviour
 
         if (Type == PocketTypes.Yellow)
         {
-            _currentCost = data.Cost + (_useCount / 10);
+            _currentCost = data.Cost + (_useCount / 5);
         }
         else
         {
@@ -112,6 +112,7 @@ public class UIPocketBox : MonoBehaviour
             {
                 value = Mathf.FloorToInt(InGameManager.Instance.MonsterSpanwer.Gold * data.Values[selectIndex]);
                 InGameManager.Instance.Controller.AddCurrency(CurrencyTypes.Gold, value);
+                InGameManager.Instance.ObjectPool.SpawnFloaty(FloatyPoint.position, FloatyTypes.Success, data.Values[selectIndex] + "น่!");
             }
             else if (Type == PocketTypes.Green || Type == PocketTypes.Red || Type == PocketTypes.Black)
             {

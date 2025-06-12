@@ -67,7 +67,7 @@ public class UIPlayerInfo : MonoBehaviour
         {
             Player player = InGameManager.Instance.Player;
 
-            if (player.StatSystem.GetStat(StatNames.Invincibility) == 1)
+            if (player.StatSystem.GetStat(StatNames.Invincibility) >= 1)
             {
                 ReduceHPBar.gameObject.SetActive(true);
             }

@@ -18,6 +18,6 @@ MonoBehaviour:
   Level: 251
   MaxLevel: 275
   AttackByLevel: 2
-  HealthByLevel: 100
+  HealthByLevel: 25
   ArmorByLevel: 6
   AttackSpeed: 1

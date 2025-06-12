@@ -15,6 +15,6 @@ MonoBehaviour:
   Name: 10
   NameString: Armor
   Values:
-  - 15
-  - 30
-  - 60
+  - 20
+  - 40
+  - 70

@@ -42,6 +42,18 @@ public class MonsterSpanwer : MonoBehaviour
             Gem = GetGem(Level);
         }
 
+        float bonusSteps = ((level - 1) / 10) * 0.1f;
+
+        SpawnMonster.StatSystem.RemoveStat(StatTID.Spawner, StatNames.AttackRate);
+        SpawnMonster.StatSystem.RemoveStat(StatTID.Spawner, StatNames.ArmorRate);
+        SpawnMonster.StatSystem.RemoveStat(StatTID.Spawner, StatNames.HealthRate);
+
+        SpawnMonster.StatSystem.AddStat(StatTID.Spawner, StatNames.AttackRate, bonusSteps);
+        SpawnMonster.StatSystem.AddStat(StatTID.Spawner, StatNames.ArmorRate, bonusSteps);
+        SpawnMonster.StatSystem.AddStat(StatTID.Spawner, StatNames.HealthRate, bonusSteps * 3f);
+
+        SpawnMonster.StartAttack();
+
         EventManager<EventTypes>.Send(EventTypes.ChangeMonsterLevel);
     }
 
@@ -49,12 +61,11 @@ public class MonsterSpanwer : MonoBehaviour
     {
         double baseGold = 10;
 
-        double percentIncrease = 1 + 0.04 * (level - 1);
+        int increaseAdd = (level - 1) * 2;
 
-        int bonusSteps = (level - 1) / 10;
-        double bonusMultiplier = 1 + 0.30 * bonusSteps;
+        int bonusSteps = (level - 1) / 10 * 4;
 
-        double finalGold = baseGold * percentIncrease * bonusMultiplier;
+        double finalGold = baseGold + increaseAdd + bonusSteps;
 
         return (int)Math.Round(finalGold);
     }
@@ -63,10 +74,10 @@ public class MonsterSpanwer : MonoBehaviour
     {
         double baseExp = 15;
 
-        double percentIncrease = 1 + 0.2 * (level - 1);
+        double percentIncrease = 1 + 0.15 * (level - 1);
 
         int bonusSteps = (level - 1) / 10;
-        double bonusMultiplier = 1 + 0.5 * bonusSteps;
+        double bonusMultiplier = 1 + 0.4 * bonusSteps;
 
         double finalExp = baseExp * percentIncrease * bonusMultiplier;
 
@@ -75,7 +86,7 @@ public class MonsterSpanwer : MonoBehaviour
 
     private int GetGem(int level)
     {
-        int step = level / 20;
+        int step = level / 30;
 
         int minDrop = 1 + step;
         int maxDrop = 3 + step;
@@ -98,18 +109,12 @@ public class MonsterSpanwer : MonoBehaviour
 
         UIManager.Instance.MonsterInfo.Refresh(SpawnMonster);
 
-        SpawnMonster.StartAttack();
-
         EventManager<EventTypes>.Send(EventTypes.MonsterSpawnd);
     }
 
     public void ChangeMonsterSkin(int level)
     {
         Spawn(GetNextMonster(level));
-
-        SpawnMonster.StatSystem.AddStat(StatTID.Spawner, StatNames.AttackRate, 0.03f);
-        SpawnMonster.StatSystem.AddStat(StatTID.Spawner, StatNames.ArmorRate, 0.03f);
-        SpawnMonster.StatSystem.AddStat(StatTID.Spawner, StatNames.HealthRate, 0.03f);
 
         UIManager.Instance.MonsterInfo.RefreshHPBar();
     }

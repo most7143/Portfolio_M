@@ -60,7 +60,7 @@ public class Character : MonoBehaviour
 
     public virtual bool Hit(ref DamageInfo info)
     {
-        if (StatSystem.GetStat(StatNames.Invincibility) == 1)
+        if (StatSystem.GetStat(StatNames.Invincibility) >= 1)
         {
             return false;
         }
@@ -85,7 +85,7 @@ public class Character : MonoBehaviour
 
         StartCoroutine(ProcessHitEffect());
 
-        if (info.Type != DamageTypes.Reflect)
+        if (info.Type == DamageTypes.Attack)
         {
             CalculateHitDamage(ref info);
         }
@@ -261,7 +261,7 @@ public class Character : MonoBehaviour
             EventManager<EventTypes>.Send(EventTypes.PlayerAttackToNoCritical);
         }
 
-        info.Value = Mathf.RoundToInt(info.Value * StatSystem.GetStat(StatNames.DamageRate) * 1f);
+        info.Value = Mathf.RoundToInt(info.Value * StatSystem.GetStat(StatNames.DamageRate));
 
         return info;
     }
@@ -281,8 +281,8 @@ public class Character : MonoBehaviour
 
         info.Value = info.Value - IgnoreValue;
 
-        long damageMultiplier = (long)Mathf.Clamp(2 - reduece, 0f, 1f);
-        info.Value *= damageMultiplier;
+        float damageMultiplier = Mathf.Clamp(2 - reduece, 0f, 1f);
+        info.Value = (long)(info.Value * damageMultiplier);
 
         float critical = Random.Range(0f, 1f);
 

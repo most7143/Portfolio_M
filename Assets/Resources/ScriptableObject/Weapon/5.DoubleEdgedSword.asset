@@ -20,10 +20,10 @@ MonoBehaviour:
   NameText: "\uC591\uB0A0\uAC80"
   DescText: "\uCD5C\uC120\uC758 \uBC29\uC5B4\uB294 \uACF5\uACA9\uC784\uC744 \uBA85\uC2EC\uD558\uB77C"
   Tier: 5
-  Level: 40
+  Level: 41
   Speed: 0.9
   WeaponSkillDamageRate: 1
-  DamageByLevel: 17
+  DamageByLevel: 25
   CriticalRate: 0.1
   CriticalDamage: 1.5
   Icon: {fileID: -1383742100, guid: 6eb16e372762d6b4cb708c44ebfab931, type: 3}

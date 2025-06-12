@@ -43,6 +43,8 @@ public class PassiveSkillData : ScriptableObject
     public float LearnChanceByLevel;
     public float Cost;
 
+    [Header("Text")] public bool IsAliveText;
+
 #if UNITY_EDITOR
 
     private void OnValidate()

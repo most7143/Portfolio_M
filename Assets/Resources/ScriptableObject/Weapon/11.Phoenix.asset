@@ -23,10 +23,10 @@ MonoBehaviour:
   DescText: "\uB05D\uC5C6\uC774 \uD0C0\uC624\uB974\uB294 \uBD88\uC0AC\uC870\uC758
     \uD798\uC774 \uB290\uAEF4\uC9C4\uB2E4"
   Tier: 11
-  Level: 100
+  Level: 101
   Speed: 1.6
   WeaponSkillDamageRate: 1
-  DamageByLevel: 40
+  DamageByLevel: 55
   CriticalRate: 0.22
   CriticalDamage: 3.3
   Icon: {fileID: 1008709038, guid: 6eb16e372762d6b4cb708c44ebfab931, type: 3}

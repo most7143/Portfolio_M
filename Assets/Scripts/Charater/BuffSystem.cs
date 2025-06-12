@@ -173,7 +173,7 @@ public class BuffSystem : MonoBehaviour
 
         if (Buffs[buffName].IgnoreBuffName != BuffNames.None)
         {
-            Buff ignoreBuff = GetBuff(buffName);
+            Buff ignoreBuff = GetBuff(Buffs[buffName].IgnoreBuffName);
 
             if (ignoreBuff != null)
                 return;

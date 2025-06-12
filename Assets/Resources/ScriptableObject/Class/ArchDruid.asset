@@ -17,9 +17,9 @@ MonoBehaviour:
   NameText: "\uC544\uD06C \uB4DC\uB8E8\uC774\uB4DC"
   DescritpionText: "\uC790\uC5F0\uC758 \uBC97"
   StatDescriptionText: 
-  ProjectileDescritonText: "<size=15>' </size>\uD68C\uBCF5 3\uD68C \uB9C8\uB2E4 
-    {0}%\uC758 \uD53C\uD574\uC758 <color=green>\uC790\uC5F0\uC758 \uBD84\uB178</color>
-    \uBC1C\uB3D9"
+  ProjectileDescritonText: "<size=15>' </size>\uD68C\uBCF5 3\uD68C \uB9C8\uB2E4 {0}%
+    \uD655\uB960\uB85C {1}%\uC758 \uD53C\uD574\uC758 <color=green>\uC790\uC5F0\uC758
+    \uBD84\uB178</color> \uBC1C\uB3D9"
   BuffDescritonText: "<size=15>' </size>\uCD5C\uB300 \uCCB4\uB825\uC758 {0}% \uB9CC\uD07C
     \uD68C\uBCF5 (\uCFE8\uD0C0\uC784 3\uCD08)"
   Stats: 

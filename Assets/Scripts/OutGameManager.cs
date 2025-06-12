@@ -114,7 +114,7 @@ public class OutGameManager : MonoBehaviour
 
     public void SetMaxMemory(int level)
     {
-        int point = level / 15;
+        int point = level / 20;
 
         if (MaxMemoryPoint < point)
         {
@@ -343,8 +343,8 @@ public class OutGameManager : MonoBehaviour
 
             for (int j = 0; j < ChallengeDatas.Count; j++)
             {
-                ChallengeData data = GetChallengeData(challenges[i]);
-                if (GetChallengeValue(challenges[i]) < data.RequireValues[i])
+                ChallengeData data = GetChallengeData(challenges[j]);
+                if (GetChallengeValue(challenges[j]) < data.RequireValues[i])
                 {
                     resultName = UIChallengeNames.None;
                     break;

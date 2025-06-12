@@ -95,14 +95,14 @@ public class Monster : Character
             AddEliteStat();
         }
 
-        RefreshHP((int)MaxHP);
-
         if (Level > MaxLevel)
         {
             InGameManager.Instance.MonsterSpanwer.ChangeMonsterSkin(Level);
         }
 
         Spanwer.RefreshLevelByData(Level);
+
+        RefreshHP((int)MaxHP);
 
         InGameManager.Instance.Controller.AddExp(exp);
 
@@ -149,13 +149,13 @@ public class Monster : Character
         {
             case EliteTypes.Powerful:
                 {
-                    StatSystem.AddStat(StatTID.Elite, StatNames.AttackRate, 1.5f);
+                    StatSystem.AddStat(StatTID.Elite, StatNames.DamageRate, 0.5f);
                 }
                 break;
 
             case EliteTypes.Armored:
                 {
-                    StatSystem.AddStat(StatTID.Elite, StatNames.ArmorRate, 2f);
+                    StatSystem.AddStat(StatTID.Elite, StatNames.DamageReduction, 0.5f);
                 }
 
                 break;
@@ -187,13 +187,13 @@ public class Monster : Character
         {
             case EliteTypes.Powerful:
                 {
-                    StatSystem.RemoveStat(StatTID.Elite, StatNames.AttackRate);
+                    StatSystem.RemoveStat(StatTID.Elite, StatNames.DamageRate);
                 }
                 break;
 
             case EliteTypes.Armored:
                 {
-                    StatSystem.RemoveStat(StatTID.Elite, StatNames.ArmorRate);
+                    StatSystem.RemoveStat(StatTID.Elite, StatNames.DamageReduction);
                 }
 
                 break;

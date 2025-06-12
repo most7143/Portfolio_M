@@ -184,11 +184,13 @@ public class Buff : MonoBehaviour
         {
             if (StatName != StatNames.None)
             {
+                Owner.StatSystem.RemoveStat(StatTID.Buff, StatName);
                 Owner.StatSystem.AddStat(StatTID.Buff, StatName, Value);
             }
 
             if (StatName2 != StatNames.None)
             {
+                Owner.StatSystem.RemoveStat(StatTID.Buff, StatName2);
                 Owner.StatSystem.AddStat(StatTID.Buff, StatName2, Value);
             }
         }
@@ -241,7 +243,11 @@ public class Buff : MonoBehaviour
     {
         if (Name == BuffNames.Enforcer || Name == BuffNames.Enforcer2)
         {
-            Owner.StatSystem.RemoveStat(StatTID.PassiveSkill, StatNames.Invincibility);
+            if (Owner.BuffSystem.GetBuff(BuffNames.TimeTravelerBuff) == null)
+            {
+                Owner.StatSystem.RemoveStat(StatTID.PassiveSkill, StatNames.Invincibility);
+                UIManager.Instance.PlayerInfo.RefreshHp();
+            }
         }
     }
 

@@ -22,7 +22,7 @@ MonoBehaviour:
   BunousDescriptionText: "\uBA48\uCD94\uC9C0 \uC54A\uB294 \uC2EC\uC7A5 \uBC15\uB3D9\uC774
     \uB4E4\uB9B0\uB2E4"
   RequireRank: 7
-  MaxLevel: 10
+  MaxLevel: 20
   StatName: 8
   StatString: Health
   MaxLevelStatName: 9
@@ -38,12 +38,12 @@ MonoBehaviour:
   AliveTime: 0
   AliveTimeByLevel: 0
   MaxLevelAliveTime: 0
-  Value: 100
-  ValueByLevel: 100
+  Value: 200
+  ValueByLevel: 200
   MaxLevelValue: 0
   MultiplierValue: 0
   MultiplierValueByLevel: 0
   MultiplierMaxLevelValue: 1
-  LearnChance: 1
-  LearnChanceByLevel: 0.1
+  LearnChance: 0.5
+  LearnChanceByLevel: 0
   Cost: 100

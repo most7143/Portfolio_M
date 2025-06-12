@@ -19,9 +19,9 @@ public class UIWeaponInfo : MonoBehaviour
 
     public RectTransform UIPoint;
 
-    private float currentSucPercent = 0.95f;
+    private float currentSucPercent = 0.9f;
 
-    public float[] _percentChances = { 0.95f, 0.90f, 0.85f, 0.8f, 0.7f, 0.6f, 0.5f, 0.4f, 0.3f, 0.15f };
+    private float[] _percentChances = { 0.9f, 0.8f, 0.7f, 0.6f, 0.5f, 0.5f, 0.4f, 0.4f, 0.3f, 0.3f };
 
     public Player Player
     {
@@ -133,7 +133,7 @@ public class UIWeaponInfo : MonoBehaviour
         if (weaponInfo.Name == WeaponNames.DoomsDay)
             return false;
 
-        if (weaponInfo.Level == weaponInfo.Tier * 10)
+        if (weaponInfo.Level == weaponInfo.Tier * 10 + 1)
         {
             return true;
         }
@@ -143,7 +143,9 @@ public class UIWeaponInfo : MonoBehaviour
 
     private int GetUpgradeCost(int weaponLevel)
     {
-        return (int)(weaponLevel * 10 * (1 - Player.StatSystem.GetStat(StatNames.DecreaseWeaponUpgradeCost)));
+        float bonusSteps = 1 + (weaponLevel / 10) * 0.2f;
+
+        return (int)(weaponLevel * bonusSteps * 10 * (1 - Player.StatSystem.GetStat(StatNames.DecreaseWeaponUpgradeCost)));
     }
 
     private bool TryUpgrade(WeaponInfo weaponInfoupgradeCost)
@@ -155,12 +157,12 @@ public class UIWeaponInfo : MonoBehaviour
 
     private void SetPecent(int level)
     {
-        int onesDigit = level % 10;
+        int index = (level - 1) % 10;
 
         if (level <= 0)
-            onesDigit = 0;
+            index = 0;
 
-        currentSucPercent = _percentChances[onesDigit];
+        currentSucPercent = _percentChances[index];
     }
 
     private void RefreshPercentText()

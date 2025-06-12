@@ -17,7 +17,7 @@ public class SceneLoder : MonoBehaviour
 
         StartCoroutine(LoadMainSceneAsync());
 
-        //SetText();
+        SetText();
     }
 
     private IEnumerator LoadMainSceneAsync()
@@ -55,9 +55,9 @@ public class SceneLoder : MonoBehaviour
     {
         List<string> tips = new();
 
-        string str1 = "몬스터 처치 시 체력을 조금 회복합니다.";
-        string str2 = "엘리트 몬스터 처치 시 대량의 재화를 획득합니다.";
-        string str3 = "사망 시 처치했던 몬스터에 비례해 기억 포인트를 획득합니다.";
+        string str1 = "도전과제를 달성하면 소량의 능력치를 획득 합니다.";
+        string str2 = "엘리트 몬스터 처치 시 대량의 재화를 획득 합니다.";
+        string str3 = "처치했던 몬스터에 비례해 기억 포인트를 획득하고, \n 타이틀 화면에서 능력치를 찍을 수 있습니다.";
 
         tips.Add(str1);
         tips.Add(str2);

@@ -84,6 +84,7 @@ public class InGameManager : MonoBehaviour
         StageManager.Spawn(StageNames.Forest);
 
         Player.StartAttack();
+        Monster.StartAttack();
 
         IsBattle = true;
     }

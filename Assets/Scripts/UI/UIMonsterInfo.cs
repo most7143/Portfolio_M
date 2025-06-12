@@ -32,7 +32,7 @@ public class UIMonsterInfo : MonoBehaviour
                 EliteIcons[i].gameObject.SetActive(true);
             }
 
-            EliteDescText.gameObject.SetActive(true);
+            //EliteDescText.gameObject.SetActive(true);
         }
         else
         {
@@ -41,7 +41,7 @@ public class UIMonsterInfo : MonoBehaviour
                 EliteIcons[i].gameObject.SetActive(false);
             }
 
-            EliteDescText.gameObject.SetActive(false);
+            // EliteDescText.gameObject.SetActive(false);
         }
     }
 
@@ -54,7 +54,7 @@ public class UIMonsterInfo : MonoBehaviour
         if (target.EliteType != EliteTypes.None)
         {
             nameString = EXText.GetEliteLanguage(target.EliteType) + " " + nameString;
-            EliteDescText.SetText(EXText.GetEliteDescLanguage(target.EliteType));
+            // EliteDescText.SetText(EXText.GetEliteDescLanguage(target.EliteType));
         }
 
         NameText.SetText("Lv." + target.Level + " " + nameString);

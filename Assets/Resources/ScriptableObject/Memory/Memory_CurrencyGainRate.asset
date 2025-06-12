@@ -15,6 +15,6 @@ MonoBehaviour:
   Name: 18
   NameString: CurrencyGainRate
   Values:
-  - 0.3
-  - 0.6
-  - 1
+  - 0.2
+  - 0.4
+  - 0.7

@@ -21,7 +21,7 @@ MonoBehaviour:
   MaxLevelDescriptionText: "\uBC29\uC5B4\uB825\uC774 {0}, {1} \uC99D\uAC00\uD55C\uB2E4."
   BunousDescriptionText: "\uCD5C\uC804\uBC29\uC5D0 \uD2B9\uD654\uB41C \uC790"
   RequireRank: 5
-  MaxLevel: 10
+  MaxLevel: 20
   StatName: 10
   StatString: Armor
   MaxLevelStatName: 11
@@ -37,12 +37,12 @@ MonoBehaviour:
   AliveTime: 0
   AliveTimeByLevel: 0
   MaxLevelAliveTime: 0
-  Value: 15
-  ValueByLevel: 15
+  Value: 20
+  ValueByLevel: 20
   MaxLevelValue: 0
   MultiplierValue: 0
   MultiplierValueByLevel: 0
   MultiplierMaxLevelValue: 1
-  LearnChance: 1
-  LearnChanceByLevel: 0.1
+  LearnChance: 0.5
+  LearnChanceByLevel: 0
   Cost: 100

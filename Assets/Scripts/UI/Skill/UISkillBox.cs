@@ -66,7 +66,7 @@ public class UISkillBox : MonoBehaviour
         {
             MaxLevel = Data.MaxLevel;
             _currentCost = (int)Data.Cost;
-            _addCost = (int)(Data.Cost * 0.5f);
+            _addCost = (int)Data.Cost;
         }
 
         Icon.sprite = ResourcesManager.Instance.LoadSprite("Icon_" + name.ToString());
@@ -95,7 +95,7 @@ public class UISkillBox : MonoBehaviour
         }
         else if (Data.MultiplierValue != 0)
         {
-            return EXText.GetValueByRound((long)(Data.MultiplierValue + ((level - 1) * Data.MultiplierValueByLevel)));
+            return EXText.GetValueByRound((float)(Data.MultiplierValue + ((level - 1) * Data.MultiplierValueByLevel)));
         }
 
         return 0;
@@ -146,29 +146,56 @@ public class UISkillBox : MonoBehaviour
             DescText.SetText(string.Format(Data.DescriptionText, EXText.GetStatPercent(Data.StatName, value)));
             BunousDescText.gameObject.SetActive(false);
             CostText.SetText(_currentCost + "<sprite=0>");
-
             LoopImage.gameObject.SetActive(false);
+            SetDescText();
         }
         else
         {
-            Rect.sizeDelta = new Vector2(_origin.x, _origin.y + 20f);
+            Rect.sizeDelta = new Vector2(_origin.x, _origin.y + 30f);
             NameText.SetText(EXText.GetGradeColor(GradeNames.Mythic, Data.MaxLevelNameText));
             BackGround.color = Color.cyan;
             LearnButton.gameObject.SetActive(false);
 
-            float maxLevelValue = GetMaxLevelValue();
-
-            DescText.SetText(string.Format(Data.MaxLevelDescriptionText, EXText.GetStatPercent(Data.StatName, value), EXText.GetStatPercent(Data.MaxLevelStatName, maxLevelValue)));
             BunousDescText.gameObject.SetActive(true);
             BunousDescText.SetText(Data.BunousDescriptionText);
             LoopImage.gameObject.SetActive(true);
 
             Pannel.sprite = ResourcesManager.Instance.LoadSprite("Background_Pannel_Slice_Mythic_0");
+            SetDescMaxValue();
         }
 
         RefreshCost(CurrencyTypes.Gold);
 
         SetChance();
+    }
+
+    private void SetDescText()
+    {
+        if (Data.IsAliveText)
+        {
+            float aliveTime = Data.AliveTime + ((Level - 1) * Data.AliveTimeByLevel);
+            DescText.SetText(string.Format(Data.DescriptionText, aliveTime));
+        }
+        else
+        {
+            float value = GetValue();
+            DescText.SetText(string.Format(Data.DescriptionText, EXText.GetStatPercent(Data.StatName, value)));
+        }
+    }
+
+    private void SetDescMaxValue()
+    {
+        if (Data.IsAliveText)
+        {
+            float maxLevelValue = GetMaxLevelValue();
+            DescText.SetText(string.Format(Data.MaxLevelDescriptionText, Data.MaxLevelAliveTime, EXText.GetStatPercent(Data.MaxLevelStatName, maxLevelValue)));
+        }
+        else
+        {
+            float value = GetValue();
+            float maxLevelValue = GetMaxLevelValue();
+            DescText.SetText(string.Format(Data.MaxLevelDescriptionText, EXText.GetStatPercent(Data.StatName, value), EXText.GetStatPercent(Data.MaxLevelStatName, maxLevelValue)));
+        }
     }
 
     private void RefreshCost(CurrencyTypes type)

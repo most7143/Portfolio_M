@@ -1,7 +1,10 @@
-﻿using UnityEngine.SceneManagement;
+﻿using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIGamePausePopup : UIPopup
 {
+    public TextMeshProUGUI KillText;
+
     public XButton ContinueButton;
     public XButton TitleButton;
 
@@ -17,6 +20,8 @@ public class UIGamePausePopup : UIPopup
     public override void Spawn()
     {
         InGameManager.Instance.PauseBattle();
+
+        KillText.SetText("처치 몬스터 레벨 : {0} ", InGameManager.Instance.MonsterSpanwer.Level - 1);
 
         base.Spawn();
     }

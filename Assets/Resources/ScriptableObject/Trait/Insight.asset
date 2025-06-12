@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: 11
   NameString: Insight
   NameText: "\uAC10\uAC01"
-  ClassNames: 0c00000019000000
+  ClassNames: 140000006e000000
   ClassNamesString:
   - Merchant
-  - TradeMaster
+  - GoldMaker

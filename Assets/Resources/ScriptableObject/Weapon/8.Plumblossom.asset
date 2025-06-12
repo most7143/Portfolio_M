@@ -21,10 +21,10 @@ MonoBehaviour:
   DescText: "\uD53C\uAC00 \uD280\uB294 \uD615\uD0DC\uAC00 \uB9C8\uCE58 \uAF43\uC774
     \uD53C\uB294 \uAC83\uACFC \uAC19\uB2E4"
   Tier: 8
-  Level: 70
+  Level: 71
   Speed: 1.3
   WeaponSkillDamageRate: 1
-  DamageByLevel: 27
+  DamageByLevel: 40
   CriticalRate: 0.16
   CriticalDamage: 2.4
   Icon: {fileID: -1259760662, guid: 6eb16e372762d6b4cb708c44ebfab931, type: 3}

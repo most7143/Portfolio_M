@@ -49,7 +49,7 @@ public class ClassTraitCard : MonoBehaviour
             NameText.SetText(data.NameText);
             IconImage.sprite = ResourcesManager.Instance.LoadSprite("Icon_Trait_" + Name.ToString());
             BackGround.sprite = ResourcesManager.Instance.LoadSprite("BackgroundCard_" + Grade.ToString());
-            CountText.SetText("특성 +" + count);
+            CountText.SetText("특성 포인트 +" + count);
             StatText.SetText(EXText.GetGradeColor(Grade, Grade.GetGradeLanguage()));
 
             ClassNames className = data.ClassNames[tier];

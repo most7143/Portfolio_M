@@ -150,7 +150,12 @@ public class Projectile : MonoBehaviour
 
         DamageInfo damageInfo = new();
         damageInfo.Owner = Owner;
-        damageInfo.Value = (long)(Owner.Attack * DamageRate);
+
+        damageInfo.Value = (long)Owner.Attack;
+        InGameManager.Instance.Monster.CalculateHitDamage(ref damageInfo);
+
+        damageInfo.Value *= (long)DamageRate;
+
         InGameManager.Instance.Monster.Hit(ref damageInfo);
 
         if (FloatyPoint == FloatyPoints.Owner)

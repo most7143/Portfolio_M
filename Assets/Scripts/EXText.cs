@@ -136,10 +136,10 @@ public static class EXText
         switch (type)
         {
             case EliteTypes.Powerful:
-                return "공격력 증가";
+                return "피해량 증가";
 
             case EliteTypes.Armored:
-                return "방어력 증가";
+                return "받는 피해 감소";
 
             case EliteTypes.Resilient:
                 return "체력 증가";
