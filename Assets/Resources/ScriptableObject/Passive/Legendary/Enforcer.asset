@@ -49,5 +49,5 @@ MonoBehaviour:
   MultiplierMaxLevelValue: 0.5
   LearnChance: 0.3
   LearnChanceByLevel: 0
-  Cost: 2500
+  Cost: 5000
   IsAliveText: 1

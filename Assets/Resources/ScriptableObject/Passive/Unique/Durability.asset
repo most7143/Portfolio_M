@@ -24,7 +24,7 @@ MonoBehaviour:
   BunousDescriptionText: "\uACE0\uD1B5\uC740 \uACAC\uB51C\uC218\uB85D \uB2E8\uB2E8\uD574\uC9C0\uAE30
     \uB9C8\uB828"
   RequireRank: 20
-  MaxLevel: 5
+  MaxLevel: 7
   StatName: 12
   StatString: DamageReduction
   MaxLevelStatName: 0
@@ -43,9 +43,10 @@ MonoBehaviour:
   Value: 0
   ValueByLevel: 0
   MaxLevelValue: 1
-  MultiplierValue: 0.1
+  MultiplierValue: 0.05
   MultiplierValueByLevel: 0.05
   MultiplierMaxLevelValue: 0
   LearnChance: 0.4
   LearnChanceByLevel: 0
-  Cost: 1000
+  Cost: 1500
+  IsAliveText: 0

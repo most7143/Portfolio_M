@@ -22,7 +22,7 @@ MonoBehaviour:
   BunousDescriptionText: "\uAC15\uD568\uC5D0 \uC9C0\uBC30\uB2F9\uD55C \uC790\uC5D0\uAC8C
     \uC0DD\uAE30\uB294 \uC99D\uC0C1"
   RequireRank: 3
-  MaxLevel: 20
+  MaxLevel: 25
   StatName: 1
   StatString: Attack
   MaxLevelStatName: 2
@@ -47,3 +47,4 @@ MonoBehaviour:
   LearnChance: 0.5
   LearnChanceByLevel: 0
   Cost: 100
+  IsAliveText: 0

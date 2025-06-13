@@ -23,7 +23,7 @@ MonoBehaviour:
   BunousDescriptionText: "\uB3C8\uC744 \uBB34\uCC99\uC774\uB098 \uC88B\uC544\uD558\uB294
     \uC545\uB9C8"
   RequireRank: 32
-  MaxLevel: 5
+  MaxLevel: 7
   StatName: 18
   StatString: CurrencyGainRate
   MaxLevelStatName: 1
@@ -42,9 +42,10 @@ MonoBehaviour:
   Value: 0
   ValueByLevel: 0
   MaxLevelValue: 1
-  MultiplierValue: 0.4
-  MultiplierValueByLevel: 0.3
+  MultiplierValue: 0.15
+  MultiplierValueByLevel: 0.15
   MultiplierMaxLevelValue: 0
   LearnChance: 0.4
   LearnChanceByLevel: 0
-  Cost: 1000
+  Cost: 1500
+  IsAliveText: 0

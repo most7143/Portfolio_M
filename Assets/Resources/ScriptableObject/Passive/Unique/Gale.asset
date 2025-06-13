@@ -23,7 +23,7 @@ MonoBehaviour:
   BunousDescriptionText: "\uBAB8\uC774 \uAE43\uD138\uCC98\uB7FC \uAC00\uBCCD\uAC8C
     \uB290\uAEF4\uC9C4\uB2E4."
   RequireRank: 28
-  MaxLevel: 5
+  MaxLevel: 7
   StatName: 5
   StatString: AttackSpeed
   MaxLevelStatName: 0
@@ -42,9 +42,10 @@ MonoBehaviour:
   Value: 0
   ValueByLevel: 0
   MaxLevelValue: 1
-  MultiplierValue: 0.2
-  MultiplierValueByLevel: 0.2
+  MultiplierValue: 0.1
+  MultiplierValueByLevel: 0.1
   MultiplierMaxLevelValue: 0
   LearnChance: 0.4
   LearnChanceByLevel: 0
-  Cost: 1000
+  Cost: 1500
+  IsAliveText: 0

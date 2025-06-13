@@ -23,7 +23,7 @@ MonoBehaviour:
   BunousDescriptionText: "\uB208\uC5D0 \uBCF4\uC774\uB294 \uAC83\uC774 \uC804\uBD80\uAC00
     \uC544\uB2C8\uB2E4"
   RequireRank: 10
-  MaxLevel: 10
+  MaxLevel: 15
   StatName: 13
   StatString: DodgeRate
   MaxLevelStatName: 0
@@ -42,9 +42,10 @@ MonoBehaviour:
   Value: 0
   ValueByLevel: 0
   MaxLevelValue: 0
-  MultiplierValue: 0.04
-  MultiplierValueByLevel: 0.04
+  MultiplierValue: 0.03
+  MultiplierValueByLevel: 0.03
   MultiplierMaxLevelValue: 0
   LearnChance: 0.5
   LearnChanceByLevel: 0
   Cost: 300
+  IsAliveText: 0
